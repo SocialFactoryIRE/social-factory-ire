@@ -106,10 +106,12 @@ const Index = () => {
             
             {/* Stats Section */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="p-8 rounded-3xl bg-sky border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-4xl font-extrabold text-charcoal mb-2 whitespace-nowrap">30,000+ sq. ft</div>
-                <p className="text-sm text-charcoal/80 font-medium">Shared space in Limerick</p>
-              </div>
+              <Link to="/programming" className="block">
+                <div className="p-8 rounded-3xl bg-sky border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer">
+                  <div className="text-4xl font-extrabold text-charcoal mb-2 whitespace-nowrap">30,000+ sq. ft</div>
+                  <p className="text-sm text-charcoal/80 font-medium">Shared space in Limerick</p>
+                </div>
+              </Link>
               <div className="p-8 rounded-3xl bg-mint border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-4xl font-extrabold text-cream mb-2">EU-Aligned</div>
                 <p className="text-sm text-cream/90 font-medium">Social innovation frameworks</p>
