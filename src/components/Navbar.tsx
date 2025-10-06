@@ -25,7 +25,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Social Factory" className="h-12 w-auto bg-transparent" />
+            <div className="h-12 w-12 rounded-full overflow-hidden">
+              <img src={logo} alt="Social Factory" className="w-full h-full object-cover" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
