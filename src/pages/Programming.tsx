@@ -30,7 +30,7 @@ const Programming = () => {
   return <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20">
+      <div className="pt-24 pb-20 grid-pattern">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
