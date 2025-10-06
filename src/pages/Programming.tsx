@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Palette, Briefcase, Heart, ShoppingBag } from "lucide-react";
+import { Palette, Briefcase, Heart, ShoppingBag, Sparkles } from "lucide-react";
 const Programming = () => {
   const programs = [{
     icon: Palette,
@@ -30,59 +30,93 @@ const Programming = () => {
   return <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-20 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+          <div className="max-w-4xl mx-auto text-center mb-20 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold text-primary">Four Interconnected Domains</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
               Our Programming
             </h1>
-            <p className="text-xl text-foreground/90">Our programmes are designed around four interconnected domains — <br />
-each a pillar of social connection and community growth.
-          </p>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              Our programmes are designed around four interconnected domains — <br className="hidden md:block" />
+              each a pillar of social connection and community growth.
+            </p>
           </div>
 
           {/* Programs Grid */}
-          <div className="space-y-20">
-            {programs.map((program, index) => <div key={index} className="max-w-5xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                    <div className={`w-20 h-20 rounded-3xl ${program.color} flex items-center justify-center mb-6`}>
-                      <program.icon className="h-10 w-10 text-foreground" />
+          <div className="space-y-32">
+            {programs.map((program, index) => (
+              <div key={index} className="max-w-6xl mx-auto group">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""} animate-fade-in`}>
+                    <div className={`w-24 h-24 rounded-3xl ${program.color} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                      <program.icon className="h-12 w-12 text-foreground" />
                     </div>
-                    <h2 className="text-4xl font-bold mb-4 text-foreground">{program.title}</h2>
-                    <p className="text-lg text-muted-foreground mb-6">{program.description}</p>
+                    <h2 className="text-5xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {program.title}
+                    </h2>
+                    <p className="text-xl text-muted-foreground leading-relaxed">
+                      {program.description}
+                    </p>
                   </div>
-                  <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                     <div className="bg-card rounded-2xl p-8 shadow-soft border-2 border-border">
-                      <h3 className="text-xl font-bold mb-4 text-foreground">Spaces & Facilities</h3>
-                      <ul className="space-y-3">
-                        {program.activities.map((activity, actIndex) => <li key={actIndex} className="flex items-start">
-                            <span className={`w-2 h-2 rounded-full ${program.color} mt-2 mr-3 flex-shrink-0`}></span>
-                            <span className="text-muted-foreground">{activity}</span>
-                          </li>)}
+                  <div className={`${index % 2 === 1 ? "md:order-1" : ""} animate-fade-in`} style={{ animationDelay: '0.2s' }}>
+                    <div className="bg-gradient-card rounded-3xl p-10 shadow-hover border-2 border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className={`w-1 h-8 rounded-full ${program.color}`} />
+                        <h3 className="text-2xl font-bold text-foreground">Spaces & Facilities</h3>
+                      </div>
+                      <ul className="space-y-4">
+                        {program.activities.map((activity, actIndex) => (
+                          <li key={actIndex} className="flex items-start group/item hover:translate-x-2 transition-transform duration-200">
+                            <span className={`w-3 h-3 rounded-full ${program.color} mt-1.5 mr-4 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200`} />
+                            <span className="text-base text-muted-foreground group-hover/item:text-foreground transition-colors duration-200">
+                              {activity}
+                            </span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
 
           {/* Cross-Domain Programs */}
-          <div className="max-w-4xl mx-auto mt-20">
-            <div className="bg-gradient-hero p-12 rounded-3xl shadow-hover">
-              <h2 className="text-3xl font-bold mb-6 text-foreground text-center">
-                Cross-Domain Integration
-              </h2>
-              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
-                The magic of Social Factory happens when domains overlap. A skateboarder might discover 
-                entrepreneurship through designing boards. An artist might find wellness through creative 
-                expression. A wellness coach might launch a social enterprise at our marketplace.
-              </p>
-              <p className="text-lg text-foreground/90 leading-relaxed">
-                This integrated approach reflects how real life works—and how meaningful connections form 
-                naturally when people share space, time, and purpose.
-              </p>
+          <div className="max-w-5xl mx-auto mt-32 animate-fade-in">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-[2.5rem] blur-2xl" />
+              <div className="relative bg-gradient-hero p-12 md:p-16 rounded-[2.5rem] shadow-hover border-2 border-primary/20 hover:border-primary/40 transition-all duration-500">
+                <div className="flex items-center justify-center gap-3 mb-8">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-sky border-2 border-background" />
+                    <div className="w-8 h-8 rounded-full bg-mint border-2 border-background" />
+                    <div className="w-8 h-8 rounded-full bg-peach border-2 border-background" />
+                    <div className="w-8 h-8 rounded-full bg-accent border-2 border-background" />
+                  </div>
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground text-center">
+                  Cross-Domain Integration
+                </h2>
+                <div className="space-y-6 text-center max-w-3xl mx-auto">
+                  <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
+                    The magic of Social Factory happens when domains overlap. A skateboarder might discover 
+                    entrepreneurship through designing boards. An artist might find wellness through creative 
+                    expression. A wellness coach might launch a social enterprise at our marketplace.
+                  </p>
+                  <p className="text-lg md:text-xl text-foreground/90 leading-relaxed">
+                    This integrated approach reflects how real life works—and how meaningful connections form 
+                    naturally when people share space, time, and purpose.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
