@@ -14,10 +14,12 @@ const Science = () => {
         <div className="geometric-shape shape-circle w-48 h-48 bg-coral/20 top-2/3 left-10 blur-2xl"></div>
         <div className="geometric-shape w-32 h-32 bg-accent/30 bottom-40 right-1/4 rounded-2xl -rotate-12"></div>
         <div className="geometric-shape shape-circle w-56 h-56 bg-peach/20 bottom-10 left-1/3 blur-3xl"></div>
-        <div className="geometric-shape w-52 h-52 bg-coral/20 top-32 left-1/4 blur-2xl rotate-12" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-        <div className="geometric-shape w-44 h-44 bg-sky/25 bottom-1/4 right-16 blur-xl -rotate-45" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-        <div className="geometric-shape w-60 h-60 bg-mint/15 top-2/3 right-1/3 blur-3xl rotate-90" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-        <div className="geometric-shape w-36 h-36 bg-peach/30 bottom-40 left-1/3 blur-2xl rotate-180" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape shape-circle w-52 h-52 bg-coral/20 top-32 left-1/4 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-44 h-44 bg-sky/25 bottom-1/4 right-16 blur-xl"></div>
+        <div className="geometric-shape shape-circle w-60 h-60 bg-mint/15 top-2/3 right-1/3 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-40 h-40 bg-peach/30 bottom-40 left-1/3 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-accent/20 top-1/2 right-8 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-38 h-38 bg-sky/18 bottom-1/3 left-20 blur-xl"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero */}

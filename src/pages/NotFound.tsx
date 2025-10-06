@@ -15,9 +15,11 @@ const NotFound = () => {
       <div className="geometric-shape w-40 h-40 bg-mint/30 bottom-20 left-20 rounded-3xl rotate-45"></div>
       <div className="geometric-shape shape-circle w-52 h-52 bg-sky/20 top-1/2 left-10 blur-2xl"></div>
       <div className="geometric-shape w-36 h-36 bg-accent/30 bottom-1/3 right-1/4 rounded-2xl -rotate-12"></div>
-      <div className="geometric-shape w-48 h-48 bg-peach/25 top-1/4 left-1/3 blur-2xl rotate-60" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-      <div className="geometric-shape w-44 h-44 bg-sky/20 bottom-1/4 right-1/3 blur-xl -rotate-45" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-      <div className="geometric-shape w-52 h-52 bg-mint/20 top-1/3 right-16 blur-3xl rotate-90" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+      <div className="geometric-shape shape-circle w-48 h-48 bg-peach/25 top-1/4 left-1/3 blur-2xl"></div>
+      <div className="geometric-shape shape-circle w-44 h-44 bg-sky/20 bottom-1/4 right-1/3 blur-xl"></div>
+      <div className="geometric-shape shape-circle w-52 h-52 bg-mint/20 top-1/3 right-16 blur-3xl"></div>
+      <div className="geometric-shape shape-circle w-40 h-40 bg-coral/22 bottom-10 left-1/3 blur-2xl"></div>
+      <div className="geometric-shape shape-circle w-46 h-46 bg-accent/18 top-2/3 right-10 blur-xl"></div>
       
       <div className="text-center relative z-10">
         <h1 className="mb-4 text-4xl font-bold">404</h1>

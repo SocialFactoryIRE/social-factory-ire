@@ -42,9 +42,11 @@ const Join = () => {
         <div className="geometric-shape w-40 h-40 bg-mint/30 top-1/3 left-20 rounded-3xl rotate-45"></div>
         <div className="geometric-shape shape-circle w-52 h-52 bg-sky/20 bottom-1/4 right-1/4 blur-2xl"></div>
         <div className="geometric-shape w-36 h-36 bg-accent/30 bottom-32 left-10 rounded-2xl -rotate-12"></div>
-        <div className="geometric-shape w-48 h-48 bg-sky/25 top-24 left-1/4 blur-xl rotate-30" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-        <div className="geometric-shape w-56 h-56 bg-coral/15 bottom-1/4 right-1/3 blur-3xl -rotate-60" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
-        <div className="geometric-shape w-44 h-44 bg-mint/20 top-1/3 right-16 blur-2xl rotate-90" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-sky/25 top-24 left-1/4 blur-xl"></div>
+        <div className="geometric-shape shape-circle w-56 h-56 bg-coral/15 bottom-1/4 right-1/3 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-44 h-44 bg-mint/20 top-1/3 right-16 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-50 h-50 bg-peach/22 top-1/2 left-1/2 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-42 h-42 bg-accent/18 bottom-16 left-1/4 blur-xl"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-2xl mx-auto">
