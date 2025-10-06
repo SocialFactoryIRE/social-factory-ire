@@ -90,6 +90,10 @@ const Index = () => {
         {/* Geometric background elements */}
         <div className="geometric-shape w-48 h-48 bg-sky/20 top-10 right-10 rounded-full blur-2xl"></div>
         <div className="geometric-shape w-32 h-32 bg-coral/20 bottom-10 left-10 rounded-3xl rotate-45"></div>
+        <div className="geometric-shape w-24 h-24 bg-accent/20 top-32 left-1/4 rounded-2xl rotate-12"></div>
+        <div className="geometric-shape w-40 h-40 bg-peach/20 bottom-32 right-1/3 rounded-full blur-xl"></div>
+        <div className="geometric-shape w-28 h-28 bg-coral/20 top-1/2 right-20 rounded-3xl -rotate-12"></div>
+        <div className="geometric-shape w-20 h-20 bg-sky/30 bottom-20 left-1/3 rounded-2xl rotate-45"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
