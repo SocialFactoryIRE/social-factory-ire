@@ -173,7 +173,7 @@ Connections</span>
                   <h4 className="text-lg font-bold mb-2 text-foreground">Youth at risk</h4>
                   <p className="text-muted-foreground">Rising substance misuse, mental health challenges, and limited investment in the 1–20 age group.</p>
                 </div>
-                <div className="p-6 border-b-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people</h4>
                   <p className="text-muted-foreground">through positive programmes, mentorship, and entrepreneurship opportunities.</p>
                 </div>
