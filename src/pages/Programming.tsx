@@ -41,9 +41,14 @@ const Programming = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-primary to-accent border-2 border-primary/50 mb-6 shadow-hover">
-              <Sparkles className="w-4 h-4 text-primary-foreground" />
-              <span className="text-sm font-bold text-primary-foreground">Four Interconnected Domains</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 border-primary bg-transparent mb-6 hover:bg-primary/5 transition-colors">
+              <div className="flex gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-sky" />
+                <span className="w-1.5 h-1.5 rounded-full bg-mint" />
+                <span className="w-1.5 h-1.5 rounded-full bg-peach" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              </div>
+              <span className="text-sm font-semibold text-primary">Four Interconnected Domains</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
               Our Programming
