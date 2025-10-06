@@ -120,9 +120,9 @@ const Index = () => {
               </div>
             </div>
 
-            <Button asChild variant="outline" size="lg" className="font-semibold">
+            <Button asChild variant="outline" size="lg" className="font-semibold border-2 hover:scale-105 transition-all duration-300 shadow-soft hover:shadow-hover">
               <Link to="/about">
-                Discover Our Story <ArrowRight className="ml-2 h-4 w-4" />
+                Discover Our Story <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
