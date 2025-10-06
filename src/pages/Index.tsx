@@ -85,7 +85,7 @@ const Index = () => {
             {/* Stats Section */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="p-6 rounded-2xl bg-sky/20 border-2 border-sky">
-                <div className="text-3xl font-bold text-primary mb-2">30,000 sq. ft</div>
+                <div className="text-3xl font-bold text-primary mb-2">30,000+ sq. ft</div>
                 <p className="text-sm text-muted-foreground">Shared space in Limerick</p>
               </div>
               <div className="p-6 rounded-2xl bg-mint/20 border-2 border-mint">
