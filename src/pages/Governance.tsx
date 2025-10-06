@@ -19,6 +19,22 @@ const Governance = () => {
             </p>
           </div>
 
+          {/* Mission Statement */}
+          <div className="max-w-5xl mx-auto mb-20">
+            <div className="bg-gradient-hero p-12 rounded-3xl shadow-hover border-2 border-primary">
+              <h2 className="text-3xl font-bold mb-6 text-foreground">Mission Statement</h2>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Social Factory empowers people to connect through action sports, creative arts, and
+                entrepreneurship, offering an accessible and educational environment free from
+                everyday financial barriers. We are committed to sustainable development by
+                promoting youth entrepreneurship, equipping young people with employability skills, and
+                providing a safe space to test business ideas. At the heart of our mission is a
+                commitment to wellbeing, ensuring it is supported and prioritised in every aspect of
+                what we do.
+              </p>
+            </div>
+          </div>
+
           {/* Social Enterprise Model */}
           <div className="max-w-5xl mx-auto mb-20">
             <div className="bg-gradient-hero p-12 rounded-3xl shadow-hover mb-12">
