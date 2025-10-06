@@ -151,7 +151,8 @@ const Contact = () => {
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Email</h3>
                         <p className="text-muted-foreground">
-                          hello@socialfactory.ie
+                          Jason@socialfactory.ie<br />
+                          (coming soon)
                         </p>
                       </div>
                     </div>
