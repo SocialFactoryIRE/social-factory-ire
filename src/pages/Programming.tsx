@@ -6,24 +6,28 @@ const Programming = () => {
     icon: Palette,
     title: "Social",
     color: "bg-sky",
+    iconColor: "bg-mint",
     description: "Skate, climb, dance, create — this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
     activities: ["Skatepark", "Bouldering / Climbing Hub", "Trampoline & Movement Centre", "Kids Activity Zone", "Events & Performance Centre", "Adaptable Community Spaces", "Mental Health & Wellness Integration"]
   }, {
     icon: Briefcase,
     title: "Work",
     color: "bg-mint",
+    iconColor: "bg-peach",
     description: "A co-working and maker environment supporting creativity, digital fabrication, and new ideas. A space to learn, collaborate, and grow small enterprises that strengthen the community.",
     activities: ["Shared Work Desks", "Digital Fabrication Lab", "Audio & Visual Studios", "Urban Library / Study Spaces", "Entrepreneurship Hub", "Adaptable Offices / Studios", "Mental Health Integration"]
   }, {
     icon: Heart,
     title: "Health",
     color: "bg-peach",
+    iconColor: "bg-accent",
     description: "From gyms to wellness studios, our Health domain promotes movement and mindfulness, with clinicians and coaches working side by side to make wellbeing accessible to everyone.",
     activities: ["Clinically Trained Professionals", "Physical Health & Wellness Facilities (gym, yoga, recovery)", "Combative Sports (boxing, martial arts, resilience training)", "Adaptable Offices", "Adaptable Wellness Studios", "Organic Growth"]
   }, {
     icon: ShoppingBag,
     title: "Market",
     color: "bg-accent",
+    iconColor: "bg-sky",
     description: "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
     activities: ["Traditional Market", "Sunday Market", "Food & Beverage Hall", "Education & Demonstration Spaces (workshops, cooking, nutrition)", "Organic Growth"]
   }];
@@ -56,7 +60,7 @@ const Programming = () => {
               <div key={index} className="max-w-6xl mx-auto group">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""} animate-fade-in`}>
-                    <div className={`w-24 h-24 rounded-3xl ${program.color} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                    <div className={`w-24 h-24 rounded-3xl ${program.iconColor} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                       <program.icon className="h-12 w-12 text-foreground" />
                     </div>
                     <h2 className="text-5xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
