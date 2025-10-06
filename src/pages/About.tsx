@@ -156,7 +156,7 @@ const About = () => {
 
               {/* Content Rows */}
               <div className="grid md:grid-cols-2">
-                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Lack of inclusive spaces</h4>
                   <p className="text-muted-foreground">Few affordable, safe places exist for people—especially adolescents—to socialize outside of food-and-drink settings.</p>
                 </div>
@@ -167,7 +167,7 @@ const About = () => {
               </div>
 
               <div className="grid md:grid-cols-2">
-                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Youth at risk</h4>
                   <p className="text-muted-foreground">Rising substance misuse, mental health challenges, and limited investment in the 1–20 age group.</p>
                 </div>
@@ -178,7 +178,7 @@ const About = () => {
               </div>
 
               <div className="grid md:grid-cols-2">
-                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Declining face-to-face interaction</h4>
                   <p className="text-muted-foreground">Online media dominates while in-person socializing declines, fuelling the loneliness epidemic.</p>
                 </div>
@@ -189,7 +189,7 @@ const About = () => {
               </div>
 
               <div className="grid md:grid-cols-2">
-                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Widening socioeconomic gaps</h4>
                   <p className="text-muted-foreground">Many lack access to peer networks and cultural opportunities.</p>
                 </div>
@@ -200,7 +200,7 @@ const About = () => {
               </div>
 
               <div className="grid md:grid-cols-2">
-                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Future uncertainty</h4>
                   <p className="text-muted-foreground">AI and other forces are reshaping the workforce, creating precarity for young people.</p>
                 </div>
@@ -211,7 +211,7 @@ const About = () => {
               </div>
 
               <div className="grid md:grid-cols-2">
-                <div className="p-6 border-r-2 border-border bg-card">
+                <div className="p-6 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Unsustainable social models</h4>
                   <p className="text-muted-foreground">Community needs outpace traditional funding and investment models.</p>
                 </div>
