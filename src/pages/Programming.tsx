@@ -56,7 +56,7 @@ const Programming = () => {
               <div key={index} className="max-w-6xl mx-auto group">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""} animate-fade-in`}>
-                    <div className={`w-24 h-24 rounded-3xl bg-card border-2 border-border flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                    <div className={`w-24 h-24 rounded-3xl ${program.color} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                       <program.icon className="h-12 w-12 text-foreground" />
                     </div>
                     <h2 className="text-5xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
