@@ -118,10 +118,12 @@ const Index = () => {
                   <p className="text-sm text-cream/90 font-medium">Social innovation frameworks</p>
                 </div>
               </Link>
-              <div className="p-8 rounded-3xl bg-coral border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-4xl font-extrabold text-cream mb-2">Community</div>
-                <p className="text-sm text-cream/90 font-medium">Wellbeing & creative growth</p>
-              </div>
+              <Link to="/about" className="block">
+                <div className="p-8 rounded-3xl bg-coral border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer">
+                  <div className="text-4xl font-extrabold text-cream mb-2">Community</div>
+                  <p className="text-sm text-cream/90 font-medium">Wellbeing & creative growth</p>
+                </div>
+              </Link>
             </div>
 
             <Button asChild size="lg" className="font-bold bg-primary text-primary-foreground border-2 border-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-hover text-lg">
