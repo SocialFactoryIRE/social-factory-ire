@@ -56,7 +56,7 @@ const Programming = () => {
               <div key={index} className="max-w-6xl mx-auto group">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""} animate-fade-in`}>
-                    <div className={`w-24 h-24 rounded-3xl ${program.color} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                    <div className={`w-24 h-24 rounded-3xl bg-card border-2 border-border flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                       <program.icon className="h-12 w-12 text-foreground" />
                     </div>
                     <h2 className="text-5xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
@@ -67,16 +67,15 @@ const Programming = () => {
                     </p>
                   </div>
                   <div className={`${index % 2 === 1 ? "md:order-1" : ""} animate-fade-in`} style={{ animationDelay: '0.2s' }}>
-                    <div className="bg-gradient-card rounded-3xl p-10 shadow-hover border-2 border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-2">
+                    <div className={`${program.color} rounded-3xl p-10 shadow-hover border-2 border-border hover:border-foreground/20 transition-all duration-300 hover:-translate-y-2`}>
                       <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-1 h-8 rounded-full ${program.color}`} />
                         <h3 className="text-2xl font-bold text-foreground">Spaces & Facilities</h3>
                       </div>
                       <ul className="space-y-4">
                         {program.activities.map((activity, actIndex) => (
                           <li key={actIndex} className="flex items-start group/item hover:translate-x-2 transition-transform duration-200">
-                            <span className={`w-3 h-3 rounded-full ${program.color} mt-1.5 mr-4 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200`} />
-                            <span className="text-base text-muted-foreground group-hover/item:text-foreground transition-colors duration-200">
+                            <span className="w-3 h-3 rounded-full bg-foreground/30 mt-1.5 mr-4 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200" />
+                            <span className="text-base text-foreground/90 group-hover/item:text-foreground transition-colors duration-200">
                               {activity}
                             </span>
                           </li>
