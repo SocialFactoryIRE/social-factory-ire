@@ -18,7 +18,7 @@ const Programming = () => {
     icon: Heart,
     title: "Health",
     color: "bg-peach",
-    description: "Spaces for physical, emotional, and mental wellbeing:",
+    description: "From gyms to wellness studios, our Health domain promotes movement and mindfulness, with clinicians and coaches working side by side to make wellbeing accessible to everyone.",
     activities: ["Clinically Trained Professionals", "Physical Health & Wellness Facilities (gym, yoga, recovery)", "Combative Sports (boxing, martial arts, resilience training)", "Adaptable Offices", "Adaptable Wellness Studios", "Organic Growth"]
   }, {
     icon: ShoppingBag,
