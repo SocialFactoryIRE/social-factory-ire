@@ -76,6 +76,8 @@ export default {
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'hover': 'var(--shadow-hover)',
+        '3d': 'var(--shadow-3d)',
+        '3d-hover': 'var(--shadow-3d-hover)',
       },
       transitionTimingFunction: {
         'smooth': 'var(--transition-smooth)',

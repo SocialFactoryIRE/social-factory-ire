@@ -39,8 +39,14 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-hero">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-20 bg-gradient-hero relative overflow-hidden">
+        {/* Geometric decorative elements */}
+        <div className="geometric-shape shape-circle w-64 h-64 bg-coral/20 -top-32 -right-32 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-96 h-96 bg-mint/20 -bottom-48 -left-48 blur-3xl"></div>
+        <div className="geometric-shape w-32 h-32 bg-accent/30 top-20 right-1/4 rounded-3xl rotate-12"></div>
+        <div className="geometric-shape shape-circle w-24 h-24 bg-sky/40 bottom-32 left-1/4"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-foreground animate-fade-in">
               Building Ireland's First Social Factory
@@ -70,11 +76,22 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        {/* Curved divider */}
+        <div className="curve-divider bottom-0">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-16 md:h-24">
+            <path d="M0,0 C300,100 900,100 1200,0 L1200,120 L0,120 Z" className="fill-[hsl(var(--background))]"></path>
+          </svg>
+        </div>
       </section>
 
       {/* About Preview */}
-      <section className="py-20 bg-gradient-mint">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-mint relative overflow-hidden">
+        {/* Geometric background elements */}
+        <div className="geometric-shape w-48 h-48 bg-sky/20 top-10 right-10 rounded-full blur-2xl"></div>
+        <div className="geometric-shape w-32 h-32 bg-coral/20 bottom-10 left-10 rounded-3xl rotate-45"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg text-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
               Social Factory is a bold new approach to connection. By bringing play, creativity, wellness, 
@@ -85,15 +102,15 @@ const Index = () => {
             
             {/* Stats Section */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-4xl font-extrabold text-primary mb-2">30,000+ sq. ft</div>
                 <p className="text-sm text-foreground/80 font-medium">Shared space in Limerick</p>
               </div>
-              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-4xl font-extrabold text-secondary mb-2">EU-Aligned</div>
                 <p className="text-sm text-foreground/80 font-medium">Social innovation frameworks</p>
               </div>
-              <div className="p-8 rounded-3xl bg-coral/30 border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+              <div className="p-8 rounded-3xl bg-coral/30 border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-4xl font-extrabold text-coral mb-2">Community</div>
                 <p className="text-sm text-foreground/80 font-medium">Wellbeing & creative growth</p>
               </div>
@@ -106,11 +123,22 @@ const Index = () => {
             </Button>
           </div>
         </div>
+        
+        {/* Curved divider */}
+        <div className="curve-divider bottom-0">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-16 md:h-24">
+            <path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" className="fill-cream"></path>
+          </svg>
+        </div>
       </section>
 
       {/* Four Domains */}
-      <section className="py-20 bg-cream">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-cream relative overflow-hidden grid-pattern">
+        {/* Geometric accents */}
+        <div className="geometric-shape shape-circle w-40 h-40 bg-accent/20 top-20 left-10 blur-xl"></div>
+        <div className="geometric-shape w-24 h-24 bg-coral/30 bottom-20 right-20 rounded-2xl rotate-12"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-foreground">
               Four Domains of Connection
@@ -134,11 +162,23 @@ const Index = () => {
             </Button>
           </div>
         </div>
+        
+        {/* Curved divider */}
+        <div className="curve-divider bottom-0">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-16 md:h-24">
+            <path d="M0,0 C400,120 800,120 1200,0 L1200,120 L0,120 Z" className="fill-[hsl(var(--background))]"></path>
+          </svg>
+        </div>
       </section>
 
       {/* Science & Impact */}
-      <section className="py-20 bg-gradient-coral">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-coral relative overflow-hidden">
+        {/* Geometric elements */}
+        <div className="geometric-shape w-64 h-64 bg-mint/20 -top-32 -left-32 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-40 h-40 bg-sky/30 top-32 right-20 blur-2xl"></div>
+        <div className="geometric-shape w-28 h-28 bg-accent/30 bottom-40 left-1/4 rounded-3xl rotate-45"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-foreground mb-6">
               Grounded in Science and Research
@@ -152,15 +192,15 @@ const Index = () => {
               and crafted to strengthen real human connection.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-5xl font-extrabold text-primary mb-2">87%</div>
                 <p className="text-sm text-foreground/80 font-medium">Report reduced loneliness through community programs</p>
               </div>
-              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-5xl font-extrabold text-secondary mb-2">12+</div>
                 <p className="text-sm text-foreground/80 font-medium">Evidence-based intervention frameworks</p>
               </div>
-              <div className="p-8 rounded-3xl bg-accent/30 border-2 border-accent backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+              <div className="p-8 rounded-3xl bg-accent/30 border-2 border-accent backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
                 <div className="text-5xl font-extrabold text-accent mb-2">NEB</div>
                 <p className="text-sm text-foreground/80 font-medium">Aligned with European values of sustainability & inclusion</p>
               </div>

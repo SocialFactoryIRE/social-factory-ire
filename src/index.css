@@ -52,6 +52,8 @@ All colors MUST be HSL.
     
     --shadow-soft: 0 4px 20px -2px hsl(197 71% 73% / 0.15);
     --shadow-hover: 0 8px 30px -4px hsl(197 71% 73% / 0.25);
+    --shadow-3d: 8px 8px 0px hsl(0 100% 71%), 16px 16px 0px hsl(47 98% 60%);
+    --shadow-3d-hover: 12px 12px 0px hsl(0 100% 71%), 24px 24px 0px hsl(47 98% 60%);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -108,6 +110,8 @@ All colors MUST be HSL.
     
     --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
     --shadow-hover: 0 8px 30px -4px hsl(0 0% 0% / 0.5);
+    --shadow-3d: 8px 8px 0px hsl(0 100% 60%), 16px 16px 0px hsl(47 98% 45%);
+    --shadow-3d-hover: 12px 12px 0px hsl(0 100% 60%), 24px 24px 0px hsl(47 98% 45%);
     
     --sidebar-background: 240 10% 10%;
     --sidebar-foreground: 45 100% 97%;
@@ -144,5 +148,66 @@ All colors MUST be HSL.
   
   h4, h5, h6 {
     @apply font-bold;
+  }
+}
+
+@layer components {
+  /* Bauhaus Geometric Elements */
+  .geometric-shape {
+    @apply absolute pointer-events-none;
+  }
+  
+  .shape-circle {
+    @apply rounded-full;
+  }
+  
+  .shape-square {
+    @apply rounded-none;
+  }
+  
+  .shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 86.6px solid currentColor;
+  }
+  
+  /* Curved Section Dividers */
+  .curve-divider {
+    @apply absolute left-0 w-full overflow-hidden leading-none;
+  }
+  
+  .curve-divider svg {
+    @apply relative block w-full;
+  }
+  
+  /* 3D Layer Effects */
+  .layer-3d {
+    box-shadow: var(--shadow-3d);
+    transition: var(--transition-smooth);
+  }
+  
+  .layer-3d:hover {
+    box-shadow: var(--shadow-3d-hover);
+    transform: translate(-4px, -4px);
+  }
+  
+  /* Grid Pattern Background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  /* Color Block Accents */
+  .color-block {
+    @apply relative overflow-hidden;
+  }
+  
+  .color-block::before {
+    content: '';
+    @apply absolute w-32 h-32 rounded-3xl opacity-20;
   }
 }
