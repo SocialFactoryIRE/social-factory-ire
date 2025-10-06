@@ -146,8 +146,8 @@ const About = () => {
             <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover">
               {/* Header Row */}
               <div className="grid md:grid-cols-2">
-                <div className="bg-primary p-6 border-b-2 border-r-2 border-border">
-                  <h3 className="text-2xl font-bold text-primary-foreground text-center">Challenges</h3>
+                <div className="bg-coral p-6 border-b-2 border-r-2 border-border">
+                  <h3 className="text-2xl font-bold text-foreground text-center">Challenges</h3>
                 </div>
                 <div className="bg-secondary p-6 border-b-2 border-border">
                   <h3 className="text-2xl font-bold text-secondary-foreground text-center">Our Response</h3>
