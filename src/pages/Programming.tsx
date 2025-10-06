@@ -35,6 +35,18 @@ const Programming = () => {
       <Navbar />
       
       <div className="pt-24 pb-20 relative overflow-hidden grid-pattern">
+        {/* Background geometric elements */}
+        <div className="geometric-shape shape-circle w-64 h-64 bg-mint/20 top-10 right-20 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-sky/25 top-1/4 left-16 blur-2xl"></div>
+        <div className="geometric-shape w-40 h-40 bg-peach/30 top-1/3 right-1/4 rounded-3xl rotate-45"></div>
+        <div className="geometric-shape shape-circle w-56 h-56 bg-coral/20 top-1/2 left-10 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-44 h-44 bg-accent/25 top-2/3 right-16 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-52 h-52 bg-sky/18 bottom-1/4 left-1/4 blur-3xl"></div>
+        <div className="geometric-shape w-36 h-36 bg-mint/30 bottom-1/3 right-1/3 rounded-2xl -rotate-12"></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-peach/22 bottom-20 right-10 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-42 h-42 bg-coral/18 bottom-1/2 left-1/3 blur-xl"></div>
+        <div className="geometric-shape shape-circle w-38 h-38 bg-accent/20 top-1/2 right-1/2 blur-2xl"></div>
+        
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
         
