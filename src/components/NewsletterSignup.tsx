@@ -24,10 +24,10 @@ const NewsletterSignup = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto">
           <Mail className="h-16 w-16 mx-auto mb-6 text-foreground" />
-          <h2 className="text-4xl font-bold mb-4 text-foreground">
+          <h2 className="text-foreground mb-4">
             Be Part of Ireland's Social Revolution
           </h2>
-          <p className="text-lg mb-8 text-foreground/80">
+          <p className="text-lg mb-8 text-foreground/90">
             Join our early membership and get updates on events, programs, and our launch.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -37,9 +37,9 @@ const NewsletterSignup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 bg-background/80 backdrop-blur-sm border-2 border-background"
+              className="flex-1 bg-background/80 backdrop-blur-sm border-2 border-background rounded-2xl h-12 text-base"
             />
-            <Button type="submit" size="lg" className="bg-coral hover:bg-coral/90 text-foreground font-bold">
+            <Button type="submit" size="lg" variant="coral">
               Join Now
             </Button>
           </form>

@@ -42,16 +42,17 @@ const Index = () => {
       <section className="pt-32 pb-20 bg-gradient-hero">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground animate-fade-in">
+            <h1 className="text-foreground animate-fade-in">
               Building Ireland's First Social Factory
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-foreground/80 animate-fade-in">
+            <p className="text-xl md:text-2xl mb-8 text-foreground/90 animate-fade-in">
               A playful, modern 21st-century hub tackling loneliness through action sports, creative arts, wellness, and entrepreneurship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Button 
                 size="lg" 
-                className="bg-coral hover:bg-coral/90 text-foreground font-bold text-lg px-8 py-6 rounded-2xl shadow-hover"
+                variant="coral"
+                className="text-lg px-8 py-6"
                 asChild
               >
                 <Link to="/join">
@@ -61,7 +62,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-bold text-lg px-8 py-6 rounded-2xl"
+                className="text-lg px-8 py-6"
                 asChild
               >
                 <Link to="/about">Learn Our Story</Link>
@@ -72,7 +73,7 @@ const Index = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-mint">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg text-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
@@ -84,17 +85,17 @@ const Index = () => {
             
             {/* Stats Section */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="p-6 rounded-2xl bg-sky/20 border-2 border-sky">
-                <div className="text-3xl font-bold text-primary mb-2">30,000+ sq. ft</div>
-                <p className="text-sm text-muted-foreground">Shared space in Limerick</p>
+              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                <div className="text-4xl font-extrabold text-primary mb-2">30,000+ sq. ft</div>
+                <p className="text-sm text-foreground/80 font-medium">Shared space in Limerick</p>
               </div>
-              <div className="p-6 rounded-2xl bg-mint/20 border-2 border-mint">
-                <div className="text-3xl font-bold text-secondary mb-2">EU-Aligned</div>
-                <p className="text-sm text-muted-foreground">Social innovation frameworks</p>
+              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                <div className="text-4xl font-extrabold text-secondary mb-2">EU-Aligned</div>
+                <p className="text-sm text-foreground/80 font-medium">Social innovation frameworks</p>
               </div>
-              <div className="p-6 rounded-2xl bg-peach/20 border-2 border-coral">
-                <div className="text-3xl font-bold text-coral mb-2">Community</div>
-                <p className="text-sm text-muted-foreground">Wellbeing & creative growth</p>
+              <div className="p-8 rounded-3xl bg-coral/30 border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                <div className="text-4xl font-extrabold text-coral mb-2">Community</div>
+                <p className="text-sm text-foreground/80 font-medium">Wellbeing & creative growth</p>
               </div>
             </div>
 
@@ -108,10 +109,10 @@ const Index = () => {
       </section>
 
       {/* Four Domains */}
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-cream">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            <h2 className="text-foreground">
               Four Domains of Connection
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -136,10 +137,10 @@ const Index = () => {
       </section>
 
       {/* Science & Impact */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-coral">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-foreground mb-6">
               Grounded in Science and Research
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
@@ -151,17 +152,17 @@ const Index = () => {
               and crafted to strengthen real human connection.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <div className="p-6 rounded-2xl bg-sky/20 border-2 border-sky">
-                <div className="text-4xl font-bold text-primary mb-2">87%</div>
-                <p className="text-sm text-muted-foreground">Report reduced loneliness through community programs</p>
+              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                <div className="text-5xl font-extrabold text-primary mb-2">87%</div>
+                <p className="text-sm text-foreground/80 font-medium">Report reduced loneliness through community programs</p>
               </div>
-              <div className="p-6 rounded-2xl bg-mint/20 border-2 border-mint">
-                <div className="text-4xl font-bold text-secondary mb-2">12+</div>
-                <p className="text-sm text-muted-foreground">Evidence-based intervention frameworks</p>
+              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                <div className="text-5xl font-extrabold text-secondary mb-2">12+</div>
+                <p className="text-sm text-foreground/80 font-medium">Evidence-based intervention frameworks</p>
               </div>
-              <div className="p-6 rounded-2xl bg-accent/20 border-2 border-accent">
-                <div className="text-4xl font-bold text-accent mb-2">NEB</div>
-                <p className="text-sm text-muted-foreground">Aligned with European values of sustainability & inclusion</p>
+              <div className="p-8 rounded-3xl bg-accent/30 border-2 border-accent backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                <div className="text-5xl font-extrabold text-accent mb-2">NEB</div>
+                <p className="text-sm text-foreground/80 font-medium">Aligned with European values of sustainability & inclusion</p>
               </div>
             </div>
             <Button asChild variant="outline" size="lg" className="mt-8 font-semibold">
