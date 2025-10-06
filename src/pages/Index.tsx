@@ -20,21 +20,21 @@ const Index = () => {
       title: "Work",
       description: "A co-working and maker environment supporting creativity, digital fabrication, and new ideas. A space to learn, collaborate, and grow small enterprises that strengthen the community.",
       color: "bg-mint",
-      link: "/programming",
+      link: "/programming#work",
     },
     {
       icon: Heart,
       title: "Health",
       description: "From gyms to wellness studios, our Health domain promotes movement and mindfulness, with clinicians and coaches working side by side to make wellbeing accessible to everyone.",
       color: "bg-peach",
-      link: "/programming",
+      link: "/programming#health",
     },
     {
       icon: ShoppingBag,
       title: "Market",
       description: "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
       color: "bg-accent",
-      link: "/programming",
+      link: "/programming#market",
     },
   ];
 
