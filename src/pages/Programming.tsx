@@ -45,9 +45,7 @@ const Programming = () => {
               <Sparkles className="w-6 h-6 text-primary-foreground" />
               <span className="text-lg font-bold text-primary-foreground">Four Interconnected Domains</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
-              Our Programming
-            </h1>
+            
             <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed max-w-3xl mx-auto">
               Our programmes are designed around four interconnected domains — <br className="hidden md:block" />
               each a pillar of social connection and community growth.
@@ -56,8 +54,7 @@ const Programming = () => {
 
           {/* Programs Grid */}
           <div className="space-y-32">
-            {programs.map((program, index) => (
-              <div key={index} className="max-w-6xl mx-auto group">
+            {programs.map((program, index) => <div key={index} className="max-w-6xl mx-auto group">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""} animate-fade-in`}>
                     <div className={`w-24 h-24 rounded-3xl ${program.iconColor} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
@@ -70,26 +67,25 @@ const Programming = () => {
                       {program.description}
                     </p>
                   </div>
-                  <div className={`${index % 2 === 1 ? "md:order-1" : ""} animate-fade-in`} style={{ animationDelay: '0.2s' }}>
+                  <div className={`${index % 2 === 1 ? "md:order-1" : ""} animate-fade-in`} style={{
+                animationDelay: '0.2s'
+              }}>
                     <div className={`${program.color} rounded-3xl p-10 shadow-hover border-2 border-border hover:border-foreground/20 transition-all duration-300 hover:-translate-y-2`}>
                       <div className="flex items-center gap-3 mb-6">
                         <h3 className="text-2xl font-bold text-foreground">Spaces & Facilities</h3>
                       </div>
                       <ul className="space-y-4">
-                        {program.activities.map((activity, actIndex) => (
-                          <li key={actIndex} className="flex items-start group/item hover:translate-x-2 transition-transform duration-200">
+                        {program.activities.map((activity, actIndex) => <li key={actIndex} className="flex items-start group/item hover:translate-x-2 transition-transform duration-200">
                             <span className="w-3 h-3 rounded-full bg-foreground/30 mt-1.5 mr-4 flex-shrink-0 group-hover/item:scale-125 transition-transform duration-200" />
                             <span className="text-base text-foreground/90 group-hover/item:text-foreground transition-colors duration-200">
                               {activity}
                             </span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           {/* Cross-Domain Programs */}
