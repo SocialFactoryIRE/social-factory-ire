@@ -41,14 +41,14 @@ const Programming = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-primary to-accent border-2 border-primary/50 mb-6 shadow-hover">
-              <Sparkles className="w-4 h-4 text-primary-foreground" />
-              <span className="text-sm font-bold text-primary-foreground">Four Interconnected Domains</span>
+            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-3xl bg-gradient-to-r from-primary to-accent border-2 border-primary/50 mb-8 shadow-hover">
+              <Sparkles className="w-6 h-6 text-primary-foreground" />
+              <span className="text-lg font-bold text-primary-foreground">Four Interconnected Domains</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
               Our Programming
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground/80 leading-relaxed max-w-3xl mx-auto">
               Our programmes are designed around four interconnected domains — <br className="hidden md:block" />
               each a pillar of social connection and community growth.
             </p>
