@@ -137,6 +137,92 @@ const About = () => {
             </div>
           </div>
 
+          {/* Challenges vs Our Response */}
+          <div className="max-w-5xl mx-auto mb-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4 text-foreground">Challenges vs Our Response</h2>
+            </div>
+
+            <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover">
+              {/* Header Row */}
+              <div className="grid md:grid-cols-2">
+                <div className="bg-primary p-6 border-b-2 border-r-2 border-border">
+                  <h3 className="text-2xl font-bold text-primary-foreground text-center">Challenges</h3>
+                </div>
+                <div className="bg-secondary p-6 border-b-2 border-border">
+                  <h3 className="text-2xl font-bold text-secondary-foreground text-center">Our Response</h3>
+                </div>
+              </div>
+
+              {/* Content Rows */}
+              <div className="grid md:grid-cols-2">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Lack of inclusive spaces</h4>
+                  <p className="text-muted-foreground">Few affordable, safe places exist for people—especially adolescents—to socialize outside of food-and-drink settings.</p>
+                </div>
+                <div className="p-6 border-b-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
+                  <p className="text-muted-foreground">where people of all ages can connect safely and meaningfully.</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Youth at risk</h4>
+                  <p className="text-muted-foreground">Rising substance misuse, mental health challenges, and limited investment in the 1–20 age group.</p>
+                </div>
+                <div className="p-6 border-b-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people</h4>
+                  <p className="text-muted-foreground">through positive programmes, mentorship, and entrepreneurship opportunities.</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Declining face-to-face interaction</h4>
+                  <p className="text-muted-foreground">Online media dominates while in-person socializing declines, fuelling the loneliness epidemic.</p>
+                </div>
+                <div className="p-6 border-b-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Foster everyday connection</h4>
+                  <p className="text-muted-foreground">with structured activities supported by mental health professionals.</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Widening socioeconomic gaps</h4>
+                  <p className="text-muted-foreground">Many lack access to peer networks and cultural opportunities.</p>
+                </div>
+                <div className="p-6 border-b-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Ensure affordability and inclusivity,</h4>
+                  <p className="text-muted-foreground">engaging diverse communities in shared spaces.</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2">
+                <div className="p-6 border-b-2 border-r-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Future uncertainty</h4>
+                  <p className="text-muted-foreground">AI and other forces are reshaping the workforce, creating precarity for young people.</p>
+                </div>
+                <div className="p-6 border-b-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Build resilience</h4>
+                  <p className="text-muted-foreground">by promoting youth entrepreneurship, adaptable skills, and social responsibility.</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2">
+                <div className="p-6 border-r-2 border-border bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Unsustainable social models</h4>
+                  <p className="text-muted-foreground">Community needs outpace traditional funding and investment models.</p>
+                </div>
+                <div className="p-6 bg-card">
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Generate sustainable revenue</h4>
+                  <p className="text-muted-foreground">through memberships, co-working, wellness, and reinvestment in programmes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* CTA */}
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4 text-foreground">
