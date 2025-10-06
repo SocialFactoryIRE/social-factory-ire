@@ -194,7 +194,7 @@ const Index = () => {
             <h2 className="text-foreground mb-6">
               Grounded in Science and Research
             </h2>
-            <p className="text-lg text-foreground mb-8">
+            <p className="text-lg text-white mb-8">
               Social Factory builds upon leading international research on social connection, youth wellbeing, 
               and urban innovation. Inspired by the Planet Youth model, we use data-driven strategies to design 
               spaces that reduce isolation, improve community health, and foster creativity. Our work aligns 
