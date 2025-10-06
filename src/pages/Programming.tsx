@@ -72,7 +72,7 @@ const Programming = () => {
 
           {/* Programs Grid */}
           <div className="space-y-32">
-            {programs.map((program, index) => <div key={index} className="max-w-6xl mx-auto group">
+            {programs.map((program, index) => <div key={index} id={program.title.toLowerCase()} className="max-w-6xl mx-auto group scroll-mt-24">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className={`space-y-6 ${index % 2 === 1 ? "md:order-2" : ""} animate-fade-in`}>
                     <div className={`w-24 h-24 rounded-3xl ${program.iconColor} flex items-center justify-center shadow-hover group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
