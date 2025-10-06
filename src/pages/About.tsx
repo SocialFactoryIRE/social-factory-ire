@@ -7,20 +7,8 @@ const About = () => {
   return <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
-        {/* Background geometric elements */}
-        <div className="geometric-shape shape-circle w-64 h-64 bg-sky/20 top-10 right-20 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-40 h-40 bg-coral/20 top-1/4 left-10 blur-2xl"></div>
-        <div className="geometric-shape w-32 h-32 bg-mint/30 top-1/3 right-1/4 rounded-3xl rotate-12"></div>
-        <div className="geometric-shape shape-circle w-48 h-48 bg-peach/20 bottom-1/3 left-1/4 blur-2xl"></div>
-        <div className="geometric-shape w-28 h-28 bg-accent/30 bottom-20 right-1/3 rounded-2xl rotate-45"></div>
-        <div className="geometric-shape shape-circle w-48 h-48 bg-peach/20 top-20 left-1/3 blur-2xl"></div>
-        <div className="geometric-shape shape-circle w-56 h-56 bg-sky/15 bottom-10 right-1/3 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-44 h-44 bg-mint/25 top-1/3 right-10 blur-xl"></div>
-        <div className="geometric-shape shape-circle w-36 h-36 bg-coral/15 top-2/3 left-16 blur-2xl"></div>
-        <div className="geometric-shape shape-circle w-52 h-52 bg-accent/20 bottom-1/2 right-12 blur-3xl"></div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="pt-24 pb-20 grid-pattern">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center leading-tight">
@@ -116,18 +104,13 @@ Connections</span>
           </div>
 
           {/* Values */}
-          <div className="max-w-4xl mx-auto mb-20 relative">
-            {/* Background geometric elements */}
-            <div className="geometric-shape shape-circle w-48 h-48 bg-mint/15 -top-20 -left-10 blur-3xl absolute"></div>
-            <div className="geometric-shape shape-circle w-56 h-56 bg-sky/12 top-1/2 -right-16 blur-2xl absolute"></div>
-            <div className="geometric-shape shape-circle w-40 h-40 bg-peach/18 bottom-10 left-1/4 blur-xl absolute"></div>
-            
-            <div className="text-center mb-12 relative z-10">
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="text-center mb-12">
               <Sparkles className="h-16 w-16 mx-auto mb-6 text-primary" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Our Values</h2>
             </div>
 
-            <div className="space-y-6 relative z-10">
+            <div className="space-y-6">
               <div className="p-6 bg-card rounded-2xl shadow-soft">
                 <h3 className="text-xl font-bold mb-2 text-foreground">Community First</h3>
                 <p className="text-muted-foreground">
@@ -156,19 +139,13 @@ Connections</span>
           </div>
 
           {/* Challenges vs Our Response */}
-          <div className="max-w-5xl mx-auto mb-20 relative">
-            {/* Background geometric elements */}
-            <div className="geometric-shape shape-circle w-52 h-52 bg-coral/15 -top-16 -right-12 blur-3xl absolute"></div>
-            <div className="geometric-shape shape-circle w-44 h-44 bg-accent/12 top-1/3 -left-10 blur-2xl absolute"></div>
-            <div className="geometric-shape shape-circle w-60 h-60 bg-mint/10 bottom-20 right-1/4 blur-3xl absolute"></div>
-            <div className="geometric-shape shape-circle w-38 h-38 bg-sky/18 bottom-1/2 left-1/3 blur-xl absolute"></div>
-            
-            <div className="text-center mb-12 relative z-10">
+          <div className="max-w-5xl mx-auto mb-20">
+            <div className="text-center mb-12">
               <Shield className="h-16 w-16 mx-auto mb-6 text-coral" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Challenge vs Response</h2>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover relative z-10">
+            <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover">
               {/* Header Row */}
               <div className="grid md:grid-cols-2">
                 <div className="bg-coral p-6 border-b-2 border-r-2 border-border">
@@ -219,7 +196,9 @@ Connections</span>
                   <p className="text-muted-foreground">Many lack access to peer networks and cultural opportunities.</p>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-card">
-                  <h4 className="text-lg font-bold mb-2 text-foreground">Ensure affordability and inclusivity,</h4>
+                  <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people
+through positive programmes, mentorship, and entrepreneurship opportunities.
+                </h4>
                   <p className="text-muted-foreground">engaging diverse communities in shared spaces.</p>
                 </div>
               </div>
