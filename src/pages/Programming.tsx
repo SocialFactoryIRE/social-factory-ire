@@ -46,6 +46,12 @@ const Programming = () => {
         <div className="geometric-shape shape-circle w-48 h-48 bg-peach/22 bottom-20 right-10 blur-2xl"></div>
         <div className="geometric-shape shape-circle w-42 h-42 bg-coral/18 bottom-1/2 left-1/3 blur-xl"></div>
         <div className="geometric-shape shape-circle w-38 h-38 bg-accent/20 top-1/2 right-1/2 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-50 h-50 bg-coral/22 top-16 left-1/3 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-46 h-46 bg-accent/18 top-20 right-1/3 blur-xl"></div>
+        <div className="geometric-shape shape-circle w-54 h-54 bg-mint/15 top-32 left-1/4 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-40 h-40 bg-sky/20 top-24 right-12 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-44 h-44 bg-peach/20 top-40 left-20 blur-xl"></div>
+        <div className="geometric-shape w-36 h-36 bg-coral/25 top-28 right-1/4 rounded-2xl rotate-12"></div>
         
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
