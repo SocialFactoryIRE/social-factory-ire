@@ -53,6 +53,8 @@ export default {
         mint: "hsl(var(--mint))",
         sky: "hsl(var(--sky))",
         cream: "hsl(var(--cream))",
+        charcoal: "hsl(var(--charcoal))",
+        "soft-grey": "hsl(var(--soft-grey))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
