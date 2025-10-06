@@ -162,7 +162,7 @@ Connections</span>
                   <h4 className="text-lg font-bold mb-2 text-foreground">Lack of inclusive spaces</h4>
                   <p className="text-muted-foreground">Few affordable, safe places exist for people—especially adolescents—to socialize outside of food-and-drink settings.</p>
                 </div>
-                <div className="p-6 border-b-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
                   <p className="text-muted-foreground">where people of all ages can connect safely and meaningfully.</p>
                 </div>
@@ -184,7 +184,7 @@ Connections</span>
                   <h4 className="text-lg font-bold mb-2 text-foreground">Declining face-to-face interaction</h4>
                   <p className="text-muted-foreground">Online media dominates while in-person socializing declines, fuelling the loneliness epidemic.</p>
                 </div>
-                <div className="p-6 border-b-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Foster everyday connection</h4>
                   <p className="text-muted-foreground">with structured activities supported by mental health professionals.</p>
                 </div>
@@ -195,7 +195,7 @@ Connections</span>
                   <h4 className="text-lg font-bold mb-2 text-foreground">Widening socioeconomic gaps</h4>
                   <p className="text-muted-foreground">Many lack access to peer networks and cultural opportunities.</p>
                 </div>
-                <div className="p-6 border-b-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people
 through positive programmes, mentorship, and entrepreneurship opportunities.
                 </h4>
@@ -208,7 +208,7 @@ through positive programmes, mentorship, and entrepreneurship opportunities.
                   <h4 className="text-lg font-bold mb-2 text-foreground">Future uncertainty</h4>
                   <p className="text-muted-foreground">AI and other forces are reshaping the workforce, creating precarity for young people.</p>
                 </div>
-                <div className="p-6 border-b-2 border-border bg-card">
+                <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Build resilience</h4>
                   <p className="text-muted-foreground">by promoting youth entrepreneurship, adaptable skills, and social responsibility.</p>
                 </div>
@@ -219,7 +219,7 @@ through positive programmes, mentorship, and entrepreneurship opportunities.
                   <h4 className="text-lg font-bold mb-2 text-foreground">Unsustainable social models</h4>
                   <p className="text-muted-foreground">Community needs outpace traditional funding and investment models.</p>
                 </div>
-                <div className="p-6 bg-card">
+                <div className="p-6 bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Generate sustainable revenue</h4>
                   <p className="text-muted-foreground">through memberships, co-working, wellness, and reinvestment in programmes.</p>
                 </div>
