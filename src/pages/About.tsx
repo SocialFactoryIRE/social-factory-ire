@@ -14,11 +14,9 @@ const About = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
               <span className="block">Our Story:</span>
               <span className="block">Building Connection</span>
-              <span className="block">by Design</span>
+              <span className="block">through Design</span>
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Creating Ireland's first integrated social hub where action sports, creative arts, health, and entrepreneurship live side-by-side
-            </p>
+            
           </div>
 
           {/* Mission */}
