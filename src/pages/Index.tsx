@@ -53,7 +53,7 @@ const Index = () => {
               <span className="text-3xl md:text-4xl font-normal">First</span> <br />
               Social Factory
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-foreground/90 animate-fade-in">
+            <p className="text-xl md:text-2xl mt-12 mb-8 text-foreground/90 animate-fade-in">
               A playful, modern 21st-century hub tackling loneliness through action sports, creative arts, wellness, and entrepreneurship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
