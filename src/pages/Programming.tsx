@@ -73,7 +73,7 @@ const Programming = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
               Our Programming
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-foreground/90">
               Our programmes are designed around four interconnected domains — each a pillar of social connection and community growth.
             </p>
           </div>
