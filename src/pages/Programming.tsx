@@ -41,14 +41,10 @@ const Programming = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-20 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-sky/20 via-mint/20 via-peach/20 to-accent/20 border-2 border-primary/30 mb-6 shadow-soft">
-              <div className="flex -space-x-1">
-                <div className="w-2 h-2 rounded-full bg-sky" />
-                <div className="w-2 h-2 rounded-full bg-mint" />
-                <div className="w-2 h-2 rounded-full bg-peach" />
-                <div className="w-2 h-2 rounded-full bg-accent" />
-              </div>
-              <span className="text-sm font-semibold text-foreground">Four Interconnected Domains</span>
+            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-6 shadow-sm">
+              <span className="text-xs uppercase tracking-wider font-bold text-primary">Four Domains</span>
+              <div className="h-1 w-1 rounded-full bg-primary/50" />
+              <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">Interconnected</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
               Our Programming
