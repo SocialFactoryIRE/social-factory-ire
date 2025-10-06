@@ -15,9 +15,8 @@ const About = () => {
             <span className="block text-coral text-4xl md:text-5xl font-light tracking-wide italic">
               Building
             </span>
-            <span className="block text-foreground text-6xl md:text-7xl font-black tracking-tight -mt-2">
-              Connections
-            </span>
+            <span className="block text-foreground text-6xl md:text-7xl font-black tracking-tight -mt-2">Create
+Connections</span>
             <span className="block text-accent text-3xl md:text-4xl font-medium tracking-widest mt-2">
               through Design
             </span>
