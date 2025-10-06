@@ -192,17 +192,17 @@ const Index = () => {
               and crafted to strengthen real human connection.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <div className="p-8 rounded-3xl bg-sky/30 border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-5xl font-extrabold text-primary mb-2">87%</div>
-                <p className="text-sm text-foreground/80 font-medium">Report reduced loneliness through community programs</p>
+              <div className="p-8 rounded-3xl bg-sky border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
+                <div className="text-5xl font-extrabold text-charcoal mb-2">87%</div>
+                <p className="text-sm text-charcoal/80 font-medium">Report reduced loneliness through community programs</p>
               </div>
-              <div className="p-8 rounded-3xl bg-mint/30 border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-5xl font-extrabold text-secondary mb-2">12+</div>
-                <p className="text-sm text-foreground/80 font-medium">Evidence-based intervention frameworks</p>
+              <div className="p-8 rounded-3xl bg-mint border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
+                <div className="text-5xl font-extrabold text-cream mb-2">12+</div>
+                <p className="text-sm text-cream/90 font-medium">Evidence-based intervention frameworks</p>
               </div>
-              <div className="p-8 rounded-3xl bg-accent/30 border-2 border-accent backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-5xl font-extrabold text-accent mb-2">NEB</div>
-                <p className="text-sm text-foreground/80 font-medium">Aligned with European values of sustainability & inclusion</p>
+              <div className="p-8 rounded-3xl bg-accent border-2 border-accent backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d">
+                <div className="text-5xl font-extrabold text-charcoal mb-2">NEB</div>
+                <p className="text-sm text-charcoal/80 font-medium">Aligned with European values of sustainability & inclusion</p>
               </div>
             </div>
             <Button asChild variant="outline" size="lg" className="mt-8 font-semibold">
