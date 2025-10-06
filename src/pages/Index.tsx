@@ -216,7 +216,7 @@ const Index = () => {
                 <p className="text-sm text-charcoal/80 font-medium">Aligned with European values of sustainability & inclusion</p>
               </div>
             </div>
-            <Button asChild variant="outline" size="lg" className="mt-8 font-semibold">
+            <Button asChild size="lg" className="mt-8 font-semibold bg-foreground text-background hover:bg-foreground/90">
               <Link to="/science">
                 Explore Our Research <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
