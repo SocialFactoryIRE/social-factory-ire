@@ -11,10 +11,11 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">Our Story: 
-Building Connection 
-by Design
-          </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+              <span className="block">Our Story:</span>
+              <span className="block">Building Connection</span>
+              <span className="block">by Design</span>
+            </h1>
             <p className="text-xl text-muted-foreground">
               Creating Ireland's first integrated social hub where action sports, creative arts, health, and entrepreneurship live side-by-side
             </p>
