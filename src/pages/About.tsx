@@ -14,6 +14,9 @@ const About = () => {
         <div className="geometric-shape w-32 h-32 bg-mint/30 top-1/3 right-1/4 rounded-3xl rotate-12"></div>
         <div className="geometric-shape shape-circle w-48 h-48 bg-peach/20 bottom-1/3 left-1/4 blur-2xl"></div>
         <div className="geometric-shape w-28 h-28 bg-accent/30 bottom-20 right-1/3 rounded-2xl rotate-45"></div>
+        <div className="geometric-shape w-48 h-48 bg-peach/20 top-20 left-1/3 blur-2xl" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape w-56 h-56 bg-sky/15 bottom-10 right-1/3 blur-3xl rotate-180" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape w-40 h-40 bg-mint/25 top-1/3 right-10 blur-xl rotate-45" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero */}

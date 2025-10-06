@@ -12,6 +12,9 @@ const Governance = () => {
         <div className="geometric-shape shape-circle w-52 h-52 bg-mint/20 top-2/3 right-20 blur-2xl"></div>
         <div className="geometric-shape w-40 h-40 bg-sky/30 bottom-1/4 left-1/3 rounded-2xl -rotate-12"></div>
         <div className="geometric-shape shape-circle w-64 h-64 bg-peach/20 -bottom-32 -left-32 blur-3xl"></div>
+        <div className="geometric-shape w-50 h-50 bg-peach/20 top-28 left-1/3 blur-2xl rotate-15" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape w-46 h-46 bg-accent/15 bottom-16 right-1/4 blur-xl -rotate-75" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape w-54 h-54 bg-coral/20 top-1/3 right-12 blur-3xl rotate-135" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero */}

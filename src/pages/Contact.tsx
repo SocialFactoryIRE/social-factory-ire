@@ -43,6 +43,9 @@ const Contact = () => {
         <div className="geometric-shape w-44 h-44 bg-sky/30 top-1/4 right-20 rounded-full blur-2xl"></div>
         <div className="geometric-shape w-32 h-32 bg-mint/30 bottom-1/3 left-1/4 rounded-3xl rotate-12"></div>
         <div className="geometric-shape shape-circle w-60 h-60 bg-accent/20 bottom-20 right-10 blur-3xl"></div>
+        <div className="geometric-shape w-52 h-52 bg-coral/20 top-36 right-1/4 blur-2xl rotate-45" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape w-40 h-40 bg-mint/25 bottom-1/4 left-16 blur-xl -rotate-30" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+        <div className="geometric-shape w-48 h-48 bg-sky/20 top-2/3 left-1/3 blur-2xl rotate-120" style={{clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
