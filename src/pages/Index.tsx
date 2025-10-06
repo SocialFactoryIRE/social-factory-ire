@@ -47,15 +47,7 @@ const Index = () => {
         <div className="geometric-shape shape-circle w-24 h-24 bg-sky/40 bottom-32 left-1/4"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Logo whitewash background */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-            <img 
-              src="/src/assets/social-factory-logo.jpeg" 
-              alt="" 
-              className="w-96 h-96 object-contain"
-            />
-          </div>
-          <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-foreground animate-fade-in">
               <span className="text-3xl md:text-4xl font-normal">Building Ireland's</span> <br />
               <span className="text-3xl md:text-4xl font-normal">First</span> <br />
