@@ -12,9 +12,7 @@ const About = () => {
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center leading-tight">
-            <span className="block text-coral text-4xl md:text-5xl font-light tracking-wide italic">
-              Building
-            </span>
+            
             <span className="block text-foreground text-6xl md:text-7xl font-black tracking-tight -mt-2">Create
 Connections</span>
             <span className="block text-accent text-3xl md:text-4xl font-medium tracking-widest mt-2">
