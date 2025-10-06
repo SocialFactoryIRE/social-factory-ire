@@ -140,7 +140,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Location</h3>
                         <p className="text-muted-foreground">
-                          Dublin, Ireland<br />
+                          Ireland<br />
                           (Exact location coming soon)
                         </p>
                       </div>
