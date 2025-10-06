@@ -4,28 +4,28 @@ import { Palette, Briefcase, Heart, ShoppingBag } from "lucide-react";
 const Programming = () => {
   const programs = [{
     icon: Palette,
-    title: "Social / Play",
+    title: "Social",
     color: "bg-sky",
-    description: "Skate, climb, dance, create — this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
-    activities: ["Skateboarding & BMX workshops", "Street art & graffiti classes", "Music production studios", "Dance and movement programs", "Photography & filmmaking", "Maker spaces & DIY workshops"]
+    description: "Spaces that foster connection, play, and cultural participation:",
+    activities: ["Skatepark", "Bouldering / Climbing Hub", "Trampoline & Movement Centre", "Kids Activity Zone", "Events & Performance Centre", "Adaptable Community Spaces", "Mental Health & Wellness Integration"]
   }, {
     icon: Briefcase,
     title: "Work",
     color: "bg-mint",
-    description: "A co-working and maker environment supporting creativity, digital fabrication, and new ideas. A space to learn, collaborate, and grow small enterprises that strengthen the community.",
-    activities: ["Social enterprise incubator", "Co-working spaces", "Business mentorship programs", "Digital skills training", "Career development workshops", "Freelance community support"]
+    description: "Spaces for creativity, entrepreneurship, and learning:",
+    activities: ["Shared Work Desks", "Digital Fabrication Lab", "Audio & Visual Studios", "Urban Library / Study Spaces", "Entrepreneurship Hub", "Adaptable Offices / Studios", "Mental Health Integration"]
   }, {
     icon: Heart,
     title: "Health",
     color: "bg-peach",
-    description: "From gyms to wellness studios, our Health domain promotes movement and mindfulness, with clinicians and coaches working side by side to make wellbeing accessible to everyone.",
-    activities: ["Mental health peer support", "Yoga & mindfulness sessions", "Nutrition workshops", "Fitness classes & personal training", "Meditation & breathwork", "Community sports leagues"]
+    description: "Spaces for physical, emotional, and mental wellbeing:",
+    activities: ["Clinically Trained Professionals", "Physical Health & Wellness Facilities (gym, yoga, recovery)", "Combative Sports (boxing, martial arts, resilience training)", "Adaptable Offices", "Adaptable Wellness Studios", "Organic Growth"]
   }, {
     icon: ShoppingBag,
     title: "Market",
     color: "bg-accent",
-    description: "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
-    activities: ["Local artisan pop-ups", "Sustainable fashion exchanges", "Farmers market partnerships", "Craft fairs & maker markets", "Social enterprise showcase", "Community supported agriculture"]
+    description: "Spaces that support local culture and economic inclusion:",
+    activities: ["Traditional Market", "Sunday Market", "Food & Beverage Hall", "Education & Demonstration Spaces (workshops, cooking, nutrition)", "Organic Growth"]
   }];
   return <div className="min-h-screen">
       <Navbar />
@@ -54,8 +54,8 @@ each a pillar of social connection and community growth.
                     <p className="text-lg text-muted-foreground mb-6">{program.description}</p>
                   </div>
                   <div className={index % 2 === 1 ? "md:order-1" : ""}>
-                    <div className="bg-card rounded-2xl p-8 shadow-soft border-2 border-border">
-                      <h3 className="text-xl font-bold mb-4 text-foreground">Featured Activities</h3>
+                     <div className="bg-card rounded-2xl p-8 shadow-soft border-2 border-border">
+                      <h3 className="text-xl font-bold mb-4 text-foreground">Spaces & Facilities</h3>
                       <ul className="space-y-3">
                         {program.activities.map((activity, actIndex) => <li key={actIndex} className="flex items-start">
                             <span className={`w-2 h-2 rounded-full ${program.color} mt-2 mr-3 flex-shrink-0`}></span>
