@@ -12,7 +12,7 @@ const Programming = () => {
     icon: Briefcase,
     title: "Work",
     color: "bg-mint",
-    description: "Spaces for creativity, entrepreneurship, and learning:",
+    description: "A co-working and maker environment supporting creativity, digital fabrication, and new ideas. A space to learn, collaborate, and grow small enterprises that strengthen the community.",
     activities: ["Shared Work Desks", "Digital Fabrication Lab", "Audio & Visual Studios", "Urban Library / Study Spaces", "Entrepreneurship Hub", "Adaptable Offices / Studios", "Mental Health Integration"]
   }, {
     icon: Heart,
