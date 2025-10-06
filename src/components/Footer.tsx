@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
+import logo from "@/assets/social-factory-logo.jpeg";
 
 const Footer = () => {
   return (
@@ -9,9 +10,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-hero flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary-foreground">SF</span>
-              </div>
+            <div className="w-10 h-10 rounded-full overflow-hidden">
+              <img src={logo} alt="Social Factory Logo" className="w-full h-full object-cover" />
+            </div>
               <span className="font-bold text-lg text-foreground">Social Factory</span>
             </div>
             <p className="text-sm text-muted-foreground">
