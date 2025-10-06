@@ -72,7 +72,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>hello@socialfactory.ie</span>
+                <span>Jason@socialfactory.ie</span>
               </li>
               <li className="flex items-start space-x-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
