@@ -141,7 +141,7 @@ const About = () => {
           <div className="max-w-5xl mx-auto mb-20">
             <div className="text-center mb-12">
               <Shield className="h-16 w-16 mx-auto mb-6 text-coral" />
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Challenges vs Our Response</h2>
+              <h2 className="text-4xl font-bold mb-4 text-foreground">Challenge vs Response</h2>
             </div>
 
             <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover">
