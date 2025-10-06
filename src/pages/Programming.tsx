@@ -34,7 +34,7 @@ const Programming = () => {
   return <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 relative overflow-hidden">
+      <div className="pt-24 pb-20 relative overflow-hidden grid-pattern">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
         
