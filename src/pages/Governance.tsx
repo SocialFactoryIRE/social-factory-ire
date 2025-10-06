@@ -5,8 +5,15 @@ const Governance = () => {
   return <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 grid-pattern">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
+        {/* Background geometric elements */}
+        <div className="geometric-shape shape-circle w-68 h-68 bg-accent/20 -top-32 -right-32 blur-3xl"></div>
+        <div className="geometric-shape w-36 h-36 bg-coral/30 top-1/4 left-16 rounded-3xl rotate-45"></div>
+        <div className="geometric-shape shape-circle w-52 h-52 bg-mint/20 top-2/3 right-20 blur-2xl"></div>
+        <div className="geometric-shape w-40 h-40 bg-sky/30 bottom-1/4 left-1/3 rounded-2xl -rotate-12"></div>
+        <div className="geometric-shape shape-circle w-64 h-64 bg-peach/20 -bottom-32 -left-32 blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">

@@ -36,8 +36,14 @@ const Join = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 grid-pattern">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
+        {/* Background geometric elements */}
+        <div className="geometric-shape shape-circle w-64 h-64 bg-coral/20 top-20 right-10 blur-3xl"></div>
+        <div className="geometric-shape w-40 h-40 bg-mint/30 top-1/3 left-20 rounded-3xl rotate-45"></div>
+        <div className="geometric-shape shape-circle w-52 h-52 bg-sky/20 bottom-1/4 right-1/4 blur-2xl"></div>
+        <div className="geometric-shape w-36 h-36 bg-accent/30 bottom-32 left-10 rounded-2xl -rotate-12"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-2xl mx-auto">
             {/* Hero */}
             <div className="text-center mb-12">

@@ -7,8 +7,15 @@ const About = () => {
   return <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 grid-pattern">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
+        {/* Background geometric elements */}
+        <div className="geometric-shape shape-circle w-64 h-64 bg-sky/20 top-10 right-20 blur-3xl"></div>
+        <div className="geometric-shape w-40 h-40 bg-coral/20 top-1/4 left-10 rounded-full blur-2xl"></div>
+        <div className="geometric-shape w-32 h-32 bg-mint/30 top-1/3 right-1/4 rounded-3xl rotate-12"></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-peach/20 bottom-1/3 left-1/4 blur-2xl"></div>
+        <div className="geometric-shape w-28 h-28 bg-accent/30 bottom-20 right-1/3 rounded-2xl rotate-45"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center leading-tight">

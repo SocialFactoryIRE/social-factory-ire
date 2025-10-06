@@ -37,8 +37,14 @@ const Contact = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 grid-pattern">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
+        {/* Background geometric elements */}
+        <div className="geometric-shape shape-circle w-56 h-56 bg-peach/20 top-10 left-10 blur-3xl"></div>
+        <div className="geometric-shape w-44 h-44 bg-sky/30 top-1/4 right-20 rounded-full blur-2xl"></div>
+        <div className="geometric-shape w-32 h-32 bg-mint/30 bottom-1/3 left-1/4 rounded-3xl rotate-12"></div>
+        <div className="geometric-shape shape-circle w-60 h-60 bg-accent/20 bottom-20 right-10 blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto">
           {/* Hero */}
           <div className="text-center mb-12">

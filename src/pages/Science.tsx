@@ -7,8 +7,15 @@ const Science = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-20 grid-pattern">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
+        {/* Background geometric elements */}
+        <div className="geometric-shape shape-circle w-72 h-72 bg-mint/20 -top-36 -left-36 blur-3xl"></div>
+        <div className="geometric-shape w-36 h-36 bg-sky/30 top-32 right-20 rounded-3xl rotate-12"></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-coral/20 top-2/3 left-10 blur-2xl"></div>
+        <div className="geometric-shape w-32 h-32 bg-accent/30 bottom-40 right-1/4 rounded-2xl -rotate-12"></div>
+        <div className="geometric-shape shape-circle w-56 h-56 bg-peach/20 bottom-10 left-1/3 blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
