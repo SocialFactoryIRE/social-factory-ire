@@ -24,7 +24,7 @@ const Programming = () => {
     icon: ShoppingBag,
     title: "Market",
     color: "bg-accent",
-    description: "Spaces that support local culture and economic inclusion:",
+    description: "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
     activities: ["Traditional Market", "Sunday Market", "Food & Beverage Hall", "Education & Demonstration Spaces (workshops, cooking, nutrition)", "Organic Growth"]
   }];
   return <div className="min-h-screen">
