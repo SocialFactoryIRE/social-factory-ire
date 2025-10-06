@@ -1,10 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Scale, Users, Heart, FileText } from "lucide-react";
-
 const Governance = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       
       <div className="pt-24 pb-20">
@@ -58,7 +56,7 @@ const Governance = () => {
                 <ul className="space-y-3 text-muted-foreground">
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Membership fees (sliding scale based on income)</span>
+                    <span>Affordable Membership fees</span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
@@ -66,11 +64,11 @@ const Governance = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Co-working space rentals</span>
+                    <span>Sub-leasing space rentals</span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Marketplace commissions</span>
+                    <span>Partnership commissions</span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
@@ -209,8 +207,6 @@ const Governance = () => {
       </div>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Governance;
