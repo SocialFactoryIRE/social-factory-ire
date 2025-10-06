@@ -116,13 +116,18 @@ Connections</span>
           </div>
 
           {/* Values */}
-          <div className="max-w-4xl mx-auto mb-20">
-            <div className="text-center mb-12">
+          <div className="max-w-4xl mx-auto mb-20 relative">
+            {/* Background geometric elements */}
+            <div className="geometric-shape shape-circle w-48 h-48 bg-mint/15 -top-20 -left-10 blur-3xl absolute"></div>
+            <div className="geometric-shape shape-circle w-56 h-56 bg-sky/12 top-1/2 -right-16 blur-2xl absolute"></div>
+            <div className="geometric-shape shape-circle w-40 h-40 bg-peach/18 bottom-10 left-1/4 blur-xl absolute"></div>
+            
+            <div className="text-center mb-12 relative z-10">
               <Sparkles className="h-16 w-16 mx-auto mb-6 text-primary" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Our Values</h2>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 relative z-10">
               <div className="p-6 bg-card rounded-2xl shadow-soft">
                 <h3 className="text-xl font-bold mb-2 text-foreground">Community First</h3>
                 <p className="text-muted-foreground">
@@ -151,13 +156,19 @@ Connections</span>
           </div>
 
           {/* Challenges vs Our Response */}
-          <div className="max-w-5xl mx-auto mb-20">
-            <div className="text-center mb-12">
+          <div className="max-w-5xl mx-auto mb-20 relative">
+            {/* Background geometric elements */}
+            <div className="geometric-shape shape-circle w-52 h-52 bg-coral/15 -top-16 -right-12 blur-3xl absolute"></div>
+            <div className="geometric-shape shape-circle w-44 h-44 bg-accent/12 top-1/3 -left-10 blur-2xl absolute"></div>
+            <div className="geometric-shape shape-circle w-60 h-60 bg-mint/10 bottom-20 right-1/4 blur-3xl absolute"></div>
+            <div className="geometric-shape shape-circle w-38 h-38 bg-sky/18 bottom-1/2 left-1/3 blur-xl absolute"></div>
+            
+            <div className="text-center mb-12 relative z-10">
               <Shield className="h-16 w-16 mx-auto mb-6 text-coral" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Challenge vs Response</h2>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover">
+            <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover relative z-10">
               {/* Header Row */}
               <div className="grid md:grid-cols-2">
                 <div className="bg-coral p-6 border-b-2 border-r-2 border-border">
