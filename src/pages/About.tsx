@@ -1,0 +1,153 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Heart, Users, Globe, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const About = () => {
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      
+      <div className="pt-24 pb-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero */}
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+              Our Story
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Building Ireland's first social factory to combat loneliness through community connection
+            </p>
+          </div>
+
+          {/* Mission */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="bg-gradient-hero p-12 rounded-3xl shadow-hover mb-12">
+              <h2 className="text-3xl font-bold mb-6 text-foreground">Our Mission</h2>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Social Factory was born from a simple observation: loneliness is one of the most pressing 
+                challenges of our time, yet traditional approaches aren't working. We believe the solution 
+                lies in creating vibrant, multi-dimensional spaces where people naturally connect through 
+                shared activities, creative expression, and meaningful work.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-8 bg-card rounded-2xl shadow-soft border-2 border-primary">
+                <Heart className="h-12 w-12 mb-4 text-primary" />
+                <h3 className="text-2xl font-bold mb-3">Why It Matters</h3>
+                <p className="text-muted-foreground">
+                  Loneliness affects physical and mental health as much as smoking 15 cigarettes a day. 
+                  Young people are particularly vulnerable, facing disconnection despite being digitally connected.
+                </p>
+              </div>
+              <div className="p-8 bg-card rounded-2xl shadow-soft border-2 border-secondary">
+                <Users className="h-12 w-12 mb-4 text-secondary" />
+                <h3 className="text-2xl font-bold mb-3">Our Approach</h3>
+                <p className="text-muted-foreground">
+                  We create spaces where connection happens naturally—through skateboarding, art workshops, 
+                  wellness programs, and entrepreneurial collaboration. No forced networking, just authentic community.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* New European Bauhaus */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="text-center mb-12">
+              <Globe className="h-16 w-16 mx-auto mb-6 text-accent" />
+              <h2 className="text-4xl font-bold mb-4 text-foreground">
+                Aligned with New European Bauhaus
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Our vision embodies the three core pillars of the NEB movement
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-6 bg-mint/20 rounded-2xl border-2 border-mint">
+                <h3 className="text-xl font-bold mb-3 text-foreground">Sustainability</h3>
+                <p className="text-muted-foreground text-sm">
+                  Building a circular economy model, promoting local production, 
+                  and creating long-term social and environmental value.
+                </p>
+              </div>
+              <div className="p-6 bg-sky/20 rounded-2xl border-2 border-sky">
+                <h3 className="text-xl font-bold mb-3 text-foreground">Inclusion</h3>
+                <p className="text-muted-foreground text-sm">
+                  Welcoming all ages, abilities, and backgrounds. Ensuring accessibility 
+                  and creating pathways for everyone to participate and thrive.
+                </p>
+              </div>
+              <div className="p-6 bg-peach/20 rounded-2xl border-2 border-coral">
+                <h3 className="text-xl font-bold mb-3 text-foreground">Beauty</h3>
+                <p className="text-muted-foreground text-sm">
+                  Designing spaces that inspire joy, creativity, and connection. 
+                  Where aesthetics meet function and form follows feeling.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Values */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="text-center mb-12">
+              <Sparkles className="h-16 w-16 mx-auto mb-6 text-primary" />
+              <h2 className="text-4xl font-bold mb-4 text-foreground">Our Values</h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="p-6 bg-card rounded-2xl shadow-soft">
+                <h3 className="text-xl font-bold mb-2 text-foreground">Community First</h3>
+                <p className="text-muted-foreground">
+                  Every decision we make centers the needs and voices of our community members.
+                </p>
+              </div>
+              <div className="p-6 bg-card rounded-2xl shadow-soft">
+                <h3 className="text-xl font-bold mb-2 text-foreground">Evidence-Based Action</h3>
+                <p className="text-muted-foreground">
+                  We ground our work in research, data, and proven interventions from programs like Planet Youth.
+                </p>
+              </div>
+              <div className="p-6 bg-card rounded-2xl shadow-soft">
+                <h3 className="text-xl font-bold mb-2 text-foreground">Playful Innovation</h3>
+                <p className="text-muted-foreground">
+                  We believe serious impact can come from joyful, creative, and playful approaches.
+                </p>
+              </div>
+              <div className="p-6 bg-card rounded-2xl shadow-soft">
+                <h3 className="text-xl font-bold mb-2 text-foreground">Radical Inclusion</h3>
+                <p className="text-muted-foreground">
+                  Social Factory is for everyone—regardless of background, ability, age, or circumstance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">
+              Join Us in Building Something New
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Whether you're a funder, community member, or just curious—we'd love to connect.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="font-semibold">
+                <Link to="/join">Become a Member</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="font-semibold">
+                <Link to="/contact">Get in Touch</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default About;
