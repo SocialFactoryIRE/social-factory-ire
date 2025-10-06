@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Heart, Users, Globe, Sparkles } from "lucide-react";
+import { Heart, Users, Globe, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 const About = () => {
   return <div className="min-h-screen">
@@ -140,6 +140,7 @@ const About = () => {
           {/* Challenges vs Our Response */}
           <div className="max-w-5xl mx-auto mb-20">
             <div className="text-center mb-12">
+              <Shield className="h-16 w-16 mx-auto mb-6 text-coral" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Challenges vs Our Response</h2>
             </div>
 
