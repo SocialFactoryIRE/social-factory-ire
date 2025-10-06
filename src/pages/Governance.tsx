@@ -12,10 +12,10 @@ const Governance = () => {
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              Governance
+              Governance & Social Purpose
             </h1>
             <p className="text-xl text-muted-foreground">
-              How Social Factory operates as a community-centered social enterprise
+              Operating as a social enterprise with transparent, sustainable, and community-accountable practices
             </p>
           </div>
 
@@ -25,13 +25,14 @@ const Governance = () => {
               <Scale className="h-16 w-16 mb-6 text-foreground" />
               <h2 className="text-3xl font-bold mb-6 text-foreground">Social Enterprise Model</h2>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
-                Social Factory is structured as a social enterprise—a business with a social mission at its core. 
-                We generate revenue through programs, memberships, workspace rentals, and marketplace activities, 
-                but all surplus is reinvested into expanding our impact and serving the community.
+                Social Factory operates as a social enterprise, reinvesting all profits into programmes that 
+                build connection, creativity, and wellbeing. Our model is transparent, sustainable, and 
+                accountable to the community we serve.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
-                This model ensures sustainability while maintaining our commitment to accessibility, inclusion, 
-                and community benefit above profit extraction.
+                Governance aligns with best-practice frameworks under the Social Enterprise Model and the 
+                New European Bauhaus Compass principles. This ensures sustainability while maintaining our 
+                commitment to accessibility, inclusion, and community benefit above profit extraction.
               </p>
             </div>
 

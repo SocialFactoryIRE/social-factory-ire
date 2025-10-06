@@ -19,8 +19,8 @@ const Join = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Welcome to Social Factory!",
-      description: "We'll be in touch soon with updates and next steps.",
+      title: "Thanks for joining!",
+      description: "We'll be in touch as our first Social Factory opens in Limerick.",
     });
     setFormData({ name: "", email: "", interest: "" });
   };
@@ -45,7 +45,8 @@ const Join = () => {
                 Join the Movement
               </h1>
               <p className="text-xl text-muted-foreground">
-                Be part of Ireland's first social factory. Early members get exclusive updates and opportunities.
+                Be part of Ireland's new social revolution. Sign up now for early updates, membership information, 
+                and the chance to help shape the future of Social Factory.
               </p>
             </div>
 

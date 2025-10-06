@@ -14,23 +14,35 @@ const About = () => {
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              Our Story
+              Our Story: Building Connection by Design
             </h1>
             <p className="text-xl text-muted-foreground">
-              Building Ireland's first social factory to combat loneliness through community connection
+              Creating Ireland's first integrated social hub where action sports, creative arts, health, and entrepreneurship live side-by-side
             </p>
           </div>
 
           {/* Mission */}
           <div className="max-w-4xl mx-auto mb-20">
             <div className="bg-gradient-hero p-12 rounded-3xl shadow-hover mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-foreground">Our Mission</h2>
-              <p className="text-lg text-foreground/90 leading-relaxed">
-                Social Factory was born from a simple observation: loneliness is one of the most pressing 
-                challenges of our time, yet traditional approaches aren't working. We believe the solution 
-                lies in creating vibrant, multi-dimensional spaces where people naturally connect through 
-                shared activities, creative expression, and meaningful work.
+              <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+                Social Factory was founded with one clear purpose — to tackle loneliness through design. 
+                We're creating Ireland's first integrated social hub where action sports, creative arts, 
+                health, and entrepreneurship live side-by-side.
               </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+                Guided by the principles of the New European Bauhaus, we blend sustainability, inclusion, 
+                and beauty to design environments where everyone can thrive.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Our approach isn't just about spaces — it's about people. We're building a movement that 
+                reconnects communities, redefines belonging, and creates new pathways for wellbeing and opportunity.
+              </p>
+              <div className="mt-8 p-6 bg-background/50 rounded-2xl border-2 border-background">
+                <p className="text-foreground/90 italic">
+                  "Founded by Jason O'Donovan to spark a new kind of social connection in Ireland"
+                </p>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">

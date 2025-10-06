@@ -40,15 +40,16 @@ const Contact = () => {
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            {/* Hero */}
-            <div className="text-center mb-12">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-                Get in Touch
-              </h1>
-              <p className="text-xl text-muted-foreground">
-                Have questions? Want to collaborate? We'd love to hear from you.
-              </p>
-            </div>
+          {/* Hero */}
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+              Get in Touch
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Have a question, idea, or partnership proposal? We'd love to hear from you — 
+              Social Factory is a community project built by everyone.
+            </p>
+          </div>
 
             <div className="grid md:grid-cols-2 gap-12">
               {/* Contact Form */}

@@ -12,10 +12,10 @@ const Science = () => {
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              Science & Research
+              Grounded in Science and Research
             </h1>
             <p className="text-xl text-muted-foreground">
-              Our approach is grounded in evidence-based research and proven frameworks
+              Building upon leading international research on social connection, youth wellbeing, and urban innovation
             </p>
           </div>
 
@@ -26,18 +26,20 @@ const Science = () => {
                 <BookOpen className="h-12 w-12 mb-4 text-primary" />
                 <h2 className="text-2xl font-bold mb-4 text-foreground">Planet Youth Model</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Social Factory draws inspiration from Iceland's Planet Youth initiative, which successfully 
-                  reduced substance abuse and improved youth wellbeing through community-based interventions, 
-                  organized activities, and strong social bonds.
+                  Inspired by the Planet Youth model, we use data-driven strategies to design spaces that 
+                  reduce isolation, improve community health, and foster creativity. This proven framework 
+                  from Iceland successfully reduced substance abuse and improved youth wellbeing through 
+                  community-based interventions and strong social bonds.
                 </p>
               </div>
               <div className="bg-card p-8 rounded-2xl shadow-soft border-2 border-secondary">
                 <Award className="h-12 w-12 mb-4 text-secondary" />
                 <h2 className="text-2xl font-bold mb-4 text-foreground">New European Bauhaus</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Aligned with the EU's NEB initiative, we integrate sustainability, inclusion, and aesthetics 
-                  into our design and operations—creating beautiful, accessible spaces that serve the 
-                  community while respecting our planet.
+                  Our work aligns closely with the New European Bauhaus, the UN Sustainable Development Goals, 
+                  and Ireland's Healthy Communities framework. We integrate sustainability, inclusion, and 
+                  aesthetics into our design and operations—creating beautiful, accessible spaces that serve 
+                  the community while respecting our planet.
                 </p>
               </div>
             </div>
@@ -47,9 +49,9 @@ const Science = () => {
           <div className="max-w-5xl mx-auto mb-20">
             <div className="text-center mb-12">
               <TrendingUp className="h-16 w-16 mx-auto mb-6 text-accent" />
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Research Findings</h2>
+              <h2 className="text-4xl font-bold mb-4 text-foreground">Evidence-Based Impact</h2>
               <p className="text-lg text-muted-foreground">
-                Evidence supporting community-based interventions for wellbeing
+                Every design choice — from light to layout — is informed by evidence and crafted to strengthen real human connection
               </p>
             </div>
 

@@ -8,7 +8,7 @@ const Programming = () => {
       icon: Palette,
       title: "Social / Play",
       color: "bg-sky",
-      description: "Action sports and creative arts that build community through shared experiences.",
+      description: "Skate, climb, dance, create — this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
       activities: [
         "Skateboarding & BMX workshops",
         "Street art & graffiti classes",
@@ -22,7 +22,7 @@ const Programming = () => {
       icon: Briefcase,
       title: "Work",
       color: "bg-mint",
-      description: "Entrepreneurship, skills development, and collaborative workspaces.",
+      description: "A co-working and maker environment supporting creativity, digital fabrication, and new ideas. A space to learn, collaborate, and grow small enterprises that strengthen the community.",
       activities: [
         "Social enterprise incubator",
         "Co-working spaces",
@@ -36,7 +36,7 @@ const Programming = () => {
       icon: Heart,
       title: "Health",
       color: "bg-peach",
-      description: "Holistic wellness programs for mind, body, and community.",
+      description: "From gyms to wellness studios, our Health domain promotes movement and mindfulness, with clinicians and coaches working side by side to make wellbeing accessible to everyone.",
       activities: [
         "Mental health peer support",
         "Yoga & mindfulness sessions",
@@ -50,7 +50,7 @@ const Programming = () => {
       icon: ShoppingBag,
       title: "Market",
       color: "bg-accent",
-      description: "Community marketplace connecting creators and conscious consumers.",
+      description: "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
       activities: [
         "Local artisan pop-ups",
         "Sustainable fashion exchanges",
@@ -74,7 +74,7 @@ const Programming = () => {
               Our Programming
             </h1>
             <p className="text-xl text-muted-foreground">
-              Four interconnected domains creating opportunities for connection, growth, and community
+              Our programmes are designed around four interconnected domains — each a pillar of social connection and community growth.
             </p>
           </div>
 
