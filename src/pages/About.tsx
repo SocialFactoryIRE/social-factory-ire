@@ -11,12 +11,14 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              
-              <span className="block">Building Connection</span>
-              <span className="block">Building Connection 
-through Design</span>
-            </h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">
+            <span className="block bg-gradient-to-r from-coral via-accent to-mint bg-clip-text text-transparent drop-shadow-lg tracking-tight leading-tight">
+              Building Connection
+            </span>
+            <span className="block bg-gradient-to-r from-mint via-sky to-coral bg-clip-text text-transparent drop-shadow-lg tracking-tight leading-tight">
+              through Design
+            </span>
+          </h1>
             
           </div>
 
