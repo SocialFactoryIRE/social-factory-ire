@@ -3,12 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Globe, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const About = () => {
   return <div className="min-h-screen">
       <Navbar />
@@ -171,7 +166,7 @@ Connections</span>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
-                  <p className="text-muted-foreground">where people of all ages can connect safely and meaningfully.</p>
+                  <p className="text-muted-foreground">Where people of all ages can connect safely and meaningfully.</p>
                 </div>
               </div>
 
@@ -182,7 +177,7 @@ Connections</span>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people</h4>
-                  <p className="text-muted-foreground">through positive programmes, mentorship, and entrepreneurship opportunities.</p>
+                  <p className="text-muted-foreground">Through positive programmes, mentorship, and entrepreneurship opportunities.</p>
                 </div>
               </div>
 
@@ -193,7 +188,7 @@ Connections</span>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Foster everyday connection</h4>
-                  <p className="text-muted-foreground">with structured activities supported by mental health professionals.</p>
+                  <p className="text-muted-foreground">With structured activities supported by mental health professionals.</p>
                 </div>
               </div>
 
@@ -206,7 +201,7 @@ Connections</span>
                   <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people
 through positive programmes, mentorship, and entrepreneurship opportunities.
                 </h4>
-                  <p className="text-muted-foreground">engaging diverse communities in shared spaces.</p>
+                  <p className="text-muted-foreground">Engaging diverse communities in shared spaces.</p>
                 </div>
               </div>
 
@@ -217,7 +212,7 @@ through positive programmes, mentorship, and entrepreneurship opportunities.
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Build resilience</h4>
-                  <p className="text-muted-foreground">by promoting youth entrepreneurship, adaptable skills, and social responsibility.</p>
+                  <p className="text-muted-foreground">By promoting youth entrepreneurship, adaptable skills, and social responsibility.</p>
                 </div>
               </div>
 
@@ -228,7 +223,7 @@ through positive programmes, mentorship, and entrepreneurship opportunities.
                 </div>
                 <div className="p-6 bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Generate sustainable revenue</h4>
-                  <p className="text-muted-foreground">through memberships, co-working, wellness, and reinvestment in programmes.</p>
+                  <p className="text-muted-foreground">Through memberships, co-working, wellness, and reinvestment in programmes.</p>
                 </div>
               </div>
             </div>
