@@ -3,6 +3,12 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Globe, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 const About = () => {
   return <div className="min-h-screen">
       <Navbar />
@@ -145,7 +151,8 @@ Connections</span>
               <h2 className="text-4xl font-bold mb-4 text-foreground">Challenge vs Response</h2>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border-2 border-border shadow-hover">
+            {/* Desktop View */}
+            <div className="hidden md:block overflow-hidden rounded-3xl border-2 border-border shadow-hover">
               {/* Header Row */}
               <div className="grid md:grid-cols-2">
                 <div className="bg-coral p-6 border-b-2 border-r-2 border-border">
@@ -225,6 +232,117 @@ through positive programmes, mentorship, and entrepreneurship opportunities.
                 </div>
               </div>
             </div>
+
+            {/* Mobile/Tablet View with Accordions */}
+            <Accordion type="single" collapsible className="md:hidden space-y-4">
+              <AccordionItem value="item-1" className="border-2 border-border rounded-2xl overflow-hidden bg-card">
+                <AccordionTrigger className="px-6 py-4 bg-coral/20 hover:bg-coral/30">
+                  <span className="text-lg font-bold text-foreground">Lack of inclusive spaces</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-coral mb-2">Challenge:</h5>
+                      <p className="text-muted-foreground">Few affordable, safe places exist for people—especially adolescents—to socialize outside of food-and-drink settings.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-secondary mb-2">Our Response:</h5>
+                      <p className="text-muted-foreground">Create inspiring, accessible hubs where people of all ages can connect safely and meaningfully.</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2" className="border-2 border-border rounded-2xl overflow-hidden bg-card">
+                <AccordionTrigger className="px-6 py-4 bg-coral/20 hover:bg-coral/30">
+                  <span className="text-lg font-bold text-foreground">Youth at risk</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-coral mb-2">Challenge:</h5>
+                      <p className="text-muted-foreground">Rising substance misuse, mental health challenges, and limited investment in the 1–20 age group.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-secondary mb-2">Our Response:</h5>
+                      <p className="text-muted-foreground">Empower young people through positive programmes, mentorship, and entrepreneurship opportunities.</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3" className="border-2 border-border rounded-2xl overflow-hidden bg-card">
+                <AccordionTrigger className="px-6 py-4 bg-coral/20 hover:bg-coral/30">
+                  <span className="text-lg font-bold text-foreground">Declining face-to-face interaction</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-coral mb-2">Challenge:</h5>
+                      <p className="text-muted-foreground">Online media dominates while in-person socializing declines, fuelling the loneliness epidemic.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-secondary mb-2">Our Response:</h5>
+                      <p className="text-muted-foreground">Foster everyday connection with structured activities supported by mental health professionals.</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4" className="border-2 border-border rounded-2xl overflow-hidden bg-card">
+                <AccordionTrigger className="px-6 py-4 bg-coral/20 hover:bg-coral/30">
+                  <span className="text-lg font-bold text-foreground">Widening socioeconomic gaps</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-coral mb-2">Challenge:</h5>
+                      <p className="text-muted-foreground">Many lack access to peer networks and cultural opportunities.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-secondary mb-2">Our Response:</h5>
+                      <p className="text-muted-foreground">Empower young people through positive programmes, mentorship, and entrepreneurship opportunities, engaging diverse communities in shared spaces.</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5" className="border-2 border-border rounded-2xl overflow-hidden bg-card">
+                <AccordionTrigger className="px-6 py-4 bg-coral/20 hover:bg-coral/30">
+                  <span className="text-lg font-bold text-foreground">Future uncertainty</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-coral mb-2">Challenge:</h5>
+                      <p className="text-muted-foreground">AI and other forces are reshaping the workforce, creating precarity for young people.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-secondary mb-2">Our Response:</h5>
+                      <p className="text-muted-foreground">Build resilience by promoting youth entrepreneurship, adaptable skills, and social responsibility.</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6" className="border-2 border-border rounded-2xl overflow-hidden bg-card">
+                <AccordionTrigger className="px-6 py-4 bg-coral/20 hover:bg-coral/30">
+                  <span className="text-lg font-bold text-foreground">Unsustainable social models</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4">
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="font-semibold text-coral mb-2">Challenge:</h5>
+                      <p className="text-muted-foreground">Community needs outpace traditional funding and investment models.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-secondary mb-2">Our Response:</h5>
+                      <p className="text-muted-foreground">Generate sustainable revenue through memberships, co-working, wellness, and reinvestment in programmes.</p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
 
           {/* CTA */}
