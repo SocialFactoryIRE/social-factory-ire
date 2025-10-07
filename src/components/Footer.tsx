@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="w-10 h-10 rounded-full overflow-hidden">
               <img src={logo} alt="Social Factory Logo" className="w-full h-full object-cover" />
             </div>
-              <span className="font-bold text-lg text-foreground">Social Factory</span>
+              <span className="font-bold text-lg text-foreground">Social Factory CLG - 796481</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Ireland's first social factory tackling loneliness through community connection.
