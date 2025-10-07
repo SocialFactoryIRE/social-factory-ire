@@ -114,9 +114,7 @@ Connections</span>
             <div className="space-y-6">
               <div className="p-6 bg-card rounded-2xl shadow-soft">
                 <h3 className="text-xl font-bold mb-2 text-foreground">Community First</h3>
-                <p className="text-muted-foreground">
-                  Every decision we make centers the needs and voices of our community members.
-                </p>
+                <p className="text-muted-foreground">Every decision we make centres the needs and voices of our community members.</p>
               </div>
               <div className="p-6 bg-card rounded-2xl shadow-soft">
                 <h3 className="text-xl font-bold mb-2 text-foreground">Evidence-Based Action</h3>
