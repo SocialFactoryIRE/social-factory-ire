@@ -7,6 +7,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, User, MessageSquare } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const joinSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  interest: z.string().trim().max(2000, "Interest must be less than 2000 characters").optional(),
+});
 
 const Join = () => {
   const [formData, setFormData] = useState({
@@ -14,15 +22,70 @@ const Join = () => {
     email: "",
     interest: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Thanks for joining!",
-      description: "We'll be in touch as our first Social Factory opens in Limerick.",
-    });
-    setFormData({ name: "", email: "", interest: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Validate form data
+      const validatedData = joinSchema.parse(formData);
+
+      // Save to database
+      const { error: dbError } = await supabase
+        .from("join_submissions")
+        .insert({
+          name: validatedData.name,
+          email: validatedData.email,
+          interest: validatedData.interest || null,
+        });
+
+      if (dbError) throw dbError;
+
+      // Send email notification
+      console.log("Invoking send-join-email function...");
+      const { data: emailData, error: emailError } = await supabase.functions.invoke("send-join-email", {
+        body: validatedData,
+      });
+
+      if (emailError) {
+        console.error("Email sending error:", emailError);
+        toast({
+          title: "Warning",
+          description: "Your request was saved but email notification failed. We'll still receive your information.",
+          variant: "default",
+        });
+      } else {
+        console.log("Email sent successfully:", emailData);
+      }
+
+      toast({
+        title: "Thanks for joining!",
+        description: "We'll be in touch as our first Social Factory opens in Limerick.",
+      });
+      
+      setFormData({ name: "", email: "", interest: "" });
+    } catch (error) {
+      console.error("Error submitting join form:", error);
+      
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to submit. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -118,8 +181,9 @@ const Join = () => {
                   type="submit" 
                   size="lg" 
                   className="w-full text-lg py-6 bg-gradient-hero hover:opacity-90 font-bold"
+                  disabled={isSubmitting}
                 >
-                  Join Social Factory
+                  {isSubmitting ? "Submitting..." : "Join Social Factory"}
                 </Button>
               </form>
             </div>

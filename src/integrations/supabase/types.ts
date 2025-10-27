@@ -41,6 +41,30 @@ export type Database = {
         }
         Relationships: []
       }
+      join_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          interest: string | null
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          interest?: string | null
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          interest?: string | null
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
