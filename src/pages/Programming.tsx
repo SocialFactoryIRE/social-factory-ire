@@ -191,7 +191,7 @@ const Programming = () => {
                   </tr>
 
                   {/* Older Adults (50+): 11am - 2pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-mint/5">
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-mint/5 border-t-4 border-t-foreground/20">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
                       <div className="flex flex-col">
                         <span>11am</span>
@@ -228,7 +228,7 @@ const Programming = () => {
                   </tr>
 
                   {/* Kids Afterschool (4-12): 2pm - 4pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-peach/5">
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-peach/5 border-t-4 border-t-foreground/20">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
                       <div className="flex flex-col">
                         <span>2pm</span>
@@ -255,7 +255,7 @@ const Programming = () => {
                   </tr>
 
                   {/* Teens Afterschool (12-16): 4pm - 6pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-accent/5">
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-accent/5 border-t-4 border-t-foreground/20">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
                       <div className="flex flex-col">
                         <span>4pm</span>
@@ -282,7 +282,7 @@ const Programming = () => {
                   </tr>
 
                   {/* Teens Late Night (16-18): 6pm - 8pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-coral/5">
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-coral/5 border-t-4 border-t-foreground/20">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
                       <div className="flex flex-col">
                         <span>6pm</span>
@@ -309,7 +309,7 @@ const Programming = () => {
                   </tr>
 
                   {/* Adults: 8pm - 12am */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors">
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors border-t-4 border-t-foreground/20">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
                       <div className="flex flex-col">
                         <span>8pm</span>
