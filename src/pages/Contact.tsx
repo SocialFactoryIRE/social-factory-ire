@@ -48,20 +48,16 @@ const Contact = () => {
       if (dbError) throw dbError;
 
       // Send email notification
-      console.log("Invoking send-contact-email function...");
-      const { data: emailData, error: emailError } = await supabase.functions.invoke("send-contact-email", {
+      const { error: emailError } = await supabase.functions.invoke("send-contact-email", {
         body: validatedData,
       });
 
       if (emailError) {
-        console.error("Email sending error:", emailError);
         toast({
           title: "Warning",
           description: "Message saved but email notification failed. We'll still receive your message.",
           variant: "default",
         });
-      } else {
-        console.log("Email sent successfully:", emailData);
       }
 
       toast({
@@ -71,8 +67,6 @@ const Contact = () => {
       
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error("Error submitting contact form:", error);
-      
       if (error instanceof z.ZodError) {
         toast({
           title: "Validation Error",

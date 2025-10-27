@@ -45,20 +45,16 @@ const Join = () => {
       if (dbError) throw dbError;
 
       // Send email notification
-      console.log("Invoking send-join-email function...");
-      const { data: emailData, error: emailError } = await supabase.functions.invoke("send-join-email", {
+      const { error: emailError } = await supabase.functions.invoke("send-join-email", {
         body: validatedData,
       });
 
       if (emailError) {
-        console.error("Email sending error:", emailError);
         toast({
           title: "Warning",
           description: "Your request was saved but email notification failed. We'll still receive your information.",
           variant: "default",
         });
-      } else {
-        console.log("Email sent successfully:", emailData);
       }
 
       toast({
@@ -68,8 +64,6 @@ const Join = () => {
       
       setFormData({ name: "", email: "", interest: "" });
     } catch (error) {
-      console.error("Error submitting join form:", error);
-      
       if (error instanceof z.ZodError) {
         toast({
           title: "Validation Error",

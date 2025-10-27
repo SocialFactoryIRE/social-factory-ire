@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "https://esm.sh/resend@4.0.0";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.76.1";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -27,6 +28,36 @@ function escapeHtml(unsafe: string): string {
     .replace(/'/g, "&#039;");
 }
 
+// Rate limiting function
+async function checkRateLimit(supabase: any, ipAddress: string, endpoint: string): Promise<boolean> {
+  const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+  
+  // Count submissions from this IP in the last hour
+  const { count, error } = await supabase
+    .from("rate_limit_tracking")
+    .select("*", { count: "exact", head: true })
+    .eq("ip_address", ipAddress)
+    .eq("endpoint", endpoint)
+    .gte("created_at", oneHourAgo);
+
+  if (error) {
+    console.error("Rate limit check error:", error);
+    return true; // Allow on error to not block legitimate users
+  }
+
+  // Allow max 5 submissions per hour
+  if (count !== null && count >= 5) {
+    return false;
+  }
+
+  // Record this attempt
+  await supabase
+    .from("rate_limit_tracking")
+    .insert({ ip_address: ipAddress, endpoint });
+
+  return true;
+}
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -34,6 +65,32 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    // Initialize Supabase client with service role key for rate limiting table access
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
+    );
+
+    // Extract IP address from request headers
+    const ipAddress = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || 
+                      req.headers.get("x-real-ip") || 
+                      "unknown";
+
+    // Check rate limit
+    const isAllowed = await checkRateLimit(supabase, ipAddress, "send-join-email");
+    if (!isAllowed) {
+      console.warn(`Rate limit exceeded for IP: ${ipAddress}`);
+      return new Response(
+        JSON.stringify({ 
+          error: "Rate limit exceeded. Please try again later." 
+        }),
+        {
+          status: 429,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
     const body = await req.json();
     
     // Validate input with Zod

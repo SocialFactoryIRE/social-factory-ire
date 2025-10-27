@@ -48,8 +48,7 @@ const NewsletterSignup = () => {
       );
 
       if (emailError) {
-        console.error("Email notification failed:", emailError);
-        // Don't fail the signup if email fails, just log it
+        // Don't fail the signup if email fails
       }
 
       toast({
@@ -58,7 +57,6 @@ const NewsletterSignup = () => {
       });
       setEmail("");
     } catch (error: any) {
-      console.error("Error submitting newsletter signup:", error);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",

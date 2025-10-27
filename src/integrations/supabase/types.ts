@@ -83,6 +83,27 @@ export type Database = {
         }
         Relationships: []
       }
+      rate_limit_tracking: {
+        Row: {
+          created_at: string
+          endpoint: string
+          id: string
+          ip_address: string
+        }
+        Insert: {
+          created_at?: string
+          endpoint: string
+          id?: string
+          ip_address: string
+        }
+        Update: {
+          created_at?: string
+          endpoint?: string
+          id?: string
+          ip_address?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
