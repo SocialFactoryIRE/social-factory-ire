@@ -161,9 +161,12 @@ const Contact = () => {
                       <Mail className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Email</h3>
-                        <p className="text-muted-foreground">
+                        <a 
+                          href="mailto:Jason@socialfactory.ie" 
+                          className="text-muted-foreground hover:text-foreground transition-colors underline"
+                        >
                           Jason@socialfactory.ie
-                        </p>
+                        </a>
                       </div>
                     </div>
 
