@@ -48,13 +48,20 @@ const Contact = () => {
       if (dbError) throw dbError;
 
       // Send email notification
-      const { error: emailError } = await supabase.functions.invoke("send-contact-email", {
+      console.log("Invoking send-contact-email function...");
+      const { data: emailData, error: emailError } = await supabase.functions.invoke("send-contact-email", {
         body: validatedData,
       });
 
       if (emailError) {
-        console.error("Email sending failed:", emailError);
-        // Still show success since message was saved to database
+        console.error("Email sending error:", emailError);
+        toast({
+          title: "Warning",
+          description: "Message saved but email notification failed. We'll still receive your message.",
+          variant: "default",
+        });
+      } else {
+        console.log("Email sent successfully:", emailData);
       }
 
       toast({
