@@ -162,8 +162,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Email</h3>
                         <p className="text-muted-foreground">
-                          Jason@socialfactory.ie<br />
-                          (coming soon)
+                          Jason@socialfactory.ie
                         </p>
                       </div>
                     </div>
