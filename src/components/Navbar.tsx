@@ -49,27 +49,27 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+            variant="default"
+            size="lg"
+            className="md:hidden h-12 w-12 shadow-hover"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className="md:hidden pb-4 space-y-3">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2 rounded-lg font-semibold transition-all ${
+                className={`block px-6 py-4 rounded-lg font-bold text-lg transition-all shadow-soft ${
                   isActive(link.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-primary text-primary-foreground shadow-hover"
+                    : "text-foreground hover:bg-muted hover:shadow-hover"
                 }`}
               >
                 {link.name}
