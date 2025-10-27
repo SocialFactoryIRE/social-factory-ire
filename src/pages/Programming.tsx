@@ -171,23 +171,23 @@ const Programming = () => {
                         <span className="text-xs font-normal text-muted-foreground">Baby & Parents</span>
                       </div>
                     </td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Parent Groups</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Baby Yoga</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Parent Groups</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Baby Yoga</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Parent Groups</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Family Activities</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Family Day</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Baby & Me Yoga</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Tiny Tunes</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Parent Meet-Up Café</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Little Hands</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Stroller Circuit</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Family Flow</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Slow Sunday</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-sky/5">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">10am</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Baby Play</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Support Groups</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Baby Play</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Support Groups</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Baby Play</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Parent Workshops</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Quiet Time</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Coffee & Chat</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Sensory Studio</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Mini Movers</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Parent Skills Swap</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Factory Brunch</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Baby Disco</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Slow Sunday Brunch</span></td>
                   </tr>
 
                   {/* Older Adults (50+): 11am - 2pm */}
@@ -198,33 +198,33 @@ const Programming = () => {
                         <span className="text-xs font-normal text-muted-foreground">Older Adults</span>
                       </div>
                     </td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Wellness Class</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Art Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Wellness Class</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Art Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Wellness Class</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Social Events</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Market Visit</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Morning Mobility & Stretch</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Walk & Talk</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gentle Fitness</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Art & Expression</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Functional Movement</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Active Saturdays</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Slow Start</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-mint/5">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">12pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Lunch Social</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Games Room</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Lunch Social</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Games Room</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Lunch Social</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Crafts</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Food Hall</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Coffee & Conversation</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Healthy Lunch Club</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Community Lunch</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Mind & Matter Talks</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Factory Friday Lunch</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Market Brunch Meetup</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Sunday Feast</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-mint/5">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">1pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Library Time</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gentle Exercise</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Library Time</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gentle Exercise</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Library Time</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Community</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Relaxation</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Crafts Circle</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Digital Skills Café</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Memory & Music Hour</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Games & Socials</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Skills Revival</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Storytelling & Poetry</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Film Club & Tea</span></td>
                   </tr>
 
                   {/* Kids Afterschool (4-12): 2pm - 4pm */}
@@ -235,23 +235,23 @@ const Programming = () => {
                         <span className="text-xs font-normal text-muted-foreground">Kids Afterschool</span>
                       </div>
                     </td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Homework Club</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Homework Club</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Homework Club</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Homework Club</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Homework Club</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Kids Activities</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Family Time</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Active Start</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Mindful Movers</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Midweek Makers</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Adventure Fitness</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Fun Factory Fridays</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Adventure Games</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Café</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-peach/5">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">3pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Art & Crafts</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sports</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Art & Crafts</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sports</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Art & Crafts</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Trampoline</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Play Zone</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Corner</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">STEM Explorers</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Mini Mingle</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Studio Thursdays</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Kids Market Setup</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Family Free Play</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Kindness Crew</span></td>
                   </tr>
 
                   {/* Teens Afterschool (12-16): 4pm - 6pm */}
@@ -262,23 +262,23 @@ const Programming = () => {
                         <span className="text-xs font-normal text-muted-foreground">Teens Afterschool</span>
                       </div>
                     </td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Skatepark</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Climbing</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Skatepark</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Climbing</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Skatepark</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Move & Groove</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Maker Lab</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Teen Events</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Midweek Movement</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Digital Studio</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Fun Factory Fridays</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Weekend Workshop</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Brunch & Chat</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-accent/5">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">5pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sports</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Music Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sports</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Music Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sports</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Dance</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Activities</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Chill Café + Homework</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Skill Swap</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Wednesday Club</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Community Crew</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Friday Night Lights</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Teen Market Helpers</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sunday Sport & Social</span></td>
                   </tr>
 
                   {/* Teens Late Night (16-18): 6pm - 8pm */}
@@ -289,23 +289,23 @@ const Programming = () => {
                         <span className="text-xs font-normal text-muted-foreground">Teens Late Night</span>
                       </div>
                     </td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Youth Programs</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Skills Dev</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Youth Programs</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Skills Dev</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Youth Programs</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Social Night</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Chill Space</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Functional Fitness</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Studio Sessions</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Youth Leadership</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Enterprise Sprint</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Action Sports Jam</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Jam</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Mindful Reset</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-coral/5">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">7pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Boxing</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Arts</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Boxing</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Arts</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Boxing</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Media Lab</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Events</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Mindset Café</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Open Collab Hour</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Wednesday Club Late</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Future Talks</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Factory Nights</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Night Studio</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Film & Reflect</span></td>
                   </tr>
 
                   {/* Adults: 8pm - 12am */}
@@ -316,43 +316,33 @@ const Programming = () => {
                         <span className="text-xs font-normal text-muted-foreground">Adults</span>
                       </div>
                     </td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gym Classes</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Dance Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gym Classes</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Dance Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gym Classes</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Live Events</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Wellness</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Factory Fitness</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Workshop</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Wednesday Club</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Studio Night</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Factory Fridays</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Movement & Music</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Sound Bath</span></td>
                   </tr>
                   <tr className="border-b border-border hover:bg-muted/50 transition-colors">
                     <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">9pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Co-Working</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Art Sessions</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Co-Working</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Art Sessions</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Co-Working</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Social Events</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Studios</span></td>
-                  </tr>
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">10pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Late Gym</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Music Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Late Gym</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Music Studio</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Late Gym</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Night Events</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Quiet Hours</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Mindfulness & Recovery</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Skill-Share Session</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Mingle Meal</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Cultural Exchange</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Open Market Night</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-accent/30">Community Feast</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Film & Discussion</span></td>
                   </tr>
                   <tr className="hover:bg-muted/50 transition-colors">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">11pm</td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Late Studios</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Community</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Late Studios</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Community</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Late Studios</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Wind Down</span></td>
-                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Closing</span></td>
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">10pm</td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Café Lounge Social</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Co-Work Late</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Late Lounge</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Night Café</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">After Hours Lounge</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Social Factory Nights</span></td>
+                    <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Quiet Café</span></td>
                   </tr>
                 </tbody>
               </table>
