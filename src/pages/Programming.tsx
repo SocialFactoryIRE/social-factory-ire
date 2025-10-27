@@ -164,13 +164,14 @@ const Programming = () => {
                 </thead>
                 <tbody>
                   {/* Baby & Parents: 9am - 11am */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-sky/5">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
-                      <div className="flex flex-col">
-                        <span>9am</span>
-                        <span className="text-xs font-normal text-muted-foreground">Baby & Parents</span>
-                      </div>
+                  <tr className="bg-sky/20 border-b-2 border-foreground/20">
+                    <td colSpan={8} className="p-4 text-center">
+                      <span className="text-lg font-bold text-foreground">Baby & Parents</span>
+                      <span className="text-sm text-muted-foreground ml-2">9am - 11am</span>
                     </td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-sky/5">
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">9am</td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Baby & Me Yoga</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Tiny Tunes</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Parent Meet-Up Café</span></td>
@@ -191,13 +192,14 @@ const Programming = () => {
                   </tr>
 
                   {/* Older Adults (50+): 11am - 2pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-mint/5 border-t-4 border-t-foreground/20">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
-                      <div className="flex flex-col">
-                        <span>11am</span>
-                        <span className="text-xs font-normal text-muted-foreground">Older Adults</span>
-                      </div>
+                  <tr className="bg-mint/20 border-b-2 border-foreground/20">
+                    <td colSpan={8} className="p-4 text-center">
+                      <span className="text-lg font-bold text-foreground">Older Adults (50+)</span>
+                      <span className="text-sm text-muted-foreground ml-2">11am - 2pm</span>
                     </td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-mint/5">
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">11am</td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Morning Mobility & Stretch</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Walk & Talk</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Gentle Fitness</span></td>
@@ -228,13 +230,14 @@ const Programming = () => {
                   </tr>
 
                   {/* Kids Afterschool (4-12): 2pm - 4pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-peach/5 border-t-4 border-t-foreground/20">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
-                      <div className="flex flex-col">
-                        <span>2pm</span>
-                        <span className="text-xs font-normal text-muted-foreground">Kids Afterschool</span>
-                      </div>
+                  <tr className="bg-peach/20 border-b-2 border-foreground/20">
+                    <td colSpan={8} className="p-4 text-center">
+                      <span className="text-lg font-bold text-foreground">Kids Afterschool (4-12 yr old)</span>
+                      <span className="text-sm text-muted-foreground ml-2">2pm - 4pm</span>
                     </td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-peach/5">
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">2pm</td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Active Start</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Mindful Movers</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Midweek Makers</span></td>
@@ -255,13 +258,14 @@ const Programming = () => {
                   </tr>
 
                   {/* Teens Afterschool (12-16): 4pm - 6pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-accent/5 border-t-4 border-t-foreground/20">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
-                      <div className="flex flex-col">
-                        <span>4pm</span>
-                        <span className="text-xs font-normal text-muted-foreground">Teens Afterschool</span>
-                      </div>
+                  <tr className="bg-accent/20 border-b-2 border-foreground/20">
+                    <td colSpan={8} className="p-4 text-center">
+                      <span className="text-lg font-bold text-foreground">Teens Afterschool (12-16 yr old)</span>
+                      <span className="text-sm text-muted-foreground ml-2">4pm - 6pm</span>
                     </td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-accent/5">
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">4pm</td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Move & Groove</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Maker Lab</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Midweek Movement</span></td>
@@ -282,13 +286,14 @@ const Programming = () => {
                   </tr>
 
                   {/* Teens Late Night (16-18): 6pm - 8pm */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-coral/5 border-t-4 border-t-foreground/20">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
-                      <div className="flex flex-col">
-                        <span>6pm</span>
-                        <span className="text-xs font-normal text-muted-foreground">Teens Late Night</span>
-                      </div>
+                  <tr className="bg-coral/20 border-b-2 border-foreground/20">
+                    <td colSpan={8} className="p-4 text-center">
+                      <span className="text-lg font-bold text-foreground">Teens Late Night (16-18 yr old)</span>
+                      <span className="text-sm text-muted-foreground ml-2">6pm - 8pm</span>
                     </td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors bg-coral/5">
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">6pm</td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Functional Fitness</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-mint/30">Studio Sessions</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Youth Leadership</span></td>
@@ -309,13 +314,14 @@ const Programming = () => {
                   </tr>
 
                   {/* Adults: 8pm - 12am */}
-                  <tr className="border-b border-border hover:bg-muted/50 transition-colors border-t-4 border-t-foreground/20">
-                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">
-                      <div className="flex flex-col">
-                        <span>8pm</span>
-                        <span className="text-xs font-normal text-muted-foreground">Adults</span>
-                      </div>
+                  <tr className="bg-primary/10 border-b-2 border-foreground/20">
+                    <td colSpan={8} className="p-4 text-center">
+                      <span className="text-lg font-bold text-foreground">Adults</span>
+                      <span className="text-sm text-muted-foreground ml-2">8pm - 12am</span>
                     </td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-muted/50 transition-colors">
+                    <td className="p-4 font-semibold text-foreground sticky left-0 bg-card">8pm</td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-peach/30">Factory Fitness</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Creative Workshop</span></td>
                     <td className="p-4 text-center text-sm"><span className="inline-block px-3 py-1 rounded-full bg-sky/30">Wednesday Club</span></td>
