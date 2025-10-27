@@ -30,7 +30,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send email notification to Jason
     const emailResponse = await resend.emails.send({
       from: "Social Factory <onboarding@resend.dev>",
-      to: ["Jason@socialfactory.ie"],
+      to: ["jason@socialfactory.ie"],
       replyTo: email,
       subject: `Contact Form: ${subject}`,
       html: `
