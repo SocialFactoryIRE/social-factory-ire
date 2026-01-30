@@ -140,6 +140,7 @@ const Programming = () => {
           {/* Sample Timetable */}
           <div className="max-w-7xl mx-auto mt-32 animate-fade-in">
             <div className="text-center mb-12">
+              <span className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">Example</span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 Weekly Programming Schedule
               </h2>
