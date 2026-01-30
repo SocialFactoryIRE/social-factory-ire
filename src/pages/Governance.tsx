@@ -51,14 +51,26 @@ const Governance = () => {
               <Scale className="h-16 w-16 mb-6 text-foreground" />
               <h2 className="text-3xl font-bold mb-6 text-foreground">Social Enterprise Model</h2>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
-                Social Factory operates as a social enterprise, reinvesting all profits into programmes that 
-                build connection, creativity, and wellbeing. Our model is transparent, sustainable, and 
-                accountable to the community we serve.
+                Social Factory operates as a mission-locked social enterprise, designed to create long-term 
+                public benefit rather than private profit. All surpluses are reinvested directly into programmes, 
+                spaces, and partnerships that strengthen social connection, creativity, and mental wellbeing 
+                in the communities we serve.
               </p>
-              <p className="text-lg text-foreground/90 leading-relaxed">
-                Governance aligns with best-practice frameworks under the Social Enterprise Model and the 
-                New European Bauhaus Compass principles. This ensures sustainability while maintaining our 
-                commitment to accessibility, inclusion, and community benefit above profit extraction.
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+                Our model is built to be financially sustainable, transparent, and accountable. Income generated 
+                through memberships, workspace, events, and on-site activity supports low-barrier access, 
+                inclusive programming, and preventative wellbeing initiatives — ensuring that commercial 
+                activity always serves a social purpose.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed mb-6">
+                Governance is structured in line with social enterprise best practice and guided by the 
+                New European Bauhaus Compass, prioritising sustainability, inclusion, and quality of everyday 
+                life. This framework ensures decisions are made in the long-term interests of people and place 
+                — protecting accessibility, community participation, and social impact above profit extraction.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed font-medium italic">
+                Social Factory is not just a building or a service. It is a living social system, owned by 
+                its mission and accountable to the community it exists for.
               </p>
             </div>
 
