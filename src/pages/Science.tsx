@@ -118,12 +118,12 @@ const Science = () => {
 
               <div className="bg-accent/10 p-8 rounded-2xl border-2 border-accent">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-accent">46%</div>
+                  <div className="text-3xl font-bold text-accent">25-30%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Getting Adequate Sleep</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Mental Health Challenges</h3>
                     <p className="text-muted-foreground">
-                      Less than half of young people are getting the recommended 8+ hours of sleep per night, 
-                      directly impacting mental health, physical health and academic performance.
+                      Around 25% of young people report outside the normal range for depression, anxiety 
+                      and stress, with approximately 30% reporting low self-esteem.
                     </p>
                   </div>
                 </div>
