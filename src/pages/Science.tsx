@@ -62,21 +62,29 @@ const Science = () => {
           <div className="max-w-5xl mx-auto mb-20">
             <div className="text-center mb-12">
               <TrendingUp className="h-16 w-16 mx-auto mb-6 text-accent" />
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Evidence-Based Impact</h2>
+              <h2 className="text-4xl font-bold mb-4 text-foreground">Planet Youth West Ireland – 2024 Survey</h2>
               <p className="text-lg text-muted-foreground">
-                Every design choice — from light to layout — is informed by evidence and crafted to strengthen real human connection
+                Data from 5,079 young people aged 15-16 across Galway, Mayo & Roscommon
               </p>
+              <a 
+                href="https://west.planetyouth.ie" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm text-primary hover:underline mt-2 inline-block"
+              >
+                Source: west.planetyouth.ie
+              </a>
             </div>
 
             <div className="space-y-6">
               <div className="bg-sky/10 p-8 rounded-2xl border-2 border-sky">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-primary">87%</div>
+                  <div className="text-3xl font-bold text-primary">31%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Reduced Loneliness</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Drunk in Last Month</h3>
                     <p className="text-muted-foreground">
-                      Participants in structured community programs report significant reduction in feelings 
-                      of isolation and improved social connections.
+                      Nearly one third of 15-16 year olds reported being drunk at least once in the past 30 days. 
+                      This highlights the need for community-based prevention and positive alternatives.
                     </p>
                   </div>
                 </div>
@@ -84,12 +92,12 @@ const Science = () => {
 
               <div className="bg-mint/10 p-8 rounded-2xl border-2 border-mint">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-secondary">73%</div>
+                  <div className="text-3xl font-bold text-secondary">65%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Improved Mental Health</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">3+ Hours Daily Social Media</h3>
                     <p className="text-muted-foreground">
-                      Regular engagement in creative and physical activities shows marked improvement in 
-                      mental health outcomes and stress reduction.
+                      Two thirds of young people spend 3 or more hours daily on social media, correlating 
+                      with reduced sleep and lower wellbeing scores.
                     </p>
                   </div>
                 </div>
@@ -97,12 +105,12 @@ const Science = () => {
 
               <div className="bg-peach/10 p-8 rounded-2xl border-2 border-coral">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-coral">65%</div>
+                  <div className="text-3xl font-bold text-coral">30%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Enhanced Wellbeing</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Low Wellbeing Scores</h3>
                     <p className="text-muted-foreground">
-                      Holistic programs combining physical activity, creativity, and social connection 
-                      demonstrate sustained improvements in overall life satisfaction.
+                      Nearly one third of young people scored below the WHO-5 threshold for mental wellbeing, 
+                      with similar numbers reporting low self-esteem and resilience.
                     </p>
                   </div>
                 </div>
@@ -110,12 +118,12 @@ const Science = () => {
 
               <div className="bg-accent/10 p-8 rounded-2xl border-2 border-accent">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-accent">92%</div>
+                  <div className="text-3xl font-bold text-accent">46%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Community Belonging</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Getting Adequate Sleep</h3>
                     <p className="text-muted-foreground">
-                      Multi-domain community spaces foster strong sense of belonging and civic engagement 
-                      among diverse participant groups.
+                      Less than half of young people are getting the recommended 8+ hours of sleep per night, 
+                      directly impacting mental health, physical health and academic performance.
                     </p>
                   </div>
                 </div>
