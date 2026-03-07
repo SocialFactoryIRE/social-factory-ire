@@ -20,6 +20,8 @@ import Governance from "./pages/Governance";
 import SocialLab from "./pages/SocialLab";
 import PersonalityTest from "./pages/PersonalityTest";
 import PersonalityResult from "./pages/PersonalityResult";
+import CultureTest from "./pages/CultureTest";
+import CultureResult from "./pages/CultureResult";
 import Democracy from "./pages/Democracy";
 import ProposalDetail from "./pages/ProposalDetail";
 import Research from "./pages/Research";
@@ -51,6 +53,8 @@ const App = () => (
           <Route path="/social-lab" element={<SocialLab />} />
           <Route path="/social-lab/test" element={<PersonalityTest />} />
           <Route path="/social-lab/result" element={<PersonalityResult />} />
+          <Route path="/culture-test" element={<CultureTest />} />
+          <Route path="/culture-result" element={<CultureResult />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/governance" element={<Governance />} />
           <Route path="/democracy" element={<Democracy />} />
