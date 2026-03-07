@@ -554,6 +554,15 @@ export type Database = {
           user_id: string
         }[]
       }
+      get_proposal_vote_counts: {
+        Args: { proposal_ids: string[] }
+        Returns: {
+          abstain_count: number
+          no_count: number
+          proposal_id: string
+          yes_count: number
+        }[]
+      }
       is_chapter_member: {
         Args: { _chapter_id: string; _user_id: string }
         Returns: boolean
