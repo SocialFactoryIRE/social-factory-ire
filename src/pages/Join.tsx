@@ -127,7 +127,7 @@ const Join = () => {
                   </Button>
                 </Link>
                 <Link to="/register?type=local">
-                  <Button size="lg" variant="outline" className="font-bold text-base px-8 py-5 border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground">
+                  <Button size="lg" variant="outline" className="font-bold text-base px-8 py-5">
                     Join Locally <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
