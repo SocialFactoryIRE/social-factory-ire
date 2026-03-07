@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { Pencil, X, Camera, FlaskConical, Heart, Save } from "lucide-react";
+import { Pencil, X, Camera, FlaskConical, Heart, Save, ArrowLeft } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 const COUNTIES = [
@@ -205,6 +205,12 @@ const ProfileContent = ({ user }: { user: User }) => {
         <Navbar />
         <div className="pt-24 pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" /> Back
+            </button>
             {/* Header */}
             <div className="flex items-start justify-between mb-8">
               <div className="flex items-center gap-5">
