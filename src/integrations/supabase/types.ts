@@ -132,6 +132,30 @@ export type Database = {
         }
         Relationships: []
       }
+      culture_results: {
+        Row: {
+          completed_at: string | null
+          id: string
+          scores: Json
+          top_values: string[] | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          scores?: Json
+          top_values?: string[] | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          scores?: Json
+          top_values?: string[] | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       join_submissions: {
         Row: {
           created_at: string
