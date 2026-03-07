@@ -26,6 +26,7 @@ import Democracy from "./pages/Democracy";
 import ProposalDetail from "./pages/ProposalDetail";
 import Research from "./pages/Research";
 import Profile from "./pages/Profile";
+import SuggestedConnects from "./pages/SuggestedConnects";
 import NotFound from "./pages/NotFound";
 import Chatbot from "@/components/Chatbot";
 
@@ -61,6 +62,7 @@ const App = () => (
           <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
           <Route path="/research" element={<Research />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/suggested-connects" element={<SuggestedConnects />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
