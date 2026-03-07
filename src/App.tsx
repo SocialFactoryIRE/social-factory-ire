@@ -62,6 +62,7 @@ const App = () => (
           <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
           <Route path="/research" element={<Research />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/suggested-connects" element={<SuggestedConnects />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
