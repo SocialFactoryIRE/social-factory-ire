@@ -53,6 +53,8 @@ const App = () => (
           <Route path="/social-lab" element={<SocialLab />} />
           <Route path="/social-lab/test" element={<PersonalityTest />} />
           <Route path="/social-lab/result" element={<PersonalityResult />} />
+          <Route path="/culture-test" element={<CultureTest />} />
+          <Route path="/culture-result" element={<CultureResult />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/governance" element={<Governance />} />
           <Route path="/democracy" element={<Democracy />} />
