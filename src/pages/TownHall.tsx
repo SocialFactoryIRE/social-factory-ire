@@ -168,12 +168,6 @@ const TownHallContent = ({ user }: { user: SupaUser }) => {
               description="Collaborate on local projects"
               to="/social-lab"
             />
-            <NavCard
-              icon={Heart}
-              title="Values Test"
-              description="Discover what matters most to you"
-              to="/culture-test"
-            />
 
             {isLocal && (
               <NavCard
