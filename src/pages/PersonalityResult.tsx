@@ -5,84 +5,93 @@ import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, RefreshCw, Users, Check } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
-const LETTER_DESC: Record<string, { label: string; meaning: string }> = {
-  O: { label: "Outward", meaning: "You draw energy from social interaction and collaboration" },
-  I: { label: "Inner", meaning: "You recharge through reflection and quieter settings" },
-  A: { label: "Abstract", meaning: "You're drawn to big-picture thinking and possibilities" },
-  C: { label: "Concrete", meaning: "You prefer practical, evidence-based approaches" },
-  F: { label: "Feeling", meaning: "You prioritise empathy and harmony in decisions" },
-  R: { label: "Reasoning", meaning: "You lean on logic and objective analysis" },
-  S: { label: "Structured", meaning: "You prefer plans, order, and closure" },
-  X: { label: "Flexible", meaning: "You stay open, adaptive, and spontaneous" },
-};
+const OCEAN_INFO: { key: string; label: string; description: string }[] = [
+  { key: "ocean_o", label: "Openness", description: "Curiosity, creativity, and willingness to explore new ideas" },
+  { key: "ocean_c", label: "Conscientiousness", description: "Organisation, dependability, and self-discipline" },
+  { key: "ocean_e", label: "Extraversion", description: "Energy from social interaction and group activities" },
+  { key: "ocean_a", label: "Agreeableness", description: "Cooperation, empathy, and concern for others" },
+  { key: "ocean_n", label: "Neuroticism", description: "Tendency to experience stress and emotional sensitivity" },
+];
+
+interface OceanScores {
+  ocean_o: number | null;
+  ocean_c: number | null;
+  ocean_e: number | null;
+  ocean_a: number | null;
+  ocean_n: number | null;
+}
 
 interface Community {
   id: string;
   name: string;
   description: string | null;
-  member_count: number;
   joined: boolean;
+}
+
+function getOceanTags(scores: OceanScores): string[] {
+  const tags: string[] = [];
+  const thresh = 3.5;
+  const lowThresh = 2.5;
+  if ((scores.ocean_o ?? 0) >= thresh) tags.push("high_o");
+  if ((scores.ocean_c ?? 0) >= thresh) tags.push("high_c");
+  if ((scores.ocean_e ?? 0) >= thresh) tags.push("high_e");
+  if ((scores.ocean_a ?? 0) >= thresh) tags.push("high_a");
+  if ((scores.ocean_n ?? 0) >= thresh) tags.push("high_n");
+  if ((scores.ocean_o ?? 5) <= lowThresh) tags.push("low_o");
+  if ((scores.ocean_c ?? 5) <= lowThresh) tags.push("low_c");
+  if ((scores.ocean_e ?? 5) <= lowThresh) tags.push("low_e");
+  if ((scores.ocean_a ?? 5) <= lowThresh) tags.push("low_a");
+  if ((scores.ocean_n ?? 5) <= lowThresh) tags.push("low_n");
+  return tags;
 }
 
 const PersonalityResultContent = ({ user }: { user: User }) => {
   const navigate = useNavigate();
-  const [typeCode, setTypeCode] = useState<string | null>(null);
+  const [scores, setScores] = useState<OceanScores | null>(null);
   const [communities, setCommunities] = useState<Community[]>([]);
   const [loading, setLoading] = useState(true);
   const [joiningId, setJoiningId] = useState<string | null>(null);
 
   const fetchData = useCallback(async () => {
-    // Get personality result
     const { data: result } = await supabase
       .from("personality_results")
-      .select("type_code")
+      .select("ocean_o, ocean_c, ocean_e, ocean_a, ocean_n")
       .eq("user_id", user.id)
       .maybeSingle();
 
-    if (!result?.type_code) {
+    if (!result) {
       navigate("/social-lab/test", { replace: true });
       return;
     }
 
-    setTypeCode(result.type_code);
+    setScores(result);
 
-    // Get all communities
-    const { data: allCommunities } = await supabase
-      .from("communities")
-      .select("*");
+    const userTags = getOceanTags(result);
 
-    // Filter where suited_types contains the user's type_code
+    const { data: allCommunities } = await supabase.from("communities").select("*");
     const matched = (allCommunities || []).filter((c: any) =>
-      (c.suited_types || []).includes(result.type_code)
+      (c.suited_types || []).some((t: string) => userTags.includes(t))
     );
 
-    // Get user's memberships
     const { data: memberships } = await supabase
       .from("community_members")
       .select("community_id")
       .eq("user_id", user.id);
-
     const joinedIds = new Set((memberships || []).map((m) => m.community_id));
 
-    // Get member counts for matched communities
-    const communityList: Community[] = [];
-    for (const c of matched) {
-      // We can't aggregate with current RLS (users can only see own rows),
-      // so we'll show "Join" without count, or fetch count via a workaround
-      communityList.push({
+    setCommunities(
+      matched.map((c: any) => ({
         id: c.id,
         name: c.name,
         description: c.description,
-        member_count: 0, // Count not available due to RLS
         joined: joinedIds.has(c.id),
-      });
-    }
-
-    setCommunities(communityList);
+      }))
+    );
     setLoading(false);
   }, [user.id, navigate]);
 
@@ -111,8 +120,6 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
     );
   }
 
-  const letters = typeCode ? typeCode.split("") : [];
-
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -126,33 +133,24 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
             <ArrowLeft className="h-4 w-4" /> Back to Social Lab
           </button>
 
-          {/* Type Code */}
           <div className="text-center mb-10">
-            <p className="text-sm text-muted-foreground mb-3">Your personality type</p>
-            <div className="text-5xl md:text-6xl font-mono font-bold text-foreground tracking-widest mb-6">
-              {typeCode}
-            </div>
+            <p className="text-sm text-muted-foreground mb-3">Your OCEAN Profile</p>
+            <h1 className="text-3xl font-bold text-foreground">Personality Results</h1>
           </div>
 
-          {/* Dimension breakdown */}
-          <div className="grid grid-cols-2 gap-4 mb-10">
-            {letters.map((letter, i) => {
-              const info = LETTER_DESC[letter];
-              if (!info) return null;
+          {/* OCEAN bars */}
+          <div className="space-y-5 mb-10">
+            {OCEAN_INFO.map((dim) => {
+              const val = scores ? Number((scores as any)[dim.key]) || 0 : 0;
+              const pct = (val / 5) * 100;
               return (
-                <div
-                  key={i}
-                  className="rounded-xl border-2 border-border bg-card p-5"
-                >
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xl font-mono font-bold text-primary">
-                      {letter}
-                    </span>
-                    <span className="text-sm font-semibold text-foreground">
-                      {info.label}
-                    </span>
+                <div key={dim.key}>
+                  <div className="flex justify-between items-baseline mb-1.5">
+                    <span className="text-sm font-semibold text-foreground">{dim.label}</span>
+                    <span className="text-sm font-mono text-muted-foreground">{val.toFixed(2)}</span>
                   </div>
-                  <p className="text-xs text-muted-foreground">{info.meaning}</p>
+                  <Progress value={pct} className="h-3" />
+                  <p className="text-xs text-muted-foreground mt-1">{dim.description}</p>
                 </div>
               );
             })}
@@ -160,13 +158,9 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
 
           {/* Matching communities */}
           <div className="mb-8">
-            <h2 className="text-xl font-bold text-foreground mb-4">
-              Communities for you
-            </h2>
+            <h2 className="text-xl font-bold text-foreground mb-4">Communities for you</h2>
             {communities.length === 0 ? (
-              <p className="text-muted-foreground">
-                No matching communities found for your type yet.
-              </p>
+              <p className="text-muted-foreground">No matching communities found yet.</p>
             ) : (
               <div className="space-y-4">
                 {communities.map((c) => (
@@ -175,20 +169,13 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
                     className="rounded-2xl border-2 border-border bg-card p-6 flex items-start justify-between gap-4"
                   >
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-1">
-                        {c.name}
-                      </h3>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">{c.name}</h3>
                       {c.description && (
-                        <p className="text-sm text-muted-foreground">
-                          {c.description}
-                        </p>
+                        <p className="text-sm text-muted-foreground">{c.description}</p>
                       )}
                     </div>
                     {c.joined ? (
-                      <Badge
-                        variant="secondary"
-                        className="shrink-0 gap-1.5 py-1.5 px-3"
-                      >
+                      <Badge variant="secondary" className="shrink-0 gap-1.5 py-1.5 px-3">
                         <Check className="h-3.5 w-3.5" /> Joined
                       </Badge>
                     ) : (
@@ -208,7 +195,6 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
             )}
           </div>
 
-          {/* Retake */}
           <div className="text-center">
             <Button
               variant="ghost"
@@ -226,9 +212,7 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
 };
 
 const PersonalityResult = () => (
-  <AuthGuard>
-    {(user) => <PersonalityResultContent user={user} />}
-  </AuthGuard>
+  <AuthGuard>{(user) => <PersonalityResultContent user={user} />}</AuthGuard>
 );
 
 export default PersonalityResult;

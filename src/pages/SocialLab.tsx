@@ -4,24 +4,23 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, FlaskConical, Compass, Eye } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 const SocialLabContent = ({ user }: { user: User }) => {
   const navigate = useNavigate();
-  const [typeCode, setTypeCode] = useState<string | null>(null);
+  const [hasResult, setHasResult] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase
       .from("personality_results")
-      .select("type_code")
+      .select("id")
       .eq("user_id", user.id)
       .maybeSingle()
       .then(({ data }) => {
-        setTypeCode(data?.type_code ?? null);
+        setHasResult(!!data);
         setLoading(false);
       });
   }, [user.id]);
@@ -57,12 +56,9 @@ const SocialLabContent = ({ user }: { user: User }) => {
             </p>
           </div>
 
-          {typeCode ? (
+          {hasResult ? (
             <div className="bg-card rounded-2xl border-2 border-border p-8 text-center space-y-6">
-              <p className="text-muted-foreground">Your personality type</p>
-              <Badge className="text-2xl px-5 py-2 font-mono font-bold bg-primary/15 text-primary border-0">
-                {typeCode}
-              </Badge>
+              <p className="text-muted-foreground">You've completed the OCEAN personality test</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Button onClick={() => navigate("/social-lab/result")} className="gap-2">
                   <Eye className="h-4 w-4" /> View My Result
@@ -75,7 +71,7 @@ const SocialLabContent = ({ user }: { user: User }) => {
           ) : (
             <div className="bg-card rounded-2xl border-2 border-border p-8 text-center space-y-6">
               <p className="text-lg text-foreground font-medium">
-                Take a short personality test to discover your social type and get matched to communities.
+                Take a short personality test to discover your OCEAN profile and get matched to communities.
               </p>
               <Button size="lg" onClick={() => navigate("/social-lab/test")} className="gap-2">
                 <FlaskConical className="h-5 w-5" /> Take the Personality Test
