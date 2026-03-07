@@ -65,6 +65,30 @@ export type Database = {
         }
         Relationships: []
       }
+      member_tags: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          tag: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          id?: string
+          tag: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          tag?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       newsletter_signups: {
         Row: {
           created_at: string
@@ -85,29 +109,41 @@ export type Database = {
       }
       profiles: {
         Row: {
+          county: string | null
           created_at: string
           display_name: string | null
           id: string
+          is_staff: boolean
           membership_type: string | null
           onboarded: boolean
+          open_to_connect: boolean
+          town: string | null
           updated_at: string
           user_id: string
         }
         Insert: {
+          county?: string | null
           created_at?: string
           display_name?: string | null
           id?: string
+          is_staff?: boolean
           membership_type?: string | null
           onboarded?: boolean
+          open_to_connect?: boolean
+          town?: string | null
           updated_at?: string
           user_id: string
         }
         Update: {
+          county?: string | null
           created_at?: string
           display_name?: string | null
           id?: string
+          is_staff?: boolean
           membership_type?: string | null
           onboarded?: boolean
+          open_to_connect?: boolean
+          town?: string | null
           updated_at?: string
           user_id?: string
         }
