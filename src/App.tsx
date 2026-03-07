@@ -13,6 +13,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Onboarding from "./pages/Onboarding";
 import TownHall from "./pages/TownHall";
+import Noticeboard from "./pages/Noticeboard";
+import LocalNoticeboard from "./pages/LocalNoticeboard";
 import Contact from "./pages/Contact";
 import Governance from "./pages/Governance";
 import NotFound from "./pages/NotFound";
@@ -37,6 +39,8 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/town-hall" element={<TownHall />} />
+          <Route path="/noticeboard" element={<Noticeboard />} />
+          <Route path="/local/noticeboard" element={<LocalNoticeboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/governance" element={<Governance />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
