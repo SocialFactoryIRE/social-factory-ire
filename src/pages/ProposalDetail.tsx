@@ -129,22 +129,15 @@ const ProposalDetailContent = ({ user }: { user: User }) => {
   }, [id, user.id]);
 
   const fetchTally = async (proposalId: string) => {
-    // Since users can only read their own votes via RLS,
-    // we need an RPC to count. For now we'll use a direct count
-    // which will only show the user's own vote count.
-    // Let's create a workaround by reading all votes the user can see.
-    const { data: votes } = await supabase
-      .from("proposal_votes")
-      .select("vote")
-      .eq("proposal_id", proposalId);
-
-    const t: VoteTally = { yes: 0, no: 0, abstain: 0 };
-    (votes || []).forEach((v: any) => {
-      if (v.vote === "yes") t.yes++;
-      else if (v.vote === "no") t.no++;
-      else if (v.vote === "abstain") t.abstain++;
+    const { data: voteCounts } = await supabase.rpc("get_proposal_vote_counts", {
+      proposal_ids: [proposalId],
     });
-    setTally(t);
+    const row = voteCounts?.[0];
+    setTally({
+      yes: Number(row?.yes_count) || 0,
+      no: Number(row?.no_count) || 0,
+      abstain: Number(row?.abstain_count) || 0,
+    });
   };
 
   const fetchUserVote = async (proposalId: string) => {
