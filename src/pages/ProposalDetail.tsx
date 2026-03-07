@@ -211,12 +211,13 @@ const ProposalDetailContent = ({ user }: { user: User }) => {
   };
 
   const handleComment = async () => {
-    if (!id || !commentBody.trim()) return;
+    const trimmedComment = commentBody.trim();
+    if (!id || !trimmedComment || trimmedComment.length > 5000) return;
     setCommenting(true);
     await supabase.from("proposal_comments").insert({
       proposal_id: id,
       author_id: user.id,
-      body: commentBody.trim(),
+      body: trimmedComment,
     });
     setCommentBody("");
     await fetchComments(id);
