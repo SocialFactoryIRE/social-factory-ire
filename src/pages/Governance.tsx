@@ -92,7 +92,7 @@ const Governance = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Profit Share (Management Agreement)</span>
+                    <span>Partnership commissions</span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 rounded-full bg-primary mt-2 mr-3 flex-shrink-0"></span>
