@@ -6,9 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, User, MessageSquare } from "lucide-react";
+import { Mail, User, MessageSquare, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
+import { Link } from "react-router-dom";
 
 const joinSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -30,10 +31,8 @@ const Join = () => {
     setIsSubmitting(true);
 
     try {
-      // Validate form data
       const validatedData = joinSchema.parse(formData);
 
-      // Save to database
       const { error: dbError } = await supabase
         .from("join_submissions")
         .insert({
@@ -44,7 +43,6 @@ const Join = () => {
 
       if (dbError) throw dbError;
 
-      // Send email notification
       const { error: emailError } = await supabase.functions.invoke("send-join-email", {
         body: validatedData,
       });
@@ -58,10 +56,10 @@ const Join = () => {
       }
 
       toast({
-        title: "Thanks for joining!",
-        description: "We'll be in touch as our first Social Factory opens in Limerick.",
+        title: "You're in — thank you!",
+        description: "We'll be in touch as Social Factory Limerick takes shape.",
       });
-      
+
       setFormData({ name: "", email: "", interest: "" });
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -92,34 +90,44 @@ const Join = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
-        {/* Background geometric elements */}
         <div className="geometric-shape shape-circle w-64 h-64 bg-coral/20 top-20 right-10 blur-3xl"></div>
         <div className="geometric-shape w-40 h-40 bg-mint/30 top-1/3 left-20 rounded-3xl rotate-45"></div>
         <div className="geometric-shape shape-circle w-52 h-52 bg-sky/20 bottom-1/4 right-1/4 blur-2xl"></div>
         <div className="geometric-shape w-36 h-36 bg-accent/30 bottom-32 left-10 rounded-2xl -rotate-12"></div>
-        <div className="geometric-shape shape-circle w-48 h-48 bg-sky/25 top-24 left-1/4 blur-xl"></div>
-        <div className="geometric-shape shape-circle w-56 h-56 bg-coral/15 bottom-1/4 right-1/3 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-44 h-44 bg-mint/20 top-1/3 right-16 blur-2xl"></div>
-        <div className="geometric-shape shape-circle w-50 h-50 bg-peach/22 top-1/2 left-1/2 blur-2xl"></div>
-        <div className="geometric-shape shape-circle w-42 h-42 bg-accent/18 bottom-16 left-1/4 blur-xl"></div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-2xl mx-auto">
+
             {/* Hero */}
             <div className="text-center mb-12">
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-                Join the Movement
+                Be Part of It
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Be part of Ireland's new social revolution. Sign up now for early updates, membership information, 
-                and the chance to help shape the future of Social Factory.
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Social Factory is being built right now — and the people who sign up first will help shape it.
+                Register your interest, tell us what matters to you, and we'll keep you close as Limerick's
+                first Social Factory comes to life.
               </p>
+            </div>
+
+            {/* Membership context */}
+            <div className="bg-gradient-hero rounded-3xl p-8 mb-10 text-center">
+              <h2 className="text-2xl font-bold text-foreground mb-4">Membership from €60/year</h2>
+              <p className="text-foreground/80 leading-relaxed">
+                When we open, membership will give you access to all four domains — Social, Work, Health, and Market —
+                with a concession tier at €60 per year for those on low incomes or referred through social prescribing.
+                No one locked out. No one left behind.
+              </p>
+              <Link to="/science" className="inline-flex items-center gap-1 text-sm text-foreground/70 hover:text-foreground mt-4 underline underline-offset-2">
+                Why we built it this way <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
 
             {/* Form */}
             <div className="bg-card p-8 md:p-12 rounded-3xl shadow-hover border-2 border-border">
+              <h2 className="text-2xl font-bold mb-6 text-foreground">Register Your Interest</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="flex items-center gap-2 text-lg font-semibold mb-2">
@@ -158,22 +166,22 @@ const Join = () => {
                 <div>
                   <Label htmlFor="interest" className="flex items-center gap-2 text-lg font-semibold mb-2">
                     <MessageSquare className="h-5 w-5 text-primary" />
-                    What interests you most?
+                    What brings you here?
                   </Label>
                   <Textarea
                     id="interest"
                     name="interest"
                     value={formData.interest}
                     onChange={handleChange}
-                    placeholder="Tell us which domains interest you (Social/Play, Work, Health, Market) and how you'd like to get involved..."
+                    placeholder="Tell us which domains interest you most (Social, Work, Health, Market), or how you'd like to be involved — as a member, volunteer, partner, or funder..."
                     rows={5}
                     className="text-lg p-4"
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full text-lg py-6 bg-gradient-hero hover:opacity-90 font-bold"
                   disabled={isSubmitting}
                 >
@@ -182,33 +190,38 @@ const Join = () => {
               </form>
             </div>
 
-            {/* What You'll Get */}
+            {/* Benefits */}
             <div className="mt-12 grid md:grid-cols-2 gap-6">
               <div className="p-6 bg-sky/10 rounded-2xl border-2 border-sky">
                 <h3 className="font-bold text-lg mb-2 text-foreground">Early Access</h3>
                 <p className="text-sm text-muted-foreground">
-                  Be first to know about programs, events, and space openings
+                  Be first to know about programme launches, membership tiers, and space openings
+                  as Social Factory Limerick takes shape.
                 </p>
               </div>
               <div className="p-6 bg-mint/10 rounded-2xl border-2 border-mint">
-                <h3 className="font-bold text-lg mb-2 text-foreground">Community Input</h3>
+                <h3 className="font-bold text-lg mb-2 text-foreground">Community Voice</h3>
                 <p className="text-sm text-muted-foreground">
-                  Shape the future of Social Factory through surveys and feedback
+                  Founding members shape the future of Social Factory — through surveys, feedback sessions,
+                  and real participation in our design process.
                 </p>
               </div>
               <div className="p-6 bg-peach/10 rounded-2xl border-2 border-coral">
                 <h3 className="font-bold text-lg mb-2 text-foreground">Exclusive Updates</h3>
                 <p className="text-sm text-muted-foreground">
-                  Monthly newsletters with insights, research, and behind-the-scenes
+                  Monthly insights on our progress, the research behind our model, and behind-the-scenes
+                  development updates.
                 </p>
               </div>
               <div className="p-6 bg-accent/10 rounded-2xl border-2 border-accent">
-                <h3 className="font-bold text-lg mb-2 text-foreground">Special Events</h3>
+                <h3 className="font-bold text-lg mb-2 text-foreground">Founding Member Status</h3>
                 <p className="text-sm text-muted-foreground">
-                  Invitations to founding member gatherings and launch celebrations
+                  Invitations to launch events, founding member gatherings, and the chance to be part
+                  of something genuinely new in Ireland.
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </div>
