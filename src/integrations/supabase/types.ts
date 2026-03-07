@@ -46,6 +46,65 @@ export type Database = {
           },
         ]
       }
+      communities: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          suited_types: string[] | null
+          tags: string[] | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          suited_types?: string[] | null
+          tags?: string[] | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          suited_types?: string[] | null
+          tags?: string[] | null
+        }
+        Relationships: []
+      }
+      community_members: {
+        Row: {
+          community_id: string
+          id: string
+          joined_at: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          community_id: string
+          id?: string
+          joined_at?: string
+          role?: string
+          user_id: string
+        }
+        Update: {
+          community_id?: string
+          id?: string
+          joined_at?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "community_members_community_id_fkey"
+            columns: ["community_id"]
+            isOneToOne: false
+            referencedRelation: "communities"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contacts: {
         Row: {
           created_at: string
@@ -214,6 +273,39 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      personality_results: {
+        Row: {
+          created_at: string
+          dim_a: number | null
+          dim_b: number | null
+          dim_c: number | null
+          dim_d: number | null
+          id: string
+          type_code: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          dim_a?: number | null
+          dim_b?: number | null
+          dim_c?: number | null
+          dim_d?: number | null
+          id?: string
+          type_code?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          dim_a?: number | null
+          dim_b?: number | null
+          dim_c?: number | null
+          dim_d?: number | null
+          id?: string
+          type_code?: string | null
+          user_id?: string
+        }
+        Relationships: []
       }
       profiles: {
         Row: {
