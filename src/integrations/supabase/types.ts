@@ -408,6 +408,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_display_names: {
+        Args: { user_ids: string[] }
+        Returns: {
+          display_name: string
+          user_id: string
+        }[]
+      }
       is_chapter_member: {
         Args: { _chapter_id: string; _user_id: string }
         Returns: boolean

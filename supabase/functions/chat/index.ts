@@ -70,6 +70,27 @@ serve(async (req) => {
     }
 
     const { messages } = await req.json();
+
+    // Validate messages payload
+    const MAX_MESSAGES = 20;
+    const MAX_MSG_LENGTH = 2000;
+    const ALLOWED_ROLES = new Set(["user", "assistant"]);
+
+    if (!Array.isArray(messages) || messages.length === 0 || messages.length > MAX_MESSAGES) {
+      return new Response(
+        JSON.stringify({ error: "Invalid request" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    for (const msg of messages) {
+      if (!ALLOWED_ROLES.has(msg.role) || typeof msg.content !== "string" || msg.content.length > MAX_MSG_LENGTH) {
+        return new Response(
+          JSON.stringify({ error: "Invalid message format" }),
+          { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+    }
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 

@@ -76,9 +76,7 @@ const NoticeboardContent = ({ user }: { user: User }) => {
     // Fetch author names
     const authorIds = [...new Set(data.map((p) => p.author_id))];
     const { data: profiles } = await supabase
-      .from("profiles")
-      .select("user_id, display_name")
-      .in("user_id", authorIds);
+      .rpc("get_display_names", { user_ids: authorIds });
 
     const nameMap = new Map(
       (profiles || []).map((p) => [p.user_id, p.display_name || "Member"])
