@@ -206,10 +206,10 @@ const ProfileContent = ({ user }: { user: User }) => {
         <div className="pt-24 pb-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
             <button
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/town-hall")}
               className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors"
             >
-              <ArrowLeft className="h-4 w-4" /> Back
+              <ArrowLeft className="h-4 w-4" /> Back to Town Hall
             </button>
             {/* Header */}
             <div className="flex items-start justify-between mb-8">
