@@ -102,13 +102,16 @@ const NoticeboardContent = ({ user }: { user: User }) => {
   }, [fetchPosts]);
 
   const handleSubmit = async () => {
-    if (!title.trim()) return;
+    const trimmedTitle = title.trim();
+    const trimmedBody = body.trim();
+    if (!trimmedTitle || trimmedTitle.length > 200) return;
+    if (trimmedBody && trimmedBody.length > 10000) return;
     setSubmitting(true);
     await supabase.from("noticeboard_posts").insert({
       author_id: user.id,
       chapter_id: null,
-      title: title.trim(),
-      body: body.trim() || null,
+      title: trimmedTitle,
+      body: trimmedBody || null,
       category,
     });
     setTitle("");
@@ -152,6 +155,7 @@ const NoticeboardContent = ({ user }: { user: User }) => {
                 placeholder="Post title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                maxLength={200}
               />
               <Textarea
                 placeholder="Write your post…"

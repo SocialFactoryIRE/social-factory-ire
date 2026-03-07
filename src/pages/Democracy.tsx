@@ -126,12 +126,15 @@ const DemocracyContent = ({ user }: { user: User }) => {
   }, [fetchProposals]);
 
   const handleSubmit = async () => {
-    if (!title.trim() || !body.trim()) return;
+    const trimmedTitle = title.trim();
+    const trimmedBody = body.trim();
+    if (!trimmedTitle || trimmedTitle.length > 200) return;
+    if (!trimmedBody || trimmedBody.length > 20000) return;
     setSubmitting(true);
     await supabase.from("proposals").insert({
       author_id: user.id,
-      title: title.trim(),
-      body: body.trim(),
+      title: trimmedTitle,
+      body: trimmedBody,
       type,
     });
     setTitle("");
