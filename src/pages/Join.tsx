@@ -114,10 +114,10 @@ const Join = () => {
 
             {/* Membership context */}
             <div className="bg-gradient-hero rounded-3xl p-8 mb-10 text-center">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Membership from €60/year</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">Become a Member</h2>
               <p className="text-foreground/80 leading-relaxed">
                 When we open, membership will give you access to all four domains — Social, Work, Health, and Market —
-                with a concession tier at €60 per year for those on low incomes or referred through social prescribing.
+                with a concession tier for those on low incomes or referred through social prescribing.
                 No one locked out. No one left behind.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
