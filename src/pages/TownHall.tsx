@@ -6,7 +6,7 @@ import AuthGuard from "@/components/AuthGuard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
-import { LogOut, Globe, MapPin, Megaphone, User, FlaskConical, Scale, Microscope } from "lucide-react";
+import { LogOut, Globe, MapPin, Megaphone, User, FlaskConical, Scale, Microscope, Heart } from "lucide-react";
 import type { User as SupaUser } from "@supabase/supabase-js";
 
 interface Profile {
@@ -156,27 +156,32 @@ const TownHallContent = ({ user }: { user: SupaUser }) => {
               to="/research"
             />
 
+            <NavCard
+              icon={User}
+              title="My Profile"
+              description="View and edit your member profile"
+              to="/profile"
+            />
+            <NavCard
+              icon={FlaskConical}
+              title="Social Lab"
+              description="Collaborate on local projects"
+              to="/social-lab"
+            />
+            <NavCard
+              icon={Heart}
+              title="Values Test"
+              description="Discover what matters most to you"
+              to="/culture-test"
+            />
+
             {isLocal && (
-              <>
-                <NavCard
-                  icon={MapPin}
-                  title="Local Noticeboard"
-                  description="Updates from your local chapter"
-                  to="/local/noticeboard"
-                />
-                <NavCard
-                  icon={User}
-                  title="My Profile"
-                  description="View and edit your member profile"
-                  to="/profile"
-                />
-                <NavCard
-                  icon={FlaskConical}
-                  title="Social Lab"
-                  description="Collaborate on local projects"
-                  to="/social-lab"
-                />
-              </>
+              <NavCard
+                icon={MapPin}
+                title="Local Noticeboard"
+                description="Updates from your local chapter"
+                to="/local/noticeboard"
+              />
             )}
           </div>
 
