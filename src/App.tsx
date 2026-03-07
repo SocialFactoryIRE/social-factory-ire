@@ -20,6 +20,9 @@ import Governance from "./pages/Governance";
 import SocialLab from "./pages/SocialLab";
 import PersonalityTest from "./pages/PersonalityTest";
 import PersonalityResult from "./pages/PersonalityResult";
+import Democracy from "./pages/Democracy";
+import ProposalDetail from "./pages/ProposalDetail";
+import Research from "./pages/Research";
 import NotFound from "./pages/NotFound";
 import Chatbot from "@/components/Chatbot";
 
