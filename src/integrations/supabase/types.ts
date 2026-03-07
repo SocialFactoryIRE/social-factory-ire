@@ -405,7 +405,21 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      profile_display: {
+        Row: {
+          display_name: string | null
+          user_id: string | null
+        }
+        Insert: {
+          display_name?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          display_name?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       is_chapter_member: {
