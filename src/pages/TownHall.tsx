@@ -171,30 +171,10 @@ const TownHallContent = ({ user }: { user: SupaUser }) => {
           </div>
 
           {/* 3 Section Cards */}
-          <div className="space-y-5">
-            {/* 1 — My Profile */}
-            <SectionCard
-              icon={User}
-              title="My Profile"
-              onClick={() => navigate("/profile")}
-            />
-
-            {/* 2 — Local Noticeboard */}
-            <SectionCard icon={MapPin} title="Local Noticeboard">
-              <div className="grid gap-2.5 sm:grid-cols-2">
-                <SubLink icon={Scale} label="Democracy" to="/democracy" />
-                <SubLink icon={Microscope} label="Research" to="/research" />
-                <SubLink icon={FlaskConical} label="Social Lab" to="/social-lab" />
-                <SubLink icon={Users} label="Suggested Connects" to="/suggested-connects" />
-              </div>
-            </SectionCard>
-
-            {/* 3 — Global Noticeboard */}
-            <SectionCard
-              icon={Megaphone}
-              title="Global Noticeboard"
-              onClick={() => navigate("/noticeboard")}
-            />
+          <div className="grid grid-cols-3 gap-4">
+            <SectionCard icon={User} title="My Profile" onClick={() => navigate("/profile")} />
+            <SectionCard icon={MapPin} title="Local Noticeboard" onClick={() => navigate("/local/noticeboard")} />
+            <SectionCard icon={Megaphone} title="Global Noticeboard" onClick={() => navigate("/noticeboard")} />
           </div>
 
           {/* Logout */}
