@@ -6,7 +6,7 @@ import AuthGuard from "@/components/AuthGuard";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
-import { LogOut, Globe, MapPin, Megaphone, User, FlaskConical } from "lucide-react";
+import { LogOut, Globe, MapPin, Megaphone, User, FlaskConical, Scale, Microscope } from "lucide-react";
 import type { User as SupaUser } from "@supabase/supabase-js";
 
 interface Profile {
@@ -142,6 +142,18 @@ const TownHallContent = ({ user }: { user: SupaUser }) => {
               title="Global Noticeboard"
               description="Community-wide updates and discussions"
               to="/noticeboard"
+            />
+            <NavCard
+              icon={Scale}
+              title="Democracy"
+              description="Proposals, votes, and community decisions"
+              to="/democracy"
+            />
+            <NavCard
+              icon={Microscope}
+              title="Research"
+              description="Contribute to community wellbeing research"
+              to="/research"
             />
 
             {isLocal && (
