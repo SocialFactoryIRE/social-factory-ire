@@ -277,32 +277,32 @@ export type Database = {
       personality_results: {
         Row: {
           created_at: string
-          dim_a: number | null
-          dim_b: number | null
-          dim_c: number | null
-          dim_d: number | null
           id: string
-          type_code: string | null
+          ocean_a: number | null
+          ocean_c: number | null
+          ocean_e: number | null
+          ocean_n: number | null
+          ocean_o: number | null
           user_id: string
         }
         Insert: {
           created_at?: string
-          dim_a?: number | null
-          dim_b?: number | null
-          dim_c?: number | null
-          dim_d?: number | null
           id?: string
-          type_code?: string | null
+          ocean_a?: number | null
+          ocean_c?: number | null
+          ocean_e?: number | null
+          ocean_n?: number | null
+          ocean_o?: number | null
           user_id: string
         }
         Update: {
           created_at?: string
-          dim_a?: number | null
-          dim_b?: number | null
-          dim_c?: number | null
-          dim_d?: number | null
           id?: string
-          type_code?: string | null
+          ocean_a?: number | null
+          ocean_c?: number | null
+          ocean_e?: number | null
+          ocean_n?: number | null
+          ocean_o?: number | null
           user_id?: string
         }
         Relationships: []
