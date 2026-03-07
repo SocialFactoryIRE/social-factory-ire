@@ -349,6 +349,124 @@ export type Database = {
         }
         Relationships: []
       }
+      proposal_comments: {
+        Row: {
+          author_id: string
+          body: string
+          created_at: string
+          id: string
+          parent_id: string | null
+          proposal_id: string
+        }
+        Insert: {
+          author_id: string
+          body: string
+          created_at?: string
+          id?: string
+          parent_id?: string | null
+          proposal_id: string
+        }
+        Update: {
+          author_id?: string
+          body?: string
+          created_at?: string
+          id?: string
+          parent_id?: string | null
+          proposal_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "proposal_comments_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "proposal_comments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "proposal_comments_proposal_id_fkey"
+            columns: ["proposal_id"]
+            isOneToOne: false
+            referencedRelation: "proposals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      proposal_votes: {
+        Row: {
+          created_at: string
+          id: string
+          proposal_id: string
+          user_id: string
+          vote: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          proposal_id: string
+          user_id: string
+          vote: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          proposal_id?: string
+          user_id?: string
+          vote?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "proposal_votes_proposal_id_fkey"
+            columns: ["proposal_id"]
+            isOneToOne: false
+            referencedRelation: "proposals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      proposals: {
+        Row: {
+          author_id: string
+          body: string
+          community_id: string | null
+          created_at: string
+          id: string
+          status: string
+          title: string
+          type: string
+          voting_ends_at: string | null
+        }
+        Insert: {
+          author_id: string
+          body: string
+          community_id?: string | null
+          created_at?: string
+          id?: string
+          status?: string
+          title: string
+          type?: string
+          voting_ends_at?: string | null
+        }
+        Update: {
+          author_id?: string
+          body?: string
+          community_id?: string | null
+          created_at?: string
+          id?: string
+          status?: string
+          title?: string
+          type?: string
+          voting_ends_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "proposals_community_id_fkey"
+            columns: ["community_id"]
+            isOneToOne: false
+            referencedRelation: "communities"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       rate_limit_tracking: {
         Row: {
           created_at: string
@@ -367,6 +485,27 @@ export type Database = {
           endpoint?: string
           id?: string
           ip_address?: string
+        }
+        Relationships: []
+      }
+      research_consents: {
+        Row: {
+          consented: boolean
+          consented_at: string | null
+          id: string
+          user_id: string
+        }
+        Insert: {
+          consented?: boolean
+          consented_at?: string | null
+          id?: string
+          user_id: string
+        }
+        Update: {
+          consented?: boolean
+          consented_at?: string | null
+          id?: string
+          user_id?: string
         }
         Relationships: []
       }
