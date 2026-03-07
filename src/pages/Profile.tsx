@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { Pencil, X, Camera, FlaskConical, Heart, Save } from "lucide-react";
+import { Pencil, X, Camera, FlaskConical, Heart, Save, ArrowLeft } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 const COUNTIES = [
