@@ -264,57 +264,58 @@ const ProfileContent = ({ user }: { user: User }) => {
               )}
             </section>
 
-            {/* Personality Card */}
-            <div className="rounded-2xl border-2 border-border bg-card p-6 mb-4">
-              <h2 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-                <FlaskConical className="h-4 w-4 text-primary" /> Personality (OCEAN)
-              </h2>
-              {ocean ? (
-                <div className="space-y-3">
-                  {OCEAN_LABELS.map(({ key, label }) => {
-                    const val = Number((ocean as any)[key]) || 0;
-                    return (
-                      <div key={key}>
-                        <div className="flex justify-between text-xs mb-1">
-                          <span className="font-medium text-foreground">{label}</span>
-                          <span className="font-mono text-muted-foreground">{val.toFixed(1)}</span>
+            {/* Tests side by side */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl border-2 border-border bg-card p-6">
+                <h2 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <FlaskConical className="h-4 w-4 text-primary" /> Personality (OCEAN)
+                </h2>
+                {ocean ? (
+                  <div className="space-y-3">
+                    {OCEAN_LABELS.map(({ key, label }) => {
+                      const val = Number((ocean as any)[key]) || 0;
+                      return (
+                        <div key={key}>
+                          <div className="flex justify-between text-xs mb-1">
+                            <span className="font-medium text-foreground">{label}</span>
+                            <span className="font-mono text-muted-foreground">{val.toFixed(1)}</span>
+                          </div>
+                          <Progress value={(val / 5) * 100} className="h-2" />
                         </div>
-                        <Progress value={(val / 5) * 100} className="h-2" />
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="text-center py-2">
-                  <p className="text-sm text-muted-foreground mb-3">Discover your personality profile</p>
-                  <Button size="sm" onClick={() => navigate("/social-lab/test")} className="gap-1.5">
-                    <FlaskConical className="h-4 w-4" /> Take Personality Test
-                  </Button>
-                </div>
-              )}
-            </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="text-center py-2">
+                    <p className="text-sm text-muted-foreground mb-3">Discover your personality profile</p>
+                    <Button size="sm" onClick={() => navigate("/social-lab/test")} className="gap-1.5">
+                      <FlaskConical className="h-4 w-4" /> Take Personality Test
+                    </Button>
+                  </div>
+                )}
+              </div>
 
-            {/* Values Card */}
-            <div className="rounded-2xl border-2 border-border bg-card p-6">
-              <h2 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Heart className="h-4 w-4 text-primary" /> Values
-              </h2>
-              {topValues && topValues.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
-                  {topValues.slice(0, 3).map((v, i) => (
-                    <Badge key={v} className={`${VALUE_COLORS[i % VALUE_COLORS.length]} border-0 capitalize`}>
-                      {v.replace(/_/g, " ")}
-                    </Badge>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-2">
-                  <p className="text-sm text-muted-foreground mb-3">Find out what drives you</p>
-                  <Button size="sm" onClick={() => navigate("/culture-test")} className="gap-1.5">
-                    <Heart className="h-4 w-4" /> Take Values Test
-                  </Button>
-                </div>
-              )}
+              <div className="rounded-2xl border-2 border-border bg-card p-6">
+                <h2 className="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
+                  <Heart className="h-4 w-4 text-primary" /> Values
+                </h2>
+                {topValues && topValues.length > 0 ? (
+                  <div className="flex flex-wrap gap-2">
+                    {topValues.slice(0, 3).map((v, i) => (
+                      <Badge key={v} className={`${VALUE_COLORS[i % VALUE_COLORS.length]} border-0 capitalize`}>
+                        {v.replace(/_/g, " ")}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-2">
+                    <p className="text-sm text-muted-foreground mb-3">Find out what drives you</p>
+                    <Button size="sm" onClick={() => navigate("/culture-test")} className="gap-1.5">
+                      <Heart className="h-4 w-4" /> Take Values Test
+                    </Button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
