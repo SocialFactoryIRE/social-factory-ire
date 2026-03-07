@@ -96,20 +96,15 @@ const DemocracyContent = ({ user }: { user: User }) => {
       (profiles || []).map((p: any) => [p.user_id, p.display_name || "Member"])
     );
 
-    // Fetch vote counts
+    // Fetch vote counts via RPC
     const proposalIds = data.map((p) => p.id);
-    const { data: votes } = await supabase
-      .from("proposal_votes")
-      .select("proposal_id, vote")
-      .in("proposal_id", proposalIds);
-
-    const voteCounts = new Map<string, { yes: number; no: number }>();
-    (votes || []).forEach((v: any) => {
-      const entry = voteCounts.get(v.proposal_id) || { yes: 0, no: 0 };
-      if (v.vote === "yes") entry.yes++;
-      else if (v.vote === "no") entry.no++;
-      voteCounts.set(v.proposal_id, entry);
+    const { data: voteCounts } = await supabase.rpc("get_proposal_vote_counts", {
+      proposal_ids: proposalIds,
     });
+
+    const voteMap = new Map(
+      (voteCounts || []).map((v: any) => [v.proposal_id, { yes: Number(v.yes_count), no: Number(v.no_count) }])
+    );
 
     setProposals(
       data.map((p) => ({
@@ -118,8 +113,8 @@ const DemocracyContent = ({ user }: { user: User }) => {
         type: p.type,
         status: p.status,
         author_name: nameMap.get(p.author_id) || "Member",
-        yes_count: voteCounts.get(p.id)?.yes || 0,
-        no_count: voteCounts.get(p.id)?.no || 0,
+        yes_count: voteMap.get(p.id)?.yes || 0,
+        no_count: voteMap.get(p.id)?.no || 0,
         created_at: p.created_at,
       }))
     );
