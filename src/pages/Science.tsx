@@ -173,7 +173,7 @@ const Science = () => {
                 health workers refer patients to non-clinical community activities — as a key intervention
                 for reducing pressure on mental health services. Social Factory is designed to be a
                 primary social prescribing destination in Limerick, with a dedicated concession
-                membership tier for referred participants at €60 per year.
+                membership tier for referred participants.
               </p>
             </div>
           </div>
