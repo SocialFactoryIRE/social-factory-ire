@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -50,7 +49,14 @@ function relativeTime(dateStr: string) {
   return `${days}d ago`;
 }
 
-/* ── Placeholder tab content ── */
+const TABS = [
+  { icon: Pin, label: "Noticeboard", value: "noticeboard" },
+  { icon: Scale, label: "Democracy", value: "democracy" },
+  { icon: Microscope, label: "Research", value: "research" },
+  { icon: FlaskConical, label: "Social Lab", value: "social-lab" },
+  { icon: Users, label: "Connects", value: "connects" },
+] as const;
+
 const PlaceholderTab = ({
   icon: Icon,
   title,
@@ -81,6 +87,7 @@ const PlaceholderTab = ({
 
 const LocalNoticeboardContent = ({ user }: { user: User }) => {
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("noticeboard");
   const [chapterId, setChapterId] = useState<string | null>(null);
   const [chapterName, setChapterName] = useState("");
   const [posts, setPosts] = useState<Post[]>([]);
@@ -92,83 +99,49 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
   const [category, setCategory] = useState<string>("general");
   const [submitting, setSubmitting] = useState(false);
 
-  const fetchPosts = useCallback(
-    async (cId: string) => {
-      const { data } = await supabase
-        .from("noticeboard_posts")
-        .select("*")
-        .eq("chapter_id", cId)
-        .order("is_pinned", { ascending: false })
-        .order("created_at", { ascending: false });
+  const fetchPosts = useCallback(async (cId: string) => {
+    const { data } = await supabase
+      .from("noticeboard_posts")
+      .select("*")
+      .eq("chapter_id", cId)
+      .order("is_pinned", { ascending: false })
+      .order("created_at", { ascending: false });
 
-      if (!data) {
-        setPosts([]);
-        return;
-      }
+    if (!data) { setPosts([]); return; }
 
-      const authorIds = [...new Set(data.map((p) => p.author_id))];
-      const { data: profiles } = await supabase.rpc("get_display_names", {
-        user_ids: authorIds,
-      });
+    const authorIds = [...new Set(data.map((p) => p.author_id))];
+    const { data: profiles } = await supabase.rpc("get_display_names", { user_ids: authorIds });
+    const nameMap = new Map((profiles || []).map((p) => [p.user_id, p.display_name || "Member"]));
 
-      const nameMap = new Map(
-        (profiles || []).map((p) => [p.user_id, p.display_name || "Member"])
-      );
-
-      setPosts(
-        data.map((p) => ({
-          id: p.id,
-          title: p.title,
-          body: p.body,
-          category: p.category,
-          is_pinned: p.is_pinned,
-          created_at: p.created_at,
-          author_id: p.author_id,
-          author_name: nameMap.get(p.author_id) || "Member",
-        }))
-      );
-    },
-    []
-  );
+    setPosts(
+      data.map((p) => ({
+        id: p.id, title: p.title, body: p.body, category: p.category,
+        is_pinned: p.is_pinned, created_at: p.created_at, author_id: p.author_id,
+        author_name: nameMap.get(p.author_id) || "Member",
+      }))
+    );
+  }, []);
 
   useEffect(() => {
     const init = async () => {
       const { data: profile } = await supabase
-        .from("profiles")
-        .select("membership_type")
-        .eq("user_id", user.id)
-        .single();
-
+        .from("profiles").select("membership_type").eq("user_id", user.id).single();
       if (!profile || profile.membership_type !== "local") {
-        navigate("/town-hall", { replace: true });
-        return;
+        navigate("/town-hall", { replace: true }); return;
       }
 
       const { data: membership } = await supabase
-        .from("chapter_members")
-        .select("chapter_id")
-        .eq("user_id", user.id)
-        .limit(1)
-        .single();
-
-      if (!membership) {
-        setNoChapter(true);
-        setLoading(false);
-        return;
-      }
+        .from("chapter_members").select("chapter_id").eq("user_id", user.id).limit(1).single();
+      if (!membership) { setNoChapter(true); setLoading(false); return; }
 
       const { data: chapter } = await supabase
-        .from("local_chapters")
-        .select("name")
-        .eq("id", membership.chapter_id)
-        .single();
+        .from("local_chapters").select("name").eq("id", membership.chapter_id).single();
 
       setChapterId(membership.chapter_id);
       setChapterName(chapter?.name || "Local");
       await fetchPosts(membership.chapter_id);
       setLoading(false);
     };
-
     init();
   }, [user, navigate, fetchPosts]);
 
@@ -176,17 +149,11 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
     if (!title.trim() || !chapterId) return;
     setSubmitting(true);
     await supabase.from("noticeboard_posts").insert({
-      author_id: user.id,
-      chapter_id: chapterId,
-      title: title.trim(),
-      body: body.trim() || null,
-      category,
+      author_id: user.id, chapter_id: chapterId,
+      title: title.trim(), body: body.trim() || null, category,
     });
-    setTitle("");
-    setBody("");
-    setCategory("general");
-    setShowForm(false);
-    setSubmitting(false);
+    setTitle(""); setBody(""); setCategory("general");
+    setShowForm(false); setSubmitting(false);
     fetchPosts(chapterId);
   };
 
@@ -223,47 +190,33 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
           ) : (
             <>
               <div className="mb-8">
-                <h1 className="text-3xl font-bold text-foreground">
-                  {chapterName}
-                </h1>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Your local community hub
-                </p>
+                <h1 className="text-3xl font-bold text-foreground">{chapterName}</h1>
+                <p className="text-sm text-muted-foreground mt-1">Your local community hub</p>
               </div>
 
-              {/* Navigation Cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
-                {[
-                  { icon: Pin, label: "Noticeboard", value: "noticeboard" },
-                  { icon: Scale, label: "Democracy", value: "democracy" },
-                  { icon: Microscope, label: "Research", value: "research" },
-                  { icon: FlaskConical, label: "Social Lab", value: "social-lab" },
-                  { icon: Users, label: "Connects", value: "connects" },
-                ].map(({ icon: Icon, label, value }) => (
+              {/* Tab cards – side by side */}
+              <div className="grid grid-cols-5 gap-3 mb-10">
+                {TABS.map(({ icon: Icon, label, value }) => (
                   <button
                     key={value}
                     onClick={() => setActiveTab(value)}
-                    className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-5 text-center transition-all focus:outline-none focus:ring-2 focus:ring-ring ${
+                    className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-4 text-center transition-all focus:outline-none focus:ring-2 focus:ring-ring ${
                       activeTab === value
                         ? "border-primary bg-primary/5 shadow-sm"
                         : "border-border bg-card hover:shadow-hover hover:border-primary/40"
                     }`}
                   >
                     <Icon className="h-6 w-6 text-primary" />
-                    <span className="text-sm font-semibold text-foreground">{label}</span>
+                    <span className="text-xs sm:text-sm font-semibold text-foreground">{label}</span>
                   </button>
                 ))}
               </div>
 
-              {/* Tab Content */}
+              {/* Active tab content */}
               {activeTab === "noticeboard" && (
                 <>
                   <div className="flex justify-end mb-4">
-                    <Button
-                      size="sm"
-                      onClick={() => setShowForm((v) => !v)}
-                      className="gap-1.5"
-                    >
+                    <Button size="sm" onClick={() => setShowForm((v) => !v)} className="gap-1.5">
                       {showForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                       {showForm ? "Cancel" : "New Post"}
                     </Button>
@@ -271,27 +224,14 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
 
                   {showForm && (
                     <div className="mb-6 rounded-2xl border-2 border-border bg-card p-6 space-y-4">
-                      <Input
-                        placeholder="Post title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                      />
-                      <Textarea
-                        placeholder="Write your post…"
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                        rows={4}
-                      />
+                      <Input placeholder="Post title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                      <Textarea placeholder="Write your post…" value={body} onChange={(e) => setBody(e.target.value)} rows={4} />
                       <div className="flex items-center gap-3">
                         <Select value={category} onValueChange={setCategory}>
-                          <SelectTrigger className="w-44">
-                            <SelectValue />
-                          </SelectTrigger>
+                          <SelectTrigger className="w-44"><SelectValue /></SelectTrigger>
                           <SelectContent>
                             {CATEGORIES.map((c) => (
-                              <SelectItem key={c} value={c} className="capitalize">
-                                {c}
-                              </SelectItem>
+                              <SelectItem key={c} value={c} className="capitalize">{c}</SelectItem>
                             ))}
                           </SelectContent>
                         </Select>
@@ -304,37 +244,24 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
 
                   {posts.length === 0 ? (
                     <div className="text-center py-16">
-                      <p className="text-muted-foreground">
-                        No local posts yet. Start the conversation!
-                      </p>
+                      <p className="text-muted-foreground">No local posts yet. Start the conversation!</p>
                     </div>
                   ) : (
                     <div className="space-y-4">
                       {posts.map((post) => (
-                        <div
-                          key={post.id}
-                          className="rounded-2xl border-2 border-border bg-card p-6 transition-shadow hover:shadow-sm"
-                        >
+                        <div key={post.id} className="rounded-2xl border-2 border-border bg-card p-6 transition-shadow hover:shadow-sm">
                           <div className="flex items-start justify-between gap-3 mb-2">
                             <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
                               {post.is_pinned && <Pin className="h-4 w-4 text-accent" />}
                               {post.title}
                             </h2>
-                            <Badge
-                              className={`shrink-0 capitalize ${categoryColors[post.category] || ""}`}
-                            >
+                            <Badge className={`shrink-0 capitalize ${categoryColors[post.category] || ""}`}>
                               {post.category}
                             </Badge>
                           </div>
-                          {post.body && (
-                            <p className="text-muted-foreground text-sm mb-3 line-clamp-3">
-                              {post.body}
-                            </p>
-                          )}
+                          {post.body && <p className="text-muted-foreground text-sm mb-3 line-clamp-3">{post.body}</p>}
                           <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                            <span className="font-medium text-foreground">
-                              {post.author_name}
-                            </span>
+                            <span className="font-medium text-foreground">{post.author_name}</span>
                             <span>·</span>
                             <span>{relativeTime(post.created_at)}</span>
                           </div>
@@ -346,188 +273,17 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
               )}
 
               {activeTab === "democracy" && (
-                <PlaceholderTab
-                  icon={Scale}
-                  title="Democracy"
-                  description="Proposals, votes, and community decisions"
-                  actionLabel="Go to Democracy"
-                  actionTo="/democracy"
-                />
+                <PlaceholderTab icon={Scale} title="Democracy" description="Proposals, votes, and community decisions" actionLabel="Go to Democracy" actionTo="/democracy" />
               )}
-
               {activeTab === "research" && (
-                <PlaceholderTab
-                  icon={Microscope}
-                  title="Research"
-                  description="Contribute to community wellbeing research"
-                  actionLabel="Go to Research"
-                  actionTo="/research"
-                />
+                <PlaceholderTab icon={Microscope} title="Research" description="Contribute to community wellbeing research" actionLabel="Go to Research" actionTo="/research" />
               )}
-
               {activeTab === "social-lab" && (
-                <PlaceholderTab
-                  icon={FlaskConical}
-                  title="Social Lab"
-                  description="Collaborate on local projects and experiments"
-                  actionLabel="Go to Social Lab"
-                  actionTo="/social-lab"
-                />
+                <PlaceholderTab icon={FlaskConical} title="Social Lab" description="Collaborate on local projects and experiments" actionLabel="Go to Social Lab" actionTo="/social-lab" />
               )}
-
               {activeTab === "connects" && (
-                <PlaceholderTab
-                  icon={Users}
-                  title="Suggested Connects"
-                  description="Discover members with shared interests near you"
-                  actionLabel="View Connects"
-                  actionTo="/suggested-connects"
-                />
+                <PlaceholderTab icon={Users} title="Suggested Connects" description="Discover members with shared interests near you" actionLabel="View Connects" actionTo="/suggested-connects" />
               )}
-                  </TabsTrigger>
-                  <TabsTrigger value="research" className="gap-1.5 text-xs sm:text-sm">
-                    <Microscope className="h-3.5 w-3.5 hidden sm:block" /> Research
-                  </TabsTrigger>
-                  <TabsTrigger value="social-lab" className="gap-1.5 text-xs sm:text-sm">
-                    <FlaskConical className="h-3.5 w-3.5 hidden sm:block" /> Social Lab
-                  </TabsTrigger>
-                  <TabsTrigger value="connects" className="gap-1.5 text-xs sm:text-sm">
-                    <Users className="h-3.5 w-3.5 hidden sm:block" /> Connects
-                  </TabsTrigger>
-                </TabsList>
-
-                {/* Noticeboard Tab */}
-                <TabsContent value="noticeboard">
-                  <div className="flex justify-end mb-4">
-                    <Button
-                      size="sm"
-                      onClick={() => setShowForm((v) => !v)}
-                      className="gap-1.5"
-                    >
-                      {showForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                      {showForm ? "Cancel" : "New Post"}
-                    </Button>
-                  </div>
-
-                  {showForm && (
-                    <div className="mb-6 rounded-2xl border-2 border-border bg-card p-6 space-y-4">
-                      <Input
-                        placeholder="Post title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                      />
-                      <Textarea
-                        placeholder="Write your post…"
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                        rows={4}
-                      />
-                      <div className="flex items-center gap-3">
-                        <Select value={category} onValueChange={setCategory}>
-                          <SelectTrigger className="w-44">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {CATEGORIES.map((c) => (
-                              <SelectItem key={c} value={c} className="capitalize">
-                                {c}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <Button onClick={handleSubmit} disabled={submitting || !title.trim()}>
-                          {submitting ? "Posting…" : "Post"}
-                        </Button>
-                      </div>
-                    </div>
-                  )}
-
-                  {posts.length === 0 ? (
-                    <div className="text-center py-16">
-                      <p className="text-muted-foreground">
-                        No local posts yet. Start the conversation!
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="space-y-4">
-                      {posts.map((post) => (
-                        <div
-                          key={post.id}
-                          className="rounded-2xl border-2 border-border bg-card p-6 transition-shadow hover:shadow-sm"
-                        >
-                          <div className="flex items-start justify-between gap-3 mb-2">
-                            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                              {post.is_pinned && <Pin className="h-4 w-4 text-accent" />}
-                              {post.title}
-                            </h2>
-                            <Badge
-                              className={`shrink-0 capitalize ${categoryColors[post.category] || ""}`}
-                            >
-                              {post.category}
-                            </Badge>
-                          </div>
-                          {post.body && (
-                            <p className="text-muted-foreground text-sm mb-3 line-clamp-3">
-                              {post.body}
-                            </p>
-                          )}
-                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                            <span className="font-medium text-foreground">
-                              {post.author_name}
-                            </span>
-                            <span>·</span>
-                            <span>{relativeTime(post.created_at)}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </TabsContent>
-
-                {/* Democracy Tab */}
-                <TabsContent value="democracy">
-                  <PlaceholderTab
-                    icon={Scale}
-                    title="Democracy"
-                    description="Proposals, votes, and community decisions"
-                    actionLabel="Go to Democracy"
-                    actionTo="/democracy"
-                  />
-                </TabsContent>
-
-                {/* Research Tab */}
-                <TabsContent value="research">
-                  <PlaceholderTab
-                    icon={Microscope}
-                    title="Research"
-                    description="Contribute to community wellbeing research"
-                    actionLabel="Go to Research"
-                    actionTo="/research"
-                  />
-                </TabsContent>
-
-                {/* Social Lab Tab */}
-                <TabsContent value="social-lab">
-                  <PlaceholderTab
-                    icon={FlaskConical}
-                    title="Social Lab"
-                    description="Collaborate on local projects and experiments"
-                    actionLabel="Go to Social Lab"
-                    actionTo="/social-lab"
-                  />
-                </TabsContent>
-
-                {/* Suggested Connects Tab */}
-                <TabsContent value="connects">
-                  <PlaceholderTab
-                    icon={Users}
-                    title="Suggested Connects"
-                    description="Discover members with shared interests near you"
-                    actionLabel="View Connects"
-                    actionTo="/suggested-connects"
-                  />
-                </TabsContent>
-              </Tabs>
             </>
           )}
         </div>
