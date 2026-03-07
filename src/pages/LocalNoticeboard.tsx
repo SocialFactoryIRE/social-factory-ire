@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -15,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, Pin, Plus, X, MapPin } from "lucide-react";
+import { ArrowLeft, Pin, Plus, X, MapPin, Scale, Microscope, FlaskConical, Users } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 interface Post {
@@ -49,6 +50,35 @@ function relativeTime(dateStr: string) {
   return `${days}d ago`;
 }
 
+/* ── Placeholder tab content ── */
+const PlaceholderTab = ({
+  icon: Icon,
+  title,
+  description,
+  actionLabel,
+  actionTo,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  actionLabel?: string;
+  actionTo?: string;
+}) => {
+  const navigate = useNavigate();
+  return (
+    <div className="text-center py-12">
+      <Icon className="h-12 w-12 mx-auto text-primary mb-4" />
+      <h2 className="text-xl font-bold text-foreground mb-2">{title}</h2>
+      <p className="text-muted-foreground mb-4">{description}</p>
+      {actionLabel && actionTo && (
+        <Button onClick={() => navigate(actionTo)} className="gap-1.5">
+          <Icon className="h-4 w-4" /> {actionLabel}
+        </Button>
+      )}
+    </div>
+  );
+};
+
 const LocalNoticeboardContent = ({ user }: { user: User }) => {
   const navigate = useNavigate();
   const [chapterId, setChapterId] = useState<string | null>(null);
@@ -77,8 +107,9 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
       }
 
       const authorIds = [...new Set(data.map((p) => p.author_id))];
-      const { data: profiles } = await supabase
-        .rpc("get_display_names", { user_ids: authorIds });
+      const { data: profiles } = await supabase.rpc("get_display_names", {
+        user_ids: authorIds,
+      });
 
       const nameMap = new Map(
         (profiles || []).map((p) => [p.user_id, p.display_name || "Member"])
@@ -102,7 +133,6 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
 
   useEffect(() => {
     const init = async () => {
-      // Check membership type
       const { data: profile } = await supabase
         .from("profiles")
         .select("membership_type")
@@ -114,7 +144,6 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
         return;
       }
 
-      // Get user's chapter
       const { data: membership } = await supabase
         .from("chapter_members")
         .select("chapter_id")
@@ -128,7 +157,6 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
         return;
       }
 
-      // Get chapter name
       const { data: chapter } = await supabase
         .from("local_chapters")
         .select("name")
@@ -194,98 +222,166 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
             </div>
           ) : (
             <>
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <h1 className="text-3xl font-bold text-foreground">
-                    {chapterName} Noticeboard
-                  </h1>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Posts from your local chapter
-                  </p>
-                </div>
-                <Button
-                  size="sm"
-                  onClick={() => setShowForm((v) => !v)}
-                  className="gap-1.5"
-                >
-                  {showForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                  {showForm ? "Cancel" : "New Post"}
-                </Button>
+              <div className="mb-8">
+                <h1 className="text-3xl font-bold text-foreground">
+                  {chapterName}
+                </h1>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Your local community hub
+                </p>
               </div>
 
-              {showForm && (
-                <div className="mb-8 rounded-2xl border-2 border-border bg-card p-6 space-y-4">
-                  <Input
-                    placeholder="Post title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                  <Textarea
-                    placeholder="Write your post…"
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    rows={4}
-                  />
-                  <div className="flex items-center gap-3">
-                    <Select value={category} onValueChange={setCategory}>
-                      <SelectTrigger className="w-44">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {CATEGORIES.map((c) => (
-                          <SelectItem key={c} value={c} className="capitalize">
-                            {c}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <Button onClick={handleSubmit} disabled={submitting || !title.trim()}>
-                      {submitting ? "Posting…" : "Post"}
+              <Tabs defaultValue="noticeboard" className="w-full">
+                <TabsList className="w-full grid grid-cols-5 mb-6">
+                  <TabsTrigger value="noticeboard" className="gap-1.5 text-xs sm:text-sm">
+                    <Pin className="h-3.5 w-3.5 hidden sm:block" /> Noticeboard
+                  </TabsTrigger>
+                  <TabsTrigger value="democracy" className="gap-1.5 text-xs sm:text-sm">
+                    <Scale className="h-3.5 w-3.5 hidden sm:block" /> Democracy
+                  </TabsTrigger>
+                  <TabsTrigger value="research" className="gap-1.5 text-xs sm:text-sm">
+                    <Microscope className="h-3.5 w-3.5 hidden sm:block" /> Research
+                  </TabsTrigger>
+                  <TabsTrigger value="social-lab" className="gap-1.5 text-xs sm:text-sm">
+                    <FlaskConical className="h-3.5 w-3.5 hidden sm:block" /> Social Lab
+                  </TabsTrigger>
+                  <TabsTrigger value="connects" className="gap-1.5 text-xs sm:text-sm">
+                    <Users className="h-3.5 w-3.5 hidden sm:block" /> Connects
+                  </TabsTrigger>
+                </TabsList>
+
+                {/* Noticeboard Tab */}
+                <TabsContent value="noticeboard">
+                  <div className="flex justify-end mb-4">
+                    <Button
+                      size="sm"
+                      onClick={() => setShowForm((v) => !v)}
+                      className="gap-1.5"
+                    >
+                      {showForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                      {showForm ? "Cancel" : "New Post"}
                     </Button>
                   </div>
-                </div>
-              )}
 
-              {posts.length === 0 ? (
-                <div className="text-center py-16">
-                  <p className="text-muted-foreground">
-                    No local posts yet. Start the conversation!
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {posts.map((post) => (
-                    <div
-                      key={post.id}
-                      className="rounded-2xl border-2 border-border bg-card p-6 transition-shadow hover:shadow-sm"
-                    >
-                      <div className="flex items-start justify-between gap-3 mb-2">
-                        <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                          {post.is_pinned && <Pin className="h-4 w-4 text-accent" />}
-                          {post.title}
-                        </h2>
-                        <Badge
-                          className={`shrink-0 capitalize ${categoryColors[post.category] || ""}`}
-                        >
-                          {post.category}
-                        </Badge>
-                      </div>
-                      {post.body && (
-                        <p className="text-muted-foreground text-sm mb-3 line-clamp-3">
-                          {post.body}
-                        </p>
-                      )}
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <span className="font-medium text-foreground">
-                          {post.author_name}
-                        </span>
-                        <span>·</span>
-                        <span>{relativeTime(post.created_at)}</span>
+                  {showForm && (
+                    <div className="mb-6 rounded-2xl border-2 border-border bg-card p-6 space-y-4">
+                      <Input
+                        placeholder="Post title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                      />
+                      <Textarea
+                        placeholder="Write your post…"
+                        value={body}
+                        onChange={(e) => setBody(e.target.value)}
+                        rows={4}
+                      />
+                      <div className="flex items-center gap-3">
+                        <Select value={category} onValueChange={setCategory}>
+                          <SelectTrigger className="w-44">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {CATEGORIES.map((c) => (
+                              <SelectItem key={c} value={c} className="capitalize">
+                                {c}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <Button onClick={handleSubmit} disabled={submitting || !title.trim()}>
+                          {submitting ? "Posting…" : "Post"}
+                        </Button>
                       </div>
                     </div>
-                  ))}
-                </div>
-              )}
+                  )}
+
+                  {posts.length === 0 ? (
+                    <div className="text-center py-16">
+                      <p className="text-muted-foreground">
+                        No local posts yet. Start the conversation!
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {posts.map((post) => (
+                        <div
+                          key={post.id}
+                          className="rounded-2xl border-2 border-border bg-card p-6 transition-shadow hover:shadow-sm"
+                        >
+                          <div className="flex items-start justify-between gap-3 mb-2">
+                            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                              {post.is_pinned && <Pin className="h-4 w-4 text-accent" />}
+                              {post.title}
+                            </h2>
+                            <Badge
+                              className={`shrink-0 capitalize ${categoryColors[post.category] || ""}`}
+                            >
+                              {post.category}
+                            </Badge>
+                          </div>
+                          {post.body && (
+                            <p className="text-muted-foreground text-sm mb-3 line-clamp-3">
+                              {post.body}
+                            </p>
+                          )}
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <span className="font-medium text-foreground">
+                              {post.author_name}
+                            </span>
+                            <span>·</span>
+                            <span>{relativeTime(post.created_at)}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </TabsContent>
+
+                {/* Democracy Tab */}
+                <TabsContent value="democracy">
+                  <PlaceholderTab
+                    icon={Scale}
+                    title="Democracy"
+                    description="Proposals, votes, and community decisions"
+                    actionLabel="Go to Democracy"
+                    actionTo="/democracy"
+                  />
+                </TabsContent>
+
+                {/* Research Tab */}
+                <TabsContent value="research">
+                  <PlaceholderTab
+                    icon={Microscope}
+                    title="Research"
+                    description="Contribute to community wellbeing research"
+                    actionLabel="Go to Research"
+                    actionTo="/research"
+                  />
+                </TabsContent>
+
+                {/* Social Lab Tab */}
+                <TabsContent value="social-lab">
+                  <PlaceholderTab
+                    icon={FlaskConical}
+                    title="Social Lab"
+                    description="Collaborate on local projects and experiments"
+                    actionLabel="Go to Social Lab"
+                    actionTo="/social-lab"
+                  />
+                </TabsContent>
+
+                {/* Suggested Connects Tab */}
+                <TabsContent value="connects">
+                  <PlaceholderTab
+                    icon={Users}
+                    title="Suggested Connects"
+                    description="Discover members with shared interests near you"
+                    actionLabel="View Connects"
+                    actionTo="/suggested-connects"
+                  />
+                </TabsContent>
+              </Tabs>
             </>
           )}
         </div>
