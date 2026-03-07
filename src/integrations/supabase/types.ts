@@ -405,23 +405,16 @@ export type Database = {
       }
     }
     Views: {
-      profile_display: {
-        Row: {
-          display_name: string | null
-          user_id: string | null
-        }
-        Insert: {
-          display_name?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          display_name?: string | null
-          user_id?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
+      get_display_names: {
+        Args: { user_ids: string[] }
+        Returns: {
+          display_name: string
+          user_id: string
+        }[]
+      }
       is_chapter_member: {
         Args: { _chapter_id: string; _user_id: string }
         Returns: boolean
