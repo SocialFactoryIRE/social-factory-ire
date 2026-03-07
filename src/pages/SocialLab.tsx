@@ -1,37 +1,11 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
-import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, FlaskConical, Compass, Eye } from "lucide-react";
-import type { User } from "@supabase/supabase-js";
+import { FlaskConical, ArrowLeft } from "lucide-react";
 
-const SocialLabContent = ({ user }: { user: User }) => {
+const SocialLabContent = () => {
   const navigate = useNavigate();
-  const [hasResult, setHasResult] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    supabase
-      .from("personality_results")
-      .select("id")
-      .eq("user_id", user.id)
-      .maybeSingle()
-      .then(({ data }) => {
-        setHasResult(!!data);
-        setLoading(false);
-      });
-  }, [user.id]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">Loading…</p>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen">
@@ -52,32 +26,15 @@ const SocialLabContent = ({ user }: { user: User }) => {
               Social Lab
             </h1>
             <p className="text-muted-foreground">
-              Discover your social personality and find your community
+              Collaborate on local projects and experiments
             </p>
           </div>
 
-          {hasResult ? (
-            <div className="bg-card rounded-2xl border-2 border-border p-8 text-center space-y-6">
-              <p className="text-muted-foreground">You've completed the OCEAN personality test</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button onClick={() => navigate("/social-lab/result")} className="gap-2">
-                  <Eye className="h-4 w-4" /> View My Result
-                </Button>
-                <Button variant="outline" onClick={() => navigate("/communities")} className="gap-2">
-                  <Compass className="h-4 w-4" /> Explore Communities
-                </Button>
-              </div>
-            </div>
-          ) : (
-            <div className="bg-card rounded-2xl border-2 border-border p-8 text-center space-y-6">
-              <p className="text-lg text-foreground font-medium">
-                Take a short personality test to discover your OCEAN profile and get matched to communities.
-              </p>
-              <Button size="lg" onClick={() => navigate("/social-lab/test")} className="gap-2">
-                <FlaskConical className="h-5 w-5" /> Take the Personality Test
-              </Button>
-            </div>
-          )}
+          <div className="bg-card rounded-2xl border-2 border-border p-8 text-center">
+            <p className="text-muted-foreground">
+              Coming soon — this space will host collaborative community projects.
+            </p>
+          </div>
         </div>
       </div>
       <Footer />
@@ -86,7 +43,7 @@ const SocialLabContent = ({ user }: { user: User }) => {
 };
 
 const SocialLab = () => (
-  <AuthGuard>{(user) => <SocialLabContent user={user} />}</AuthGuard>
+  <AuthGuard>{() => <SocialLabContent />}</AuthGuard>
 );
 
 export default SocialLab;
