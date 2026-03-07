@@ -9,23 +9,18 @@ import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
-const QUESTIONS = [
-  // DIM A – Energy (indices 0-2)
-  "I feel energised after spending time with groups of people",
-  "I prefer working through ideas by talking them out with others",
-  "I enjoy being the centre of attention at social gatherings",
-  // DIM B – Processing (indices 3-5)
-  "I prefer concrete facts over abstract theories",
-  "I trust hands-on experience more than imaginative possibilities",
-  "I focus on the present reality rather than future possibilities",
-  // DIM C – Deciding (indices 6-8)
-  "I prioritise harmony and people's feelings when making decisions",
-  "I believe empathy should guide choices more than logic",
-  "I find it important that everyone feels heard before deciding",
-  // DIM D – Rhythm (indices 9-11)
-  "I prefer having a clear plan before starting a project",
-  "I feel uncomfortable leaving tasks unfinished or open-ended",
-  "I like to have decisions made and settled rather than keeping options open",
+// Two questions per OCEAN dimension, scored 1-5
+const QUESTIONS: { dim: "O" | "C" | "E" | "A" | "N"; text: string }[] = [
+  { dim: "O", text: "I enjoy exploring new ideas and creative possibilities" },
+  { dim: "O", text: "I am curious about many different things" },
+  { dim: "C", text: "I am organised and like to keep things in order" },
+  { dim: "C", text: "I follow through on my commitments and plans" },
+  { dim: "E", text: "I feel energised after spending time with groups of people" },
+  { dim: "E", text: "I enjoy being the centre of attention at social gatherings" },
+  { dim: "A", text: "I prioritise harmony and people's feelings when making decisions" },
+  { dim: "A", text: "I find it easy to cooperate and compromise with others" },
+  { dim: "N", text: "I tend to worry about things that might go wrong" },
+  { dim: "N", text: "I often feel stressed or anxious in uncertain situations" },
 ];
 
 const SCALE_LABELS = [
@@ -36,41 +31,31 @@ const SCALE_LABELS = [
   "Strongly Agree",
 ];
 
-function computeType(answers: number[]) {
-  const avg = (start: number) =>
-    (answers[start] + answers[start + 1] + answers[start + 2]) / 3;
-
-  const dimA = avg(0);
-  const dimB = avg(3);
-  const dimC = avg(6);
-  const dimD = avg(9);
-
-  const a = dimA >= 3 ? "O" : "I";
-  const b = dimB >= 3 ? "C" : "A"; // high = Concrete, low = Abstract (reversed from original — wait, spec says high=A low=C)
-  // Re-reading spec: DIM B high=A low=C. But questions ask about preferring concrete facts.
-  // If user scores high on "prefer concrete" → high score. Spec says high=A? That seems inverted.
-  // Following spec literally: high=A, low=C
-  const bLetter = dimB >= 3 ? "A" : "C";
-  const c = dimC >= 3 ? "F" : "R";
-  const d = dimD >= 3 ? "S" : "X";
-
+function computeOcean(answers: number[]) {
+  const byDim: Record<string, number[]> = { O: [], C: [], E: [], A: [], N: [] };
+  QUESTIONS.forEach((q, i) => byDim[q.dim].push(answers[i]));
+  const avg = (arr: number[]) => {
+    const sum = arr.reduce((a, b) => a + b, 0);
+    return Math.round((sum / arr.length) * 100) / 100;
+  };
   return {
-    dimA: Math.round(dimA * 100) / 100,
-    dimB: Math.round(dimB * 100) / 100,
-    dimC: Math.round(dimC * 100) / 100,
-    dimD: Math.round(dimD * 100) / 100,
-    typeCode: `${a}${bLetter}${c}${d}`,
+    ocean_o: avg(byDim.O),
+    ocean_c: avg(byDim.C),
+    ocean_e: avg(byDim.E),
+    ocean_a: avg(byDim.A),
+    ocean_n: avg(byDim.N),
   };
 }
 
 const PersonalityTestContent = ({ user }: { user: User }) => {
   const navigate = useNavigate();
+  const total = QUESTIONS.length;
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState<number[]>(Array(12).fill(0));
+  const [answers, setAnswers] = useState<number[]>(Array(total).fill(0));
   const [submitting, setSubmitting] = useState(false);
 
   const answered = answers[current] > 0;
-  const progress = ((current + (answered ? 1 : 0)) / 12) * 100;
+  const progress = ((current + (answered ? 1 : 0)) / total) * 100;
 
   const selectAnswer = (value: number) => {
     const next = [...answers];
@@ -79,15 +64,13 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
   };
 
   const handleNext = async () => {
-    if (current < 11) {
+    if (current < total - 1) {
       setCurrent(current + 1);
       return;
     }
-    // Submit
     setSubmitting(true);
-    const result = computeType(answers);
+    const scores = computeOcean(answers);
 
-    // Upsert
     const { data: existing } = await supabase
       .from("personality_results")
       .select("id")
@@ -97,22 +80,12 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
     if (existing) {
       await supabase
         .from("personality_results")
-        .update({
-          dim_a: Math.round(result.dimA),
-          dim_b: Math.round(result.dimB),
-          dim_c: Math.round(result.dimC),
-          dim_d: Math.round(result.dimD),
-          type_code: result.typeCode,
-        })
+        .update(scores)
         .eq("user_id", user.id);
     } else {
       await supabase.from("personality_results").insert({
         user_id: user.id,
-        dim_a: Math.round(result.dimA),
-        dim_b: Math.round(result.dimB),
-        dim_c: Math.round(result.dimC),
-        dim_d: Math.round(result.dimD),
-        type_code: result.typeCode,
+        ...scores,
       });
     }
 
@@ -133,7 +106,7 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
 
           <div className="mb-6">
             <div className="flex justify-between text-sm text-muted-foreground mb-2">
-              <span>Question {current + 1} of 12</span>
+              <span>Question {current + 1} of {total}</span>
               <span>{Math.round(progress)}%</span>
             </div>
             <Progress value={progress} className="h-2" />
@@ -141,7 +114,7 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
 
           <div className="bg-card rounded-2xl border-2 border-border p-8 space-y-8">
             <p className="text-lg font-medium text-foreground leading-relaxed">
-              {QUESTIONS[current]}
+              {QUESTIONS[current].text}
             </p>
 
             <div className="space-y-3">
@@ -178,12 +151,12 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
                 onClick={handleNext}
                 className="gap-1.5"
               >
-                {current === 11
+                {current === total - 1
                   ? submitting
                     ? "Saving…"
                     : "See Results"
                   : "Next"}
-                {current < 11 && <ArrowRight className="h-4 w-4" />}
+                {current < total - 1 && <ArrowRight className="h-4 w-4" />}
               </Button>
             </div>
           </div>
