@@ -231,13 +231,159 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
                 </p>
               </div>
 
-              <Tabs defaultValue="noticeboard" className="w-full">
-                <TabsList className="w-full grid grid-cols-5 mb-6">
-                  <TabsTrigger value="noticeboard" className="gap-1.5 text-xs sm:text-sm">
-                    <Pin className="h-3.5 w-3.5 hidden sm:block" /> Noticeboard
-                  </TabsTrigger>
-                  <TabsTrigger value="democracy" className="gap-1.5 text-xs sm:text-sm">
-                    <Scale className="h-3.5 w-3.5 hidden sm:block" /> Democracy
+              {/* Navigation Cards */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
+                {[
+                  { icon: Pin, label: "Noticeboard", value: "noticeboard" },
+                  { icon: Scale, label: "Democracy", value: "democracy" },
+                  { icon: Microscope, label: "Research", value: "research" },
+                  { icon: FlaskConical, label: "Social Lab", value: "social-lab" },
+                  { icon: Users, label: "Connects", value: "connects" },
+                ].map(({ icon: Icon, label, value }) => (
+                  <button
+                    key={value}
+                    onClick={() => setActiveTab(value)}
+                    className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-5 text-center transition-all focus:outline-none focus:ring-2 focus:ring-ring ${
+                      activeTab === value
+                        ? "border-primary bg-primary/5 shadow-sm"
+                        : "border-border bg-card hover:shadow-hover hover:border-primary/40"
+                    }`}
+                  >
+                    <Icon className="h-6 w-6 text-primary" />
+                    <span className="text-sm font-semibold text-foreground">{label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab Content */}
+              {activeTab === "noticeboard" && (
+                <>
+                  <div className="flex justify-end mb-4">
+                    <Button
+                      size="sm"
+                      onClick={() => setShowForm((v) => !v)}
+                      className="gap-1.5"
+                    >
+                      {showForm ? <X className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                      {showForm ? "Cancel" : "New Post"}
+                    </Button>
+                  </div>
+
+                  {showForm && (
+                    <div className="mb-6 rounded-2xl border-2 border-border bg-card p-6 space-y-4">
+                      <Input
+                        placeholder="Post title"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                      />
+                      <Textarea
+                        placeholder="Write your post…"
+                        value={body}
+                        onChange={(e) => setBody(e.target.value)}
+                        rows={4}
+                      />
+                      <div className="flex items-center gap-3">
+                        <Select value={category} onValueChange={setCategory}>
+                          <SelectTrigger className="w-44">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {CATEGORIES.map((c) => (
+                              <SelectItem key={c} value={c} className="capitalize">
+                                {c}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                        <Button onClick={handleSubmit} disabled={submitting || !title.trim()}>
+                          {submitting ? "Posting…" : "Post"}
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {posts.length === 0 ? (
+                    <div className="text-center py-16">
+                      <p className="text-muted-foreground">
+                        No local posts yet. Start the conversation!
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {posts.map((post) => (
+                        <div
+                          key={post.id}
+                          className="rounded-2xl border-2 border-border bg-card p-6 transition-shadow hover:shadow-sm"
+                        >
+                          <div className="flex items-start justify-between gap-3 mb-2">
+                            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                              {post.is_pinned && <Pin className="h-4 w-4 text-accent" />}
+                              {post.title}
+                            </h2>
+                            <Badge
+                              className={`shrink-0 capitalize ${categoryColors[post.category] || ""}`}
+                            >
+                              {post.category}
+                            </Badge>
+                          </div>
+                          {post.body && (
+                            <p className="text-muted-foreground text-sm mb-3 line-clamp-3">
+                              {post.body}
+                            </p>
+                          )}
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <span className="font-medium text-foreground">
+                              {post.author_name}
+                            </span>
+                            <span>·</span>
+                            <span>{relativeTime(post.created_at)}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+
+              {activeTab === "democracy" && (
+                <PlaceholderTab
+                  icon={Scale}
+                  title="Democracy"
+                  description="Proposals, votes, and community decisions"
+                  actionLabel="Go to Democracy"
+                  actionTo="/democracy"
+                />
+              )}
+
+              {activeTab === "research" && (
+                <PlaceholderTab
+                  icon={Microscope}
+                  title="Research"
+                  description="Contribute to community wellbeing research"
+                  actionLabel="Go to Research"
+                  actionTo="/research"
+                />
+              )}
+
+              {activeTab === "social-lab" && (
+                <PlaceholderTab
+                  icon={FlaskConical}
+                  title="Social Lab"
+                  description="Collaborate on local projects and experiments"
+                  actionLabel="Go to Social Lab"
+                  actionTo="/social-lab"
+                />
+              )}
+
+              {activeTab === "connects" && (
+                <PlaceholderTab
+                  icon={Users}
+                  title="Suggested Connects"
+                  description="Discover members with shared interests near you"
+                  actionLabel="View Connects"
+                  actionTo="/suggested-connects"
+                />
+              )}
                   </TabsTrigger>
                   <TabsTrigger value="research" className="gap-1.5 text-xs sm:text-sm">
                     <Microscope className="h-3.5 w-3.5 hidden sm:block" /> Research
