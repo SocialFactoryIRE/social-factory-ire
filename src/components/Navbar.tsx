@@ -15,6 +15,7 @@ const Navbar = () => {
     { name: "Science & Research", path: "/science" },
     { name: "Governance", path: "/governance" },
     { name: "Join", path: "/join" },
+    { name: "Log In", path: "/login" },
     { name: "Contact", path: "/contact" },
   ];
 

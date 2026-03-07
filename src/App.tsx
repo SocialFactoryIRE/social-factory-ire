@@ -9,6 +9,10 @@ import About from "./pages/About";
 import Programming from "./pages/Programming";
 import Science from "./pages/Science";
 import Join from "./pages/Join";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Onboarding from "./pages/Onboarding";
+import TownHall from "./pages/TownHall";
 import Contact from "./pages/Contact";
 import Governance from "./pages/Governance";
 import NotFound from "./pages/NotFound";
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/programming" element={<Programming />} />
           <Route path="/science" element={<Science />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/town-hall" element={<TownHall />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/governance" element={<Governance />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
