@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.76.1";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -19,12 +20,55 @@ Key facts you should know:
 
 Be warm, concise, and encouraging. If someone asks something outside your knowledge, suggest they use the Contact page. Keep answers under 150 words unless more detail is requested.`;
 
+async function checkRateLimit(supabase: any, ipAddress: string, endpoint: string): Promise<boolean> {
+  const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+
+  const { count, error } = await supabase
+    .from("rate_limit_tracking")
+    .select("*", { count: "exact", head: true })
+    .eq("ip_address", ipAddress)
+    .eq("endpoint", endpoint)
+    .gte("created_at", oneHourAgo);
+
+  if (error) {
+    console.error("Rate limit check error:", error);
+    return true;
+  }
+
+  if (count !== null && count >= 20) {
+    return false;
+  }
+
+  await supabase
+    .from("rate_limit_tracking")
+    .insert({ ip_address: ipAddress, endpoint });
+
+  return true;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
+    );
+
+    const ipAddress = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+                      req.headers.get("x-real-ip") ||
+                      "unknown";
+
+    const isAllowed = await checkRateLimit(supabase, ipAddress, "chat");
+    if (!isAllowed) {
+      return new Response(
+        JSON.stringify({ error: "Rate limit exceeded. Please try again later." }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     const { messages } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
