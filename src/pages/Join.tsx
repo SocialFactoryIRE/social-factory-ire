@@ -116,9 +116,8 @@ const Join = () => {
             <div className="bg-gradient-hero rounded-3xl p-8 mb-10 text-center">
               <h2 className="text-2xl font-bold text-foreground mb-4">Become a Member</h2>
               <p className="text-foreground/80 leading-relaxed">
-                When we open, membership will give you access to all four domains — Social, Work, Health, and Market —
-                with a concession tier for those on low incomes or referred through social prescribing.
-                No one locked out. No one left behind.
+                When we open, the base membership will give you access to the Social domain — with Work &amp; Health add-ons being reduced as a package. There are concession tier prices for those on low incomes or referred through social prescribing. No one locked out. No one left behind.
+                The Market is open to all throughout the day to come hang out and spend time in.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
                 <Link to="/register?type=online">
