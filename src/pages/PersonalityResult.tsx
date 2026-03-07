@@ -7,15 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, RefreshCw, Users, Check } from "lucide-react";
+import { ArrowLeft, RefreshCw, Users, Check, UserCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
-const OCEAN_INFO: { key: string; label: string; description: string }[] = [
-  { key: "ocean_o", label: "Openness", description: "Curiosity, creativity, and willingness to explore new ideas" },
-  { key: "ocean_c", label: "Conscientiousness", description: "Organisation, dependability, and self-discipline" },
-  { key: "ocean_e", label: "Extraversion", description: "Energy from social interaction and group activities" },
-  { key: "ocean_a", label: "Agreeableness", description: "Cooperation, empathy, and concern for others" },
-  { key: "ocean_n", label: "Neuroticism", description: "Tendency to experience stress and emotional sensitivity" },
+const OCEAN_INFO = [
+  { key: "ocean_o", label: "Openness", desc: "Your curiosity, creativity, and willingness to explore new ideas and experiences." },
+  { key: "ocean_c", label: "Conscientiousness", desc: "Your organisation, dependability, and tendency to plan ahead." },
+  { key: "ocean_e", label: "Extraversion", desc: "Your energy from social interaction, assertiveness, and enthusiasm." },
+  { key: "ocean_a", label: "Agreeableness", desc: "Your cooperation, empathy, and concern for others' wellbeing." },
+  { key: "ocean_n", label: "Neuroticism", desc: "Your tendency to experience stress, worry, and emotional sensitivity." },
 ];
 
 interface OceanScores {
@@ -35,18 +35,14 @@ interface Community {
 
 function getOceanTags(scores: OceanScores): string[] {
   const tags: string[] = [];
-  const thresh = 3.5;
-  const lowThresh = 2.5;
-  if ((scores.ocean_o ?? 0) >= thresh) tags.push("high_o");
-  if ((scores.ocean_c ?? 0) >= thresh) tags.push("high_c");
-  if ((scores.ocean_e ?? 0) >= thresh) tags.push("high_e");
-  if ((scores.ocean_a ?? 0) >= thresh) tags.push("high_a");
-  if ((scores.ocean_n ?? 0) >= thresh) tags.push("high_n");
-  if ((scores.ocean_o ?? 5) <= lowThresh) tags.push("low_o");
-  if ((scores.ocean_c ?? 5) <= lowThresh) tags.push("low_c");
-  if ((scores.ocean_e ?? 5) <= lowThresh) tags.push("low_e");
-  if ((scores.ocean_a ?? 5) <= lowThresh) tags.push("low_a");
-  if ((scores.ocean_n ?? 5) <= lowThresh) tags.push("low_n");
+  const entries: [string, string][] = [
+    ["ocean_o", "o"], ["ocean_c", "c"], ["ocean_e", "e"], ["ocean_a", "a"], ["ocean_n", "n"],
+  ];
+  for (const [key, letter] of entries) {
+    const val = Number((scores as any)[key]) || 0;
+    if (val >= 3.5) tags.push(`high_${letter}`);
+    if (val < 2.5) tags.push(`low_${letter}`);
+  }
   return tags;
 }
 
@@ -69,9 +65,8 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
       return;
     }
 
-    setScores(result);
-
-    const userTags = getOceanTags(result);
+    setScores(result as OceanScores);
+    const userTags = getOceanTags(result as OceanScores);
 
     const { data: allCommunities } = await supabase.from("communities").select("*");
     const matched = (allCommunities || []).filter((c: any) =>
@@ -134,23 +129,23 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
           </button>
 
           <div className="text-center mb-10">
-            <p className="text-sm text-muted-foreground mb-3">Your OCEAN Profile</p>
+            <p className="text-sm text-muted-foreground mb-3">Your Big Five Profile</p>
             <h1 className="text-3xl font-bold text-foreground">Personality Results</h1>
           </div>
 
           {/* OCEAN bars */}
-          <div className="space-y-5 mb-10">
+          <div className="space-y-6 mb-10">
             {OCEAN_INFO.map((dim) => {
               const val = scores ? Number((scores as any)[dim.key]) || 0 : 0;
               const pct = (val / 5) * 100;
               return (
-                <div key={dim.key}>
+                <div key={dim.key} className="rounded-xl border border-border bg-card p-4">
                   <div className="flex justify-between items-baseline mb-1.5">
                     <span className="text-sm font-semibold text-foreground">{dim.label}</span>
                     <span className="text-sm font-mono text-muted-foreground">{val.toFixed(2)}</span>
                   </div>
-                  <Progress value={pct} className="h-3" />
-                  <p className="text-xs text-muted-foreground mt-1">{dim.description}</p>
+                  <Progress value={pct} className="h-3 mb-2" />
+                  <p className="text-xs text-muted-foreground">{dim.desc}</p>
                 </div>
               );
             })}
@@ -195,7 +190,11 @@ const PersonalityResultContent = ({ user }: { user: User }) => {
             )}
           </div>
 
-          <div className="text-center">
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button onClick={() => navigate("/profile")} className="gap-2">
+              <UserCircle className="h-4 w-4" /> View My Profile
+            </Button>
             <Button
               variant="ghost"
               onClick={() => navigate("/social-lab/test")}

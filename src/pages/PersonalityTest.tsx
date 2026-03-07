@@ -9,53 +9,95 @@ import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
-// Two questions per OCEAN dimension, scored 1-5
-const QUESTIONS: { dim: "O" | "C" | "E" | "A" | "N"; text: string }[] = [
-  { dim: "O", text: "I enjoy exploring new ideas and creative possibilities" },
-  { dim: "O", text: "I am curious about many different things" },
-  { dim: "C", text: "I am organised and like to keep things in order" },
-  { dim: "C", text: "I follow through on my commitments and plans" },
-  { dim: "E", text: "I feel energised after spending time with groups of people" },
-  { dim: "E", text: "I enjoy being the centre of attention at social gatherings" },
-  { dim: "A", text: "I prioritise harmony and people's feelings when making decisions" },
-  { dim: "A", text: "I find it easy to cooperate and compromise with others" },
-  { dim: "N", text: "I tend to worry about things that might go wrong" },
-  { dim: "N", text: "I often feel stressed or anxious in uncertain situations" },
+interface BfiItem {
+  text: string;
+  reverse: boolean;
+}
+
+const ITEMS: BfiItem[] = [
+  { text: "Is talkative", reverse: false },
+  { text: "Tends to find fault with others", reverse: true },
+  { text: "Does a thorough job", reverse: false },
+  { text: "Is depressed, blue", reverse: true },
+  { text: "Is original, comes up with new ideas", reverse: false },
+  { text: "Is reserved", reverse: true },
+  { text: "Is helpful and unselfish with others", reverse: false },
+  { text: "Can be somewhat careless", reverse: true },
+  { text: "Is relaxed, handles stress well", reverse: true },
+  { text: "Is curious about many different things", reverse: false },
+  { text: "Is full of energy", reverse: false },
+  { text: "Starts quarrels with others", reverse: true },
+  { text: "Is a reliable worker", reverse: false },
+  { text: "Can be tense", reverse: true },
+  { text: "Is ingenious, a deep thinker", reverse: false },
+  { text: "Generates a lot of enthusiasm", reverse: false },
+  { text: "Has a forgiving nature", reverse: false },
+  { text: "Tends to be disorganized", reverse: true },
+  { text: "Worries a lot", reverse: true },
+  { text: "Has an active imagination", reverse: false },
+  { text: "Tends to be quiet", reverse: true },
+  { text: "Is generally trusting", reverse: false },
+  { text: "Tends to be lazy", reverse: true },
+  { text: "Is emotionally stable, not easily upset", reverse: true },
+  { text: "Is inventive", reverse: false },
+  { text: "Has an assertive personality", reverse: false },
+  { text: "Can be cold and aloof", reverse: true },
+  { text: "Perseveres until the task is finished", reverse: false },
+  { text: "Can be moody", reverse: true },
+  { text: "Values artistic, aesthetic experiences", reverse: false },
+  { text: "Is sometimes shy, inhibited", reverse: true },
+  { text: "Is considerate and kind to almost everyone", reverse: false },
+  { text: "Does things efficiently", reverse: false },
+  { text: "Remains calm in tense situations", reverse: true },
+  { text: "Prefers work that is routine", reverse: true },
+  { text: "Is outgoing, sociable", reverse: false },
+  { text: "Is sometimes rude to others", reverse: true },
+  { text: "Makes plans and follows through with them", reverse: false },
+  { text: "Gets nervous easily", reverse: true },
+  { text: "Likes to reflect, play with ideas", reverse: false },
+  { text: "Has few artistic interests", reverse: true },
+  { text: "Likes to cooperate with others", reverse: false },
+  { text: "Is easily distracted", reverse: true },
+  { text: "Is sophisticated in art, music, or literature", reverse: false },
 ];
+
+// 1-indexed item numbers for each dimension
+const DIM_ITEMS: Record<string, number[]> = {
+  E: [1, 6, 11, 16, 21, 26, 31, 36],
+  A: [2, 7, 12, 17, 22, 27, 32, 37, 42],
+  C: [3, 8, 13, 18, 23, 28, 33, 38, 43],
+  N: [4, 9, 14, 19, 24, 29, 34, 39],
+  O: [5, 10, 15, 20, 25, 30, 35, 40, 41, 44],
+};
 
 const SCALE_LABELS = [
-  "Strongly Disagree",
-  "Disagree",
+  "Disagree strongly",
+  "Disagree a little",
   "Neutral",
-  "Agree",
-  "Strongly Agree",
+  "Agree a little",
+  "Agree strongly",
 ];
 
-function computeOcean(answers: number[]) {
-  const byDim: Record<string, number[]> = { O: [], C: [], E: [], A: [], N: [] };
-  QUESTIONS.forEach((q, i) => byDim[q.dim].push(answers[i]));
-  const avg = (arr: number[]) => {
-    const sum = arr.reduce((a, b) => a + b, 0);
-    return Math.round((sum / arr.length) * 100) / 100;
-  };
-  return {
-    ocean_o: avg(byDim.O),
-    ocean_c: avg(byDim.C),
-    ocean_e: avg(byDim.E),
-    ocean_a: avg(byDim.A),
-    ocean_n: avg(byDim.N),
-  };
+function score(answers: number[]): Record<string, number> {
+  const scored = answers.map((raw, i) => (ITEMS[i].reverse ? 6 - raw : raw));
+  const result: Record<string, number> = {};
+  for (const [dim, items] of Object.entries(DIM_ITEMS)) {
+    const vals = items.map((n) => scored[n - 1]);
+    result[dim] = Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 100) / 100;
+  }
+  return result;
 }
+
+const TOTAL = ITEMS.length;
 
 const PersonalityTestContent = ({ user }: { user: User }) => {
   const navigate = useNavigate();
-  const total = QUESTIONS.length;
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState<number[]>(Array(total).fill(0));
+  const [answers, setAnswers] = useState<number[]>(Array(TOTAL).fill(0));
   const [submitting, setSubmitting] = useState(false);
 
   const answered = answers[current] > 0;
-  const progress = ((current + (answered ? 1 : 0)) / total) * 100;
+  const progress = ((current + (answered ? 1 : 0)) / TOTAL) * 100;
 
   const selectAnswer = (value: number) => {
     const next = [...answers];
@@ -64,30 +106,24 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
   };
 
   const handleNext = async () => {
-    if (current < total - 1) {
+    if (current < TOTAL - 1) {
       setCurrent(current + 1);
       return;
     }
     setSubmitting(true);
-    const scores = computeOcean(answers);
+    const s = score(answers);
 
-    const { data: existing } = await supabase
-      .from("personality_results")
-      .select("id")
-      .eq("user_id", user.id)
-      .maybeSingle();
-
-    if (existing) {
-      await supabase
-        .from("personality_results")
-        .update(scores)
-        .eq("user_id", user.id);
-    } else {
-      await supabase.from("personality_results").insert({
+    await supabase.from("personality_results").upsert(
+      {
         user_id: user.id,
-        ...scores,
-      });
-    }
+        ocean_o: s.O,
+        ocean_c: s.C,
+        ocean_e: s.E,
+        ocean_a: s.A,
+        ocean_n: s.N,
+      },
+      { onConflict: "user_id" }
+    );
 
     navigate("/social-lab/result", { replace: true });
   };
@@ -106,16 +142,21 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
 
           <div className="mb-6">
             <div className="flex justify-between text-sm text-muted-foreground mb-2">
-              <span>Question {current + 1} of {total}</span>
+              <span>
+                Question {current + 1} of {TOTAL}
+              </span>
               <span>{Math.round(progress)}%</span>
             </div>
             <Progress value={progress} className="h-2" />
           </div>
 
           <div className="bg-card rounded-2xl border-2 border-border p-8 space-y-8">
-            <p className="text-lg font-medium text-foreground leading-relaxed">
-              {QUESTIONS[current].text}
-            </p>
+            <div>
+              <p className="text-sm text-muted-foreground mb-2">I see myself as someone who...</p>
+              <p className="text-lg font-medium text-foreground leading-relaxed">
+                {ITEMS[current].text}
+              </p>
+            </div>
 
             <div className="space-y-3">
               {SCALE_LABELS.map((label, i) => {
@@ -151,12 +192,12 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
                 onClick={handleNext}
                 className="gap-1.5"
               >
-                {current === total - 1
+                {current === TOTAL - 1
                   ? submitting
                     ? "Saving…"
                     : "See Results"
                   : "Next"}
-                {current < total - 1 && <ArrowRight className="h-4 w-4" />}
+                {current < TOTAL - 1 && <ArrowRight className="h-4 w-4" />}
               </Button>
             </div>
           </div>
