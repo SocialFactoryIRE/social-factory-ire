@@ -14,6 +14,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      chapter_members: {
+        Row: {
+          chapter_id: string
+          id: string
+          joined_at: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          chapter_id: string
+          id?: string
+          joined_at?: string
+          role?: string
+          user_id: string
+        }
+        Update: {
+          chapter_id?: string
+          id?: string
+          joined_at?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chapter_members_chapter_id_fkey"
+            columns: ["chapter_id"]
+            isOneToOne: false
+            referencedRelation: "local_chapters"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contacts: {
         Row: {
           created_at: string
@@ -65,6 +97,41 @@ export type Database = {
         }
         Relationships: []
       }
+      local_chapters: {
+        Row: {
+          county: string
+          id: string
+          is_active: boolean
+          name: string
+          town: string | null
+          town_hall_id: string | null
+        }
+        Insert: {
+          county: string
+          id?: string
+          is_active?: boolean
+          name: string
+          town?: string | null
+          town_hall_id?: string | null
+        }
+        Update: {
+          county?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          town?: string | null
+          town_hall_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "local_chapters_town_hall_id_fkey"
+            columns: ["town_hall_id"]
+            isOneToOne: false
+            referencedRelation: "town_halls"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       member_tags: {
         Row: {
           category: string
@@ -106,6 +173,47 @@ export type Database = {
           id?: string
         }
         Relationships: []
+      }
+      noticeboard_posts: {
+        Row: {
+          author_id: string
+          body: string | null
+          category: string
+          chapter_id: string | null
+          created_at: string
+          id: string
+          is_pinned: boolean
+          title: string
+        }
+        Insert: {
+          author_id: string
+          body?: string | null
+          category?: string
+          chapter_id?: string | null
+          created_at?: string
+          id?: string
+          is_pinned?: boolean
+          title: string
+        }
+        Update: {
+          author_id?: string
+          body?: string | null
+          category?: string
+          chapter_id?: string | null
+          created_at?: string
+          id?: string
+          is_pinned?: boolean
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "noticeboard_posts_chapter_id_fkey"
+            columns: ["chapter_id"]
+            isOneToOne: false
+            referencedRelation: "local_chapters"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
@@ -170,12 +278,48 @@ export type Database = {
         }
         Relationships: []
       }
+      town_halls: {
+        Row: {
+          country: string
+          county: string | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean
+          name: string
+          region: string | null
+        }
+        Insert: {
+          country?: string
+          county?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          region?: string | null
+        }
+        Update: {
+          country?: string
+          county?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          region?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_chapter_member: {
+        Args: { _chapter_id: string; _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
