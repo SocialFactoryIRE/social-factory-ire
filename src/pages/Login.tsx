@@ -84,6 +84,12 @@ const Login = () => {
                   <Input id="password" name="password" type="password" value={form.password} onChange={handleChange} placeholder="Your password" required className="text-base p-5" />
                 </div>
 
+                <div className="text-right">
+                  <Link to="/forgot-password" className="text-sm text-primary font-semibold hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
+
                 <Button type="submit" size="lg" className="w-full text-base py-5 bg-gradient-hero hover:opacity-90 font-bold" disabled={isSubmitting}>
                   {isSubmitting ? "Logging in..." : "Log In"}
                 </Button>
