@@ -107,22 +107,22 @@ const Index = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <Link to="/science" className="block">
-                <div className="p-8 rounded-3xl bg-coral border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer">
+              <Link to="/science" className="block h-full">
+                <div className="p-8 rounded-3xl bg-coral border-2 border-coral backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
                   <div className="text-4xl font-extrabold text-cream mb-2">1 in 5</div>
                   <p className="text-sm text-cream/90 font-medium">Irish adults report loneliness</p>
                   <p className="text-xs text-cream/70 mt-1">Healthy Ireland Survey 2025</p>
                 </div>
               </Link>
-              <Link to="/science" className="block">
-                <div className="p-8 rounded-3xl bg-sky border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer">
-                  <div className="text-4xl font-extrabold text-charcoal mb-2 whitespace-nowrap">Only 53%</div>
+              <Link to="/science" className="block h-full">
+                <div className="p-8 rounded-3xl bg-sky border-2 border-sky backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
+                  <div className="text-4xl font-extrabold text-charcoal mb-2">Only 53%</div>
                   <p className="text-sm text-charcoal/80 font-medium">of adults meet activity guidelines</p>
                   <p className="text-xs text-charcoal/60 mt-1">Healthy Ireland Survey 2025</p>
                 </div>
               </Link>
-              <Link to="/science" className="block">
-                <div className="p-8 rounded-3xl bg-mint border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer">
+              <Link to="/science" className="block h-full">
+                <div className="p-8 rounded-3xl bg-mint border-2 border-mint backdrop-blur-sm transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
                   <div className="text-4xl font-extrabold text-cream mb-2">30%</div>
                   <p className="text-sm text-cream/90 font-medium">of young people below WHO wellbeing threshold</p>
                   <p className="text-xs text-cream/70 mt-1">Planet Youth West Ireland 2024</p>
