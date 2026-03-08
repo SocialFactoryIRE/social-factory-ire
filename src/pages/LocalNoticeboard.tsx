@@ -177,43 +177,39 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
             <ArrowLeft className="h-4 w-4" /> Back to Town Hall
           </button>
 
-          {noChapter ? (
-            <div className="text-center py-20">
-              <MapPin className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-              <h1 className="text-2xl font-bold text-foreground mb-2">
-                Your local chapter is being set up
-              </h1>
-              <p className="text-muted-foreground">
-                We're working on getting your area connected. Check back soon!
-              </p>
-            </div>
-          ) : (
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-foreground">{noChapter ? "Local Hub" : chapterName}</h1>
+            <p className="text-sm text-muted-foreground mt-1">Your local community hub</p>
+          </div>
+
+          {/* Tab cards – side by side */}
+          <div className="grid grid-cols-5 gap-3 mb-10">
+            {TABS.map(({ icon: Icon, label, value }) => (
+              <button
+                key={value}
+                onClick={() => setActiveTab(value)}
+                className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-4 text-center transition-all focus:outline-none focus:ring-2 focus:ring-ring ${
+                  activeTab === value
+                    ? "border-primary bg-primary/5 shadow-sm"
+                    : "border-border bg-card hover:shadow-hover hover:border-primary/40"
+                }`}
+              >
+                <Icon className="h-6 w-6 text-primary" />
+                <span className="text-xs sm:text-sm font-semibold text-foreground">{label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Active tab content */}
+          {activeTab === "noticeboard" && (
             <>
-              <div className="mb-8">
-                <h1 className="text-3xl font-bold text-foreground">{chapterName}</h1>
-                <p className="text-sm text-muted-foreground mt-1">Your local community hub</p>
-              </div>
-
-              {/* Tab cards – side by side */}
-              <div className="grid grid-cols-5 gap-3 mb-10">
-                {TABS.map(({ icon: Icon, label, value }) => (
-                  <button
-                    key={value}
-                    onClick={() => setActiveTab(value)}
-                    className={`flex flex-col items-center gap-2 rounded-2xl border-2 p-4 text-center transition-all focus:outline-none focus:ring-2 focus:ring-ring ${
-                      activeTab === value
-                        ? "border-primary bg-primary/5 shadow-sm"
-                        : "border-border bg-card hover:shadow-hover hover:border-primary/40"
-                    }`}
-                  >
-                    <Icon className="h-6 w-6 text-primary" />
-                    <span className="text-xs sm:text-sm font-semibold text-foreground">{label}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Active tab content */}
-              {activeTab === "noticeboard" && (
+              {noChapter ? (
+                <div className="text-center py-16">
+                  <MapPin className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+                  <h2 className="text-xl font-bold text-foreground mb-2">Your local chapter is being set up</h2>
+                  <p className="text-muted-foreground">We're working on getting your area connected. Check back soon!</p>
+                </div>
+              ) : (
                 <>
                   <div className="flex justify-end mb-4">
                     <Button size="sm" onClick={() => setShowForm((v) => !v)} className="gap-1.5">
@@ -271,20 +267,20 @@ const LocalNoticeboardContent = ({ user }: { user: User }) => {
                   )}
                 </>
               )}
-
-              {activeTab === "democracy" && (
-                <PlaceholderTab icon={Scale} title="Democracy" description="Proposals, votes, and community decisions" actionLabel="Go to Democracy" actionTo="/democracy" />
-              )}
-              {activeTab === "research" && (
-                <PlaceholderTab icon={Microscope} title="Research" description="Contribute to community wellbeing research" actionLabel="Go to Research" actionTo="/research" />
-              )}
-              {activeTab === "social-lab" && (
-                <PlaceholderTab icon={FlaskConical} title="Social Lab" description="Collaborate on local projects and experiments" actionLabel="Go to Social Lab" actionTo="/social-lab" />
-              )}
-              {activeTab === "connects" && (
-                <PlaceholderTab icon={Users} title="Suggested Connects" description="Discover members with shared interests near you" actionLabel="View Connects" actionTo="/suggested-connects" />
-              )}
             </>
+          )}
+
+          {activeTab === "democracy" && (
+            <PlaceholderTab icon={Scale} title="Democracy" description="Proposals, votes, and community decisions" actionLabel="Go to Democracy" actionTo="/democracy" />
+          )}
+          {activeTab === "research" && (
+            <PlaceholderTab icon={Microscope} title="Research" description="Contribute to community wellbeing research" actionLabel="Go to Research" actionTo="/research" />
+          )}
+          {activeTab === "social-lab" && (
+            <PlaceholderTab icon={FlaskConical} title="Social Lab" description="Collaborate on local projects and experiments" actionLabel="Go to Social Lab" actionTo="/social-lab" />
+          )}
+          {activeTab === "connects" && (
+            <PlaceholderTab icon={Users} title="Suggested Connects" description="Discover members with shared interests near you" actionLabel="View Connects" actionTo="/suggested-connects" />
           )}
         </div>
       </div>
