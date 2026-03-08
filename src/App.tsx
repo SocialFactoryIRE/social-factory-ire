@@ -51,6 +51,8 @@ const App = () => (
             <Route path="/join" element={<Join />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/town-hall" element={<TownHall />} />
             <Route path="/noticeboard" element={<Noticeboard />} />
