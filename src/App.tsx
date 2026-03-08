@@ -12,6 +12,8 @@ import Science from "./pages/Science";
 import Join from "./pages/Join";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import Onboarding from "./pages/Onboarding";
 import TownHall from "./pages/TownHall";
 import Noticeboard from "./pages/Noticeboard";
