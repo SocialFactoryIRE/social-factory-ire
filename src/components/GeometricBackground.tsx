@@ -1,28 +1,28 @@
 const shapes = [
   // Circles
   { type: "circle", color: "hsl(var(--coral))", size: 60, top: "5%", left: "3%", opacity: 0.15, rotate: 0 },
-  { type: "circle", color: "hsl(var(--sky))", size: 45, top: "18%", left: "88%", opacity: 0.18, rotate: 0 },
-  { type: "circle", color: "hsl(var(--accent))", size: 80, top: "55%", left: "92%", opacity: 0.12, rotate: 0 },
-  { type: "circle", color: "hsl(var(--mint))", size: 35, top: "78%", left: "5%", opacity: 0.2, rotate: 0 },
-  { type: "circle", color: "hsl(var(--peach))", size: 50, top: "40%", left: "50%", opacity: 0.1, rotate: 0 },
+  { type: "circle", color: "hsl(var(--sky))", size: 45, top: "15%", left: "88%", opacity: 0.18, rotate: 0 },
+  { type: "circle", color: "hsl(var(--accent))", size: 80, top: "45%", left: "92%", opacity: 0.12, rotate: 0 },
+  { type: "circle", color: "hsl(var(--mint))", size: 35, top: "70%", left: "5%", opacity: 0.2, rotate: 0 },
+  { type: "circle", color: "hsl(var(--peach))", size: 50, top: "85%", left: "50%", opacity: 0.1, rotate: 0 },
 
   // Squares
-  { type: "square", color: "hsl(var(--accent))", size: 50, top: "12%", left: "75%", opacity: 0.14, rotate: 15 },
-  { type: "square", color: "hsl(var(--coral))", size: 40, top: "65%", left: "85%", opacity: 0.12, rotate: 35 },
-  { type: "square", color: "hsl(var(--sky))", size: 55, top: "35%", left: "2%", opacity: 0.13, rotate: -20 },
-  { type: "square", color: "hsl(var(--mint))", size: 35, top: "88%", left: "45%", opacity: 0.15, rotate: 45 },
+  { type: "square", color: "hsl(var(--accent))", size: 50, top: "10%", left: "75%", opacity: 0.14, rotate: 15 },
+  { type: "square", color: "hsl(var(--coral))", size: 40, top: "55%", left: "85%", opacity: 0.12, rotate: 35 },
+  { type: "square", color: "hsl(var(--sky))", size: 55, top: "30%", left: "2%", opacity: 0.13, rotate: -20 },
+  { type: "square", color: "hsl(var(--mint))", size: 35, top: "92%", left: "45%", opacity: 0.15, rotate: 45 },
 
   // Triangles
   { type: "triangle", color: "hsl(var(--mint))", size: 55, top: "8%", left: "40%", opacity: 0.13, rotate: 10 },
-  { type: "triangle", color: "hsl(var(--peach))", size: 45, top: "48%", left: "8%", opacity: 0.16, rotate: -15 },
-  { type: "triangle", color: "hsl(var(--coral))", size: 60, top: "72%", left: "70%", opacity: 0.11, rotate: 30 },
-  { type: "triangle", color: "hsl(var(--accent))", size: 38, top: "28%", left: "95%", opacity: 0.14, rotate: -25 },
+  { type: "triangle", color: "hsl(var(--peach))", size: 45, top: "38%", left: "8%", opacity: 0.16, rotate: -15 },
+  { type: "triangle", color: "hsl(var(--coral))", size: 60, top: "62%", left: "70%", opacity: 0.11, rotate: 30 },
+  { type: "triangle", color: "hsl(var(--accent))", size: 38, top: "25%", left: "95%", opacity: 0.14, rotate: -25 },
 
   // Pentagons
-  { type: "pentagon", color: "hsl(var(--sky))", size: 50, top: "22%", left: "18%", opacity: 0.12, rotate: 20 },
-  { type: "pentagon", color: "hsl(var(--coral))", size: 42, top: "60%", left: "35%", opacity: 0.1, rotate: -10 },
-  { type: "pentagon", color: "hsl(var(--mint))", size: 55, top: "85%", left: "78%", opacity: 0.13, rotate: 40 },
-  { type: "pentagon", color: "hsl(var(--accent))", size: 36, top: "45%", left: "65%", opacity: 0.11, rotate: -30 },
+  { type: "pentagon", color: "hsl(var(--sky))", size: 50, top: "20%", left: "18%", opacity: 0.12, rotate: 20 },
+  { type: "pentagon", color: "hsl(var(--coral))", size: 42, top: "50%", left: "35%", opacity: 0.1, rotate: -10 },
+  { type: "pentagon", color: "hsl(var(--mint))", size: 55, top: "78%", left: "78%", opacity: 0.13, rotate: 40 },
+  { type: "pentagon", color: "hsl(var(--accent))", size: 36, top: "42%", left: "65%", opacity: 0.11, rotate: -30 },
 ];
 
 function pentagonPath(size: number) {
@@ -36,7 +36,7 @@ function pentagonPath(size: number) {
 }
 
 const GeometricBackground = () => (
-  <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+  <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true" style={{ zIndex: 0 }}>
     {shapes.map((s, i) => (
       <div
         key={i}

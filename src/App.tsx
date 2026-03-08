@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import GeometricBackground from "@/components/GeometricBackground";
+import PageLayout from "@/components/PageLayout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Programming from "./pages/Programming";
@@ -39,35 +39,36 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <GeometricBackground />
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/programming" element={<Programming />} />
-          <Route path="/science" element={<Science />} />
-          <Route path="/join" element={<Join />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/town-hall" element={<TownHall />} />
-          <Route path="/noticeboard" element={<Noticeboard />} />
-          <Route path="/local/noticeboard" element={<LocalNoticeboard />} />
-          <Route path="/social-lab" element={<SocialLab />} />
-          <Route path="/social-lab/test" element={<PersonalityTest />} />
-          <Route path="/social-lab/result" element={<PersonalityResult />} />
-          <Route path="/culture-test" element={<CultureTest />} />
-          <Route path="/culture-result" element={<CultureResult />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/governance" element={<Governance />} />
-          <Route path="/democracy" element={<Democracy />} />
-          <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/suggested-connects" element={<SuggestedConnects />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <PageLayout>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/programming" element={<Programming />} />
+            <Route path="/science" element={<Science />} />
+            <Route path="/join" element={<Join />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/town-hall" element={<TownHall />} />
+            <Route path="/noticeboard" element={<Noticeboard />} />
+            <Route path="/local/noticeboard" element={<LocalNoticeboard />} />
+            <Route path="/social-lab" element={<SocialLab />} />
+            <Route path="/social-lab/test" element={<PersonalityTest />} />
+            <Route path="/social-lab/result" element={<PersonalityResult />} />
+            <Route path="/culture-test" element={<CultureTest />} />
+            <Route path="/culture-result" element={<CultureResult />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/democracy" element={<Democracy />} />
+            <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/suggested-connects" element={<SuggestedConnects />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </PageLayout>
         <Chatbot />
       </BrowserRouter>
     </TooltipProvider>
