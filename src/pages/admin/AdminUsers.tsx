@@ -34,6 +34,8 @@ export default function AdminUsers() {
   const [open, setOpen] = useState(false);
   const [newUser, setNewUser] = useState({ email: "", password: "", role: "editor" as "admin" | "editor", display_name: "" });
   const [loading, setLoading] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [userToDelete, setUserToDelete] = useState<{ user_id: string; display_name: string | null } | null>(null);
   const { toast } = useToast();
   const { role, user: currentUser } = useAdminAuth();
 
