@@ -223,6 +223,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Member Locations */}
+      <MemberMapSection />
+
       {/* Newsletter CTA */}
       <NewsletterSignup />
 
