@@ -169,7 +169,7 @@ export default function AdminUsers() {
                         {format(new Date(u.created_at), "MMM d, yyyy")}
                       </TableCell>
                       <TableCell>
-                        {u.role && (
+                        {u.role && u.user_id !== currentUser?.id && (
                           <Button variant="ghost" size="icon" onClick={() => removeRole(u.user_id)} title="Remove admin/editor role">
                             <Trash2 className="h-4 w-4 text-destructive" />
                           </Button>
