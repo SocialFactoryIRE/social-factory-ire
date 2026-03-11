@@ -163,7 +163,7 @@ const Chatbot = () => {
           style={{ height: "min(500px, calc(100vh - 8rem))" }}
         >
           {/* Header */}
-          <div className="flex items-center gap-3 bg-coral px-5 py-4">
+          <div className="flex items-center gap-3 bg-green px-5 py-4">
             <Bot className="h-6 w-6 text-cream" />
             <div>
               <p className="font-bold text-cream text-sm">Social Factory Assistant</p>
