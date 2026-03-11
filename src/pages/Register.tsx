@@ -74,6 +74,12 @@ const Register = () => {
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         toast({ title: "Validation Error", description: error.errors[0].message, variant: "destructive" });
+      } else if (error?.message?.includes("rate limit") || error?.status === 429) {
+        toast({
+          title: "Too many attempts",
+          description: "Please wait a few minutes before trying again, or check your inbox — a confirmation email may already be on its way.",
+          variant: "destructive",
+        });
       } else {
         toast({ title: "Error", description: error.message || "Registration failed.", variant: "destructive" });
       }
