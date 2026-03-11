@@ -92,7 +92,7 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   className={`relative flex items-center gap-1.5 px-4 py-2 font-medium transition-all text-sm group ${
-                    isJoin
+                    isJoin || isLogin
                       ? "bg-green text-white hover:bg-green-deep rounded-full"
                       : active
                         ? "text-foreground"
