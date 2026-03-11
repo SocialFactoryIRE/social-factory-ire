@@ -30,12 +30,18 @@ interface CountryMarker {
 const EUROPE_CENTER: [number, number] = [52, 10];
 const EUROPE_ZOOM = 4;
 
-// Component to programmatically fly the map
-const FlyTo = ({ center, zoom }: { center: [number, number]; zoom: number }) => {
+// Component to programmatically fly the map and track zoom
+const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void }) => {
   const map = useMap();
   useEffect(() => {
     map.flyTo(center, zoom, { duration: 1.2 });
   }, [center, zoom, map]);
+  useEffect(() => {
+    const handler = () => onZoomChange(map.getZoom());
+    map.on("zoomend", handler);
+    onZoomChange(map.getZoom());
+    return () => { map.off("zoomend", handler); };
+  }, [map, onZoomChange]);
   return null;
 };
 
@@ -44,6 +50,7 @@ const MemberMapSection = () => {
   const [totalMembers, setTotalMembers] = useState(0);
   const [countryCount, setCountryCount] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [currentZoom, setCurrentZoom] = useState(EUROPE_ZOOM);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number }>({
     center: EUROPE_CENTER,
@@ -139,12 +146,15 @@ const MemberMapSection = () => {
 
   if (loading || cityMarkers.length === 0) return null;
 
+  // Scale factor: cap radius so bubbles shrink when zoomed out, max at base zoom
+  const zoomScale = Math.min(1, currentZoom / EUROPE_ZOOM);
+
   const maxCountryCount = Math.max(...countryMarkers.map((m) => m.count));
   const getCountryRadius = (count: number) => {
-    const min = 6;
-    const max = 18;
-    if (maxCountryCount <= 1) return min;
-    return min + ((count - 1) / (maxCountryCount - 1)) * (max - min);
+    const min = 4;
+    const max = 12;
+    const base = maxCountryCount <= 1 ? min : min + ((count - 1) / (maxCountryCount - 1)) * (max - min);
+    return Math.max(2, base * zoomScale);
   };
 
   const activeCities = selectedCountry
@@ -154,10 +164,10 @@ const MemberMapSection = () => {
     ? Math.max(...activeCities.map((m) => m.count))
     : 1;
   const getCityRadius = (count: number) => {
-    const min = 5;
-    const max = 14;
-    if (maxCityCount <= 1) return min;
-    return min + ((count - 1) / (maxCityCount - 1)) * (max - min);
+    const min = 4;
+    const max = 10;
+    const base = maxCityCount <= 1 ? min : min + ((count - 1) / (maxCityCount - 1)) * (max - min);
+    return Math.max(2, base * zoomScale);
   };
 
   return (
@@ -203,7 +213,7 @@ const MemberMapSection = () => {
               attribution='&copy; <a href="https://carto.com/">CARTO</a>'
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
-            <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} />
+            <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
 
             {/* Country-level bubbles */}
             {!selectedCountry &&
