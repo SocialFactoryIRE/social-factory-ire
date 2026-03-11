@@ -97,6 +97,25 @@ export default function AdminUsers() {
     else fetchUsers();
   };
 
+  const deleteUser = async (userId: string, displayName: string | null) => {
+    if (userId === currentUser?.id) {
+      toast({ title: "Not allowed", description: "You cannot delete yourself.", variant: "destructive" });
+      return;
+    }
+    const confirmed = window.confirm(`Are you sure you want to permanently delete ${displayName || "this user"}? This cannot be undone.`);
+    if (!confirmed) return;
+
+    const { data, error } = await supabase.functions.invoke("delete-user", {
+      body: { user_id: userId },
+    });
+    if (error) {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    } else {
+      toast({ title: "User deleted", description: `${displayName || "User"} has been removed.` });
+      fetchUsers();
+    }
+  };
+
   const filteredUsers = users.filter((u) => {
     const q = search.toLowerCase();
     return (
@@ -169,10 +188,17 @@ export default function AdminUsers() {
                         {format(new Date(u.created_at), "MMM d, yyyy")}
                       </TableCell>
                       <TableCell>
-                        {u.role && u.user_id !== currentUser?.id && (
-                          <Button variant="ghost" size="icon" onClick={() => removeRole(u.user_id)} title="Remove admin/editor role">
-                            <Trash2 className="h-4 w-4 text-destructive" />
-                          </Button>
+                        {u.user_id !== currentUser?.id && (
+                          <div className="flex items-center gap-1">
+                            {u.role && (
+                              <Button variant="ghost" size="icon" onClick={() => removeRole(u.user_id)} title="Remove admin/editor role">
+                                <Trash2 className="h-4 w-4 text-muted-foreground" />
+                              </Button>
+                            )}
+                            <Button variant="ghost" size="icon" onClick={() => deleteUser(u.user_id, u.display_name)} title="Delete user permanently">
+                              <Trash2 className="h-4 w-4 text-destructive" />
+                            </Button>
+                          </div>
                         )}
                       </TableCell>
                     </TableRow>
