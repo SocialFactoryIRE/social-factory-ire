@@ -58,6 +58,7 @@ const MemberMapSection = () => {
   });
   // Track which city markers are "exploding" in
   const [explodingCities, setExplodingCities] = useState<string[]>([]);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const fetchLocations = async () => {
