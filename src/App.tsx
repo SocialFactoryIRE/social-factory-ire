@@ -33,6 +33,18 @@ import SuggestedConnects from "./pages/SuggestedConnects";
 import NotFound from "./pages/NotFound";
 import Chatbot from "@/components/Chatbot";
 
+// Admin imports
+import AdminGuard from "@/components/admin/AdminGuard";
+import AdminLayout from "@/components/admin/AdminLayout";
+import AdminLogin from "@/pages/admin/AdminLogin";
+import AdminDashboard from "@/pages/admin/AdminDashboard";
+import AdminLeads from "@/pages/admin/AdminLeads";
+import AdminPages from "@/pages/admin/AdminPages";
+import AdminBlog from "@/pages/admin/AdminBlog";
+import AdminMedia from "@/pages/admin/AdminMedia";
+import AdminUsers from "@/pages/admin/AdminUsers";
+import AdminSettings from "@/pages/admin/AdminSettings";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -42,37 +54,60 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <PageLayout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/programming" element={<Programming />} />
-            <Route path="/science" element={<Science />} />
-            <Route path="/join" element={<Join />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/onboarding" element={<Onboarding />} />
-            <Route path="/town-hall" element={<TownHall />} />
-            <Route path="/noticeboard" element={<Noticeboard />} />
-            <Route path="/local/noticeboard" element={<LocalNoticeboard />} />
-            <Route path="/social-lab" element={<SocialLab />} />
-            <Route path="/social-lab/test" element={<PersonalityTest />} />
-            <Route path="/social-lab/result" element={<PersonalityResult />} />
-            <Route path="/culture-test" element={<CultureTest />} />
-            <Route path="/culture-result" element={<CultureResult />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/governance" element={<Governance />} />
-            <Route path="/democracy" element={<Democracy />} />
-            <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
-            <Route path="/research" element={<Research />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/suggested-connects" element={<SuggestedConnects />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </PageLayout>
+        <Routes>
+          {/* Admin routes - no navbar/footer/background */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin"
+            element={
+              <AdminGuard>
+                <AdminLayout />
+              </AdminGuard>
+            }
+          >
+            <Route index element={<AdminDashboard />} />
+            <Route path="leads" element={<AdminLeads />} />
+            <Route path="pages" element={<AdminPages />} />
+            <Route path="blog" element={<AdminBlog />} />
+            <Route path="media" element={<AdminMedia />} />
+            <Route path="users" element={<AdminGuard requiredRole="admin"><AdminUsers /></AdminGuard>} />
+            <Route path="settings" element={<AdminGuard requiredRole="admin"><AdminSettings /></AdminGuard>} />
+          </Route>
+
+          {/* Public routes - with PageLayout */}
+          <Route path="/*" element={
+            <PageLayout>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/programming" element={<Programming />} />
+                <Route path="/science" element={<Science />} />
+                <Route path="/join" element={<Join />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/town-hall" element={<TownHall />} />
+                <Route path="/noticeboard" element={<Noticeboard />} />
+                <Route path="/local/noticeboard" element={<LocalNoticeboard />} />
+                <Route path="/social-lab" element={<SocialLab />} />
+                <Route path="/social-lab/test" element={<PersonalityTest />} />
+                <Route path="/social-lab/result" element={<PersonalityResult />} />
+                <Route path="/culture-test" element={<CultureTest />} />
+                <Route path="/culture-result" element={<CultureResult />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/governance" element={<Governance />} />
+                <Route path="/democracy" element={<Democracy />} />
+                <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
+                <Route path="/research" element={<Research />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/suggested-connects" element={<SuggestedConnects />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </PageLayout>
+          } />
+        </Routes>
         <Chatbot />
       </BrowserRouter>
     </TooltipProvider>

@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_leads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          status?: string
+        }
+        Relationships: []
+      }
+      blog_posts: {
+        Row: {
+          content: string | null
+          created_at: string
+          featured_image: string | null
+          id: string
+          published: boolean
+          slug: string
+          title: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          featured_image?: string | null
+          id?: string
+          published?: boolean
+          slug: string
+          title: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          featured_image?: string | null
+          id?: string
+          published?: boolean
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
       chapter_members: {
         Row: {
           chapter_id: string
@@ -45,6 +105,36 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      cms_pages: {
+        Row: {
+          content: string | null
+          id: string
+          seo_description: string | null
+          seo_title: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content?: string | null
+          id?: string
+          seo_description?: string | null
+          seo_title?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string | null
+          id?: string
+          seo_description?: string | null
+          seo_title?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       communities: {
         Row: {
@@ -214,6 +304,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      media_files: {
+        Row: {
+          filename: string
+          id: string
+          type: string | null
+          uploaded_at: string
+          url: string
+        }
+        Insert: {
+          filename: string
+          id?: string
+          type?: string | null
+          uploaded_at?: string
+          url: string
+        }
+        Update: {
+          filename?: string
+          id?: string
+          type?: string | null
+          uploaded_at?: string
+          url?: string
+        }
+        Relationships: []
       }
       member_tags: {
         Row: {
@@ -545,6 +659,36 @@ export type Database = {
         }
         Relationships: []
       }
+      site_settings: {
+        Row: {
+          analytics_id: string | null
+          contact_email: string | null
+          id: string
+          instagram_url: string | null
+          linkedin_url: string | null
+          site_name: string | null
+          updated_at: string
+        }
+        Insert: {
+          analytics_id?: string | null
+          contact_email?: string | null
+          id?: string
+          instagram_url?: string | null
+          linkedin_url?: string | null
+          site_name?: string | null
+          updated_at?: string
+        }
+        Update: {
+          analytics_id?: string | null
+          contact_email?: string | null
+          id?: string
+          instagram_url?: string | null
+          linkedin_url?: string | null
+          site_name?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       town_halls: {
         Row: {
           country: string
@@ -578,6 +722,27 @@ export type Database = {
         }
         Relationships: []
       }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -607,13 +772,21 @@ export type Database = {
           yes_count: number
         }[]
       }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_admin_or_editor: { Args: { _user_id: string }; Returns: boolean }
       is_chapter_member: {
         Args: { _chapter_id: string; _user_id: string }
         Returns: boolean
       }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "editor"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -740,6 +913,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "editor"],
+    },
   },
 } as const
