@@ -166,6 +166,19 @@ const MemberMapSection = () => {
           {isFullscreen ? "Exit" : "Fullscreen"}
         </Button>
       </div>
+      {!isDefaultView && (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => {
+            setFlyTarget({ center: EUROPE_CENTER, zoom: EUROPE_ZOOM });
+            setIsDefaultView(true);
+          }}
+          className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
+        >
+          <ArrowLeft className="h-4 w-4" /> Back to Europe
+        </Button>
+      )}
 
       <MapContainer
         center={EUROPE_CENTER}
