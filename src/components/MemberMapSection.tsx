@@ -133,27 +133,6 @@ const MemberMapSection = () => {
     // No drill-down for now — country-level only
   };
 
-  if (loading || cityMarkers.length === 0) return null;
-
-  const zoomScale = Math.min(1, currentZoom / EUROPE_ZOOM);
-
-  const maxCountryCount = Math.max(...countryMarkers.map((m) => m.count));
-  const getCountryRadius = (count: number) => {
-    const min = 4;
-    const max = 12;
-    const base = maxCountryCount <= 1 ? min : min + ((count - 1) / (maxCountryCount - 1)) * (max - min);
-    return Math.max(2, base * zoomScale);
-  };
-
-  const activeCities = selectedCountry ? cityMarkers.filter((m) => m.country === selectedCountry) : [];
-  const maxCityCount = activeCities.length ? Math.max(...activeCities.map((m) => m.count)) : 1;
-  const getCityRadius = (count: number) => {
-    const min = 4;
-    const max = 10;
-    const base = maxCityCount <= 1 ? min : min + ((count - 1) / (maxCityCount - 1)) * (max - min);
-    return Math.max(2, base * zoomScale);
-  };
-
   const mapContent = (
     <div
       className={
