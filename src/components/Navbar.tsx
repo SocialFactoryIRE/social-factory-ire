@@ -26,8 +26,8 @@ const Navbar = () => {
     { name: "Programming", path: "/programming" },
     { name: "Science & Research", path: "/science" },
     { name: "Governance", path: "/governance" },
-    { name: "Join", path: "/join" },
-    { name: "Log In", path: "/login" },
+    ...(!isLoggedIn ? [{ name: "Join", path: "/join" }] : []),
+    { name: isLoggedIn ? "Profile" : "Log In", path: isLoggedIn ? "/profile" : "/login" },
     { name: "Contact", path: "/contact" },
   ];
 
