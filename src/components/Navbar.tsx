@@ -113,24 +113,33 @@ const Navbar = () => {
               );
             })}
 
-            {/* Profile avatar */}
+            {/* Profile avatar + logout */}
             {isLoggedIn && (
-              <Link
-                to="/profile"
-                className="ml-2 flex-shrink-0 hover:opacity-80 transition-opacity"
-              >
-                {avatarUrl ? (
-                  <img
-                    src={avatarUrl}
-                    alt="Profile"
-                    className="h-9 w-9 rounded-full object-cover border-2 border-green"
-                  />
-                ) : (
-                  <div className="h-9 w-9 rounded-full bg-green flex items-center justify-center">
-                    <User className="h-5 w-5 text-white" />
-                  </div>
-                )}
-              </Link>
+              <div className="flex items-center gap-1 ml-2">
+                <Link
+                  to="/profile"
+                  className="flex-shrink-0 hover:opacity-80 transition-opacity"
+                >
+                  {avatarUrl ? (
+                    <img
+                      src={avatarUrl}
+                      alt="Profile"
+                      className="h-9 w-9 rounded-full object-cover border-2 border-green"
+                    />
+                  ) : (
+                    <div className="h-9 w-9 rounded-full bg-green flex items-center justify-center">
+                      <User className="h-5 w-5 text-white" />
+                    </div>
+                  )}
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="p-2 rounded-full text-foreground/60 hover:text-foreground hover:bg-cream transition-all"
+                  title="Log out"
+                >
+                  <LogOut className="h-4 w-4" />
+                </button>
+              </div>
             )}
           </div>
 
