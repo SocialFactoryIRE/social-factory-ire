@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DomainCard from "@/components/DomainCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import MemberMapSection from "@/components/MemberMapSection";
 import { Button } from "@/components/ui/button";
 import { Palette, Briefcase, Heart, ShoppingBag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
