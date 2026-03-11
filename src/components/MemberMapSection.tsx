@@ -189,7 +189,22 @@ const MemberMapSection = () => {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto rounded-2xl border-2 border-border overflow-hidden">
+        <div className={`relative rounded-2xl border-2 border-border overflow-hidden transition-all duration-300 ${
+          isFullscreen
+            ? "fixed inset-0 z-[9999] rounded-none border-0 max-w-none"
+            : "max-w-5xl mx-auto"
+        }`}>
+          <div className="absolute top-4 right-4 z-[1000] flex gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsFullscreen(!isFullscreen)}
+              className="gap-1.5 bg-background/90 backdrop-blur-sm"
+            >
+              {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+              {isFullscreen ? "Exit" : "Fullscreen"}
+            </Button>
+          </div>
           {selectedCountry && (
             <Button
               variant="outline"
@@ -207,7 +222,7 @@ const MemberMapSection = () => {
             scrollWheelZoom={true}
             dragging={true}
             zoomControl={true}
-            style={{ height: "520px", width: "100%" }}
+            style={{ height: isFullscreen ? "100vh" : "520px", width: "100%" }}
             className="z-0"
           >
             <TileLayer
