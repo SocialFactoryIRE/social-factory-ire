@@ -59,11 +59,11 @@ const MemberMapSection = () => {
   const [totalMembers, setTotalMembers] = useState(0);
   const [countryCount, setCountryCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [currentZoom, setCurrentZoom] = useState(EUROPE_ZOOM);
-  const [flyTarget] = useState<{ center: [number, number]; zoom: number }>({
+  const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number }>({
     center: EUROPE_CENTER,
     zoom: EUROPE_ZOOM,
   });
+  const [isDefaultView, setIsDefaultView] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Escape key to exit fullscreen
