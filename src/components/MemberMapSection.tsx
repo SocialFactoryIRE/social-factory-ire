@@ -31,17 +31,22 @@ interface CountryMarker {
 const EUROPE_CENTER: [number, number] = [52, 10];
 const EUROPE_ZOOM = 4;
 
-const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void }) => {
+const FlyTo = ({ center, zoom, onZoomChange, onMoveEnd }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void; onMoveEnd?: (center: [number, number], zoom: number) => void }) => {
   const map = useMap();
   useEffect(() => {
     map.flyTo(center, zoom, { duration: 1.2 });
   }, [center, zoom, map]);
   useEffect(() => {
-    const handler = () => onZoomChange(map.getZoom());
-    map.on("zoomend", handler);
+    const zoomHandler = () => onZoomChange(map.getZoom());
+    const moveHandler = () => {
+      const c = map.getCenter();
+      onMoveEnd?.([c.lat, c.lng], map.getZoom());
+    };
+    map.on("zoomend", zoomHandler);
+    map.on("moveend", moveHandler);
     onZoomChange(map.getZoom());
-    return () => { map.off("zoomend", handler); };
-  }, [map, onZoomChange]);
+    return () => { map.off("zoomend", zoomHandler); map.off("moveend", moveHandler); };
+  }, [map, onZoomChange, onMoveEnd]);
   return null;
 };
 
