@@ -12,6 +12,7 @@ import Science from "./pages/Science";
 import Join from "./pages/Join";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import AuthCallback from "./pages/AuthCallback";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Onboarding from "./pages/Onboarding";
@@ -85,6 +86,7 @@ const App = () => (
                 <Route path="/join" element={<Join />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/auth/callback" element={<AuthCallback />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
                 <Route path="/onboarding" element={<Onboarding />} />

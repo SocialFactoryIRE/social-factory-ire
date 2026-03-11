@@ -52,7 +52,7 @@ const Register = () => {
             country: data.country,
             city: data.city,
           },
-          emailRedirectTo: window.location.origin,
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
       });
 
