@@ -39,11 +39,11 @@ const Science = () => {
                 Data from the <strong>Healthy Ireland Survey 2025</strong> — Ireland's national annual health and wellbeing study
               </p>
               <a
-                href="https://www.gov.ie/en/publication/healthy-ireland-survey/"
+
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2"
-              >
+                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2" href="https://www.gov.ie/en/healthy-ireland/publications/healthy-ireland-survey-2025/">
+                
                 Source: Healthy Ireland Survey 2025 <ExternalLink className="h-3 w-3" />
               </a>
             </div>
@@ -125,8 +125,8 @@ const Science = () => {
                 href="https://www.gov.ie/en/publication/pathways-to-wellbeing/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2"
-              >
+                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2">
+                
                 Source: Department of Health, Ireland <ExternalLink className="h-3 w-3" />
               </a>
             </div>
@@ -190,8 +190,8 @@ const Science = () => {
                 href="https://west.planetyouth.ie"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2"
-              >
+                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2">
+                
                 Source: Planet Youth West Ireland 2024 <ExternalLink className="h-3 w-3" />
               </a>
             </div>
@@ -338,8 +338,8 @@ const Science = () => {
       </div>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Science;
