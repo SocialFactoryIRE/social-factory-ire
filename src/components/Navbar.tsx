@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, User } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/social-factory-logo.jpeg";
 import { supabase } from "@/integrations/supabase/client";
@@ -18,6 +18,13 @@ const Navbar = () => {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setIsOpen(false);
+    navigate("/");
+  };
 
   useEffect(() => {
     const fetchProfile = async (userId: string) => {
@@ -106,24 +113,33 @@ const Navbar = () => {
               );
             })}
 
-            {/* Profile avatar */}
+            {/* Profile avatar + logout */}
             {isLoggedIn && (
-              <Link
-                to="/profile"
-                className="ml-2 flex-shrink-0 hover:opacity-80 transition-opacity"
-              >
-                {avatarUrl ? (
-                  <img
-                    src={avatarUrl}
-                    alt="Profile"
-                    className="h-9 w-9 rounded-full object-cover border-2 border-green"
-                  />
-                ) : (
-                  <div className="h-9 w-9 rounded-full bg-green flex items-center justify-center">
-                    <User className="h-5 w-5 text-white" />
-                  </div>
-                )}
-              </Link>
+              <div className="flex items-center gap-1 ml-2">
+                <Link
+                  to="/profile"
+                  className="flex-shrink-0 hover:opacity-80 transition-opacity"
+                >
+                  {avatarUrl ? (
+                    <img
+                      src={avatarUrl}
+                      alt="Profile"
+                      className="h-9 w-9 rounded-full object-cover border-2 border-green"
+                    />
+                  ) : (
+                    <div className="h-9 w-9 rounded-full bg-green flex items-center justify-center">
+                      <User className="h-5 w-5 text-white" />
+                    </div>
+                  )}
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="p-2 rounded-full text-foreground/60 hover:text-foreground hover:bg-cream transition-all"
+                  title="Log out"
+                >
+                  <LogOut className="h-4 w-4" />
+                </button>
+              </div>
             )}
           </div>
 
@@ -184,6 +200,15 @@ const Navbar = () => {
                 </Link>
               );
             })}
+            {isLoggedIn && (
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-5 py-3 rounded-full font-medium text-base text-foreground/70 hover:text-foreground transition-all w-full"
+              >
+                <LogOut className="h-4 w-4" />
+                Log Out
+              </button>
+            )}
           </div>
         )}
       </div>
