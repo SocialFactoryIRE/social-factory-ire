@@ -84,7 +84,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => {
               const isJoin = link.name === "Join";
-              const isLogin = link.name === "Login";
+              const isLogin = link.name === "Log In";
               const dotColor = NAV_DOT_COLORS[link.name];
               const active = isActive(link.path);
               return (
@@ -92,7 +92,7 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   className={`relative flex items-center gap-1.5 px-4 py-2 font-medium transition-all text-sm group ${
-                    isJoin
+                    isJoin || isLogin
                       ? "bg-green text-white hover:bg-green-deep rounded-full"
                       : active
                         ? "text-foreground"
