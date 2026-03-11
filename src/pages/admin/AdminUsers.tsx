@@ -10,11 +10,26 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
-import { Plus, Trash2 } from "lucide-react";
+import { Plus, Trash2, Search } from "lucide-react";
 import { format } from "date-fns";
 
+interface UserRow {
+  user_id: string;
+  email: string;
+  display_name: string | null;
+  country: string | null;
+  city: string | null;
+  county: string | null;
+  town: string | null;
+  membership_type: string | null;
+  onboarded: boolean;
+  created_at: string;
+  role: string | null;
+}
+
 export default function AdminUsers() {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<UserRow[]>([]);
+  const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const [newUser, setNewUser] = useState({ email: "", password: "", role: "editor" as "admin" | "editor", display_name: "" });
   const [loading, setLoading] = useState(false);
@@ -22,17 +37,13 @@ export default function AdminUsers() {
   const { role } = useAdminAuth();
 
   const fetchUsers = async () => {
-    const { data } = await supabase.from("user_roles").select("*");
-    if (!data || data.length === 0) { setUsers([]); return; }
-
-    const userIds = data.map((r: any) => r.user_id);
-    const { data: profiles } = await supabase.rpc("get_display_names", { user_ids: userIds });
-
-    const merged = data.map((r: any) => {
-      const profile = profiles?.find((p: any) => p.user_id === r.user_id);
-      return { ...r, display_name: profile?.display_name || "Unknown" };
-    });
-    setUsers(merged);
+    const { data, error } = await supabase.rpc("get_all_users_for_admin" as any);
+    if (error) {
+      console.error("Error fetching users:", error);
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+      return;
+    }
+    setUsers((data as unknown as UserRow[]) || []);
   };
 
   useEffect(() => { fetchUsers(); }, []);
@@ -48,7 +59,6 @@ export default function AdminUsers() {
     }
 
     setLoading(true);
-    // Sign up user via auth, then add role
     const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
       email: newUser.email.trim(),
       password: newUser.password,
@@ -77,11 +87,21 @@ export default function AdminUsers() {
     toast({ title: "User created", description: "The user will need to verify their email." });
   };
 
-  const removeRole = async (id: string) => {
-    const { error } = await supabase.from("user_roles").delete().eq("id", id);
+  const removeRole = async (userId: string) => {
+    const { error } = await supabase.from("user_roles").delete().eq("user_id", userId);
     if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
     else fetchUsers();
   };
+
+  const filteredUsers = users.filter((u) => {
+    const q = search.toLowerCase();
+    return (
+      (u.display_name || "").toLowerCase().includes(q) ||
+      (u.email || "").toLowerCase().includes(q) ||
+      (u.country || "").toLowerCase().includes(q) ||
+      (u.city || "").toLowerCase().includes(q)
+    );
+  });
 
   if (role !== "admin") {
     return (
@@ -95,40 +115,69 @@ export default function AdminUsers() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-foreground">Admin Users</h2>
+        <h2 className="text-2xl font-bold text-foreground">All Members</h2>
         <Button onClick={() => setOpen(true)}><Plus className="h-4 w-4 mr-2" />Add User</Button>
+      </div>
+
+      <div className="relative max-w-sm">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input
+          placeholder="Search by name, email, country..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="pl-9"
+        />
       </div>
 
       <Card>
         <CardContent className="pt-6">
-          {users.length === 0 ? (
-            <p className="text-muted-foreground text-sm">No admin users yet.</p>
+          {filteredUsers.length === 0 ? (
+            <p className="text-muted-foreground text-sm">No users found.</p>
           ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Role</TableHead>
-                  <TableHead>Added</TableHead>
-                  <TableHead>Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {users.map((u) => (
-                  <TableRow key={u.id}>
-                    <TableCell className="font-medium">{u.display_name}</TableCell>
-                    <TableCell><Badge variant="secondary" className="capitalize">{u.role}</Badge></TableCell>
-                    <TableCell className="text-muted-foreground">{format(new Date(u.created_at), "MMM d, yyyy")}</TableCell>
-                    <TableCell>
-                      <Button variant="ghost" size="icon" onClick={() => removeRole(u.id)}>
-                        <Trash2 className="h-4 w-4 text-destructive" />
-                      </Button>
-                    </TableCell>
+            <div className="overflow-x-auto">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Country</TableHead>
+                    <TableHead>City</TableHead>
+                    <TableHead>Role</TableHead>
+                    <TableHead>Joined</TableHead>
+                    <TableHead>Actions</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {filteredUsers.map((u) => (
+                    <TableRow key={u.user_id}>
+                      <TableCell className="font-medium">{u.display_name || "—"}</TableCell>
+                      <TableCell className="text-muted-foreground">{u.email}</TableCell>
+                      <TableCell>{u.country || "—"}</TableCell>
+                      <TableCell>{u.city || "—"}</TableCell>
+                      <TableCell>
+                        {u.role ? (
+                          <Badge variant="secondary" className="capitalize">{u.role}</Badge>
+                        ) : (
+                          <span className="text-muted-foreground text-sm">member</span>
+                        )}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground">
+                        {format(new Date(u.created_at), "MMM d, yyyy")}
+                      </TableCell>
+                      <TableCell>
+                        {u.role && (
+                          <Button variant="ghost" size="icon" onClick={() => removeRole(u.user_id)} title="Remove admin/editor role">
+                            <Trash2 className="h-4 w-4 text-destructive" />
+                          </Button>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           )}
+          <p className="text-xs text-muted-foreground mt-4">{filteredUsers.length} user{filteredUsers.length !== 1 ? "s" : ""} total</p>
         </CardContent>
       </Card>
 

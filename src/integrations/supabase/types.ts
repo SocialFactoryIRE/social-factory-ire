@@ -748,6 +748,22 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_all_users_for_admin: {
+        Args: never
+        Returns: {
+          city: string
+          country: string
+          county: string
+          created_at: string
+          display_name: string
+          email: string
+          membership_type: string
+          onboarded: boolean
+          role: string
+          town: string
+          user_id: string
+        }[]
+      }
       get_display_names: {
         Args: { user_ids: string[] }
         Returns: {
