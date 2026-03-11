@@ -131,25 +131,8 @@ const MemberMapSection = () => {
     return result;
   }, [cityMarkers]);
 
-  const handleCountryClick = (cm: CountryMarker) => {
-    setSelectedCountry(cm.country);
-    setExplodingCities([]);
-    const lats = cm.cities.map((c) => c.coordinates[1]);
-    const lngs = cm.cities.map((c) => c.coordinates[0]);
-    const cLat = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const cLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-    const spread = Math.max(Math.max(...lats) - Math.min(...lats), Math.max(...lngs) - Math.min(...lngs));
-    const zoom = spread < 1 ? 10 : spread < 3 ? 8 : spread < 6 ? 7 : spread < 10 ? 6 : 5;
-    setFlyTarget({ center: [cLat, cLng], zoom });
-    cm.cities.forEach((city, i) => {
-      setTimeout(() => setExplodingCities((prev) => [...prev, city.key]), 300 + i * 120);
-    });
-  };
-
-  const handleBack = () => {
-    setSelectedCountry(null);
-    setExplodingCities([]);
-    setFlyTarget({ center: EUROPE_CENTER, zoom: EUROPE_ZOOM });
+  const handleCountryClick = (_cm: CountryMarker) => {
+    // No drill-down for now — country-level only
   };
 
   if (loading || cityMarkers.length === 0) return null;
