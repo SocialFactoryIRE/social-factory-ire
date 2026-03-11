@@ -169,12 +169,16 @@ const MemberMapSection = () => {
         scrollWheelZoom={true}
         dragging={true}
         zoomControl={true}
+        worldCopyJump={false}
+        maxBounds={[[-85, -180], [85, 180]]}
+        maxBoundsViscosity={1.0}
         style={{ height: "100%", width: "100%", minHeight: isFullscreen ? "100vh" : "520px" }}
         className="z-0"
       >
         <TileLayer
           attribution='&copy; <a href="https://carto.com/">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          noWrap={true}
         />
         <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
         <InvalidateSize trigger={isFullscreen} />
