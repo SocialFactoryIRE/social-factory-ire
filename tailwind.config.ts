@@ -72,7 +72,7 @@ export default {
           light: "hsl(var(--teal-light))",
           deep: "hsl(var(--teal-deep))",
         },
-        // Legacy aliases (to be removed after full migration)
+        // Legacy aliases
         coral: "hsl(var(--peach-deep))",
         mint: "hsl(var(--green))",
         sky: "hsl(var(--teal))",
@@ -91,7 +91,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Nunito', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        heading: ['Fraunces', 'serif'],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',

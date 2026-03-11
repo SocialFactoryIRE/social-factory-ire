@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/social-factory-logo.jpeg";
 import { supabase } from "@/integrations/supabase/client";
 
+const NAV_DOT_COLORS: Record<string, string> = {
+  About: "#ffcd1a",
+  Programming: "#f9bb86",
+  "Science & Research": "#5dcdf9",
+  Governance: "#00b389",
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,7 +51,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-cream/[0.92] backdrop-blur-md border-b border-border shadow-soft"
+          ? "bg-cream/[0.92] backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -58,18 +65,26 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => {
               const isJoin = link.name === "Join";
+              const dotColor = NAV_DOT_COLORS[link.name];
+              const active = isActive(link.path);
               return (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full font-medium transition-all text-sm ${
                     isJoin
                       ? "bg-green text-white hover:bg-green-deep"
-                      : isActive(link.path)
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground hover:bg-cream"
+                      : active
+                      ? "text-foreground"
+                      : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
+                  {dotColor && (
+                    <span
+                      className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: dotColor }}
+                    />
+                  )}
                   {link.name}
                 </Link>
               );
@@ -78,33 +93,41 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <Button
-            variant="default"
-            size="lg"
-            className="md:hidden h-12 w-12 shadow-hover"
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-3 bg-cream/95 backdrop-blur-md rounded-b-2xl">
+          <div className="md:hidden pb-4 space-y-1 bg-cream/95 backdrop-blur-md rounded-b-2xl px-2">
             {navLinks.map((link) => {
               const isJoin = link.name === "Join";
+              const dotColor = NAV_DOT_COLORS[link.name];
+              const active = isActive(link.path);
               return (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-6 py-4 rounded-lg font-bold text-lg transition-all ${
+                  className={`flex items-center gap-2 px-5 py-3 rounded-full font-medium text-base transition-all ${
                     isJoin
                       ? "bg-green text-white hover:bg-green-deep"
-                      : isActive(link.path)
-                      ? "bg-primary text-primary-foreground shadow-hover"
-                      : "text-foreground hover:bg-yellow-light"
+                      : active
+                      ? "text-foreground"
+                      : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
+                  {dotColor && (
+                    <span
+                      className="inline-block w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: dotColor }}
+                    />
+                  )}
                   {link.name}
                 </Link>
               );
