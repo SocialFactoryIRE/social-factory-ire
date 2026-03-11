@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Plus, Trash2, Search } from "lucide-react";
@@ -33,6 +34,8 @@ export default function AdminUsers() {
   const [open, setOpen] = useState(false);
   const [newUser, setNewUser] = useState({ email: "", password: "", role: "editor" as "admin" | "editor", display_name: "" });
   const [loading, setLoading] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [userToDelete, setUserToDelete] = useState<{ user_id: string; display_name: string | null } | null>(null);
   const { toast } = useToast();
   const { role, user: currentUser } = useAdminAuth();
 
@@ -97,23 +100,31 @@ export default function AdminUsers() {
     else fetchUsers();
   };
 
-  const deleteUser = async (userId: string, displayName: string | null) => {
+  const requestDeleteUser = (userId: string, displayName: string | null) => {
     if (userId === currentUser?.id) {
       toast({ title: "Not allowed", description: "You cannot delete yourself.", variant: "destructive" });
       return;
     }
-    const confirmed = window.confirm(`Are you sure you want to permanently delete ${displayName || "this user"}? This cannot be undone.`);
-    if (!confirmed) return;
+    setUserToDelete({ user_id: userId, display_name: displayName });
+  };
 
-    const { data, error } = await supabase.functions.invoke("delete-user", {
-      body: { user_id: userId },
+  const confirmDeleteUser = async () => {
+    if (!userToDelete) return;
+
+    setIsDeleting(true);
+    const { error } = await supabase.functions.invoke("delete-user", {
+      body: { user_id: userToDelete.user_id },
     });
+
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "User deleted", description: `${displayName || "User"} has been removed.` });
+      toast({ title: "User deleted", description: `${userToDelete.display_name || "User"} has been removed.` });
       fetchUsers();
     }
+
+    setIsDeleting(false);
+    setUserToDelete(null);
   };
 
   const filteredUsers = users.filter((u) => {
@@ -195,7 +206,7 @@ export default function AdminUsers() {
                                 <Trash2 className="h-4 w-4 text-muted-foreground" />
                               </Button>
                             )}
-                            <Button variant="ghost" size="icon" onClick={() => deleteUser(u.user_id, u.display_name)} title="Delete user permanently">
+                            <Button variant="ghost" size="icon" onClick={() => requestDeleteUser(u.user_id, u.display_name)} title="Delete user permanently">
                               <Trash2 className="h-4 w-4 text-destructive" />
                             </Button>
                           </div>
@@ -241,6 +252,23 @@ export default function AdminUsers() {
           </div>
         </DialogContent>
       </Dialog>
+
+      <AlertDialog open={!!userToDelete} onOpenChange={(open) => { if (!open) setUserToDelete(null); }}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete user permanently?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will permanently remove {userToDelete?.display_name || "this user"} and cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={confirmDeleteUser} disabled={isDeleting}>
+              {isDeleting ? "Deleting..." : "Delete user"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
