@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Globe, Users, ArrowLeft } from "lucide-react";
+import { Globe, Users, ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
 import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from "react-leaflet";
 import { cityCoordinates } from "@/data/city-coordinates";
 import { Button } from "@/components/ui/button";
