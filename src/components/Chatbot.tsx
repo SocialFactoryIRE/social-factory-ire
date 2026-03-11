@@ -231,7 +231,7 @@ const Chatbot = () => {
             <Button
               type="submit"
               size="icon"
-              variant="coral"
+              variant="green"
               className="h-9 w-9 rounded-full"
               disabled={!input.trim() || isLoading}
             >
