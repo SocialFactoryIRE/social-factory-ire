@@ -30,12 +30,18 @@ interface CountryMarker {
 const EUROPE_CENTER: [number, number] = [52, 10];
 const EUROPE_ZOOM = 4;
 
-// Component to programmatically fly the map
-const FlyTo = ({ center, zoom }: { center: [number, number]; zoom: number }) => {
+// Component to programmatically fly the map and track zoom
+const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void }) => {
   const map = useMap();
   useEffect(() => {
     map.flyTo(center, zoom, { duration: 1.2 });
   }, [center, zoom, map]);
+  useEffect(() => {
+    const handler = () => onZoomChange(map.getZoom());
+    map.on("zoomend", handler);
+    onZoomChange(map.getZoom());
+    return () => { map.off("zoomend", handler); };
+  }, [map, onZoomChange]);
   return null;
 };
 
