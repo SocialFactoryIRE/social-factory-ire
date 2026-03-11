@@ -94,9 +94,9 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full font-medium transition-all text-sm ${
+                  className={`relative flex items-center gap-1.5 px-4 py-2 font-medium transition-all text-sm group ${
                     isJoin
-                      ? "bg-green text-white hover:bg-green-deep"
+                      ? "bg-green text-white hover:bg-green-deep rounded-full"
                       : active
                       ? "text-foreground"
                       : "text-foreground/70 hover:text-foreground"
@@ -109,6 +109,13 @@ const Navbar = () => {
                     />
                   )}
                   {link.name}
+                  {!isJoin && (
+                    <span
+                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-green transition-all duration-300 ${
+                        active ? "w-3/4" : "w-0 group-hover:w-3/4"
+                      }`}
+                    />
+                  )}
                 </Link>
               );
             })}
