@@ -58,8 +58,8 @@ const Login = () => {
     <div className="min-h-screen">
       <Navbar />
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
-        <div className="geometric-shape shape-circle w-52 h-52 bg-sky/20 bottom-1/4 right-1/4 blur-2xl" />
-        <div className="geometric-shape w-36 h-36 bg-accent/30 bottom-32 left-10 rounded-2xl -rotate-12" />
+        <div className="geometric-shape shape-circle w-52 h-52 bg-teal/20 bottom-1/4 right-1/4 blur-2xl" />
+        <div className="geometric-shape w-36 h-36 bg-yellow/30 bottom-32 left-10 rounded-2xl -rotate-12" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-md mx-auto">

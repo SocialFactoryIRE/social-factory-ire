@@ -229,8 +229,8 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-4 p-6 bg-peach/10 rounded-2xl border-2 border-coral">
-                      <Phone className="h-6 w-6 text-coral flex-shrink-0 mt-1" />
+                    <div className="flex items-start space-x-4 p-6 bg-peach-light rounded-2xl border-2 border-peach-deep/30">
+                      <Phone className="h-6 w-6 text-peach-deep flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Phone</h3>
                         <p className="text-muted-foreground">
