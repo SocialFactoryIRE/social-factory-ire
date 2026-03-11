@@ -59,7 +59,7 @@ const MemberMapSection = () => {
   const [totalMembers, setTotalMembers] = useState(0);
   const [countryCount, setCountryCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number }>({
+  const [currentZoom, setCurrentZoom] = useState(EUROPE_ZOOM);
     center: EUROPE_CENTER,
     zoom: EUROPE_ZOOM,
   });
