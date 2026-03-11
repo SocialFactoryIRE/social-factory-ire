@@ -91,9 +91,9 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative flex items-center gap-1.5 px-4 py-2 font-medium transition-all text-sm group ${
+                  className={`relative flex items-center gap-1.5 px-4 py-2 font-medium transition-all text-sm group whitespace-nowrap ${
                     isJoin || isLogin
-                      ? "bg-green text-white hover:bg-green-deep rounded-full"
+                      ? "bg-green text-white hover:bg-green-deep rounded-full px-5"
                       : active
                         ? "text-foreground"
                         : "text-foreground/70 hover:text-foreground"
