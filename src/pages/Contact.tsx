@@ -206,7 +206,7 @@ const Contact = () => {
                 <div>
                   <h2 className="text-2xl font-bold mb-6 text-foreground">Contact Information</h2>
                   <div className="space-y-6">
-                    <div className="flex items-start space-x-4 p-6 bg-sky/10 rounded-2xl border-2 border-sky">
+                    <div className="flex items-start space-x-4 p-6 bg-teal-light rounded-2xl border-2 border-teal-deep/30">
                       <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Location</h3>
