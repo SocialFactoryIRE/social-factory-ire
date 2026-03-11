@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Globe, Users, ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
+import { Globe, Users, Maximize2, Minimize2 } from "lucide-react";
 import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from "react-leaflet";
 import { cityCoordinates } from "@/data/city-coordinates";
 import { Button } from "@/components/ui/button";
@@ -60,12 +60,10 @@ const MemberMapSection = () => {
   const [countryCount, setCountryCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [currentZoom, setCurrentZoom] = useState(EUROPE_ZOOM);
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number }>({
+  const [flyTarget] = useState<{ center: [number, number]; zoom: number }>({
     center: EUROPE_CENTER,
     zoom: EUROPE_ZOOM,
   });
-  const [explodingCities, setExplodingCities] = useState<string[]>([]);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Escape key to exit fullscreen
@@ -131,27 +129,6 @@ const MemberMapSection = () => {
     return result;
   }, [cityMarkers]);
 
-  const handleCountryClick = (cm: CountryMarker) => {
-    setSelectedCountry(cm.country);
-    setExplodingCities([]);
-    const lats = cm.cities.map((c) => c.coordinates[1]);
-    const lngs = cm.cities.map((c) => c.coordinates[0]);
-    const cLat = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const cLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-    const spread = Math.max(Math.max(...lats) - Math.min(...lats), Math.max(...lngs) - Math.min(...lngs));
-    const zoom = spread < 1 ? 10 : spread < 3 ? 8 : spread < 6 ? 7 : spread < 10 ? 6 : 5;
-    setFlyTarget({ center: [cLat, cLng], zoom });
-    cm.cities.forEach((city, i) => {
-      setTimeout(() => setExplodingCities((prev) => [...prev, city.key]), 300 + i * 120);
-    });
-  };
-
-  const handleBack = () => {
-    setSelectedCountry(null);
-    setExplodingCities([]);
-    setFlyTarget({ center: EUROPE_CENTER, zoom: EUROPE_ZOOM });
-  };
-
   if (loading || cityMarkers.length === 0) return null;
 
   const zoomScale = Math.min(1, currentZoom / EUROPE_ZOOM);
@@ -161,15 +138,6 @@ const MemberMapSection = () => {
     const min = 4;
     const max = 12;
     const base = maxCountryCount <= 1 ? min : min + ((count - 1) / (maxCountryCount - 1)) * (max - min);
-    return Math.max(2, base * zoomScale);
-  };
-
-  const activeCities = selectedCountry ? cityMarkers.filter((m) => m.country === selectedCountry) : [];
-  const maxCityCount = activeCities.length ? Math.max(...activeCities.map((m) => m.count)) : 1;
-  const getCityRadius = (count: number) => {
-    const min = 4;
-    const max = 10;
-    const base = maxCityCount <= 1 ? min : min + ((count - 1) / (maxCityCount - 1)) * (max - min);
     return Math.max(2, base * zoomScale);
   };
 
@@ -192,16 +160,6 @@ const MemberMapSection = () => {
           {isFullscreen ? "Exit" : "Fullscreen"}
         </Button>
       </div>
-      {selectedCountry && (
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleBack}
-          className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
-        >
-          <ArrowLeft className="h-4 w-4" /> Back to Europe
-        </Button>
-      )}
 
       <MapContainer
         center={EUROPE_CENTER}
@@ -221,8 +179,7 @@ const MemberMapSection = () => {
         <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
         <InvalidateSize trigger={isFullscreen} />
 
-        {!selectedCountry &&
-          countryMarkers.map((marker) => (
+        {countryMarkers.map((marker) => (
             <CircleMarker
               key={marker.country}
               center={marker.center}
@@ -233,7 +190,6 @@ const MemberMapSection = () => {
                 color: "hsl(210, 80%, 40%)",
                 weight: 1.5,
               }}
-              eventHandlers={{ click: () => handleCountryClick(marker) }}
             >
               <Tooltip direction="top" offset={[0, -8]}>
                 <div className="text-center">
@@ -241,42 +197,10 @@ const MemberMapSection = () => {
                   <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
                     <Users className="h-3 w-3 inline" /> {marker.count} member{marker.count !== 1 ? "s" : ""}
                   </p>
-                  {marker.cities.length > 1 && (
-                    <p className="text-xs text-primary mt-0.5">Click to explore</p>
-                  )}
                 </div>
               </Tooltip>
             </CircleMarker>
           ))}
-
-        {selectedCountry &&
-          activeCities.map((marker) => {
-            const isVisible = explodingCities.includes(marker.key);
-            return (
-              <CircleMarker
-                key={marker.key}
-                center={[marker.coordinates[1], marker.coordinates[0]]}
-                radius={isVisible ? getCityRadius(marker.count) : 0}
-                pathOptions={{
-                  fillColor: "hsl(210, 90%, 55%)",
-                  fillOpacity: isVisible ? 0.8 : 0,
-                  color: "hsl(210, 90%, 40%)",
-                  weight: 1.5,
-                  opacity: isVisible ? 1 : 0,
-                }}
-              >
-                <Tooltip direction="top" offset={[0, -6]}>
-                  <div className="text-center">
-                    <p className="font-bold text-sm">{marker.city}</p>
-                    <p className="text-xs text-muted-foreground">{marker.country}</p>
-                    <p className="text-xs flex items-center gap-1 justify-center">
-                      <Users className="h-3 w-3 inline" /> {marker.count} member{marker.count !== 1 ? "s" : ""}
-                    </p>
-                  </div>
-                </Tooltip>
-              </CircleMarker>
-            );
-          })}
       </MapContainer>
     </div>
   );
