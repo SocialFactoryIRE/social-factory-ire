@@ -197,7 +197,7 @@ const Chatbot = () => {
                   )}
                 </div>
                 {msg.role === "user" && (
-                  <div className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coral text-cream">
+                  <div className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green text-cream">
                     <User className="h-4 w-4" />
                   </div>
                 )}
