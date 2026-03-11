@@ -47,14 +47,38 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        coral: "hsl(var(--coral))",
-        cyan: "hsl(var(--cyan))",
-        peach: "hsl(var(--peach))",
-        mint: "hsl(var(--mint))",
-        sky: "hsl(var(--sky))",
+        // Domain colors
         cream: "hsl(var(--cream))",
-        charcoal: "hsl(var(--charcoal))",
-        "soft-grey": "hsl(var(--soft-grey))",
+        "warm-white": "hsl(var(--warm-white))",
+        ink: "hsl(var(--ink))",
+        "ink-soft": "hsl(var(--ink-soft))",
+        yellow: {
+          DEFAULT: "hsl(var(--yellow))",
+          light: "hsl(var(--yellow-light))",
+          deep: "hsl(var(--yellow-deep))",
+        },
+        peach: {
+          DEFAULT: "hsl(var(--peach))",
+          light: "hsl(var(--peach-light))",
+          deep: "hsl(var(--peach-deep))",
+        },
+        green: {
+          DEFAULT: "hsl(var(--green))",
+          light: "hsl(var(--green-light))",
+          deep: "hsl(var(--green-deep))",
+        },
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          light: "hsl(var(--teal-light))",
+          deep: "hsl(var(--teal-deep))",
+        },
+        // Legacy aliases (to be removed after full migration)
+        coral: "hsl(var(--peach-deep))",
+        mint: "hsl(var(--green))",
+        sky: "hsl(var(--teal))",
+        charcoal: "hsl(var(--ink))",
+        cyan: "hsl(var(--teal))",
+        "soft-grey": "hsl(var(--peach-light))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -72,8 +96,6 @@ export default {
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-card': 'var(--gradient-card)',
-        'gradient-coral': 'var(--gradient-coral)',
-        'gradient-mint': 'var(--gradient-mint)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
@@ -91,20 +113,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

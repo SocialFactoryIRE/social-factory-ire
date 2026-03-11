@@ -17,8 +17,7 @@ const NewsletterSignup = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate email
+
     const validation = newsletterSchema.safeParse({ email });
     if (!validation.success) {
       toast({
@@ -32,19 +31,15 @@ const NewsletterSignup = () => {
     setIsSubmitting(true);
 
     try {
-      // Save to database
       const { error: dbError } = await supabase
         .from("newsletter_signups")
         .insert([{ email }]);
 
       if (dbError) throw dbError;
 
-      // Send email notification
       const { error: emailError } = await supabase.functions.invoke(
         "send-newsletter-email",
-        {
-          body: { email },
-        }
+        { body: { email } }
       );
 
       if (emailError) {
@@ -68,14 +63,14 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-hero">
+    <section className="py-20 bg-ink">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto">
-          <Mail className="h-16 w-16 mx-auto mb-6 text-foreground" />
-          <h2 className="text-foreground mb-4">
+          <Mail className="h-16 w-16 mx-auto mb-6 text-green" />
+          <h2 className="text-cream mb-4">
             Be Part of Ireland's Social Revolution
           </h2>
-          <p className="text-lg mb-8 text-foreground/90">
+          <p className="text-lg mb-8 text-cream/80">
             Join our early membership and get updates on events, programs, and our launch.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
@@ -85,13 +80,13 @@ const NewsletterSignup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 bg-background/80 backdrop-blur-sm border-2 border-background rounded-2xl h-12 text-base"
+              className="flex-1 bg-cream/10 backdrop-blur-sm border-2 border-cream/30 rounded-2xl h-12 text-base text-cream placeholder:text-cream/50"
             />
-            <Button type="submit" size="lg" variant="coral" disabled={isSubmitting}>
+            <Button type="submit" size="lg" variant="green" disabled={isSubmitting}>
               {isSubmitting ? "Joining..." : "Join Now"}
             </Button>
           </form>
-          <p className="text-sm mt-4 text-foreground/70">
+          <p className="text-sm mt-4 text-cream/50">
             No spam, ever. Unsubscribe anytime.
           </p>
         </div>
