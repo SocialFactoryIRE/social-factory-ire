@@ -97,6 +97,25 @@ export default function AdminUsers() {
     else fetchUsers();
   };
 
+  const deleteUser = async (userId: string, displayName: string | null) => {
+    if (userId === currentUser?.id) {
+      toast({ title: "Not allowed", description: "You cannot delete yourself.", variant: "destructive" });
+      return;
+    }
+    const confirmed = window.confirm(`Are you sure you want to permanently delete ${displayName || "this user"}? This cannot be undone.`);
+    if (!confirmed) return;
+
+    const { data, error } = await supabase.functions.invoke("delete-user", {
+      body: { user_id: userId },
+    });
+    if (error) {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    } else {
+      toast({ title: "User deleted", description: `${displayName || "User"} has been removed.` });
+      fetchUsers();
+    }
+  };
+
   const filteredUsers = users.filter((u) => {
     const q = search.toLowerCase();
     return (
