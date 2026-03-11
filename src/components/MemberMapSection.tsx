@@ -46,7 +46,17 @@ const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom:
   return null;
 };
 
-const MemberMapSection = () => {
+// Invalidate map size when fullscreen toggles
+const InvalidateSize = ({ trigger }: { trigger: boolean }) => {
+  const map = useMap();
+  useEffect(() => {
+    const timer = setTimeout(() => map.invalidateSize(), 350);
+    return () => clearTimeout(timer);
+  }, [trigger, map]);
+  return null;
+};
+
+
   const [cityMarkers, setCityMarkers] = useState<CityMarker[]>([]);
   const [totalMembers, setTotalMembers] = useState(0);
   const [countryCount, setCountryCount] = useState(0);
