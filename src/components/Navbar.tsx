@@ -18,6 +18,13 @@ const Navbar = () => {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setIsOpen(false);
+    navigate("/");
+  };
 
   useEffect(() => {
     const fetchProfile = async (userId: string) => {
