@@ -1,17 +1,10 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Globe, Users, ArrowLeft } from "lucide-react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-  ZoomableGroup,
-} from "react-simple-maps";
+import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from "react-leaflet";
 import { cityCoordinates } from "@/data/city-coordinates";
 import { Button } from "@/components/ui/button";
-
-const GEO_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+import "leaflet/dist/leaflet.css";
 
 interface LocationData {
   country: string;
@@ -24,28 +17,40 @@ interface CityMarker {
   city: string;
   country: string;
   count: number;
-  coordinates: [number, number];
+  coordinates: [number, number]; // [lng, lat]
 }
 
 interface CountryMarker {
   country: string;
   count: number;
-  coordinates: [number, number];
+  center: [number, number]; // [lat, lng] for Leaflet
   cities: CityMarker[];
 }
 
-// Europe-centered view
-const EUROPE_VIEW = { center: [15, 52] as [number, number], zoom: 3.5 };
+const EUROPE_CENTER: [number, number] = [52, 10];
+const EUROPE_ZOOM = 4;
+
+// Component to programmatically fly the map
+const FlyTo = ({ center, zoom }: { center: [number, number]; zoom: number }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.flyTo(center, zoom, { duration: 1.2 });
+  }, [center, zoom, map]);
+  return null;
+};
 
 const MemberMapSection = () => {
   const [cityMarkers, setCityMarkers] = useState<CityMarker[]>([]);
   const [totalMembers, setTotalMembers] = useState(0);
   const [countryCount, setCountryCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [hoveredMarker, setHoveredMarker] = useState<{ name: string; detail: string; count: number } | null>(null);
-  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [view, setView] = useState(EUROPE_VIEW);
+  const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number }>({
+    center: EUROPE_CENTER,
+    zoom: EUROPE_ZOOM,
+  });
+  // Track which city markers are "exploding" in
+  const [explodingCities, setExplodingCities] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -70,7 +75,7 @@ const MemberMapSection = () => {
             city: row.city,
             country: row.country,
             count: row.member_count,
-            coordinates: coords,
+            coordinates: coords, // [lng, lat]
           });
         }
       }
@@ -84,7 +89,6 @@ const MemberMapSection = () => {
     fetchLocations();
   }, []);
 
-  // Aggregate city markers into country-level markers
   const countryMarkers = useMemo<CountryMarker[]>(() => {
     const map = new Map<string, { count: number; cities: CityMarker[] }>();
     for (const cm of cityMarkers) {
@@ -95,45 +99,65 @@ const MemberMapSection = () => {
     }
     const result: CountryMarker[] = [];
     for (const [country, { count, cities }] of map) {
-      // Use average coordinates of cities as country center
-      const avgLng = cities.reduce((s, c) => s + c.coordinates[0], 0) / cities.length;
       const avgLat = cities.reduce((s, c) => s + c.coordinates[1], 0) / cities.length;
-      result.push({ country, count, coordinates: [avgLng, avgLat], cities });
+      const avgLng = cities.reduce((s, c) => s + c.coordinates[0], 0) / cities.length;
+      result.push({ country, count, center: [avgLat, avgLng], cities });
     }
     return result;
   }, [cityMarkers]);
 
   const handleCountryClick = (cm: CountryMarker) => {
-    if (cm.cities.length <= 1) return; // No drill-down needed for single city
     setSelectedCountry(cm.country);
-    // Zoom to country center
-    const lngs = cm.cities.map(c => c.coordinates[0]);
-    const lats = cm.cities.map(c => c.coordinates[1]);
-    const cLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
+    setExplodingCities([]);
+
+    // Calculate bounds for the country
+    const lats = cm.cities.map((c) => c.coordinates[1]);
+    const lngs = cm.cities.map((c) => c.coordinates[0]);
     const cLat = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const spread = Math.max(Math.max(...lngs) - Math.min(...lngs), Math.max(...lats) - Math.min(...lats));
-    const zoom = spread < 2 ? 12 : spread < 5 ? 8 : spread < 10 ? 5 : 4;
-    setView({ center: [cLng, cLat], zoom });
+    const cLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
+    const spread = Math.max(
+      Math.max(...lats) - Math.min(...lats),
+      Math.max(...lngs) - Math.min(...lngs)
+    );
+    const zoom = spread < 1 ? 10 : spread < 3 ? 8 : spread < 6 ? 7 : spread < 10 ? 6 : 5;
+
+    setFlyTarget({ center: [cLat, cLng], zoom });
+
+    // Stagger the city markers appearing (explode effect)
+    cm.cities.forEach((city, i) => {
+      setTimeout(() => {
+        setExplodingCities((prev) => [...prev, city.key]);
+      }, 300 + i * 120);
+    });
   };
 
   const handleBack = () => {
     setSelectedCountry(null);
-    setView(EUROPE_VIEW);
-    setHoveredMarker(null);
+    setExplodingCities([]);
+    setFlyTarget({ center: EUROPE_CENTER, zoom: EUROPE_ZOOM });
   };
 
   if (loading || cityMarkers.length === 0) return null;
 
-  const activeMarkers = selectedCountry
-    ? cityMarkers.filter(m => m.country === selectedCountry)
-    : null;
+  const maxCountryCount = Math.max(...countryMarkers.map((m) => m.count));
+  const getCountryRadius = (count: number) => {
+    const min = 6;
+    const max = 18;
+    if (maxCountryCount <= 1) return min;
+    return min + ((count - 1) / (maxCountryCount - 1)) * (max - min);
+  };
 
-  const getRadius = (count: number, markers: { count: number }[]) => {
-    const maxCount = Math.max(...markers.map(m => m.count));
-    const min = 4;
+  const activeCities = selectedCountry
+    ? cityMarkers.filter((m) => m.country === selectedCountry)
+    : [];
+  const maxCityCount = activeCities.length
+    ? Math.max(...activeCities.map((m) => m.count))
+    : 1;
+  const getCityRadius = (count: number) => {
+    const min = 5;
     const max = 14;
-    if (maxCount <= 1) return min;
-    return min + ((count - 1) / (maxCount - 1)) * (max - min);
+    if (maxCityCount <= 1) return min;
+    return min + ((count - 1) / (maxCityCount - 1)) * (max - min);
   };
 
   return (
@@ -149,138 +173,101 @@ const MemberMapSection = () => {
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             <span className="font-bold text-foreground">{totalMembers}</span> members across{" "}
-            <span className="font-bold text-foreground">{countryCount}</span> countries are already part of Social Factory.
+            <span className="font-bold text-foreground">{countryCount}</span> countries are already
+            part of Social Factory.
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto rounded-2xl border-2 border-border bg-card/50 overflow-hidden">
+        <div className="relative max-w-5xl mx-auto rounded-2xl border-2 border-border overflow-hidden">
           {selectedCountry && (
             <Button
               variant="outline"
               size="sm"
               onClick={handleBack}
-              className="absolute top-4 left-4 z-10 gap-1.5"
+              className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
             >
               <ArrowLeft className="h-4 w-4" /> Back to Europe
             </Button>
           )}
 
-          <ComposableMap
-            projectionConfig={{ scale: 147, center: [0, 20] }}
-            className="w-full h-auto"
-            style={{ maxHeight: "520px" }}
+          <MapContainer
+            center={EUROPE_CENTER}
+            zoom={EUROPE_ZOOM}
+            scrollWheelZoom={false}
+            dragging={true}
+            zoomControl={true}
+            style={{ height: "520px", width: "100%" }}
+            className="z-0"
           >
-            <ZoomableGroup
-              center={view.center}
-              zoom={view.zoom}
-              minZoom={1}
-              maxZoom={20}
-              filterZoomEvent={() => false}
-            >
-              <Geographies geography={GEO_URL}>
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill="hsl(var(--muted))"
-                      stroke="hsl(var(--border))"
-                      strokeWidth={0.5}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { outline: "none", fill: "hsl(var(--muted-foreground) / 0.2)" },
-                        pressed: { outline: "none" },
-                      }}
-                    />
-                  ))
-                }
-              </Geographies>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} />
 
-              {/* Country-level markers (default view) */}
-              {!selectedCountry &&
-                countryMarkers.map((marker) => (
-                  <Marker
-                    key={marker.country}
-                    coordinates={marker.coordinates}
-                    onClick={() => handleCountryClick(marker)}
-                    onMouseEnter={(e) => {
-                      setHoveredMarker({
-                        name: marker.country,
-                        detail: `${marker.cities.length} ${marker.cities.length === 1 ? "city" : "cities"}`,
-                        count: marker.count,
-                      });
-                      setTooltipPos({ x: e.clientX, y: e.clientY });
-                    }}
-                    onMouseLeave={() => setHoveredMarker(null)}
-                  >
-                    <circle
-                      r={getRadius(marker.count, countryMarkers)}
-                      fill="hsl(var(--coral))"
-                      fillOpacity={0.75}
-                      stroke="hsl(var(--coral))"
-                      strokeWidth={1.5}
-                      strokeOpacity={0.3}
-                      className={marker.cities.length > 1 ? "cursor-pointer" : ""}
-                      style={{ transition: "r 0.3s ease" }}
-                    />
-                    {marker.cities.length > 1 && (
-                      <circle
-                        r={getRadius(marker.count, countryMarkers) + 3}
-                        fill="none"
-                        stroke="hsl(var(--coral))"
-                        strokeWidth={1}
-                        strokeOpacity={0.3}
-                        className="animate-pulse cursor-pointer"
-                      />
-                    )}
-                  </Marker>
-                ))}
+            {/* Country-level bubbles */}
+            {!selectedCountry &&
+              countryMarkers.map((marker) => (
+                <CircleMarker
+                  key={marker.country}
+                  center={marker.center}
+                  radius={getCountryRadius(marker.count)}
+                  pathOptions={{
+                    fillColor: "hsl(210, 80%, 50%)",
+                    fillOpacity: 0.7,
+                    color: "hsl(210, 80%, 40%)",
+                    weight: 1.5,
+                  }}
+                  eventHandlers={{
+                    click: () => handleCountryClick(marker),
+                  }}
+                >
+                  <Tooltip direction="top" offset={[0, -8]}>
+                    <div className="text-center">
+                      <p className="font-bold text-sm">{marker.country}</p>
+                      <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                        <Users className="h-3 w-3 inline" /> {marker.count} member
+                        {marker.count !== 1 ? "s" : ""}
+                      </p>
+                      {marker.cities.length > 1 && (
+                        <p className="text-xs text-primary mt-0.5">Click to explore</p>
+                      )}
+                    </div>
+                  </Tooltip>
+                </CircleMarker>
+              ))}
 
-              {/* City-level markers (drilled-down view) */}
-              {selectedCountry &&
-                activeMarkers?.map((marker) => (
-                  <Marker
+            {/* City-level bubbles (explode in) */}
+            {selectedCountry &&
+              activeCities.map((marker) => {
+                const isVisible = explodingCities.includes(marker.key);
+                return (
+                  <CircleMarker
                     key={marker.key}
-                    coordinates={marker.coordinates}
-                    onMouseEnter={(e) => {
-                      setHoveredMarker({
-                        name: marker.city,
-                        detail: marker.country,
-                        count: marker.count,
-                      });
-                      setTooltipPos({ x: e.clientX, y: e.clientY });
+                    center={[marker.coordinates[1], marker.coordinates[0]]}
+                    radius={isVisible ? getCityRadius(marker.count) : 0}
+                    pathOptions={{
+                      fillColor: "hsl(210, 90%, 55%)",
+                      fillOpacity: isVisible ? 0.8 : 0,
+                      color: "hsl(210, 90%, 40%)",
+                      weight: 1.5,
+                      opacity: isVisible ? 1 : 0,
                     }}
-                    onMouseLeave={() => setHoveredMarker(null)}
                   >
-                    <circle
-                      r={getRadius(marker.count, activeMarkers)}
-                      fill="hsl(var(--coral))"
-                      fillOpacity={0.8}
-                      stroke="hsl(var(--coral))"
-                      strokeWidth={1.5}
-                      strokeOpacity={0.4}
-                      style={{ cursor: "pointer", transition: "r 0.3s ease" }}
-                    />
-                  </Marker>
-                ))}
-            </ZoomableGroup>
-          </ComposableMap>
-
-          {hoveredMarker && (
-            <div
-              className="fixed z-50 pointer-events-none px-3 py-2 rounded-xl bg-popover text-popover-foreground border border-border shadow-lg text-sm"
-              style={{
-                left: tooltipPos.x + 12,
-                top: tooltipPos.y - 10,
-              }}
-            >
-              <p className="font-bold">{hoveredMarker.name}</p>
-              <p className="text-muted-foreground text-xs">{hoveredMarker.detail}</p>
-              <p className="flex items-center gap-1 text-xs mt-0.5">
-                <Users className="h-3 w-3" /> {hoveredMarker.count} member{hoveredMarker.count !== 1 ? "s" : ""}
-              </p>
-            </div>
-          )}
+                    <Tooltip direction="top" offset={[0, -6]}>
+                      <div className="text-center">
+                        <p className="font-bold text-sm">{marker.city}</p>
+                        <p className="text-xs text-muted-foreground">{marker.country}</p>
+                        <p className="text-xs flex items-center gap-1 justify-center">
+                          <Users className="h-3 w-3 inline" /> {marker.count} member
+                          {marker.count !== 1 ? "s" : ""}
+                        </p>
+                      </div>
+                    </Tooltip>
+                  </CircleMarker>
+                );
+              })}
+          </MapContainer>
         </div>
       </div>
     </section>
