@@ -206,7 +206,7 @@ export default function AdminUsers() {
                                 <Trash2 className="h-4 w-4 text-muted-foreground" />
                               </Button>
                             )}
-                            <Button variant="ghost" size="icon" onClick={() => deleteUser(u.user_id, u.display_name)} title="Delete user permanently">
+                            <Button variant="ghost" size="icon" onClick={() => requestDeleteUser(u.user_id, u.display_name)} title="Delete user permanently">
                               <Trash2 className="h-4 w-4 text-destructive" />
                             </Button>
                           </div>
