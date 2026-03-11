@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/social-factory-logo.jpeg";
 import { supabase } from "@/integrations/supabase/client";
@@ -15,15 +15,30 @@ const NAV_DOT_COLORS: Record<string, string> = {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
+    const fetchProfile = async (userId: string) => {
+      const { data } = await supabase
+        .from("profiles")
+        .select("avatar_url")
+        .eq("user_id", userId)
+        .maybeSingle();
+      setAvatarUrl(data?.avatar_url ?? null);
+    };
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setIsLoggedIn(!!session?.user);
+      const loggedIn = !!session?.user;
+      setIsLoggedIn(loggedIn);
+      if (loggedIn && session?.user?.id) fetchProfile(session.user.id);
+      else setAvatarUrl(null);
     });
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setIsLoggedIn(!!session?.user);
+      const loggedIn = !!session?.user;
+      setIsLoggedIn(loggedIn);
+      if (loggedIn && session?.user?.id) fetchProfile(session.user.id);
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -34,6 +49,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Nav links without Profile/Login — those are handled separately
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -41,7 +57,7 @@ const Navbar = () => {
     { name: "Science & Research", path: "/science" },
     { name: "Governance", path: "/governance" },
     ...(!isLoggedIn ? [{ name: "Join", path: "/join" }] : []),
-    { name: isLoggedIn ? "Profile" : "Log In", path: isLoggedIn ? "/profile" : "/login" },
+    ...(!isLoggedIn ? [{ name: "Log In", path: "/login" }] : []),
     { name: "Contact", path: "/contact" },
   ];
 
@@ -89,17 +105,53 @@ const Navbar = () => {
                 </Link>
               );
             })}
+
+            {/* Profile avatar */}
+            {isLoggedIn && (
+              <Link
+                to="/profile"
+                className="ml-2 flex-shrink-0 hover:opacity-80 transition-opacity"
+              >
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt="Profile"
+                    className="h-9 w-9 rounded-full object-cover border-2 border-green"
+                  />
+                ) : (
+                  <div className="h-9 w-9 rounded-full bg-green flex items-center justify-center">
+                    <User className="h-5 w-5 text-white" />
+                  </div>
+                )}
+              </Link>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          {/* Mobile: avatar + menu button */}
+          <div className="flex md:hidden items-center gap-2">
+            {isLoggedIn && (
+              <Link to="/profile" className="flex-shrink-0">
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt="Profile"
+                    className="h-9 w-9 rounded-full object-cover border-2 border-green"
+                  />
+                ) : (
+                  <div className="h-9 w-9 rounded-full bg-green flex items-center justify-center">
+                    <User className="h-5 w-5 text-white" />
+                  </div>
+                )}
+              </Link>
+            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
