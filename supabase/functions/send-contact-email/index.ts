@@ -45,8 +45,8 @@ async function checkRateLimit(supabase: any, ipAddress: string, endpoint: string
     return true; // Allow on error to not block legitimate users
   }
 
-  // Allow max 5 submissions per hour
-  if (count !== null && count >= 2000) {
+  // Allow max 240 submissions per hour
+  if (count !== null && count >= 240) {
     return false;
   }
 
