@@ -34,7 +34,7 @@ export default function AdminUsers() {
   const [newUser, setNewUser] = useState({ email: "", password: "", role: "editor" as "admin" | "editor", display_name: "" });
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
-  const { role } = useAdminAuth();
+  const { role, user: currentUser } = useAdminAuth();
 
   const fetchUsers = async () => {
     const { data, error } = await supabase.rpc("get_all_users_for_admin" as any);
