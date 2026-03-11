@@ -169,6 +169,9 @@ const MemberMapSection = () => {
         scrollWheelZoom={true}
         dragging={true}
         zoomControl={true}
+        worldCopyJump={false}
+        maxBounds={[[-85, -180], [85, 180]]}
+        maxBoundsViscosity={1.0}
         style={{ height: "100%", width: "100%", minHeight: isFullscreen ? "100vh" : "520px" }}
         className="z-0"
       >
