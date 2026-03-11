@@ -206,6 +206,8 @@ const MemberMapSection = () => {
       <MapContainer
         center={EUROPE_CENTER}
         zoom={EUROPE_ZOOM}
+        minZoom={3}
+        maxZoom={12}
         scrollWheelZoom={true}
         dragging={true}
         zoomControl={true}
