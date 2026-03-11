@@ -57,21 +57,42 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-warm-white relative overflow-hidden">
-        <div className="geometric-shape shape-circle w-64 h-64 bg-yellow/20 -top-32 -right-32 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-96 h-96 bg-green/20 -bottom-48 -left-48 blur-3xl"></div>
-        <div className="geometric-shape w-32 h-32 bg-peach/30 top-20 right-1/4 rounded-3xl rotate-12"></div>
-        <div className="geometric-shape shape-circle w-24 h-24 bg-teal/40 bottom-32 left-1/4"></div>
+        {/* Soft radial gradient blobs */}
+        <div
+          className="hero-blob"
+          style={{
+            width: "60vw",
+            height: "60vw",
+            maxWidth: 700,
+            maxHeight: 700,
+            top: "-15%",
+            left: "-10%",
+            background: "radial-gradient(circle, rgba(255,205,26,0.35) 0%, rgba(249,187,134,0.18) 60%, transparent 100%)",
+          }}
+        />
+        <div
+          className="hero-blob"
+          style={{
+            width: "55vw",
+            height: "55vw",
+            maxWidth: 650,
+            maxHeight: 650,
+            bottom: "-20%",
+            right: "-8%",
+            background: "radial-gradient(circle, rgba(93,205,249,0.22) 0%, rgba(0,179,137,0.16) 60%, transparent 100%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-foreground animate-fade-in">
-              <span className="text-3xl md:text-4xl font-normal">Ireland's First</span><br />
-              <span className="text-5xl md:text-6xl font-black">Social Factory</span>
+              <span className="text-3xl md:text-4xl font-light">Ireland's First</span><br />
+              <span className="text-5xl md:text-6xl">Social Factory</span>
             </h1>
-            <p className="text-xl md:text-2xl mt-8 mb-4 text-foreground/90 animate-fade-in font-semibold">
+            <p className="text-xl md:text-2xl mt-8 mb-4 text-ink-soft animate-fade-in font-medium">
               Reconnecting communities through action sports, creative arts, wellness, and entrepreneurship.
             </p>
-            <p className="text-lg md:text-xl mb-10 text-muted-foreground animate-fade-in max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl mb-10 text-muted-foreground animate-fade-in max-w-2xl mx-auto font-light">
               1 in 5 Irish adults report loneliness. We're building the spaces and systems to change that —
               starting in Limerick.
             </p>
@@ -107,13 +128,23 @@ const Index = () => {
 
       {/* The Problem We're Solving */}
       <section className="py-20 bg-ink relative overflow-hidden">
-        <div className="geometric-shape w-48 h-48 bg-green/10 top-10 right-10 rounded-full blur-2xl"></div>
-        <div className="geometric-shape w-32 h-32 bg-yellow/10 bottom-10 left-10 rounded-3xl rotate-45"></div>
+        <div
+          className="hero-blob"
+          style={{
+            width: "40vw",
+            height: "40vw",
+            maxWidth: 500,
+            maxHeight: 500,
+            top: "-10%",
+            right: "-5%",
+            background: "radial-gradient(circle, rgba(0,179,137,0.15) 0%, transparent 70%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-cream mb-6">Why Social Factory?</h2>
-            <p className="text-lg text-cream/80 leading-relaxed mb-10 max-w-3xl mx-auto">
+            <p className="text-lg text-cream/80 leading-relaxed mb-10 max-w-3xl mx-auto font-light">
               Ireland's own research tells us that loneliness, poor mental health, and disconnection are
               not personal failings — they are structural problems that need structural solutions.
               Social Factory is that solution: a permanent, preventative, community-owned hub where people
@@ -122,29 +153,29 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
               <Link to="/science" className="block h-full">
-                <div className="p-8 rounded-3xl bg-yellow border-2 border-yellow-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
-                  <div className="text-4xl font-extrabold text-ink mb-2">1 in 5</div>
+                <div className="p-8 rounded-[20px] bg-yellow border-2 border-yellow-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
+                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>1 in 5</div>
                   <p className="text-sm text-ink/80 font-medium">Irish adults report loneliness</p>
                   <p className="text-xs text-ink/60 mt-1">Healthy Ireland Survey 2025</p>
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-8 rounded-3xl bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
-                  <div className="text-4xl font-extrabold text-ink mb-2">Only 53%</div>
+                <div className="p-8 rounded-[20px] bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
+                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>Only 53%</div>
                   <p className="text-sm text-ink/80 font-medium">of adults meet activity guidelines</p>
                   <p className="text-xs text-ink/60 mt-1">Healthy Ireland Survey 2025</p>
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-8 rounded-3xl bg-green border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
-                  <div className="text-4xl font-extrabold text-cream mb-2">30%</div>
+                <div className="p-8 rounded-[20px] bg-green border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
+                  <div className="text-4xl font-bold text-cream mb-2" style={{ fontFamily: "'Fraunces', serif" }}>30%</div>
                   <p className="text-sm text-cream/90 font-medium">of young people below WHO wellbeing threshold</p>
                   <p className="text-xs text-cream/70 mt-1">Planet Youth West Ireland 2024</p>
                 </div>
               </Link>
             </div>
 
-            <Button asChild size="lg" className="font-bold bg-cream text-ink border-2 border-cream hover:bg-cream/90 hover:scale-105 transition-all duration-300 shadow-hover text-lg">
+            <Button asChild size="lg" className="font-semibold bg-cream text-ink border-2 border-cream hover:bg-cream/90 hover:scale-105 transition-all duration-300 text-lg rounded-full">
               <Link to="/science">
                 See the Evidence <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -161,15 +192,25 @@ const Index = () => {
 
       {/* Four Domains */}
       <section className="py-20 bg-cream relative overflow-hidden grid-pattern">
-        <div className="geometric-shape shape-circle w-40 h-40 bg-yellow/20 top-20 left-10 blur-xl"></div>
-        <div className="geometric-shape w-24 h-24 bg-peach/30 bottom-20 right-20 rounded-2xl rotate-12"></div>
+        <div
+          className="hero-blob"
+          style={{
+            width: "35vw",
+            height: "35vw",
+            maxWidth: 400,
+            maxHeight: 400,
+            top: "5%",
+            left: "-5%",
+            background: "radial-gradient(circle, rgba(255,205,26,0.18) 0%, transparent 70%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-foreground">
               Four Domains of Connection
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
               Our programmes are built around four interconnected pillars — each one a pathway to belonging.
             </p>
           </div>
@@ -198,31 +239,41 @@ const Index = () => {
 
       {/* Policy Alignment */}
       <section className="py-20 bg-warm-white relative overflow-hidden">
-        <div className="geometric-shape w-64 h-64 bg-green/10 -top-32 -left-32 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-40 h-40 bg-teal/20 top-32 right-20 blur-2xl"></div>
+        <div
+          className="hero-blob"
+          style={{
+            width: "45vw",
+            height: "45vw",
+            maxWidth: 550,
+            maxHeight: 550,
+            top: "-10%",
+            left: "-10%",
+            background: "radial-gradient(circle, rgba(0,179,137,0.12) 0%, transparent 70%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-foreground mb-6">
               Grounded in Science. Aligned with Policy.
             </h2>
-            <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto font-light">
               Social Factory is built on the Planet Youth model, aligned with Ireland's
-              <strong className="text-foreground"> Pathways to Wellbeing National Mental Health Promotion Plan 2024–2030</strong>,
-              and informed by the <strong className="text-foreground">Healthy Ireland Survey 2025</strong>. Every design choice —
+              <strong className="text-foreground font-semibold"> Pathways to Wellbeing National Mental Health Promotion Plan 2024–2030</strong>,
+              and informed by the <strong className="text-foreground font-semibold">Healthy Ireland Survey 2025</strong>. Every design choice —
               from our social prescribing membership tier to our cross-domain programming — is evidence-led.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-8">
-              <div className="p-8 rounded-3xl bg-teal-light border-2 border-teal-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-3xl font-extrabold text-teal-deep mb-2">Planet Youth</div>
+              <div className="p-8 rounded-[20px] bg-teal-light border-2 border-teal-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
+                <div className="text-3xl font-bold text-teal-deep mb-2" style={{ fontFamily: "'Fraunces', serif" }}>Planet Youth</div>
                 <p className="text-sm text-ink-soft font-medium">Proven model for youth wellbeing & community resilience</p>
               </div>
-              <div className="p-8 rounded-3xl bg-green-light border-2 border-green-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-3xl font-extrabold text-green-deep mb-2">Pathways to Wellbeing</div>
+              <div className="p-8 rounded-[20px] bg-green-light border-2 border-green-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
+                <div className="text-3xl font-bold text-green-deep mb-2" style={{ fontFamily: "'Fraunces', serif" }}>Pathways to Wellbeing</div>
                 <p className="text-sm text-ink-soft font-medium">Ireland's National Mental Health Promotion Plan 2024–2030</p>
               </div>
-              <div className="p-8 rounded-3xl bg-yellow-light border-2 border-yellow-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-3xl font-extrabold text-yellow-deep mb-2">NEB Aligned</div>
+              <div className="p-8 rounded-[20px] bg-yellow-light border-2 border-yellow-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
+                <div className="text-3xl font-bold text-yellow-deep mb-2" style={{ fontFamily: "'Fraunces', serif" }}>NEB Aligned</div>
                 <p className="text-sm text-ink-soft font-medium">New European Bauhaus: sustainability, inclusion & beauty</p>
               </div>
             </div>
