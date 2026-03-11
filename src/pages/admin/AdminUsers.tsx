@@ -88,6 +88,10 @@ export default function AdminUsers() {
   };
 
   const removeRole = async (userId: string) => {
+    if (userId === currentUser?.id) {
+      toast({ title: "Not allowed", description: "You cannot remove your own role.", variant: "destructive" });
+      return;
+    }
     const { error } = await supabase.from("user_roles").delete().eq("user_id", userId);
     if (error) toast({ title: "Error", description: error.message, variant: "destructive" });
     else fetchUsers();
