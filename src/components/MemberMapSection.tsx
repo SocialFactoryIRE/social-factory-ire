@@ -71,7 +71,16 @@ const MemberMapSection = () => {
   const [explodingCities, setExplodingCities] = useState<string[]>([]);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
+  // Escape key to exit fullscreen
   useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isFullscreen) setIsFullscreen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isFullscreen]);
+
+
     const fetchLocations = async () => {
       const { data, error } = await supabase.rpc("get_member_locations");
       if (error || !data) {
