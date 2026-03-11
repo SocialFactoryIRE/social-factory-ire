@@ -175,16 +175,6 @@ const MemberMapSection = () => {
           {isFullscreen ? "Exit" : "Fullscreen"}
         </Button>
       </div>
-      {selectedCountry && (
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleBack}
-          className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
-        >
-          <ArrowLeft className="h-4 w-4" /> Back to Europe
-        </Button>
-      )}
 
       <MapContainer
         center={EUROPE_CENTER}
@@ -204,8 +194,7 @@ const MemberMapSection = () => {
         <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
         <InvalidateSize trigger={isFullscreen} />
 
-        {!selectedCountry &&
-          countryMarkers.map((marker) => (
+        {countryMarkers.map((marker) => (
             <CircleMarker
               key={marker.country}
               center={marker.center}
@@ -216,7 +205,6 @@ const MemberMapSection = () => {
                 color: "hsl(210, 80%, 40%)",
                 weight: 1.5,
               }}
-              eventHandlers={{ click: () => handleCountryClick(marker) }}
             >
               <Tooltip direction="top" offset={[0, -8]}>
                 <div className="text-center">
@@ -224,9 +212,6 @@ const MemberMapSection = () => {
                   <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
                     <Users className="h-3 w-3 inline" /> {marker.count} member{marker.count !== 1 ? "s" : ""}
                   </p>
-                  {marker.cities.length > 1 && (
-                    <p className="text-xs text-primary mt-0.5">Click to explore</p>
-                  )}
                 </div>
               </Tooltip>
             </CircleMarker>
