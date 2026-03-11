@@ -174,7 +174,7 @@ const Register = () => {
                   <Input id="password" name="password" type="password" value={form.password} onChange={handleChange} placeholder="Min 8 characters" required className="text-base p-5" />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full text-base py-5 bg-gradient-hero hover:opacity-90 font-bold" disabled={isSubmitting}>
+                <Button type="submit" size="lg" variant="green" className="w-full text-base py-5 font-bold" disabled={isSubmitting}>
                   {isSubmitting ? "Creating account..." : "Sign Up"}
                 </Button>
               </form>
