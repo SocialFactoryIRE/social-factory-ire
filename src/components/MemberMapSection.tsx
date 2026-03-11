@@ -1,4 +1,5 @@
-import { useEffect, useState, useMemo, useRef } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { createPortal } from "react-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Globe, Users, ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
 import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from "react-leaflet";
@@ -17,20 +18,19 @@ interface CityMarker {
   city: string;
   country: string;
   count: number;
-  coordinates: [number, number]; // [lng, lat]
+  coordinates: [number, number];
 }
 
 interface CountryMarker {
   country: string;
   count: number;
-  center: [number, number]; // [lat, lng] for Leaflet
+  center: [number, number];
   cities: CityMarker[];
 }
 
 const EUROPE_CENTER: [number, number] = [52, 10];
 const EUROPE_ZOOM = 4;
 
-// Component to programmatically fly the map and track zoom
 const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void }) => {
   const map = useMap();
   useEffect(() => {
@@ -45,6 +45,15 @@ const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom:
   return null;
 };
 
+const InvalidateSize = ({ trigger }: { trigger: boolean }) => {
+  const map = useMap();
+  useEffect(() => {
+    const timer = setTimeout(() => map.invalidateSize(), 100);
+    return () => clearTimeout(timer);
+  }, [trigger, map]);
+  return null;
+};
+
 const MemberMapSection = () => {
   const [cityMarkers, setCityMarkers] = useState<CityMarker[]>([]);
   const [totalMembers, setTotalMembers] = useState(0);
@@ -56,9 +65,17 @@ const MemberMapSection = () => {
     center: EUROPE_CENTER,
     zoom: EUROPE_ZOOM,
   });
-  // Track which city markers are "exploding" in
   const [explodingCities, setExplodingCities] = useState<string[]>([]);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  // Escape key to exit fullscreen
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isFullscreen) setIsFullscreen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isFullscreen]);
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -83,7 +100,7 @@ const MemberMapSection = () => {
             city: row.city,
             country: row.country,
             count: row.member_count,
-            coordinates: coords, // [lng, lat]
+            coordinates: coords,
           });
         }
       }
@@ -98,15 +115,15 @@ const MemberMapSection = () => {
   }, []);
 
   const countryMarkers = useMemo<CountryMarker[]>(() => {
-    const map = new Map<string, { count: number; cities: CityMarker[] }>();
+    const grouped = new Map<string, { count: number; cities: CityMarker[] }>();
     for (const cm of cityMarkers) {
-      const entry = map.get(cm.country) || { count: 0, cities: [] };
+      const entry = grouped.get(cm.country) || { count: 0, cities: [] };
       entry.count += cm.count;
       entry.cities.push(cm);
-      map.set(cm.country, entry);
+      grouped.set(cm.country, entry);
     }
     const result: CountryMarker[] = [];
-    for (const [country, { count, cities }] of map) {
+    for (const [country, { count, cities }] of grouped) {
       const avgLat = cities.reduce((s, c) => s + c.coordinates[1], 0) / cities.length;
       const avgLng = cities.reduce((s, c) => s + c.coordinates[0], 0) / cities.length;
       result.push({ country, count, center: [avgLat, avgLng], cities });
@@ -117,25 +134,15 @@ const MemberMapSection = () => {
   const handleCountryClick = (cm: CountryMarker) => {
     setSelectedCountry(cm.country);
     setExplodingCities([]);
-
-    // Calculate bounds for the country
     const lats = cm.cities.map((c) => c.coordinates[1]);
     const lngs = cm.cities.map((c) => c.coordinates[0]);
     const cLat = (Math.min(...lats) + Math.max(...lats)) / 2;
     const cLng = (Math.min(...lngs) + Math.max(...lngs)) / 2;
-    const spread = Math.max(
-      Math.max(...lats) - Math.min(...lats),
-      Math.max(...lngs) - Math.min(...lngs)
-    );
+    const spread = Math.max(Math.max(...lats) - Math.min(...lats), Math.max(...lngs) - Math.min(...lngs));
     const zoom = spread < 1 ? 10 : spread < 3 ? 8 : spread < 6 ? 7 : spread < 10 ? 6 : 5;
-
     setFlyTarget({ center: [cLat, cLng], zoom });
-
-    // Stagger the city markers appearing (explode effect)
     cm.cities.forEach((city, i) => {
-      setTimeout(() => {
-        setExplodingCities((prev) => [...prev, city.key]);
-      }, 300 + i * 120);
+      setTimeout(() => setExplodingCities((prev) => [...prev, city.key]), 300 + i * 120);
     });
   };
 
@@ -147,7 +154,6 @@ const MemberMapSection = () => {
 
   if (loading || cityMarkers.length === 0) return null;
 
-  // Scale factor: cap radius so bubbles shrink when zoomed out, max at base zoom
   const zoomScale = Math.min(1, currentZoom / EUROPE_ZOOM);
 
   const maxCountryCount = Math.max(...countryMarkers.map((m) => m.count));
@@ -158,12 +164,8 @@ const MemberMapSection = () => {
     return Math.max(2, base * zoomScale);
   };
 
-  const activeCities = selectedCountry
-    ? cityMarkers.filter((m) => m.country === selectedCountry)
-    : [];
-  const maxCityCount = activeCities.length
-    ? Math.max(...activeCities.map((m) => m.count))
-    : 1;
+  const activeCities = selectedCountry ? cityMarkers.filter((m) => m.country === selectedCountry) : [];
+  const maxCityCount = activeCities.length ? Math.max(...activeCities.map((m) => m.count)) : 1;
   const getCityRadius = (count: number) => {
     const min = 4;
     const max = 10;
@@ -171,8 +173,114 @@ const MemberMapSection = () => {
     return Math.max(2, base * zoomScale);
   };
 
+  const mapContent = (
+    <div
+      className={
+        isFullscreen
+          ? "fixed inset-0 z-[9999] bg-background"
+          : "relative max-w-5xl mx-auto rounded-2xl border-2 border-border overflow-hidden"
+      }
+    >
+      <div className="absolute top-4 right-4 z-[1000] flex gap-2">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => setIsFullscreen(!isFullscreen)}
+          className="gap-1.5 bg-background/90 backdrop-blur-sm"
+        >
+          {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+          {isFullscreen ? "Exit" : "Fullscreen"}
+        </Button>
+      </div>
+      {selectedCountry && (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleBack}
+          className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
+        >
+          <ArrowLeft className="h-4 w-4" /> Back to Europe
+        </Button>
+      )}
+
+      <MapContainer
+        center={EUROPE_CENTER}
+        zoom={EUROPE_ZOOM}
+        scrollWheelZoom={true}
+        dragging={true}
+        zoomControl={true}
+        style={{ height: "100%", width: "100%", minHeight: isFullscreen ? "100vh" : "520px" }}
+        className="z-0"
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        />
+        <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
+        <InvalidateSize trigger={isFullscreen} />
+
+        {!selectedCountry &&
+          countryMarkers.map((marker) => (
+            <CircleMarker
+              key={marker.country}
+              center={marker.center}
+              radius={getCountryRadius(marker.count)}
+              pathOptions={{
+                fillColor: "hsl(210, 80%, 50%)",
+                fillOpacity: 0.7,
+                color: "hsl(210, 80%, 40%)",
+                weight: 1.5,
+              }}
+              eventHandlers={{ click: () => handleCountryClick(marker) }}
+            >
+              <Tooltip direction="top" offset={[0, -8]}>
+                <div className="text-center">
+                  <p className="font-bold text-sm">{marker.country}</p>
+                  <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                    <Users className="h-3 w-3 inline" /> {marker.count} member{marker.count !== 1 ? "s" : ""}
+                  </p>
+                  {marker.cities.length > 1 && (
+                    <p className="text-xs text-primary mt-0.5">Click to explore</p>
+                  )}
+                </div>
+              </Tooltip>
+            </CircleMarker>
+          ))}
+
+        {selectedCountry &&
+          activeCities.map((marker) => {
+            const isVisible = explodingCities.includes(marker.key);
+            return (
+              <CircleMarker
+                key={marker.key}
+                center={[marker.coordinates[1], marker.coordinates[0]]}
+                radius={isVisible ? getCityRadius(marker.count) : 0}
+                pathOptions={{
+                  fillColor: "hsl(210, 90%, 55%)",
+                  fillOpacity: isVisible ? 0.8 : 0,
+                  color: "hsl(210, 90%, 40%)",
+                  weight: 1.5,
+                  opacity: isVisible ? 1 : 0,
+                }}
+              >
+                <Tooltip direction="top" offset={[0, -6]}>
+                  <div className="text-center">
+                    <p className="font-bold text-sm">{marker.city}</p>
+                    <p className="text-xs text-muted-foreground">{marker.country}</p>
+                    <p className="text-xs flex items-center gap-1 justify-center">
+                      <Users className="h-3 w-3 inline" /> {marker.count} member{marker.count !== 1 ? "s" : ""}
+                    </p>
+                  </div>
+                </Tooltip>
+              </CircleMarker>
+            );
+          })}
+      </MapContainer>
+    </div>
+  );
+
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
@@ -189,112 +297,7 @@ const MemberMapSection = () => {
           </p>
         </div>
 
-        <div className={`relative rounded-2xl border-2 border-border overflow-hidden transition-all duration-300 ${
-          isFullscreen
-            ? "fixed inset-0 z-[9999] rounded-none border-0 max-w-none"
-            : "max-w-5xl mx-auto"
-        }`}>
-          <div className="absolute top-4 right-4 z-[1000] flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              className="gap-1.5 bg-background/90 backdrop-blur-sm"
-            >
-              {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
-              {isFullscreen ? "Exit" : "Fullscreen"}
-            </Button>
-          </div>
-          {selectedCountry && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleBack}
-              className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
-            >
-              <ArrowLeft className="h-4 w-4" /> Back to Europe
-            </Button>
-          )}
-
-          <MapContainer
-            center={EUROPE_CENTER}
-            zoom={EUROPE_ZOOM}
-            scrollWheelZoom={true}
-            dragging={true}
-            zoomControl={true}
-            style={{ height: isFullscreen ? "100vh" : "520px", width: "100%" }}
-            className="z-0"
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-            />
-            <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
-
-            {/* Country-level bubbles */}
-            {!selectedCountry &&
-              countryMarkers.map((marker) => (
-                <CircleMarker
-                  key={marker.country}
-                  center={marker.center}
-                  radius={getCountryRadius(marker.count)}
-                  pathOptions={{
-                    fillColor: "hsl(210, 80%, 50%)",
-                    fillOpacity: 0.7,
-                    color: "hsl(210, 80%, 40%)",
-                    weight: 1.5,
-                  }}
-                  eventHandlers={{
-                    click: () => handleCountryClick(marker),
-                  }}
-                >
-                  <Tooltip direction="top" offset={[0, -8]}>
-                    <div className="text-center">
-                      <p className="font-bold text-sm">{marker.country}</p>
-                      <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
-                        <Users className="h-3 w-3 inline" /> {marker.count} member
-                        {marker.count !== 1 ? "s" : ""}
-                      </p>
-                      {marker.cities.length > 1 && (
-                        <p className="text-xs text-primary mt-0.5">Click to explore</p>
-                      )}
-                    </div>
-                  </Tooltip>
-                </CircleMarker>
-              ))}
-
-            {/* City-level bubbles (explode in) */}
-            {selectedCountry &&
-              activeCities.map((marker) => {
-                const isVisible = explodingCities.includes(marker.key);
-                return (
-                  <CircleMarker
-                    key={marker.key}
-                    center={[marker.coordinates[1], marker.coordinates[0]]}
-                    radius={isVisible ? getCityRadius(marker.count) : 0}
-                    pathOptions={{
-                      fillColor: "hsl(210, 90%, 55%)",
-                      fillOpacity: isVisible ? 0.8 : 0,
-                      color: "hsl(210, 90%, 40%)",
-                      weight: 1.5,
-                      opacity: isVisible ? 1 : 0,
-                    }}
-                  >
-                    <Tooltip direction="top" offset={[0, -6]}>
-                      <div className="text-center">
-                        <p className="font-bold text-sm">{marker.city}</p>
-                        <p className="text-xs text-muted-foreground">{marker.country}</p>
-                        <p className="text-xs flex items-center gap-1 justify-center">
-                          <Users className="h-3 w-3 inline" /> {marker.count} member
-                          {marker.count !== 1 ? "s" : ""}
-                        </p>
-                      </div>
-                    </Tooltip>
-                  </CircleMarker>
-                );
-              })}
-          </MapContainer>
-        </div>
+        {isFullscreen ? createPortal(mapContent, document.body) : mapContent}
       </div>
     </section>
   );
