@@ -199,7 +199,10 @@ const MemberMapSection = () => {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           noWrap={true}
         />
-        <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
+        <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} onMoveEnd={(c, z) => {
+          const dist = Math.abs(c[0] - EUROPE_CENTER[0]) + Math.abs(c[1] - EUROPE_CENTER[1]);
+          setIsDefaultView(dist < 2 && Math.abs(z - EUROPE_ZOOM) <= 1);
+        }} />
         <InvalidateSize trigger={isFullscreen} />
 
         {countryMarkers.map((marker) => (
