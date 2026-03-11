@@ -216,35 +216,6 @@ const MemberMapSection = () => {
               </Tooltip>
             </CircleMarker>
           ))}
-
-        {selectedCountry &&
-          activeCities.map((marker) => {
-            const isVisible = explodingCities.includes(marker.key);
-            return (
-              <CircleMarker
-                key={marker.key}
-                center={[marker.coordinates[1], marker.coordinates[0]]}
-                radius={isVisible ? getCityRadius(marker.count) : 0}
-                pathOptions={{
-                  fillColor: "hsl(210, 90%, 55%)",
-                  fillOpacity: isVisible ? 0.8 : 0,
-                  color: "hsl(210, 90%, 40%)",
-                  weight: 1.5,
-                  opacity: isVisible ? 1 : 0,
-                }}
-              >
-                <Tooltip direction="top" offset={[0, -6]}>
-                  <div className="text-center">
-                    <p className="font-bold text-sm">{marker.city}</p>
-                    <p className="text-xs text-muted-foreground">{marker.country}</p>
-                    <p className="text-xs flex items-center gap-1 justify-center">
-                      <Users className="h-3 w-3 inline" /> {marker.count} member{marker.count !== 1 ? "s" : ""}
-                    </p>
-                  </div>
-                </Tooltip>
-              </CircleMarker>
-            );
-          })}
       </MapContainer>
     </div>
   );
