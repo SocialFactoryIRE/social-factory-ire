@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Globe, Users, Maximize2, Minimize2 } from "lucide-react";
+import { Globe, Users, ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
 import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from "react-leaflet";
 import { cityCoordinates } from "@/data/city-coordinates";
 import { Button } from "@/components/ui/button";
@@ -31,17 +31,22 @@ interface CountryMarker {
 const EUROPE_CENTER: [number, number] = [52, 10];
 const EUROPE_ZOOM = 4;
 
-const FlyTo = ({ center, zoom, onZoomChange }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void }) => {
+const FlyTo = ({ center, zoom, onZoomChange, onMoveEnd }: { center: [number, number]; zoom: number; onZoomChange: (z: number) => void; onMoveEnd?: (center: [number, number], zoom: number) => void }) => {
   const map = useMap();
   useEffect(() => {
     map.flyTo(center, zoom, { duration: 1.2 });
   }, [center, zoom, map]);
   useEffect(() => {
-    const handler = () => onZoomChange(map.getZoom());
-    map.on("zoomend", handler);
+    const zoomHandler = () => onZoomChange(map.getZoom());
+    const moveHandler = () => {
+      const c = map.getCenter();
+      onMoveEnd?.([c.lat, c.lng], map.getZoom());
+    };
+    map.on("zoomend", zoomHandler);
+    map.on("moveend", moveHandler);
     onZoomChange(map.getZoom());
-    return () => { map.off("zoomend", handler); };
-  }, [map, onZoomChange]);
+    return () => { map.off("zoomend", zoomHandler); map.off("moveend", moveHandler); };
+  }, [map, onZoomChange, onMoveEnd]);
   return null;
 };
 
@@ -60,10 +65,11 @@ const MemberMapSection = () => {
   const [countryCount, setCountryCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [currentZoom, setCurrentZoom] = useState(EUROPE_ZOOM);
-  const [flyTarget] = useState<{ center: [number, number]; zoom: number }>({
+  const [flyTarget, setFlyTarget] = useState<{ center: [number, number]; zoom: number }>({
     center: EUROPE_CENTER,
     zoom: EUROPE_ZOOM,
   });
+  const [isDefaultView, setIsDefaultView] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Escape key to exit fullscreen
@@ -160,6 +166,19 @@ const MemberMapSection = () => {
           {isFullscreen ? "Exit" : "Fullscreen"}
         </Button>
       </div>
+      {!isDefaultView && (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => {
+            setFlyTarget({ center: EUROPE_CENTER, zoom: EUROPE_ZOOM });
+            setIsDefaultView(true);
+          }}
+          className="absolute top-4 left-4 z-[1000] gap-1.5 bg-background/90 backdrop-blur-sm"
+        >
+          <ArrowLeft className="h-4 w-4" /> Back to Europe
+        </Button>
+      )}
 
       <MapContainer
         center={EUROPE_CENTER}
@@ -180,7 +199,10 @@ const MemberMapSection = () => {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           noWrap={true}
         />
-        <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
+        <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} onMoveEnd={(c, z) => {
+          const dist = Math.abs(c[0] - EUROPE_CENTER[0]) + Math.abs(c[1] - EUROPE_CENTER[1]);
+          setIsDefaultView(dist < 2 && Math.abs(z - EUROPE_ZOOM) <= 1);
+        }} />
         <InvalidateSize trigger={isFullscreen} />
 
         {countryMarkers.map((marker) => (
