@@ -188,6 +188,7 @@ const PersonalityTestContent = ({ user }: { user: User }) => {
                 <ArrowLeft className="h-4 w-4" /> Back
               </Button>
               <Button
+                variant="green"
                 disabled={!answered || submitting}
                 onClick={handleNext}
                 className="gap-1.5"
