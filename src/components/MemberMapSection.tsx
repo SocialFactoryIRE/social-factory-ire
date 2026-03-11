@@ -292,11 +292,6 @@ const MemberMapSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Members Around the World
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            <span className="font-bold text-foreground">{totalMembers}</span> members across{" "}
-            <span className="font-bold text-foreground">{countryCount}</span> countries are already
-            part of Social Factory.
-          </p>
         </div>
 
         {isFullscreen ? createPortal(mapContent, document.body) : mapContent}
