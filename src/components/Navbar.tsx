@@ -28,15 +28,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const fetchProfile = async (userId: string) => {
-      const { data } = await supabase
-        .from("profiles")
-        .select("avatar_url")
-        .eq("user_id", userId)
-        .maybeSingle();
+      const { data } = await supabase.from("profiles").select("avatar_url").eq("user_id", userId).maybeSingle();
       setAvatarUrl(data?.avatar_url ?? null);
     };
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       const loggedIn = !!session?.user;
       setIsLoggedIn(loggedIn);
       if (loggedIn && session?.user?.id) fetchProfile(session.user.id);
@@ -73,9 +71,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-cream/[0.92] backdrop-blur-md"
-          : "bg-transparent"
+        scrolled ? "bg-cream/[0.92] backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,6 +84,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => {
               const isJoin = link.name === "Join";
+              const isLogin = link.name === "Login";
               const dotColor = NAV_DOT_COLORS[link.name];
               const active = isActive(link.path);
               return (
@@ -98,8 +95,8 @@ const Navbar = () => {
                     isJoin
                       ? "bg-green text-white hover:bg-green-deep rounded-full"
                       : active
-                      ? "text-foreground"
-                      : "text-foreground/70 hover:text-foreground"
+                        ? "text-foreground"
+                        : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
                   {dotColor && (
@@ -109,7 +106,7 @@ const Navbar = () => {
                     />
                   )}
                   {link.name}
-                  {!isJoin && (
+                  {!(isJoin || isLogin) && (
                     <span
                       className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-green transition-all duration-300 ${
                         active ? "w-3/4" : "w-0 group-hover:w-3/4"
@@ -123,10 +120,7 @@ const Navbar = () => {
             {/* Profile avatar + logout */}
             {isLoggedIn && (
               <div className="flex items-center gap-1 ml-2">
-                <Link
-                  to="/profile"
-                  className="flex-shrink-0 hover:opacity-80 transition-opacity"
-                >
+                <Link to="/profile" className="flex-shrink-0 hover:opacity-80 transition-opacity">
                   {avatarUrl ? (
                     <img
                       src={avatarUrl}
@@ -167,11 +161,7 @@ const Navbar = () => {
                 )}
               </Link>
             )}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-            >
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
@@ -193,8 +183,8 @@ const Navbar = () => {
                     isJoin
                       ? "bg-green text-white hover:bg-green-deep"
                       : active
-                      ? "text-foreground"
-                      : "text-foreground/70 hover:text-foreground"
+                        ? "text-foreground"
+                        : "text-foreground/70 hover:text-foreground"
                   }`}
                 >
                   {dotColor && (
