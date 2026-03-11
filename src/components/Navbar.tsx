@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/social-factory-logo.jpeg";
+import { supabase } from "@/integrations/supabase/client";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsLoggedIn(!!session?.user);
+    });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsLoggedIn(!!session?.user);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -14,8 +26,8 @@ const Navbar = () => {
     { name: "Programming", path: "/programming" },
     { name: "Science & Research", path: "/science" },
     { name: "Governance", path: "/governance" },
-    { name: "Join", path: "/join" },
-    { name: "Log In", path: "/login" },
+    ...(!isLoggedIn ? [{ name: "Join", path: "/join" }] : []),
+    { name: isLoggedIn ? "Profile" : "Log In", path: isLoggedIn ? "/profile" : "/login" },
     { name: "Contact", path: "/contact" },
   ];
 
