@@ -55,7 +55,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          {/* Admin routes - outside PageLayout (no navbar/footer) */}
+          {/* Admin routes - no navbar/footer/background */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"
@@ -75,32 +75,38 @@ const App = () => (
           </Route>
 
           {/* Public routes - with PageLayout */}
-          <Route element={<PageLayout><Index /></PageLayout>} path="/" />
-          <Route path="/about" element={<PageLayout><About /></PageLayout>} />
-          <Route path="/programming" element={<PageLayout><Programming /></PageLayout>} />
-          <Route path="/science" element={<PageLayout><Science /></PageLayout>} />
-          <Route path="/join" element={<PageLayout><Join /></PageLayout>} />
-          <Route path="/register" element={<PageLayout><Register /></PageLayout>} />
-          <Route path="/login" element={<PageLayout><Login /></PageLayout>} />
-          <Route path="/forgot-password" element={<PageLayout><ForgotPassword /></PageLayout>} />
-          <Route path="/reset-password" element={<PageLayout><ResetPassword /></PageLayout>} />
-          <Route path="/onboarding" element={<PageLayout><Onboarding /></PageLayout>} />
-          <Route path="/town-hall" element={<PageLayout><TownHall /></PageLayout>} />
-          <Route path="/noticeboard" element={<PageLayout><Noticeboard /></PageLayout>} />
-          <Route path="/local/noticeboard" element={<PageLayout><LocalNoticeboard /></PageLayout>} />
-          <Route path="/social-lab" element={<PageLayout><SocialLab /></PageLayout>} />
-          <Route path="/social-lab/test" element={<PageLayout><PersonalityTest /></PageLayout>} />
-          <Route path="/social-lab/result" element={<PageLayout><PersonalityResult /></PageLayout>} />
-          <Route path="/culture-test" element={<PageLayout><CultureTest /></PageLayout>} />
-          <Route path="/culture-result" element={<PageLayout><CultureResult /></PageLayout>} />
-          <Route path="/contact" element={<PageLayout><Contact /></PageLayout>} />
-          <Route path="/governance" element={<PageLayout><Governance /></PageLayout>} />
-          <Route path="/democracy" element={<PageLayout><Democracy /></PageLayout>} />
-          <Route path="/democracy/proposals/:id" element={<PageLayout><ProposalDetail /></PageLayout>} />
-          <Route path="/research" element={<PageLayout><Research /></PageLayout>} />
-          <Route path="/profile" element={<PageLayout><Profile /></PageLayout>} />
-          <Route path="/suggested-connects" element={<PageLayout><SuggestedConnects /></PageLayout>} />
-          <Route path="*" element={<PageLayout><NotFound /></PageLayout>} />
+          <Route path="/*" element={
+            <PageLayout>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/programming" element={<Programming />} />
+                <Route path="/science" element={<Science />} />
+                <Route path="/join" element={<Join />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/onboarding" element={<Onboarding />} />
+                <Route path="/town-hall" element={<TownHall />} />
+                <Route path="/noticeboard" element={<Noticeboard />} />
+                <Route path="/local/noticeboard" element={<LocalNoticeboard />} />
+                <Route path="/social-lab" element={<SocialLab />} />
+                <Route path="/social-lab/test" element={<PersonalityTest />} />
+                <Route path="/social-lab/result" element={<PersonalityResult />} />
+                <Route path="/culture-test" element={<CultureTest />} />
+                <Route path="/culture-result" element={<CultureResult />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/governance" element={<Governance />} />
+                <Route path="/democracy" element={<Democracy />} />
+                <Route path="/democracy/proposals/:id" element={<ProposalDetail />} />
+                <Route path="/research" element={<Research />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/suggested-connects" element={<SuggestedConnects />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </PageLayout>
+          } />
         </Routes>
         <Chatbot />
       </BrowserRouter>
