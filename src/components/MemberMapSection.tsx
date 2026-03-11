@@ -56,7 +56,7 @@ const InvalidateSize = ({ trigger }: { trigger: boolean }) => {
   return null;
 };
 
-
+const MemberMapSection = () => {
   const [cityMarkers, setCityMarkers] = useState<CityMarker[]>([]);
   const [totalMembers, setTotalMembers] = useState(0);
   const [countryCount, setCountryCount] = useState(0);
