@@ -200,6 +200,15 @@ const Navbar = () => {
                 </Link>
               );
             })}
+            {isLoggedIn && (
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-5 py-3 rounded-full font-medium text-base text-foreground/70 hover:text-foreground transition-all w-full"
+              >
+                <LogOut className="h-4 w-4" />
+                Log Out
+              </button>
+            )}
           </div>
         )}
       </div>
