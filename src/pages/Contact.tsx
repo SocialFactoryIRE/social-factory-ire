@@ -99,13 +99,13 @@ const Contact = () => {
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
         {/* Background geometric elements */}
         <div className="geometric-shape shape-circle w-56 h-56 bg-peach/20 top-10 left-10 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-44 h-44 bg-sky/30 top-1/4 right-20 blur-2xl"></div>
-        <div className="geometric-shape w-32 h-32 bg-mint/30 bottom-1/3 left-1/4 rounded-3xl rotate-12"></div>
-        <div className="geometric-shape shape-circle w-60 h-60 bg-accent/20 bottom-20 right-10 blur-3xl"></div>
-        <div className="geometric-shape shape-circle w-52 h-52 bg-coral/20 top-36 right-1/4 blur-2xl"></div>
-        <div className="geometric-shape shape-circle w-40 h-40 bg-mint/25 bottom-1/4 left-16 blur-xl"></div>
-        <div className="geometric-shape shape-circle w-48 h-48 bg-sky/20 top-2/3 left-1/3 blur-2xl"></div>
-        <div className="geometric-shape shape-circle w-46 h-46 bg-coral/18 bottom-1/2 right-1/3 blur-xl"></div>
+        <div className="geometric-shape shape-circle w-44 h-44 bg-teal/30 top-1/4 right-20 blur-2xl"></div>
+        <div className="geometric-shape w-32 h-32 bg-green/30 bottom-1/3 left-1/4 rounded-3xl rotate-12"></div>
+        <div className="geometric-shape shape-circle w-60 h-60 bg-yellow/20 bottom-20 right-10 blur-3xl"></div>
+        <div className="geometric-shape shape-circle w-52 h-52 bg-peach/20 top-36 right-1/4 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-40 h-40 bg-green/25 bottom-1/4 left-16 blur-xl"></div>
+        <div className="geometric-shape shape-circle w-48 h-48 bg-teal/20 top-2/3 left-1/3 blur-2xl"></div>
+        <div className="geometric-shape shape-circle w-46 h-46 bg-peach/18 bottom-1/2 right-1/3 blur-xl"></div>
         <div className="geometric-shape shape-circle w-38 h-38 bg-peach/25 top-1/2 left-12 blur-2xl"></div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
