@@ -335,6 +335,8 @@ export type Database = {
         Row: {
           avatar_url: string | null
           bio: string | null
+          city: string | null
+          country: string | null
           county: string | null
           created_at: string
           display_name: string | null
@@ -350,6 +352,8 @@ export type Database = {
         Insert: {
           avatar_url?: string | null
           bio?: string | null
+          city?: string | null
+          country?: string | null
           county?: string | null
           created_at?: string
           display_name?: string | null
@@ -365,6 +369,8 @@ export type Database = {
         Update: {
           avatar_url?: string | null
           bio?: string | null
+          city?: string | null
+          country?: string | null
           county?: string | null
           created_at?: string
           display_name?: string | null
@@ -582,6 +588,14 @@ export type Database = {
         Returns: {
           display_name: string
           user_id: string
+        }[]
+      }
+      get_member_locations: {
+        Args: never
+        Returns: {
+          city: string
+          country: string
+          member_count: number
         }[]
       }
       get_proposal_vote_counts: {
