@@ -210,7 +210,7 @@ const MemberMapSection = () => {
               attribution='&copy; <a href="https://carto.com/">CARTO</a>'
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
             />
-            <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} />
+            <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
 
             {/* Country-level bubbles */}
             {!selectedCountry &&
