@@ -180,7 +180,6 @@ const MemberMapSection = () => {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           noWrap={true}
         />
-        />
         <FlyTo center={flyTarget.center} zoom={flyTarget.zoom} onZoomChange={setCurrentZoom} />
         <InvalidateSize trigger={isFullscreen} />
 
