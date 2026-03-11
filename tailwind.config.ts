@@ -72,6 +72,13 @@ export default {
           light: "hsl(var(--teal-light))",
           deep: "hsl(var(--teal-deep))",
         },
+        // Legacy aliases (to be removed after full migration)
+        coral: "hsl(var(--peach-deep))",
+        mint: "hsl(var(--green))",
+        sky: "hsl(var(--teal))",
+        charcoal: "hsl(var(--ink))",
+        cyan: "hsl(var(--teal))",
+        "soft-grey": "hsl(var(--peach-light))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
