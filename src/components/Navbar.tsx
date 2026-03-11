@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,6 +19,12 @@ const Navbar = () => {
       setIsLoggedIn(!!session?.user);
     });
     return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
@@ -34,7 +41,13 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border shadow-soft">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-cream/[0.92] backdrop-blur-md border-b border-border shadow-soft"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
@@ -43,19 +56,24 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-lg font-semibold transition-all ${
-                  isActive(link.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isJoin = link.name === "Join";
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-4 py-2 rounded-lg font-semibold transition-all ${
+                    isJoin
+                      ? "bg-green text-white hover:bg-green-deep"
+                      : isActive(link.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-cream"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,21 +89,26 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-6 py-4 rounded-lg font-bold text-lg transition-all shadow-soft ${
-                  isActive(link.path)
-                    ? "bg-primary text-primary-foreground shadow-hover"
-                    : "text-foreground hover:bg-muted hover:shadow-hover"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="md:hidden pb-4 space-y-3 bg-cream/95 backdrop-blur-md rounded-b-2xl">
+            {navLinks.map((link) => {
+              const isJoin = link.name === "Join";
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-6 py-4 rounded-lg font-bold text-lg transition-all ${
+                    isJoin
+                      ? "bg-green text-white hover:bg-green-deep"
+                      : isActive(link.path)
+                      ? "bg-primary text-primary-foreground shadow-hover"
+                      : "text-foreground hover:bg-yellow-light"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
