@@ -146,9 +146,9 @@ const Index = () => {
               permanent, preventative, community-owned hub where people of all ages can belong, participate, and thrive.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-yellow border-2 border-yellow-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center">
+                <div className="p-6 rounded-[20px] bg-yellow border-2 border-yellow-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
                   <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     1 in 5
                   </div>
@@ -157,7 +157,7 @@ const Index = () => {
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center">
+                <div className="p-6 rounded-[20px] bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
                   <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     Only 53%
                   </div>
@@ -166,7 +166,7 @@ const Index = () => {
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-green border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center">
+                <div className="p-6 rounded-[20px] bg-green border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
                   <div className="text-4xl font-bold text-cream mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     30%
                   </div>
