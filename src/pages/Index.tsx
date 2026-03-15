@@ -157,7 +157,7 @@ const Index = () => {
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-8 rounded-[20px] bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center">
+                <div className="p-6 rounded-[20px] bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center">
                   <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     Only 53%
                   </div>
