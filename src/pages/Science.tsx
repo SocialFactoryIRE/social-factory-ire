@@ -167,8 +167,8 @@ const Science = () => {
             </div>
 
             <div className="bg-mint/10 border-2 border-mint rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-3 text-foreground">Social Prescribing — A National Priority</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-bold mb-3 text-foreground max-w-[70ch]">Social Prescribing — A National Priority</h3>
+              <p className="text-ink-soft leading-relaxed max-w-[70ch]">
                 Pathways to Wellbeing 2024–2030 identifies social prescribing — where GPs and community
                 health workers refer patients to non-clinical community activities — as a key intervention
                 for reducing pressure on mental health services. Social Factory is designed to be a
