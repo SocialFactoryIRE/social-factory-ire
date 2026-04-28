@@ -142,7 +142,7 @@ const Index = () => {
             <h2 className="text-cream mb-6">Loneliness isn't a personal failing.</h2>
             <p className="text-lg text-cream/90 leading-relaxed mb-10 max-w-[70ch] mx-auto font-light">
               Ireland's own research tells us that loneliness, poor mental health, and disconnection are not personal
-              failings — they are structural problems that need structural solutions. Social Factory is that solution: a
+              failings. They are structural problems that need structural solutions. Social Factory is that solution: a
               permanent, preventative, community-owned hub where people of all ages can belong, participate, and thrive.
             </p>
 
