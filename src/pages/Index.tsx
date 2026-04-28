@@ -95,10 +95,10 @@ const Index = () => {
               <br />
               <span className="text-5xl md:text-6xl">Social Factory</span>
             </h1>
-            <p className="text-xl md:text-2xl mt-8 mb-4 text-ink-soft animate-fade-in font-medium">
+            <p className="text-xl md:text-2xl mt-8 mb-4 text-ink-soft animate-fade-in font-medium max-w-[70ch] mx-auto">
               Reconnecting communities through action sports, creative arts, wellness, and entrepreneurship.
             </p>
-            <p className="text-lg md:text-xl mb-10 text-muted-foreground animate-fade-in max-w-2xl mx-auto font-light">
+            <p className="text-lg md:text-xl mb-10 text-ink-soft animate-fade-in max-w-[70ch] mx-auto font-light">
               1 in 5 Irish adults report loneliness. We're building the spaces and systems to change that — starting in
               Limerick.
             </p>
@@ -140,7 +140,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-cream mb-6">Why Social Factory?</h2>
-            <p className="text-lg text-cream/80 leading-relaxed mb-10 max-w-3xl mx-auto font-light">
+            <p className="text-lg text-cream/90 leading-relaxed mb-10 max-w-[70ch] mx-auto font-light">
               Ireland's own research tells us that loneliness, poor mental health, and disconnection are not personal
               failings — they are structural problems that need structural solutions. Social Factory is that solution: a
               permanent, preventative, community-owned hub where people of all ages can belong, participate, and thrive.
@@ -152,26 +152,26 @@ const Index = () => {
                   <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     1 in 5
                   </div>
-                  <p className="text-sm text-ink/80 font-medium">Irish adults report loneliness</p>
-                  <p className="text-xs text-ink/60 mt-1">Healthy Ireland Survey 2025</p>
+                  <p className="text-sm text-ink font-medium">Irish adults report loneliness</p>
+                  <p className="text-xs text-ink/80 mt-1">Healthy Ireland Survey 2025</p>
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-teal border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
+                <div className="p-6 rounded-[20px] bg-teal-light border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
                   <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     Only 53%
                   </div>
-                  <p className="text-sm text-ink/80 font-medium">of adults meet activity guidelines</p>
-                  <p className="text-xs text-ink/60 mt-1">Healthy Ireland Survey 2025</p>
+                  <p className="text-sm text-ink font-medium">of adults meet activity guidelines</p>
+                  <p className="text-xs text-ink/80 mt-1">Healthy Ireland Survey 2025</p>
                 </div>
               </Link>
               <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-green border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
+                <div className="p-6 rounded-[20px] bg-green-deep border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
                   <div className="text-4xl font-bold text-cream mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
                     30%
                   </div>
-                  <p className="text-sm text-cream/90 font-medium">of young people below WHO wellbeing threshold</p>
-                  <p className="text-xs text-cream/70 mt-1">Planet Youth West Ireland 2024</p>
+                  <p className="text-sm text-cream font-medium">of young people below WHO wellbeing threshold</p>
+                  <p className="text-xs text-cream/90 mt-1">Planet Youth West Ireland 2024</p>
                 </div>
               </Link>
             </div>
@@ -213,7 +213,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-foreground">Four Domains of Connection</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            <p className="text-xl text-ink-soft max-w-[70ch] mx-auto font-light">
               Our programmes are built around four interconnected pillars — each one a pathway to belonging.
             </p>
           </div>
@@ -258,7 +258,7 @@ const Index = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-foreground mb-6">Grounded in Science. Aligned with Policy.</h2>
-            <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto font-light">
+            <p className="text-lg text-ink-soft mb-10 max-w-[70ch] mx-auto font-light">
               Social Factory is built on the Planet Youth model, aligned with Ireland's
               <strong className="text-foreground font-semibold">
                 {" "}
