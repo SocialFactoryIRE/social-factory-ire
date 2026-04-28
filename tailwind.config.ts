@@ -72,12 +72,12 @@ export default {
           light: "hsl(var(--teal-light))",
           deep: "hsl(var(--teal-deep))",
         },
-        // Legacy aliases
+        // Legacy aliases — remapped to deeper, less neon shades to avoid the "AI cyan" look.
         coral: "hsl(var(--peach-deep))",
-        mint: "hsl(var(--green))",
-        sky: "hsl(var(--teal))",
+        mint: "hsl(var(--green-deep))",
+        sky: "hsl(var(--teal-deep))",
         charcoal: "hsl(var(--ink))",
-        cyan: "hsl(var(--teal))",
+        cyan: "hsl(var(--teal-deep))",
         "soft-grey": "hsl(var(--peach-light))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

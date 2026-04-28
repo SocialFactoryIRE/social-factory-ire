@@ -29,9 +29,9 @@
     --green-deep: 163 100% 24%;
 
     /* Teal */
-    --teal: 198 93% 67%;
-    --teal-light: 198 90% 89%;
-    --teal-deep: 199 78% 47%;
+    --teal: 199 78% 47%;
+    --teal-light: 198 60% 88%;
+    --teal-deep: 199 78% 38%;
 
     /* Semantic tokens */
     --background: var(--cream);
