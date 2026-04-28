@@ -142,12 +142,12 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
     font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', serif;
+    font-family: 'Zodiak', serif;
     font-weight: 700;
   }
 
