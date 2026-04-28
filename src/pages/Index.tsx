@@ -149,7 +149,7 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               <Link to="/science" className="block h-full">
                 <div className="p-6 rounded-[20px] bg-yellow border-2 border-yellow-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
-                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
+                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
                     1 in 5
                   </div>
                   <p className="text-sm text-ink font-medium">Irish adults report loneliness</p>
@@ -158,7 +158,7 @@ const Index = () => {
               </Link>
               <Link to="/science" className="block h-full">
                 <div className="p-6 rounded-[20px] bg-teal-light border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
-                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
+                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
                     Only 53%
                   </div>
                   <p className="text-sm text-ink font-medium">of adults meet activity guidelines</p>
@@ -167,7 +167,7 @@ const Index = () => {
               </Link>
               <Link to="/science" className="block h-full">
                 <div className="p-6 rounded-[20px] bg-green-deep border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
-                  <div className="text-4xl font-bold text-cream mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
+                  <div className="text-4xl font-bold text-cream mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
                     30%
                   </div>
                   <p className="text-sm text-cream font-medium">of young people below WHO wellbeing threshold</p>
@@ -269,7 +269,7 @@ const Index = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="p-8 rounded-[20px] bg-teal-light border-2 border-teal-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-3xl font-bold text-teal-deep mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
+                <div className="text-3xl font-bold text-teal-deep mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
                   Planet Youth
                 </div>
                 <p className="text-sm text-ink-soft font-medium">
@@ -277,7 +277,7 @@ const Index = () => {
                 </p>
               </div>
               <div className="p-8 rounded-[20px] bg-green-light border-2 border-green-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-3xl font-bold text-green-deep mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
+                <div className="text-3xl font-bold text-green-deep mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
                   Pathways to Wellbeing
                 </div>
                 <p className="text-sm text-ink-soft font-medium">
@@ -285,7 +285,7 @@ const Index = () => {
                 </p>
               </div>
               <div className="p-8 rounded-[20px] bg-yellow-light border-2 border-yellow-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
-                <div className="text-3xl font-bold text-yellow-deep mb-2" style={{ fontFamily: "'Fraunces', serif" }}>
+                <div className="text-3xl font-bold text-yellow-deep mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
                   NEB Aligned
                 </div>
                 <p className="text-sm text-ink-soft font-medium">

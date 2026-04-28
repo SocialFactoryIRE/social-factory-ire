@@ -200,7 +200,7 @@ const Programming = () => {
                 {/* Baby & Parents: 9am - 11am */}
                 <tr style={{ background: "rgba(93,205,249,0.15)", borderBottom: "1.5px solid rgba(30,28,26,0.08)" }}>
                   <td colSpan={8} className="p-4 text-center">
-                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>Baby & Parents</span>
+                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Zodiak', serif" }}>Baby & Parents</span>
                     <span className="text-sm text-muted-foreground ml-2">9am - 11am</span>
                   </td>
                 </tr>
@@ -228,7 +228,7 @@ const Programming = () => {
                 {/* Older Adults (50+): 11am - 2pm */}
                 <tr style={{ background: "rgba(0,179,137,0.12)", borderBottom: "1.5px solid rgba(30,28,26,0.08)" }}>
                   <td colSpan={8} className="p-4 text-center">
-                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>Older Adults (50+)</span>
+                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Zodiak', serif" }}>Older Adults (50+)</span>
                     <span className="text-sm text-muted-foreground ml-2">11am - 2pm</span>
                   </td>
                 </tr>
@@ -266,7 +266,7 @@ const Programming = () => {
                 {/* Kids Afterschool (4-12): 2pm - 4pm */}
                 <tr style={{ background: "rgba(249,187,134,0.15)", borderBottom: "1.5px solid rgba(30,28,26,0.08)" }}>
                   <td colSpan={8} className="p-4 text-center">
-                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>Kids Afterschool (4-12 yr old)</span>
+                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Zodiak', serif" }}>Kids Afterschool (4-12 yr old)</span>
                     <span className="text-sm text-muted-foreground ml-2">2pm - 4pm</span>
                   </td>
                 </tr>
@@ -294,7 +294,7 @@ const Programming = () => {
                 {/* Teens Afterschool (12-16): 4pm - 6pm */}
                 <tr style={{ background: "rgba(255,205,26,0.12)", borderBottom: "1.5px solid rgba(30,28,26,0.08)" }}>
                   <td colSpan={8} className="p-4 text-center">
-                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>Teens Afterschool (12-16 yr old)</span>
+                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Zodiak', serif" }}>Teens Afterschool (12-16 yr old)</span>
                     <span className="text-sm text-muted-foreground ml-2">4pm - 6pm</span>
                   </td>
                 </tr>
@@ -322,7 +322,7 @@ const Programming = () => {
                 {/* Teens Late Night (16-18): 6pm - 8pm */}
                 <tr style={{ background: "rgba(249,187,134,0.18)", borderBottom: "1.5px solid rgba(30,28,26,0.08)" }}>
                   <td colSpan={8} className="p-4 text-center">
-                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>Teens Late Night (16-18 yr old)</span>
+                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Zodiak', serif" }}>Teens Late Night (16-18 yr old)</span>
                     <span className="text-sm text-muted-foreground ml-2">6pm - 8pm</span>
                   </td>
                 </tr>
@@ -350,7 +350,7 @@ const Programming = () => {
                 {/* Adults: 8pm - 12am */}
                 <tr style={{ background: "rgba(0,179,137,0.12)", borderBottom: "1.5px solid rgba(30,28,26,0.08)" }}>
                   <td colSpan={8} className="p-4 text-center">
-                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Fraunces', serif" }}>Adults</span>
+                    <span className="text-lg font-semibold text-foreground" style={{ fontFamily: "'Zodiak', serif" }}>Adults</span>
                     <span className="text-sm text-muted-foreground ml-2">8pm - 12am</span>
                   </td>
                 </tr>
