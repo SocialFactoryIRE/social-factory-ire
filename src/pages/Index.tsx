@@ -47,7 +47,7 @@ const Index = () => {
       title: "Grow",
       subtitle: "Market",
       description:
-        "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
+        "Local food, crafts, and weekend markets. The Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
       bg: "bg-peach-light",
       accentColor: "text-peach-deep",
       iconBg: "bg-peach",
