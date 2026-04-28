@@ -43,14 +43,14 @@
     --popover: 0 0% 100%;
     --popover-foreground: var(--ink);
 
-    --primary: var(--green);
+    --primary: var(--green-deep);
     --primary-foreground: 0 0% 100%;
 
-    --secondary: var(--green);
+    --secondary: var(--green-deep);
     --secondary-foreground: 0 0% 100%;
 
     --muted: var(--peach-light);
-    --muted-foreground: var(--muted-tone);
+    --muted-foreground: var(--ink-soft);
 
     --accent: var(--yellow);
     --accent-foreground: var(--ink);

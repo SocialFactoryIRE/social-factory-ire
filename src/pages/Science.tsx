@@ -51,10 +51,10 @@ const Science = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="bg-coral/10 p-8 rounded-2xl border-2 border-coral">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl font-extrabold text-coral shrink-0">1 in 5</div>
+                  <div className="text-4xl font-extrabold text-ink shrink-0">1 in 5</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Adults Report Loneliness</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       One in five adults in Ireland report feeling lonely often or always — a figure that rises sharply
                       among young adults aged 18–24 and older adults living alone.
                     </p>
@@ -64,10 +64,10 @@ const Science = () => {
 
               <div className="bg-sky/10 p-8 rounded-2xl border-2 border-sky">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl font-extrabold text-primary shrink-0">53%</div>
+                  <div className="text-4xl font-extrabold text-ink shrink-0">53%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Meet Physical Activity Guidelines</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Only 53% of adults meet recommended physical activity levels — leaving almost half the population
                       at elevated risk of poor physical and mental health outcomes.
                     </p>
@@ -77,10 +77,10 @@ const Science = () => {
 
               <div className="bg-mint/10 p-8 rounded-2xl border-2 border-mint">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl font-extrabold text-secondary shrink-0">40%</div>
+                  <div className="text-4xl font-extrabold text-ink shrink-0">40%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Experience Mental Health Difficulties</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Approximately 40% of adults report experiencing mental health difficulties at some point in their
                       lives, with community-based supports remaining unevenly distributed across regions.
                     </p>
@@ -90,10 +90,10 @@ const Science = () => {
 
               <div className="bg-accent/10 p-8 rounded-2xl border-2 border-accent">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl font-extrabold text-accent shrink-0">18–24</div>
+                  <div className="text-4xl font-extrabold text-ink shrink-0">18–24</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Highest Risk Age Group</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Young adults aged 18–24 report the lowest wellbeing scores of any demographic —
                       challenging the assumption that loneliness is primarily an older person's problem.
                     </p>
@@ -102,13 +102,13 @@ const Science = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-coral p-8 rounded-2xl text-center">
-              <p className="text-lg text-white font-medium leading-relaxed">
+            <div className="bg-ink p-8 rounded-2xl text-center">
+              <p className="text-lg text-cream font-medium leading-relaxed max-w-[70ch] mx-auto">
                 "Poor mental health and loneliness are not inevitable — they are preventable.
                 The evidence consistently points to participation, connection, and community as the most
                 powerful protective factors available."
               </p>
-              <p className="text-white/70 text-sm mt-3">— Healthy Ireland Framework</p>
+              <p className="text-cream/80 text-sm mt-3">— Healthy Ireland Framework</p>
             </div>
           </div>
 
@@ -154,8 +154,8 @@ const Science = () => {
                 </p>
               </div>
               <div className="p-6 bg-card rounded-2xl shadow-soft border-2 border-accent">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                  <span className="text-accent font-bold text-lg">3</span>
+                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center mb-4">
+                  <span className="text-ink font-bold text-lg">3</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2 text-foreground">Target Vulnerable Groups</h3>
                 <p className="text-sm text-muted-foreground">
@@ -199,10 +199,10 @@ const Science = () => {
             <div className="space-y-6">
               <div className="bg-sky/10 p-8 rounded-2xl border-2 border-sky">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-primary shrink-0">31%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">31%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Drunk in the Last Month</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Nearly one in three 15–16 year olds reported being drunk at least once in the past 30 days.
                       Where the Planet Youth model has been implemented — providing structured alternatives — these
                       figures have fallen dramatically over time.
@@ -213,10 +213,10 @@ const Science = () => {
 
               <div className="bg-mint/10 p-8 rounded-2xl border-2 border-mint">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-secondary shrink-0">65%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">65%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">3+ Hours Daily on Social Media</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Two thirds of young people spend three or more hours daily on social media — strongly
                       correlated with poorer sleep, lower wellbeing scores, and reduced face-to-face connection.
                     </p>
@@ -226,10 +226,10 @@ const Science = () => {
 
               <div className="bg-peach/10 p-8 rounded-2xl border-2 border-coral">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-coral shrink-0">30%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">30%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Below WHO Wellbeing Threshold</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Nearly one in three young people scored below the WHO-5 threshold for mental wellbeing.
                       Similar numbers reported low self-esteem and resilience — conditions strongly linked to
                       lack of belonging and structured peer participation.
@@ -240,10 +240,10 @@ const Science = () => {
 
               <div className="bg-accent/10 p-8 rounded-2xl border-2 border-accent">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-accent shrink-0">25–30%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">25–30%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Depression, Anxiety & Stress</h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-ink-soft max-w-[70ch]">
                       Around one in four young people fall outside the normal range for depression, anxiety,
                       and stress. The Planet Youth model responds to precisely these indicators through
                       structured activity, peer connection, and adult mentorship.
