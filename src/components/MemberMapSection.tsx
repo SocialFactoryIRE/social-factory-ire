@@ -229,7 +229,7 @@ const MemberMapSection = () => {
             Our Growing Network
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Members Around the World
+            Members Across the World
           </h2>
         </div>
 
