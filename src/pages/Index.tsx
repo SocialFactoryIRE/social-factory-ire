@@ -162,9 +162,9 @@ const Index = () => {
                   className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
                   style={{ fontFamily: "'Zodiak', serif" }}
                 >
-                  Only 53%
+                  53%
                 </div>
-                <p className="text-sm text-cream/90 font-medium">of adults meet activity guidelines</p>
+                <p className="text-sm text-cream/90 font-medium">Only 53% of adults meet activity guidelines</p>
                 <p className="text-xs text-cream/60 mt-1">Healthy Ireland Survey 2025</p>
               </Link>
               <Link to="/science" className="block text-center group">
