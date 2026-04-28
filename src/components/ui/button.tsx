@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full shadow-soft",
         ghost: "hover:bg-cream hover:text-foreground rounded-full",
         link: "text-green underline-offset-4 hover:underline",
-        green: "bg-green text-white hover:bg-green-deep rounded-full shadow-soft",
+        green: "bg-green-deep text-white hover:bg-green rounded-full shadow-soft",
         peach: "bg-peach-deep text-white hover:bg-peach/90 rounded-full shadow-soft",
       },
       size: {

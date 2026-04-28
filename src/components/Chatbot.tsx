@@ -149,7 +149,7 @@ const Chatbot = () => {
       <button
         onClick={() => setOpen((o) => !o)}
         className={cn(
-          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green text-cream shadow-hover transition-all duration-300 hover:scale-110",
+          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-deep text-cream shadow-hover transition-all duration-300 hover:scale-110",
           open && "rotate-90"
         )}
         aria-label={open ? "Close chat" : "Open chat"}
@@ -163,7 +163,7 @@ const Chatbot = () => {
           style={{ height: "min(500px, calc(100vh - 8rem))" }}
         >
           {/* Header */}
-          <div className="flex items-center gap-3 bg-green px-5 py-4">
+          <div className="flex items-center gap-3 bg-green-deep px-5 py-4">
             <Bot className="h-6 w-6 text-cream" />
             <div>
               <p className="font-bold text-cream text-sm">Social Factory Assistant</p>

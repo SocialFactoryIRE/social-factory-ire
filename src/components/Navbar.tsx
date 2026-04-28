@@ -93,7 +93,7 @@ const Navbar = () => {
                   to={link.path}
                   className={`relative flex items-center gap-1.5 px-4 py-2 font-medium transition-all text-sm group whitespace-nowrap ${
                     isJoin || isLogin
-                      ? "bg-green text-white hover:bg-green-deep rounded-full px-5"
+                      ? "bg-green-deep text-white hover:bg-green rounded-full px-5"
                       : active
                         ? "text-foreground"
                         : "text-foreground/70 hover:text-foreground"
@@ -181,7 +181,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`flex items-center gap-2 px-5 py-3 rounded-full font-medium text-base transition-all ${
                     isJoin
-                      ? "bg-green text-white hover:bg-green-deep"
+                      ? "bg-green-deep text-white hover:bg-green"
                       : active
                         ? "text-foreground"
                         : "text-foreground/70 hover:text-foreground"
