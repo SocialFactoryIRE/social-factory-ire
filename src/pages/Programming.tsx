@@ -22,7 +22,7 @@ const Programming = () => {
     title: "Social",
     color: "bg-sky",
     iconColor: "bg-sky",
-    description: "Skate, climb, dance, create, this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
+    description: "Skate, climb, dance, create. This is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
     activities: ["Skatepark", "Bouldering / Climbing Hub", "Trampoline & Movement Centre", "Kids Activity Zone", "Events & Performance Centre", "Adaptable Community Spaces", "Mental Health & Wellness Integration"]
   }, {
     icon: Briefcase,
