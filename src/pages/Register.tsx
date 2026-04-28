@@ -77,7 +77,7 @@ const Register = () => {
       } else if (error?.message?.includes("rate limit") || error?.status === 429) {
         toast({
           title: "Too many attempts",
-          description: "Please wait a few minutes before trying again, or check your inbox — a confirmation email may already be on its way.",
+          description: "Please wait a few minutes before trying again, or check your inbox, a confirmation email may already be on its way.",
           variant: "destructive",
         });
       } else {

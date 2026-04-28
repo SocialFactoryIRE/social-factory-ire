@@ -54,7 +54,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Nav links without Profile/Login — those are handled separately
+  // Nav links without Profile/Login, those are handled separately
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },

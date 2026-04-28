@@ -32,7 +32,7 @@ const SocialLabContent = () => {
 
           <div className="bg-card rounded-2xl border-2 border-border p-8 text-center">
             <p className="text-muted-foreground">
-              Coming soon — this space will host collaborative community projects.
+              Coming soon, this space will host collaborative community projects.
             </p>
           </div>
         </div>

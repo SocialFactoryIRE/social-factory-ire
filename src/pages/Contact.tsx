@@ -116,7 +116,7 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p className="text-xl text-muted-foreground">
-              Have a question, idea, or partnership proposal? We'd love to hear from you — 
+              Have a question, idea, or partnership proposal? We'd love to hear from you, 
               Social Factory is a community project built by everyone.
             </p>
           </div>

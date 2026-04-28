@@ -59,14 +59,14 @@ const Governance = () => {
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Our model is built to be financially sustainable, transparent, and accountable. Income generated 
                 through memberships, workspace, events, and on-site activity supports low-barrier access, 
-                inclusive programming, and preventative wellbeing initiatives — ensuring that commercial 
+                inclusive programming, and preventative wellbeing initiatives, ensuring that commercial 
                 activity always serves a social purpose.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Governance is structured in line with social enterprise best practice and guided by the 
                 New European Bauhaus Compass, prioritising sustainability, inclusion, and quality of everyday 
                 life. This framework ensures decisions are made in the long-term interests of people and place 
-                — protecting accessibility, community participation, and social impact above profit extraction.
+               , protecting accessibility, community participation, and social impact above profit extraction.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed font-medium italic">
                 Social Factory is not just a building or a service. It is a living social system, owned by 
@@ -167,7 +167,7 @@ const Governance = () => {
               <div className="p-6 bg-accent/10 rounded-2xl border-2 border-accent">
                 <h3 className="text-xl font-bold mb-3 text-foreground">Youth Leadership</h3>
                 <p className="text-muted-foreground">
-                  Young people aren't just participants—they're leaders. Youth-led committees guide program 
+                  Young people aren't just participants: they're leaders. Youth-led committees guide program 
                   development and ensure Social Factory meets the real needs of our community.
                 </p>
               </div>

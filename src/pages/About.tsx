@@ -58,7 +58,7 @@ const About = () => {
                 <h3 className="text-2xl font-bold mb-3">Why It Matters</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   The <strong>Healthy Ireland Survey 2025</strong> shows 1 in 5 Irish adults experience
-                  loneliness — a figure that is highest among young adults aged 18–24 and older people
+                  loneliness, a figure that is highest among young adults aged 18–24 and older people
                   living alone. Loneliness affects physical and mental health as significantly as smoking
                   15 cigarettes a day. These are not personal failings; they are structural problems
                   that demand structural solutions.
@@ -68,10 +68,10 @@ const About = () => {
                 <Users className="h-12 w-12 mb-4 text-secondary" />
                 <h3 className="text-2xl font-bold mb-3">Our Approach</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We create spaces where connection happens naturally — through skateboarding, art workshops,
+                  We create spaces where connection happens naturally, through skateboarding, art workshops,
                   wellness programmes, and entrepreneurial collaboration. Structured around the
                   <strong> Lundy Model of Participation</strong>, our community has real voice and real
-                  influence. No forced networking — just authentic, everyday belonging.
+                  influence. No forced networking, just authentic, everyday belonging.
                 </p>
               </div>
             </div>
@@ -108,7 +108,7 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-3 text-foreground">Beauty</h3>
                 <p className="text-muted-foreground text-sm">
                   Designing spaces that inspire joy, creativity, and connection.
-                  Where aesthetics meet function and form follows feeling — because environment shapes behaviour.
+                  Where aesthetics meet function and form follows feeling, because environment shapes behaviour.
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-2 text-foreground">Community First</h3>
                 <p className="text-muted-foreground">
                   Every decision we make centres the needs and voices of our community members.
-                  The Lundy Model of Participation isn't a framework we apply — it's how we work.
+                  The Lundy Model of Participation isn't a framework we apply, it's how we work.
                 </p>
               </div>
               <div className="p-6 bg-card rounded-2xl shadow-soft">
@@ -141,13 +141,13 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-2 text-foreground">Playful Innovation</h3>
                 <p className="text-muted-foreground">
                   We believe serious impact comes from joyful, creative, and playful approaches.
-                  A skate park and a mental health clinic can — and should — share a building.
+                  A skate park and a mental health clinic can, and should, share a building.
                 </p>
               </div>
               <div className="p-6 bg-card rounded-2xl shadow-soft">
                 <h3 className="text-xl font-bold mb-2 text-foreground">Radical Inclusion</h3>
                 <p className="text-muted-foreground">
-                  Social Factory is for everyone — regardless of background, ability, age, or circumstance.
+                  Social Factory is for everyone, regardless of background, ability, age, or circumstance.
                   Our concession membership tier at €60 per year ensures cost is never a barrier to belonging.
                 </p>
               </div>
@@ -178,7 +178,7 @@ const About = () => {
               <div className="grid md:grid-cols-2">
                 <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Lack of inclusive spaces</h4>
-                  <p className="text-muted-foreground">Few affordable, safe places exist for people — especially adolescents — to socialise outside of food-and-drink settings.</p>
+                  <p className="text-muted-foreground">Few affordable, safe places exist for people, especially adolescents, to socialise outside of food-and-drink settings.</p>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
@@ -204,7 +204,7 @@ const About = () => {
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Foster everyday connection</h4>
-                  <p className="text-muted-foreground">With structured activities across Social, Work, Health, and Market domains — supported by embedded mental health professionals.</p>
+                  <p className="text-muted-foreground">With structured activities across Social, Work, Health, and Market domains, supported by embedded mental health professionals.</p>
                 </div>
               </div>
 
@@ -226,7 +226,7 @@ const About = () => {
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Preventative social prescribing</h4>
-                  <p className="text-muted-foreground">Aligned with Pathways to Wellbeing 2024–2030, Social Factory is designed as a primary social prescribing destination — reducing pressure on clinical services through community participation.</p>
+                  <p className="text-muted-foreground">Aligned with Pathways to Wellbeing 2024–2030, Social Factory is designed as a primary social prescribing destination, reducing pressure on clinical services through community participation.</p>
                 </div>
               </div>
 
@@ -237,7 +237,7 @@ const About = () => {
                 </div>
                 <div className="p-6 bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">A self-sustaining enterprise</h4>
-                  <p className="text-muted-foreground">Revenue from memberships, co-working, wellness services, and market trading is reinvested in programmes — creating a financially independent, mission-locked CLG.</p>
+                  <p className="text-muted-foreground">Revenue from memberships, co-working, wellness services, and market trading is reinvested in programmes, creating a financially independent, mission-locked CLG.</p>
                 </div>
               </div>
             </div>
@@ -247,7 +247,7 @@ const About = () => {
               {[
                 {
                   title: "Lack of inclusive spaces",
-                  challenge: "Few affordable, safe places exist for people — especially adolescents — to socialise outside of food-and-drink settings.",
+                  challenge: "Few affordable, safe places exist for people, especially adolescents, to socialise outside of food-and-drink settings.",
                   response: "30,000+ sq. ft. of shared space in Limerick where people of all ages can connect safely and meaningfully, every day of the week."
                 },
                 {
@@ -273,7 +273,7 @@ const About = () => {
                 {
                   title: "Unsustainable social models",
                   challenge: "Community needs outpace traditional grant-dependent funding models.",
-                  response: "Revenue from memberships, co-working, wellness, and market trading funds the mission — a financially independent CLG."
+                  response: "Revenue from memberships, co-working, wellness, and market trading funds the mission, a financially independent CLG."
                 }
               ].map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-2 border-border rounded-2xl overflow-hidden bg-card">
@@ -303,7 +303,7 @@ const About = () => {
               Join Us in Building Something New
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Whether you're a funder, community member, or just curious — we'd love to connect.
+              Whether you're a funder, community member, or just curious, we'd love to connect.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="font-semibold">

@@ -22,7 +22,7 @@ const Programming = () => {
     title: "Social",
     color: "bg-sky",
     iconColor: "bg-sky",
-    description: "Skate, climb, dance, create — this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
+    description: "Skate, climb, dance, create, this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
     activities: ["Skatepark", "Bouldering / Climbing Hub", "Trampoline & Movement Centre", "Kids Activity Zone", "Events & Performance Centre", "Adaptable Community Spaces", "Mental Health & Wellness Integration"]
   }, {
     icon: Briefcase,
@@ -43,7 +43,7 @@ const Programming = () => {
     title: "Market",
     color: "bg-accent",
     iconColor: "bg-accent",
-    description: "Local food, crafts, and weekend markets — the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
+    description: "Local food, crafts, and weekend markets, the Market domain celebrates the culture of place and supports local entrepreneurship and circular economy principles.",
     activities: ["Traditional Market", "Sunday Market", "Food & Beverage Hall", "Education & Demonstration Spaces (workshops, cooking, nutrition)", "Organic Growth"]
   }];
 
@@ -74,7 +74,7 @@ const Programming = () => {
           </div>
 
           <p className="text-base md:text-lg text-ink-soft leading-relaxed max-w-[70ch] mx-auto font-light">
-            Our programmes are designed around four interconnected domains — <br className="hidden md:block" />
+            Our programmes are designed around four interconnected domains, <br className="hidden md:block" />
             each a pillar of social connection and community growth.
           </p>
         </div>
@@ -163,7 +163,7 @@ const Programming = () => {
                 expression. A wellness coach might launch a social enterprise at our marketplace.
               </p>
               <p className="text-lg md:text-xl text-ink leading-relaxed font-light">
-                This integrated approach reflects how real life works—and how meaningful connections form
+                This integrated approach reflects how real life works: and how meaningful connections form
                 naturally when people share space, time, and purpose.
               </p>
             </div>

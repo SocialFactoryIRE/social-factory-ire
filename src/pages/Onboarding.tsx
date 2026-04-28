@@ -217,7 +217,7 @@ const Step4 = ({
       What are you interested in?
     </h2>
     <p className="text-muted-foreground">
-      Select as many as you like — you can change these later.
+      Select as many as you like, you can change these later.
     </p>
     <div className="flex flex-wrap justify-center gap-3 mt-4">
       {INTERESTS.map((tag) => {

@@ -239,7 +239,7 @@ const ProfileContent = ({ user }: { user: User }) => {
             {/* Bio */}
             <section className="mb-6">
               <h2 className="text-sm font-semibold text-muted-foreground mb-2">Bio</h2>
-              <p className="text-foreground">{profile.bio || <span className="italic text-muted-foreground">No bio yet — add one!</span>}</p>
+              <p className="text-foreground">{profile.bio || <span className="italic text-muted-foreground">No bio yet, add one!</span>}</p>
             </section>
 
             {/* Location */}

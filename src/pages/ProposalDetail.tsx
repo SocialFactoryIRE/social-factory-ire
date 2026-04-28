@@ -116,7 +116,7 @@ const ProposalDetailContent = ({ user }: { user: User }) => {
       created_at: p.created_at,
     });
 
-    // Votes tally — we can only read our own votes via RLS,
+    // Votes tally, we can only read our own votes via RLS,
     // so we count from our own row + rely on a workaround.
     // Since RLS restricts to own votes, we'll use an rpc or
     // accept that tally is approximate. For now, let's count

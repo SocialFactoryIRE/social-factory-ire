@@ -56,7 +56,7 @@ const Join = () => {
       }
 
       toast({
-        title: "You're in — thank you!",
+        title: "You're in, thank you!",
         description: "We'll be in touch as Social Factory Limerick takes shape.",
       });
 
@@ -106,7 +106,7 @@ const Join = () => {
                 Be Part of It
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Social Factory is being built right now — and the people who sign up first will help shape it.
+                Social Factory is being built right now, and the people who sign up first will help shape it.
                 Register your interest, tell us what matters to you, and we'll keep you close as Limerick's
                 first Social Factory comes to life.
               </p>
@@ -116,7 +116,7 @@ const Join = () => {
             <div className="bg-gradient-hero rounded-3xl p-8 mb-10 text-center">
               <h2 className="text-2xl font-bold text-foreground mb-4">Become a Member</h2>
               <p className="text-foreground/80 leading-relaxed">
-                When we open, the base membership will give you access to the Social domain — with Work &amp; Health add-ons being reduced as a package. There are concession tier prices for those on low incomes or referred through social prescribing. No one locked out. No one left behind.
+                When we open, the base membership will give you access to the Social domain, with Work &amp; Health add-ons being reduced as a package. There are concession tier prices for those on low incomes or referred through social prescribing. No one locked out. No one left behind.
                 The Market is open to all throughout the day to come hang out and spend time in.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
@@ -149,7 +149,7 @@ const Join = () => {
               <div className="p-6 bg-mint/10 rounded-2xl border-2 border-mint">
                 <h3 className="font-bold text-lg mb-2 text-foreground">Community Voice</h3>
                 <p className="text-sm text-muted-foreground">
-                  Founding members shape the future of Social Factory — through surveys, feedback sessions,
+                  Founding members shape the future of Social Factory, through surveys, feedback sessions,
                   and real participation in our design process.
                 </p>
               </div>

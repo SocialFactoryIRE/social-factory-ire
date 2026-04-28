@@ -32,7 +32,7 @@ const SuggestedConnectsContent = () => {
 
           <div className="bg-card rounded-2xl border-2 border-border p-8 text-center">
             <p className="text-muted-foreground">
-              Coming soon — we'll match you with like-minded community members.
+              Coming soon, we'll match you with like-minded community members.
             </p>
           </div>
         </div>
