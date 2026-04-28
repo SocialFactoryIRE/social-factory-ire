@@ -29,17 +29,17 @@ const About = () => {
             <div className="bg-gradient-hero p-12 rounded-3xl shadow-hover mb-12">
               <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
-                Social Factory was founded with one clear purpose — to tackle loneliness through design.
+                Social Factory was founded with one clear purpose: to tackle loneliness through design.
                 We're creating Ireland's first integrated social hub where action sports, creative arts,
                 health, and entrepreneurship live side-by-side under one roof in Limerick.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Guided by the principles of the New European Bauhaus and Ireland's own national mental health
                 frameworks, we blend sustainability, inclusion, and beauty to design environments where
-                everyone can thrive — not as a service delivered to people, but as a space built with them.
+                everyone can thrive, not as a service delivered to people, but as a space built with them.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed">
-                Our approach isn't just about spaces — it's about systems. We're building a movement that
+                Our approach isn't just about spaces. It's about systems. We're building a movement that
                 reconnects communities, redefines belonging, and creates new pathways for wellbeing and
                 opportunity for people of all ages and backgrounds.
               </p>
@@ -48,7 +48,7 @@ const About = () => {
                   "I'm on a mission to reconnect society by creating spaces and systems where vulnerable
                   communities can belong, participate, and thrive."
                 </p>
-                <p className="text-foreground/60 text-sm mt-3">— Jason O'Donovan, Founder, Social Factory CLG</p>
+                <p className="text-foreground/60 text-sm mt-3">Jason O'Donovan, Founder, Social Factory CLG</p>
               </div>
             </div>
 
