@@ -154,8 +154,8 @@ const Science = () => {
                 </p>
               </div>
               <div className="p-6 bg-card rounded-2xl shadow-soft border-2 border-accent">
-                <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mb-4">
-                  <span className="text-accent font-bold text-lg">3</span>
+                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center mb-4">
+                  <span className="text-ink font-bold text-lg">3</span>
                 </div>
                 <h3 className="text-lg font-bold mb-2 text-foreground">Target Vulnerable Groups</h3>
                 <p className="text-sm text-muted-foreground">
