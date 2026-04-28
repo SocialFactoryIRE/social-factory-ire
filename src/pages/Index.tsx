@@ -14,7 +14,7 @@ const Index = () => {
       title: "Connect",
       subtitle: "Social",
       description:
-        "Skate, climb, dance, create — this is where fun and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
+        "Skate, climb, dance, create. This is where energy and friendship meet. The Social domain brings energy and togetherness through youth activities, action sports, art, and events.",
       bg: "bg-yellow-light",
       accentColor: "text-yellow-deep",
       iconBg: "bg-yellow",
