@@ -146,33 +146,36 @@ const Index = () => {
               permanent, preventative, community-owned hub where people of all ages can belong, participate, and thrive.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-yellow border-2 border-yellow-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
-                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
-                    1 in 5
-                  </div>
-                  <p className="text-sm text-ink font-medium">Irish adults report loneliness</p>
-                  <p className="text-xs text-ink/80 mt-1">Healthy Ireland Survey 2025</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 py-4">
+              <Link to="/science" className="block text-center group">
+                <div
+                  className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
+                  style={{ fontFamily: "'Zodiak', serif" }}
+                >
+                  1 in 5
                 </div>
+                <p className="text-sm text-cream/90 font-medium">Irish adults report loneliness</p>
+                <p className="text-xs text-cream/60 mt-1">Healthy Ireland Survey 2025</p>
               </Link>
-              <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-teal-light border-2 border-teal-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
-                  <div className="text-4xl font-bold text-ink mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
-                    Only 53%
-                  </div>
-                  <p className="text-sm text-ink font-medium">of adults meet activity guidelines</p>
-                  <p className="text-xs text-ink/80 mt-1">Healthy Ireland Survey 2025</p>
+              <Link to="/science" className="block text-center group">
+                <div
+                  className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
+                  style={{ fontFamily: "'Zodiak', serif" }}
+                >
+                  Only 53%
                 </div>
+                <p className="text-sm text-cream/90 font-medium">of adults meet activity guidelines</p>
+                <p className="text-xs text-cream/60 mt-1">Healthy Ireland Survey 2025</p>
               </Link>
-              <Link to="/science" className="block h-full">
-                <div className="p-6 rounded-[20px] bg-green-deep border-2 border-green-deep transform hover:scale-105 transition-all duration-300 layer-3d cursor-pointer h-full flex flex-col items-center justify-center text-center break-words">
-                  <div className="text-4xl font-bold text-cream mb-2" style={{ fontFamily: "'Zodiak', serif" }}>
-                    30%
-                  </div>
-                  <p className="text-sm text-cream font-medium">of young people below WHO wellbeing threshold</p>
-                  <p className="text-xs text-cream/90 mt-1">Planet Youth West Ireland 2024</p>
+              <Link to="/science" className="block text-center group">
+                <div
+                  className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
+                  style={{ fontFamily: "'Zodiak', serif" }}
+                >
+                  30%
                 </div>
+                <p className="text-sm text-cream/90 font-medium">of young people below WHO wellbeing threshold</p>
+                <p className="text-xs text-cream/60 mt-1">Planet Youth West Ireland 2024</p>
               </Link>
             </div>
 
