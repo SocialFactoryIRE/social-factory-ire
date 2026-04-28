@@ -91,8 +91,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'sans-serif'],
-        heading: ['Fraunces', 'serif'],
+        sans: ['General Sans', 'sans-serif'],
+        heading: ['Zodiak', 'serif'],
       },
       backgroundImage: {
         'gradient-hero': 'var(--gradient-hero)',
