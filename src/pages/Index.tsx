@@ -96,7 +96,7 @@ const Index = () => {
               <span className="text-5xl md:text-6xl">Social Factory</span>
             </h1>
             <p className="text-xl md:text-2xl mt-8 mb-4 text-ink-soft animate-fade-in font-medium max-w-[70ch] mx-auto">
-              Reconnecting communities through action sports, creative arts, wellness, and entrepreneurship.
+              Where Limerick comes together to move, make, create, and belong.
             </p>
             <p className="text-lg md:text-xl mb-10 text-ink-soft animate-fade-in max-w-[70ch] mx-auto font-light">
               1 in 5 Irish adults report loneliness. Social Factory is the structural response: permanent,
