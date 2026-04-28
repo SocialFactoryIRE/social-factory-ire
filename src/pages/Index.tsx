@@ -99,8 +99,8 @@ const Index = () => {
               Reconnecting communities through action sports, creative arts, wellness, and entrepreneurship.
             </p>
             <p className="text-lg md:text-xl mb-10 text-ink-soft animate-fade-in max-w-[70ch] mx-auto font-light">
-              1 in 5 Irish adults report loneliness. We're building the spaces and systems to change that — starting in
-              Limerick.
+              1 in 5 Irish adults report loneliness. Social Factory is the structural response: permanent,
+              preventative, community-owned.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Button size="lg" variant="green" className="text-lg px-8 py-6" asChild>
