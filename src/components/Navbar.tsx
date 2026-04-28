@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 const NAV_DOT_COLORS: Record<string, string> = {
   About: "#ffcd1a",
   Programming: "#f9bb86",
-  "Science & Research": "#5dcdf9",
+  "Science & Research": "#1a9fd4",
   Governance: "#00b389",
 };
 

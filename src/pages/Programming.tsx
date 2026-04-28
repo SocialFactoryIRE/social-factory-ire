@@ -3,10 +3,10 @@ import Footer from "@/components/Footer";
 import { Palette, Briefcase, Heart, ShoppingBag, Sparkles } from "lucide-react";
 
 const CARD_STYLES: Record<string, { bg: string; shadow: string; bulletColor: string }> = {
-  "bg-sky": { bg: "#c8edfd", shadow: "0 12px 32px rgba(93,205,249,0.2)", bulletColor: "#1a9fd4" },
-  "bg-mint": { bg: "#b8f0e2", shadow: "0 12px 32px rgba(0,179,137,0.2)", bulletColor: "#007d61" },
-  "bg-peach": { bg: "#fde4cc", shadow: "0 12px 32px rgba(249,187,134,0.2)", bulletColor: "#e8874a" },
-  "bg-accent": { bg: "#fff3a3", shadow: "0 12px 32px rgba(255,205,26,0.2)", bulletColor: "#e6a800" },
+  "bg-sky": { bg: "#c8edfd", shadow: "0 12px 32px rgba(26,159,212,0.18)", bulletColor: "#1a9fd4" },
+  "bg-mint": { bg: "#b8f0e2", shadow: "0 12px 32px rgba(0,125,97,0.18)", bulletColor: "#007d61" },
+  "bg-peach": { bg: "#fde4cc", shadow: "0 12px 32px rgba(232,135,74,0.18)", bulletColor: "#e8874a" },
+  "bg-accent": { bg: "#fff3a3", shadow: "0 12px 32px rgba(230,168,0,0.18)", bulletColor: "#e6a800" },
 };
 
 const ICON_STYLES: Record<string, string> = {
@@ -58,7 +58,7 @@ const Programming = () => {
       }} />
       <div className="hero-blob" style={{
         width: 400, height: 400, top: "0%", right: "-3%",
-        background: "radial-gradient(circle, rgba(93,205,249,0.2) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(26,159,212,0.18) 0%, transparent 70%)",
       }} />
       <div className="hero-blob" style={{
         width: 350, height: 350, bottom: "5%", left: "35%",
@@ -73,7 +73,7 @@ const Programming = () => {
             <span className="text-base font-semibold" style={{ color: "#007d61" }}>Four Interconnected Domains</span>
           </div>
 
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="text-base md:text-lg text-ink-soft leading-relaxed max-w-[70ch] mx-auto font-light">
             Our programmes are designed around four interconnected domains — <br className="hidden md:block" />
             each a pillar of social connection and community growth.
           </p>
@@ -97,7 +97,7 @@ const Programming = () => {
                     <h2 className="text-5xl text-foreground group-hover:text-primary transition-colors duration-300">
                       {program.title}
                     </h2>
-                    <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                    <p className="text-xl text-ink-soft leading-relaxed font-light max-w-[70ch]">
                       {program.description}
                     </p>
                   </div>
@@ -147,7 +147,7 @@ const Programming = () => {
           >
             <div className="flex items-center justify-center gap-3 mb-8">
               <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full border-2 border-white" style={{ background: "#5dcdf9" }} />
+                <div className="w-8 h-8 rounded-full border-2 border-white" style={{ background: "#1a9fd4" }} />
                 <div className="w-8 h-8 rounded-full border-2 border-white" style={{ background: "#00b389" }} />
                 <div className="w-8 h-8 rounded-full border-2 border-white" style={{ background: "#f9bb86" }} />
                 <div className="w-8 h-8 rounded-full border-2 border-white" style={{ background: "#ffcd1a" }} />
@@ -156,13 +156,13 @@ const Programming = () => {
             <h2 className="text-4xl md:text-5xl mb-8 text-foreground text-center">
               Cross-Domain Integration
             </h2>
-            <div className="space-y-6 text-center max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-light">
+            <div className="space-y-6 text-center max-w-[70ch] mx-auto">
+              <p className="text-lg md:text-xl text-ink leading-relaxed font-light">
                 The magic of Social Factory happens when domains overlap. A skateboarder might discover
                 entrepreneurship through designing boards. An artist might find wellness through creative
                 expression. A wellness coach might launch a social enterprise at our marketplace.
               </p>
-              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-ink leading-relaxed font-light">
                 This integrated approach reflects how real life works—and how meaningful connections form
                 naturally when people share space, time, and purpose.
               </p>
@@ -177,7 +177,7 @@ const Programming = () => {
             <h2 className="text-4xl md:text-5xl mb-6 text-foreground">
               Weekly Programming Schedule
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+            <p className="text-lg text-ink-soft max-w-[70ch] mx-auto font-light">
               Age-based programming across all four domains throughout the week
             </p>
           </div>
@@ -388,22 +388,22 @@ const Programming = () => {
             </table>
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-6">
+          <div className="mt-8 flex flex-wrap justify-center gap-6 py-3">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ background: "#5dcdf9" }}></div>
-              <span className="text-sm text-muted-foreground">Social</span>
+              <div className="w-3 h-3 rounded-full" style={{ background: "#1a9fd4" }}></div>
+              <span className="text-sm text-ink-soft">Social</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ background: "#00b389" }}></div>
-              <span className="text-sm text-muted-foreground">Work</span>
+              <div className="w-3 h-3 rounded-full" style={{ background: "#007d61" }}></div>
+              <span className="text-sm text-ink-soft">Work</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ background: "#f9bb86" }}></div>
-              <span className="text-sm text-muted-foreground">Health</span>
+              <div className="w-3 h-3 rounded-full" style={{ background: "#e8874a" }}></div>
+              <span className="text-sm text-ink-soft">Health</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ background: "#ffcd1a" }}></div>
-              <span className="text-sm text-muted-foreground">Market</span>
+              <div className="w-3 h-3 rounded-full" style={{ background: "#e6a800" }}></div>
+              <span className="text-sm text-ink-soft">Market</span>
             </div>
           </div>
         </div>
