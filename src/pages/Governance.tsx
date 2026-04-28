@@ -65,8 +65,8 @@ const Governance = () => {
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Governance is structured in line with social enterprise best practice and guided by the 
                 New European Bauhaus Compass, prioritising sustainability, inclusion, and quality of everyday 
-                life. This framework ensures decisions are made in the long-term interests of people and place 
-               , protecting accessibility, community participation, and social impact above profit extraction.
+                life. This framework ensures decisions are made in the long-term interests of people and place: 
+                protecting accessibility, community participation, and social impact above profit extraction.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed font-medium italic">
                 Social Factory is not just a building or a service. It is a living social system, owned by 
