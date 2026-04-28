@@ -102,13 +102,13 @@ const Science = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-coral p-8 rounded-2xl text-center">
-              <p className="text-lg text-white font-medium leading-relaxed">
+            <div className="bg-ink p-8 rounded-2xl text-center">
+              <p className="text-lg text-cream font-medium leading-relaxed max-w-[70ch] mx-auto">
                 "Poor mental health and loneliness are not inevitable — they are preventable.
                 The evidence consistently points to participation, connection, and community as the most
                 powerful protective factors available."
               </p>
-              <p className="text-white/70 text-sm mt-3">— Healthy Ireland Framework</p>
+              <p className="text-cream/80 text-sm mt-3">— Healthy Ireland Framework</p>
             </div>
           </div>
 
