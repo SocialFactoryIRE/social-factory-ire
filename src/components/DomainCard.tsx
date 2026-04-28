@@ -18,12 +18,17 @@ const DomainCard = ({ icon: Icon, title, subtitle, description, bg, accentColor,
   return (
     <Link to={link}>
       <Card className={`p-8 h-full hover:shadow-hover transition-all duration-300 hover:-translate-y-2 ${bg} border-2 border-transparent cursor-pointer group`}>
-        <div className={`w-20 h-20 rounded-[20px] ${iconBg} flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-          <Icon className="h-10 w-10 text-ink" />
+        {/* Icon + heading on the same row */}
+        <div className="flex items-center gap-4 mb-4">
+          <div className={`w-16 h-16 shrink-0 rounded-[20px] ${iconBg} flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+            <Icon className="h-8 w-8 text-ink" />
+          </div>
+          <div className="min-w-0">
+            <h3 className={`${accentColor} leading-tight`}>{title}</h3>
+            {subtitle && <p className="text-sm font-medium text-ink-soft">{subtitle}</p>}
+          </div>
         </div>
-        <h3 className={`${accentColor} mb-1`}>{title}</h3>
-        {subtitle && <p className="text-sm font-medium text-muted-foreground mb-3">{subtitle}</p>}
-        <p className="text-ink-soft leading-relaxed font-light">{description}</p>
+        <p className="text-ink-soft leading-relaxed font-light max-w-[70ch]">{description}</p>
       </Card>
     </Link>
   );
