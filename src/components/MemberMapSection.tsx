@@ -226,7 +226,7 @@ const MemberMapSection = () => {
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
             <Globe className="h-4 w-4" />
-            Our Global Community
+            Our Growing Network
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Members Around the World
