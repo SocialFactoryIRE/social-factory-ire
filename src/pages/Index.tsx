@@ -214,7 +214,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-foreground">Four Domains of Connection</h2>
             <p className="text-xl text-ink-soft max-w-[70ch] mx-auto font-light">
-              Our programmes are built around four interconnected pillars — each one a pathway to belonging.
+              Our programmes are built around four interconnected pillars, each a pathway to belonging.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
