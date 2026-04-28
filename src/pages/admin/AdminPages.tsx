@@ -72,7 +72,7 @@ export default function AdminPages() {
                   <TableRow key={page.id}>
                     <TableCell className="font-medium">{page.title}</TableCell>
                     <TableCell className="text-muted-foreground">/{page.slug}</TableCell>
-                    <TableCell className="text-muted-foreground">{page.seo_title || "—"}</TableCell>
+                    <TableCell className="text-muted-foreground">{page.seo_title || " "}</TableCell>
                     <TableCell>
                       <Button variant="ghost" size="icon" onClick={() => openEdit(page)}>
                         <Pencil className="h-4 w-4" />

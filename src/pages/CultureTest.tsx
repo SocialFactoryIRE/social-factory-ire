@@ -70,25 +70,25 @@ const ITEMS = [
 ];
 
 const VALUE_NAMES: Record<string, { label: string; items: number[] }> = {
-  sd_thought:   { label: "Self-Direction—Thought",       items: [1, 20, 39] },
-  sd_action:    { label: "Self-Direction—Action",        items: [2, 21, 40] },
+  sd_thought:   { label: "Self-Direction: Thought",       items: [1, 20, 39] },
+  sd_action:    { label: "Self-Direction: Action",        items: [2, 21, 40] },
   stimulation:  { label: "Stimulation",                  items: [3, 22, 41] },
   hedonism:     { label: "Hedonism",                     items: [4, 23, 42] },
   achievement:  { label: "Achievement",                  items: [5, 24, 43] },
-  power_dom:    { label: "Power—Dominance",              items: [6, 25, 44] },
-  power_res:    { label: "Power—Resources",              items: [7, 26, 45] },
+  power_dom:    { label: "Power: Dominance",              items: [6, 25, 44] },
+  power_res:    { label: "Power: Resources",              items: [7, 26, 45] },
   face:         { label: "Face",                         items: [8, 27, 46] },
-  sec_personal: { label: "Security—Personal",            items: [9, 28, 47] },
-  sec_societal: { label: "Security—Societal",            items: [10, 29, 48] },
+  sec_personal: { label: "Security: Personal",            items: [9, 28, 47] },
+  sec_societal: { label: "Security: Societal",            items: [10, 29, 48] },
   tradition:    { label: "Tradition",                    items: [11, 30, 49] },
-  con_rules:    { label: "Conformity—Rules",             items: [12, 31, 50] },
-  con_interp:   { label: "Conformity—Interpersonal",     items: [13, 32, 51] },
+  con_rules:    { label: "Conformity: Rules",             items: [12, 31, 50] },
+  con_interp:   { label: "Conformity: Interpersonal",     items: [13, 32, 51] },
   humility:     { label: "Humility",                     items: [14, 33, 52] },
-  ben_dep:      { label: "Benevolence—Dependability",    items: [15, 34, 53] },
-  ben_care:     { label: "Benevolence—Caring",           items: [16, 35, 54] },
-  uni_concern:  { label: "Universalism—Concern",         items: [17, 36, 55] },
-  uni_nature:   { label: "Universalism—Nature",          items: [18, 37, 56] },
-  uni_tolerance:{ label: "Universalism—Tolerance",       items: [19, 38, 57] },
+  ben_dep:      { label: "Benevolence: Dependability",    items: [15, 34, 53] },
+  ben_care:     { label: "Benevolence: Caring",           items: [16, 35, 54] },
+  uni_concern:  { label: "Universalism: Concern",         items: [17, 36, 55] },
+  uni_nature:   { label: "Universalism: Nature",          items: [18, 37, 56] },
+  uni_tolerance:{ label: "Universalism: Tolerance",       items: [19, 38, 57] },
 };
 
 const SCALE_LABELS = [

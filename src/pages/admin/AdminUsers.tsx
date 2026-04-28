@@ -184,10 +184,10 @@ export default function AdminUsers() {
                 <TableBody>
                   {filteredUsers.map((u) => (
                     <TableRow key={u.user_id}>
-                      <TableCell className="font-medium">{u.display_name || "—"}</TableCell>
+                      <TableCell className="font-medium">{u.display_name || " "}</TableCell>
                       <TableCell className="text-muted-foreground">{u.email}</TableCell>
-                      <TableCell>{u.country || "—"}</TableCell>
-                      <TableCell>{u.city || "—"}</TableCell>
+                      <TableCell>{u.country || " "}</TableCell>
+                      <TableCell>{u.city || " "}</TableCell>
                       <TableCell>
                         {u.role ? (
                           <Badge variant="secondary" className="capitalize">{u.role}</Badge>

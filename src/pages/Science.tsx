@@ -25,18 +25,18 @@ const Science = () => {
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Social Factory is built on a growing body of national and international research.
-              The case for preventative, community-based social infrastructure has never been stronger —
+              The case for preventative, community-based social infrastructure has never been stronger  
               and Ireland's own data makes it urgent.
             </p>
           </div>
 
-          {/* Ireland's Data — Healthy Ireland 2025 */}
+          {/* Ireland's Data, Healthy Ireland 2025 */}
           <div className="max-w-5xl mx-auto mb-20">
             <div className="text-center mb-12">
               <TrendingUp className="h-16 w-16 mx-auto mb-6 text-coral" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Ireland's Wellbeing Crisis</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Data from the <strong>Healthy Ireland Survey 2025</strong> — Ireland's national annual health and wellbeing study
+                Data from the <strong>Healthy Ireland Survey 2025</strong>, Ireland's national annual health and wellbeing study
               </p>
               <a
 
@@ -55,7 +55,7 @@ const Science = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Adults Report Loneliness</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      One in five adults in Ireland report feeling lonely often or always — a figure that rises sharply
+                      One in five adults in Ireland report feeling lonely often or always, a figure that rises sharply
                       among young adults aged 18–24 and older adults living alone.
                     </p>
                   </div>
@@ -68,7 +68,7 @@ const Science = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Meet Physical Activity Guidelines</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Only 53% of adults meet recommended physical activity levels — leaving almost half the population
+                      Only 53% of adults meet recommended physical activity levels, leaving almost half the population
                       at elevated risk of poor physical and mental health outcomes.
                     </p>
                   </div>
@@ -94,7 +94,7 @@ const Science = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Highest Risk Age Group</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Young adults aged 18–24 report the lowest wellbeing scores of any demographic —
+                      Young adults aged 18–24 report the lowest wellbeing scores of any demographic  
                       challenging the assumption that loneliness is primarily an older person's problem.
                     </p>
                   </div>
@@ -104,11 +104,11 @@ const Science = () => {
 
             <div className="bg-ink p-8 rounded-2xl text-center">
               <p className="text-lg text-cream font-medium leading-relaxed max-w-[70ch] mx-auto">
-                "Poor mental health and loneliness are not inevitable — they are preventable.
+                "Poor mental health and loneliness are not inevitable, they are preventable.
                 The evidence consistently points to participation, connection, and community as the most
                 powerful protective factors available."
               </p>
-              <p className="text-cream/80 text-sm mt-3">— Healthy Ireland Framework</p>
+              <p className="text-cream/80 text-sm mt-3">  Healthy Ireland Framework</p>
             </div>
           </div>
 
@@ -149,7 +149,7 @@ const Science = () => {
                 <h3 className="text-lg font-bold mb-2 text-foreground">Reduce Stigma & Increase Access</h3>
                 <p className="text-sm text-muted-foreground">
                   The Plan prioritises reducing barriers to mental health support. Social Factory embeds
-                  clinical and wellness professionals directly within community activity spaces — normalising
+                  clinical and wellness professionals directly within community activity spaces, normalising
                   care through participation rather than clinical referral.
                 </p>
               </div>
@@ -167,10 +167,10 @@ const Science = () => {
             </div>
 
             <div className="bg-mint/10 border-2 border-mint rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-3 text-foreground max-w-[70ch]">Social Prescribing — A National Priority</h3>
+              <h3 className="text-xl font-bold mb-3 text-foreground max-w-[70ch]">Social Prescribing, A National Priority</h3>
               <p className="text-ink-soft leading-relaxed max-w-[70ch]">
-                Pathways to Wellbeing 2024–2030 identifies social prescribing — where GPs and community
-                health workers refer patients to non-clinical community activities — as a key intervention
+                Pathways to Wellbeing 2024–2030 identifies social prescribing, where GPs and community
+                health workers refer patients to non-clinical community activities, as a key intervention
                 for reducing pressure on mental health services. Social Factory is designed to be a
                 primary social prescribing destination in Limerick, with a dedicated concession
                 membership tier for referred participants.
@@ -182,7 +182,7 @@ const Science = () => {
           <div className="max-w-5xl mx-auto mb-20">
             <div className="text-center mb-12">
               <BookOpen className="h-16 w-16 mx-auto mb-6 text-accent" />
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Planet Youth — Proven at Scale</h2>
+              <h2 className="text-4xl font-bold mb-4 text-foreground">Planet Youth, Proven at Scale</h2>
               <p className="text-lg text-muted-foreground">
                 Data from 5,079 young people aged 15–16 across Galway, Mayo & Roscommon
               </p>
@@ -204,7 +204,7 @@ const Science = () => {
                     <h3 className="text-xl font-bold mb-2 text-foreground">Drunk in the Last Month</h3>
                     <p className="text-ink-soft max-w-[70ch]">
                       Nearly one in three 15–16 year olds reported being drunk at least once in the past 30 days.
-                      Where the Planet Youth model has been implemented — providing structured alternatives — these
+                      Where the Planet Youth model has been implemented, providing structured alternatives, these
                       figures have fallen dramatically over time.
                     </p>
                   </div>
@@ -217,7 +217,7 @@ const Science = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">3+ Hours Daily on Social Media</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Two thirds of young people spend three or more hours daily on social media — strongly
+                      Two thirds of young people spend three or more hours daily on social media, strongly
                       correlated with poorer sleep, lower wellbeing scores, and reduced face-to-face connection.
                     </p>
                   </div>
@@ -231,7 +231,7 @@ const Science = () => {
                     <h3 className="text-xl font-bold mb-2 text-foreground">Below WHO Wellbeing Threshold</h3>
                     <p className="text-ink-soft max-w-[70ch]">
                       Nearly one in three young people scored below the WHO-5 threshold for mental wellbeing.
-                      Similar numbers reported low self-esteem and resilience — conditions strongly linked to
+                      Similar numbers reported low self-esteem and resilience, conditions strongly linked to
                       lack of belonging and structured peer participation.
                     </p>
                   </div>
@@ -263,7 +263,7 @@ const Science = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   Social Factory aligns with the EU's New European Bauhaus initiative, integrating
                   sustainability, inclusion, and beauty into our physical design and programming.
-                  We create spaces that are not just functional but inspiring — because environment
+                  We create spaces that are not just functional but inspiring, because environment
                   shapes behaviour, and beauty encourages people to stay, return, and belong.
                 </p>
               </div>
@@ -271,7 +271,7 @@ const Science = () => {
                 <Users className="h-12 w-12 mb-4 text-secondary" />
                 <h2 className="text-2xl font-bold mb-4 text-foreground">Lundy Model of Participation</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our approach to community engagement is structured around the Lundy Model of Participation —
+                  Our approach to community engagement is structured around the Lundy Model of Participation  
                   ensuring the people we serve have real Space to express views, genuine Voice in programme design,
                   and meaningful Influence over decisions that affect them. Participation is not an add-on at
                   Social Factory; it is foundational.
@@ -310,7 +310,7 @@ const Science = () => {
               </div>
               <p className="text-foreground/80 mt-6 text-sm">
                 All findings will be made publicly available to support replication across Ireland.
-                We conduct research <em>with</em> our community — not <em>on</em> it.
+                We conduct research <em>with</em> our community, not <em>on</em> it.
               </p>
             </div>
           </div>

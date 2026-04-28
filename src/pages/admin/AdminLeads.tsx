@@ -60,8 +60,8 @@ export default function AdminLeads() {
                     <TableRow key={lead.id}>
                       <TableCell className="font-medium">{lead.name}</TableCell>
                       <TableCell>{lead.email}</TableCell>
-                      <TableCell>{lead.phone || "—"}</TableCell>
-                      <TableCell className="max-w-xs truncate">{lead.message || "—"}</TableCell>
+                      <TableCell>{lead.phone || " "}</TableCell>
+                      <TableCell className="max-w-xs truncate">{lead.message || " "}</TableCell>
                       <TableCell>
                         <Badge variant={lead.status === "new" ? "default" : lead.status === "contacted" ? "secondary" : "outline"}>
                           {lead.status}

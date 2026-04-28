@@ -55,7 +55,7 @@ const ResearchContent = ({ user }: { user: User }) => {
       toast({
         title: checked ? "Consent given" : "Consent withdrawn",
         description: checked
-          ? "Thank you — your anonymised data will support community research."
+          ? "Thank you, your anonymised data will support community research."
           : "Your consent has been withdrawn.",
       });
     }
@@ -86,7 +86,7 @@ const ResearchContent = ({ user }: { user: User }) => {
             <p className="text-muted-foreground leading-relaxed mb-2">
               Social Factory partners with universities and research bodies to study
               community wellbeing in Ireland. Our work spans mental health, sociology,
-              and psychology — helping us understand what makes communities thrive.
+              and psychology, helping us understand what makes communities thrive.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               All data used in research is fully anonymised and aggregated. Individual

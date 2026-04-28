@@ -11,25 +11,25 @@ import { ArrowLeft, RefreshCw, UserCircle } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 
 const VALUE_META: Record<string, { label: string; desc: string }> = {
-  sd_thought:    { label: "Self-Direction—Thought",    desc: "Freedom to cultivate your own ideas and abilities." },
-  sd_action:     { label: "Self-Direction—Action",     desc: "Freedom to determine your own actions and plans." },
+  sd_thought:    { label: "Self-Direction: Thought",    desc: "Freedom to cultivate your own ideas and abilities." },
+  sd_action:     { label: "Self-Direction: Action",     desc: "Freedom to determine your own actions and plans." },
   stimulation:   { label: "Stimulation",               desc: "Excitement, novelty, and challenge in life." },
   hedonism:      { label: "Hedonism",                  desc: "Pleasure and sensuous gratification." },
   achievement:   { label: "Achievement",               desc: "Success through demonstrating competence." },
-  power_dom:     { label: "Power—Dominance",           desc: "Power through exercising control over others." },
-  power_res:     { label: "Power—Resources",           desc: "Power through control of material and social resources." },
+  power_dom:     { label: "Power: Dominance",           desc: "Power through exercising control over others." },
+  power_res:     { label: "Power: Resources",           desc: "Power through control of material and social resources." },
   face:          { label: "Face",                      desc: "Maintaining your public image and avoiding humiliation." },
-  sec_personal:  { label: "Security—Personal",         desc: "Safety in your immediate environment." },
-  sec_societal:  { label: "Security—Societal",         desc: "Safety and stability in the wider society." },
+  sec_personal:  { label: "Security: Personal",         desc: "Safety in your immediate environment." },
+  sec_societal:  { label: "Security: Societal",         desc: "Safety and stability in the wider society." },
   tradition:     { label: "Tradition",                 desc: "Maintaining and preserving cultural or religious traditions." },
-  con_rules:     { label: "Conformity—Rules",          desc: "Compliance with rules, laws, and formal obligations." },
-  con_interp:    { label: "Conformity—Interpersonal",  desc: "Avoidance of upsetting or harming other people." },
+  con_rules:     { label: "Conformity: Rules",          desc: "Compliance with rules, laws, and formal obligations." },
+  con_interp:    { label: "Conformity: Interpersonal",  desc: "Avoidance of upsetting or harming other people." },
   humility:      { label: "Humility",                  desc: "Recognising your insignificance in the larger scheme." },
-  ben_dep:       { label: "Benevolence—Dependability",  desc: "Being a reliable and trustworthy member of the in-group." },
-  ben_care:      { label: "Benevolence—Caring",        desc: "Devotion to the welfare of in-group members." },
-  uni_concern:   { label: "Universalism—Concern",      desc: "Commitment to equality, justice, and protection for all." },
-  uni_nature:    { label: "Universalism—Nature",       desc: "Preservation of the natural environment." },
-  uni_tolerance: { label: "Universalism—Tolerance",    desc: "Acceptance and understanding of those who are different." },
+  ben_dep:       { label: "Benevolence: Dependability",  desc: "Being a reliable and trustworthy member of the in-group." },
+  ben_care:      { label: "Benevolence: Caring",        desc: "Devotion to the welfare of in-group members." },
+  uni_concern:   { label: "Universalism: Concern",      desc: "Commitment to equality, justice, and protection for all." },
+  uni_nature:    { label: "Universalism: Nature",       desc: "Preservation of the natural environment." },
+  uni_tolerance: { label: "Universalism: Tolerance",    desc: "Acceptance and understanding of those who are different." },
 };
 
 const VALUE_KEYS = Object.keys(VALUE_META);
