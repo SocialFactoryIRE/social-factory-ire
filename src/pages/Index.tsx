@@ -264,9 +264,8 @@ const Index = () => {
                 {" "}
                 Pathways to Wellbeing National Mental Health Promotion Plan 2024–2030
               </strong>
-              , and informed by the{" "}
-              <strong className="text-foreground font-semibold">Healthy Ireland Survey 2025</strong>. Every design
-              choice — from our social prescribing membership tier to our cross-domain programming — is evidence-led.
+              , and informed by the <strong className="text-foreground font-semibold">Healthy Ireland Survey 2025</strong>. Every design
+              choice, from our social prescribing membership tier to our cross-domain programming, is evidence-led.
             </p>
             <div className="grid md:grid-cols-3 gap-6 mt-8">
               <div className="p-8 rounded-[20px] bg-teal-light border-2 border-teal-deep/30 transform hover:scale-105 transition-all duration-300 layer-3d">
