@@ -35,7 +35,8 @@ async function checkRateLimit(supabase: any, ipAddress: string, endpoint: string
     return true;
   }
 
-  if (count !== null && count >= 2000) {
+  const MAX_CHAT_PER_HOUR = 30;
+  if (count !== null && count >= MAX_CHAT_PER_HOUR) {
     return false;
   }
 

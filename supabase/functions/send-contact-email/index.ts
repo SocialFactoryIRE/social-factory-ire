@@ -92,11 +92,11 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (!validationResult.success) {
       console.error("Validation failed:", validationResult.error.errors);
+      const message = validationResult.error.errors
+        .map((e) => `${e.path.join(".")}: ${e.message}`)
+        .join("; ");
       return new Response(
-        JSON.stringify({
-          error: "Invalid input data",
-          details: validationResult.error.errors,
-        }),
+        JSON.stringify({ error: message || "Invalid input data" }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },
