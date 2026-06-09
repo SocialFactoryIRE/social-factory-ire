@@ -497,7 +497,7 @@ const OnboardingWizard = ({ user }: { user: User }) => {
                   <Button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="gap-2 bg-gradient-hero hover:opacity-90 font-bold"
+                    className="gap-2 bg-[#25713a] text-white hover:bg-[#1e5a2e] font-bold"
                   >
                     {isSubmitting ? "Saving..." : "Complete Setup"}
                     <CheckCircle2 className="h-4 w-4" />
