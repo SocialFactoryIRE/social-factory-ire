@@ -106,6 +106,7 @@ const App = () => (
                 <Route path="/research" element={<Research />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/suggested-connects" element={<SuggestedConnects />} />
+                <Route path="/neb-festival-questions" element={<NebFestival />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </PageLayout>
