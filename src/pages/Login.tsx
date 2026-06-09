@@ -90,7 +90,7 @@ const Login = () => {
                   </Link>
                 </div>
 
-                <Button type="submit" size="lg" variant="green" className="w-full text-base py-5 font-semibold" disabled={isSubmitting}>
+                <Button type="submit" size="lg" variant="green" className="w-full text-base py-5 font-semibold bg-[#25713a] hover:bg-[#1e5a2e] text-white" disabled={isSubmitting}>
                   {isSubmitting ? "Logging in..." : "Log In"}
                 </Button>
               </form>
