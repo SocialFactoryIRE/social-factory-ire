@@ -21,8 +21,8 @@ const registerSchema = z.object({
 });
 
 const Register = () => {
-  const [searchParams] = useSearchParams();
-  const membershipType = searchParams.get("type") === "local" ? "local" : "online";
+  useSearchParams();
+  const membershipType = "online" as const;
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -102,7 +102,7 @@ const Register = () => {
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Create Account</h1>
               <p className="text-muted-foreground text-lg">
-                Joining as a <span className="font-semibold text-primary capitalize">{membershipType}</span> member
+                Join the global Social Factory community
               </p>
             </div>
 

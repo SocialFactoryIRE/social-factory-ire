@@ -301,7 +301,7 @@ const OnboardingWizard = ({ user }: { user: User }) => {
   const { toast } = useToast();
 
   const [state, setState] = useState<OnboardingState>({
-    membershipType: null,
+    membershipType: "online",
     displayName: "",
     county: "",
     town: "",
@@ -317,37 +317,28 @@ const OnboardingWizard = ({ user }: { user: User }) => {
     const fetchProfile = async () => {
       const { data } = await supabase
         .from("profiles")
-        .select("display_name, membership_type")
+        .select("display_name")
         .eq("user_id", user.id)
         .single();
       if (data) {
         setState((s) => ({
           ...s,
           displayName: data.display_name || user.email || "",
-          membershipType: (data.membership_type as MembershipType) || null,
         }));
       }
     };
     fetchProfile();
   }, [user]);
 
-  const isLocalMember = state.membershipType === "local";
-  const totalSteps = isLocalMember ? 5 : 4;
-
-  // Map visual step to logical step (skip location for online)
-  const logicalStep = !isLocalMember && step >= 3 ? step + 1 : step;
+  const totalSteps = 3;
 
   const canNext = () => {
-    switch (logicalStep) {
+    switch (step) {
       case 1:
-        return state.membershipType !== null;
-      case 2:
         return state.displayName.trim().length > 0;
-      case 3:
-        return state.county.length > 0; // local only
-      case 4:
+      case 2:
         return true; // interests optional
-      case 5:
+      case 3:
         return true;
       default:
         return false;
@@ -373,14 +364,13 @@ const OnboardingWizard = ({ user }: { user: User }) => {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      // Update profile
       const { error: profileError } = await supabase
         .from("profiles")
         .update({
           display_name: state.displayName.trim(),
-          membership_type: state.membershipType,
-          county: isLocalMember ? state.county : null,
-          town: isLocalMember ? state.town.trim() || null : null,
+          membership_type: "online",
+          county: null,
+          town: null,
           open_to_connect: state.openToConnect,
           onboarded: true,
         })
@@ -388,7 +378,6 @@ const OnboardingWizard = ({ user }: { user: User }) => {
 
       if (profileError) throw profileError;
 
-      // Upsert interest tags: delete then re-insert
       await supabase
         .from("member_tags")
         .delete()
@@ -420,33 +409,17 @@ const OnboardingWizard = ({ user }: { user: User }) => {
   };
 
   const renderStep = () => {
-    switch (logicalStep) {
+    switch (step) {
       case 1:
-        return (
-          <Step1
-            value={state.membershipType}
-            onChange={(v) => setState((s) => ({ ...s, membershipType: v }))}
-          />
-        );
-      case 2:
         return (
           <Step2
             value={state.displayName}
             onChange={(v) => setState((s) => ({ ...s, displayName: v }))}
           />
         );
-      case 3:
-        return (
-          <Step3
-            county={state.county}
-            town={state.town}
-            onCounty={(v) => setState((s) => ({ ...s, county: v }))}
-            onTown={(v) => setState((s) => ({ ...s, town: v }))}
-          />
-        );
-      case 4:
+      case 2:
         return <Step4 selected={state.interests} onToggle={toggleInterest} />;
-      case 5:
+      case 3:
         return (
           <Step5
             openToConnect={state.openToConnect}
