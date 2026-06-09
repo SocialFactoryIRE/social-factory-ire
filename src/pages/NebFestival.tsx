@@ -75,7 +75,7 @@ const FlipCard = ({ card, onAnswer }: { card: Card; onAnswer: (c: Card) => void 
             </h3>
           </div>
           <div className="text-xs text-ink-soft italic">
-            Hover to read our note. Tap to share yours.
+            Flip to read our note. Click or tap to share yours.
           </div>
         </div>
 
