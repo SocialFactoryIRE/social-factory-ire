@@ -48,10 +48,9 @@ const FlipCard = ({ card, onAnswer }: { card: Card; onAnswer: (c: Card) => void 
 
   return (
     <div
-      className="group [perspective:1200px] cursor-pointer"
+      className="group [perspective:1200px]"
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
-      onClick={() => onAnswer(card)}
     >
       <div
         className={`relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d] ${
@@ -74,9 +73,13 @@ const FlipCard = ({ card, onAnswer }: { card: Card; onAnswer: (c: Card) => void 
               {card.question}
             </h3>
           </div>
-          <div className="text-xs text-ink-soft italic">
-            Flip to read our note. Click or tap to share yours.
-          </div>
+          <Button
+            variant="green"
+            className="w-full mt-2"
+            onClick={() => setFlipped(true)}
+          >
+            Share your answer
+          </Button>
         </div>
 
         {/* Back */}
@@ -92,9 +95,13 @@ const FlipCard = ({ card, onAnswer }: { card: Card; onAnswer: (c: Card) => void 
               {card.answer}
             </p>
           </div>
-          <div className="text-xs text-cream/60 italic">
-            Click or tap to share your own answer →
-          </div>
+          <Button
+            variant="outline"
+            className="w-full mt-2 bg-cream text-ink hover:bg-cream/90"
+            onClick={() => onAnswer(card)}
+          >
+            Add your answer
+          </Button>
         </div>
       </div>
     </div>
