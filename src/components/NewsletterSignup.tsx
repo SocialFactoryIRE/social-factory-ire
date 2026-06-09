@@ -68,7 +68,7 @@ const NewsletterSignup = () => {
         <div className="max-w-2xl mx-auto">
           <Mail className="h-16 w-16 mx-auto mb-6 text-green" />
           <h2 className="text-cream mb-4">
-            Be Part of Ireland's Social Revolution
+            Be Part of Europe's Social Revolution
           </h2>
           <p className="text-lg mb-8 text-cream/80">
             Join our early membership and get updates on events, programs, and our launch.

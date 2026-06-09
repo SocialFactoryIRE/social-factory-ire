@@ -94,7 +94,7 @@ const Step1 = ({
           type: "local" as const,
           icon: MapPin,
           title: "Local Member",
-          desc: "Engage with your local community in Ireland.",
+          desc: "Engage with your local community in Europe.",
         },
       ]).map(({ type, icon: Icon, title, desc }) => (
         <button

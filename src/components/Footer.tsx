@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="font-bold text-lg text-cream">Social Factory CLG - 796481</span>
             </div>
             <p className="text-sm text-cream/60">
-              Ireland's first social factory tackling loneliness through community connection.
+              Europe's first social factory tackling loneliness through community connection.
             </p>
           </div>
 
