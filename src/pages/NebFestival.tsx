@@ -147,11 +147,9 @@ const NebFestival = () => {
       <section className="pt-32 pb-12 bg-warm-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm tracking-[0.25em] uppercase text-green-deep font-semibold mb-4">
-              NEB Festival · Conversation Cards
-            </p>
             <h1 className="text-foreground mb-6">
-              <span className="text-4xl md:text-6xl">Sixteen Questions</span>
+              <span className="block text-4xl md:text-6xl">New European Bauhaus Festival</span>
+              <span className="block text-3xl md:text-5xl mt-2">Conversation Cards</span>
             </h1>
             <p className="text-lg md:text-xl text-ink-soft font-light max-w-[60ch] mx-auto">
               Hover a card to read our field note. Tap it to share your own answer. Every response shapes the architecture of connection we are building together.
