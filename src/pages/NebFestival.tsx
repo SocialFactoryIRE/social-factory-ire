@@ -93,7 +93,7 @@ const FlipCard = ({ card, onAnswer }: { card: Card; onAnswer: (c: Card) => void 
             </p>
           </div>
           <div className="text-xs text-cream/60 italic">
-            Tap to share your own answer →
+            Click or tap to share your own answer →
           </div>
         </div>
       </div>
