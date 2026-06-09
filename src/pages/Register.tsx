@@ -1,23 +1,19 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
-import { User, Mail, Lock, Globe, MapPin } from "lucide-react";
-import { countriesAndCities } from "@/data/countries-cities";
+import { User, Mail, Lock } from "lucide-react";
 
 const registerSchema = z.object({
   displayName: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
-  country: z.string().min(1, "Country is required"),
-  city: z.string().min(1, "City is required"),
 });
 
 const Register = () => {
