@@ -80,7 +80,7 @@ const FlipCard = ({ card, onAnswer }: { card: Card; onAnswer: (c: Card) => void 
         </div>
 
         {/* Back */}
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-[20px] bg-ink text-cream p-6 flex flex-col shadow-soft">
+        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-[20px] bg-[#25713a] text-cream p-6 flex flex-col shadow-soft">
           <div className="text-[10px] tracking-[0.2em] uppercase text-cream/60 font-medium">
             Field Note · Nº {String(card.number).padStart(2, "0")}/16
           </div>
