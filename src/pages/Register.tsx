@@ -58,7 +58,7 @@ const Register = () => {
 
       if (error) throw error;
 
-      // Update profile with membership type
+      // Best-effort profile update (won't block confirmation)
       const { data: session } = await supabase.auth.getSession();
       if (session?.session?.user) {
         await supabase
@@ -67,10 +67,9 @@ const Register = () => {
           .eq("user_id", session.session.user.id);
       }
 
-      toast({
-        title: "Check your email",
-        description: "We've sent you a confirmation link. Please verify your email to continue.",
-      });
+      sessionStorage.setItem("pendingSignupEmail", data.email);
+      navigate("/check-email", { state: { email: data.email }, replace: true });
+
     } catch (error: any) {
       if (error instanceof z.ZodError) {
         toast({ title: "Validation Error", description: error.errors[0].message, variant: "destructive" });

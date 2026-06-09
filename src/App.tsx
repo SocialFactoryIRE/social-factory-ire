@@ -32,6 +32,7 @@ import Research from "./pages/Research";
 import Profile from "./pages/Profile";
 import SuggestedConnects from "./pages/SuggestedConnects";
 import NebFestival from "./pages/NebFestival";
+import CheckEmail from "./pages/CheckEmail";
 import NotFound from "./pages/NotFound";
 import Chatbot from "@/components/Chatbot";
 
@@ -88,6 +89,7 @@ const App = () => (
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
+                <Route path="/check-email" element={<CheckEmail />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
                 <Route path="/onboarding" element={<Onboarding />} />
