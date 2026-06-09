@@ -152,7 +152,7 @@ const NebFestival = () => {
               <span className="block text-3xl md:text-5xl mt-2 text-[#f1a600]">Conversation Cards</span>
             </h1>
             <p className="text-lg md:text-xl text-[#005493] font-light max-w-[60ch] mx-auto">
-              Flip a card to read our field note. Click or tap it to share your own answer. Every response shapes the architecture of connection we are building together.
+              Click or tap it to share your own answer. Every response shapes the architecture of connection we are building together.
             </p>
           </div>
         </div>
