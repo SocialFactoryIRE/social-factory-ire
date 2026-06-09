@@ -62,32 +62,27 @@ export default function AdminUsers() {
     }
 
     setLoading(true);
-    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
-      email: newUser.email.trim(),
-      password: newUser.password,
-      options: { data: { display_name: newUser.display_name || newUser.email } },
+    const { data, error } = await supabase.functions.invoke("admin-create-user", {
+      body: {
+        email: newUser.email.trim(),
+        password: newUser.password,
+        role: newUser.role,
+        display_name: newUser.display_name || newUser.email,
+      },
     });
-    if (signUpError) {
-      toast({ title: "Error", description: signUpError.message, variant: "destructive" });
-      setLoading(false);
+
+    setLoading(false);
+
+    if (error || (data as any)?.error) {
+      const msg = (data as any)?.error || error?.message || "Could not create user";
+      toast({ title: "Error", description: msg, variant: "destructive" });
       return;
     }
 
-    if (signUpData.user) {
-      const { error: roleError } = await supabase.from("user_roles").insert({
-        user_id: signUpData.user.id,
-        role: newUser.role,
-      });
-      if (roleError) {
-        toast({ title: "Role Error", description: roleError.message, variant: "destructive" });
-      }
-    }
-
-    setLoading(false);
     setOpen(false);
     setNewUser({ email: "", password: "", role: "editor", display_name: "" });
     fetchUsers();
-    toast({ title: "User created", description: "The user will need to verify their email." });
+    toast({ title: "User created", description: "The user was created successfully." });
   };
 
   const removeRole = async (userId: string) => {
