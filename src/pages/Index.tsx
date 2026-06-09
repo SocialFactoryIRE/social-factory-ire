@@ -103,17 +103,17 @@ const Index = () => {
               preventative, community-owned.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-              <Button size="lg" variant="green" className="text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#eb4f07] hover:bg-[#d13d06] text-white border-transparent" asChild>
                 <Link to="/join">
                   Join the Movement <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#005493] hover:bg-[#004a82] text-white border-transparent" asChild>
                 <Link to="/about">Our Story</Link>
               </Button>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 animate-fade-in">
-              <Button size="lg" variant="peach" className="text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#25713a] hover:bg-[#1f5f30] text-white border-transparent" asChild>
                 <a
                   href="https://www.gofundme.com/f/help-build-irelands-first-social-factory"
                   target="_blank"
@@ -122,7 +122,7 @@ const Index = () => {
                   Support Us on GoFundMe <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6" asChild>
+              <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#f1a600] hover:bg-[#d99a00] text-ink border-transparent" asChild>
                 <Link to="/neb-festival-questions">
                   NEB Festival Questions <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
