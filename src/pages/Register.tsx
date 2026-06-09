@@ -22,13 +22,8 @@ const Register = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const [form, setForm] = useState({ displayName: "", email: "", password: "", country: "", city: "" });
+  const [form, setForm] = useState({ displayName: "", email: "", password: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const citiesForCountry = useMemo(() => {
-    const entry = countriesAndCities.find((c) => c.country === form.country);
-    return entry?.cities ?? [];
-  }, [form.country]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,8 +40,6 @@ const Register = () => {
           data: {
             display_name: data.displayName,
             membership_type: membershipType,
-            country: data.country,
-            city: data.city,
           },
           emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
@@ -59,7 +52,7 @@ const Register = () => {
       if (session?.session?.user) {
         await supabase
           .from("profiles")
-          .update({ membership_type: membershipType, country: data.country, city: data.city })
+          .update({ membership_type: membershipType })
           .eq("user_id", session.session.user.id);
       }
 
@@ -110,49 +103,6 @@ const Register = () => {
                     <User className="h-4 w-4 text-primary" /> Display Name
                   </Label>
                   <Input id="displayName" name="displayName" value={form.displayName} onChange={handleChange} placeholder="Your name" required className="text-base p-5" />
-                </div>
-
-                <div>
-                  <Label className="flex items-center gap-2 text-base font-semibold mb-2">
-                    <Globe className="h-4 w-4 text-primary" /> Country
-                  </Label>
-                  <Select
-                    value={form.country}
-                    onValueChange={(value) => setForm({ ...form, country: value, city: "" })}
-                  >
-                    <SelectTrigger className="text-base p-5">
-                      <SelectValue placeholder="Select your country" />
-                    </SelectTrigger>
-                    <SelectContent className="max-h-60">
-                      {countriesAndCities.map((c) => (
-                        <SelectItem key={c.country} value={c.country}>
-                          {c.country}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label className="flex items-center gap-2 text-base font-semibold mb-2">
-                    <MapPin className="h-4 w-4 text-primary" /> City
-                  </Label>
-                  <Select
-                    value={form.city}
-                    onValueChange={(value) => setForm({ ...form, city: value })}
-                    disabled={!form.country}
-                  >
-                    <SelectTrigger className="text-base p-5">
-                      <SelectValue placeholder={form.country ? "Select your city" : "Select a country first"} />
-                    </SelectTrigger>
-                    <SelectContent className="max-h-60">
-                      {citiesForCountry.map((city) => (
-                        <SelectItem key={city} value={city}>
-                          {city}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
                 </div>
 
                 <div>
