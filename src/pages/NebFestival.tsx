@@ -151,7 +151,7 @@ const NebFestival = () => {
               <span className="block text-4xl md:text-6xl text-[#005493]">New European Bauhaus Festival</span>
               <span className="block text-3xl md:text-5xl mt-2 text-[#eb4f07]">Conversation Cards</span>
             </h1>
-            <p className="text-lg md:text-xl text-ink-soft font-light max-w-[60ch] mx-auto">
+            <p className="text-lg md:text-xl text-[#25713a] font-light max-w-[60ch] mx-auto">
               Hover a card to read our field note. Tap it to share your own answer. Every response shapes the architecture of connection we are building together.
             </p>
           </div>
