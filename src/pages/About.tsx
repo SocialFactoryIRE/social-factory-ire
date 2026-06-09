@@ -30,7 +30,7 @@ const About = () => {
               <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Social Factory was founded with one clear purpose: to tackle loneliness through design.
-                We're creating Ireland's first integrated social hub where action sports, creative arts,
+                We're creating Europe's first integrated social hub where action sports, creative arts,
                 health, and entrepreneurship live side-by-side under one roof in Limerick.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
@@ -160,7 +160,7 @@ const About = () => {
               <Shield className="h-16 w-16 mx-auto mb-6 text-coral" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Challenge vs Response</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Ireland's social challenges are well documented. Here's how Social Factory responds.
+                Europe's social challenges are well documented. Here's how Social Factory responds.
               </p>
             </div>
 

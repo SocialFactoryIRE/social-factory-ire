@@ -26,7 +26,7 @@ const Science = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Social Factory is built on a growing body of national and international research.
               The case for preventative, community-based social infrastructure has never been stronger  
-              and Ireland's own data makes it urgent.
+              and Europe's own data makes it urgent.
             </p>
           </div>
 
@@ -309,7 +309,7 @@ const Science = () => {
                 </div>
               </div>
               <p className="text-foreground/80 mt-6 text-sm">
-                All findings will be made publicly available to support replication across Ireland.
+                All findings will be made publicly available to support replication across Europe.
                 We conduct research <em>with</em> our community, not <em>on</em> it.
               </p>
             </div>

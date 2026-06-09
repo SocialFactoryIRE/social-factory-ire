@@ -160,7 +160,7 @@ const Join = () => {
                 <h3 className="font-bold text-lg mb-2 text-foreground">Founding Member Status</h3>
                 <p className="text-sm text-muted-foreground">
                   Invitations to launch events, founding member gatherings, and the chance to be part
-                  of something genuinely new in Ireland.
+                  of something genuinely new in Europe.
                 </p>
               </div>
             </div>

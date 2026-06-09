@@ -85,13 +85,13 @@ const ResearchContent = ({ user }: { user: User }) => {
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-2">
               Social Factory partners with universities and research bodies to study
-              community wellbeing in Ireland. Our work spans mental health, sociology,
+              community wellbeing in Europe. Our work spans mental health, sociology,
               and psychology, helping us understand what makes communities thrive.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               All data used in research is fully anonymised and aggregated. Individual
               responses are never shared. Your participation helps shape
-              evidence-based programmes for communities across Ireland.
+              evidence-based programmes for communities across Europe.
             </p>
           </div>
 
