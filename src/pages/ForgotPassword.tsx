@@ -93,7 +93,7 @@ const ForgotPassword = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full text-base py-5 bg-gradient-hero hover:opacity-90 font-bold"
+                      className="w-full text-base py-5 bg-[#25713a] hover:bg-[#1e5a2e] font-bold text-white"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Sending..." : "Send Reset Link"}
