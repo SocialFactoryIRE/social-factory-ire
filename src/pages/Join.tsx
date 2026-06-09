@@ -57,7 +57,7 @@ const Join = () => {
 
       toast({
         title: "You're in, thank you!",
-        description: "We'll be in touch as Social Factory Limerick takes shape.",
+        description: "We'll be in touch as Social Factory Europe takes shape.",
       });
 
       setFormData({ name: "", email: "", interest: "" });
@@ -107,7 +107,7 @@ const Join = () => {
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Social Factory is being built right now, and the people who sign up first will help shape it.
-                Register your interest, tell us what matters to you, and we'll keep you close as Limerick's
+                Register your interest, tell us what matters to you, and we'll keep you close as Europe's
                 first Social Factory comes to life.
               </p>
             </div>
@@ -139,7 +139,7 @@ const Join = () => {
                 <h3 className="font-bold text-lg mb-2 text-foreground">Early Access</h3>
                 <p className="text-sm text-muted-foreground">
                   Be first to know about programme launches, membership tiers, and space openings
-                  as Social Factory Limerick takes shape.
+                  as Social Factory Europe takes shape.
                 </p>
               </div>
               <div className="p-6 bg-mint/10 rounded-2xl border-2 border-mint">
