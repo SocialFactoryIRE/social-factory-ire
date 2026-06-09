@@ -70,7 +70,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-sm text-cream/60">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>Ireland</span>
+                <span>Europe</span>
               </li>
               <li className="flex items-start space-x-2 text-sm text-cream/60">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
