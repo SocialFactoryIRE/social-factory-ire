@@ -115,11 +115,10 @@ const CheckEmail = () => {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
-              variant="green"
               size="lg"
               onClick={handleResend}
               disabled={cooldown > 0 || resending || !email}
-              className="font-bold"
+              className="font-bold bg-[#25713a] text-white hover:bg-[#1e5a2e] disabled:bg-[#25713a] disabled:text-white"
             >
               {resending
                 ? "Sending..."
