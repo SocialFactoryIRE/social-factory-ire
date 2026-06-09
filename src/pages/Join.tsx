@@ -119,18 +119,14 @@ const Join = () => {
                 When we open, the base membership will give you access to the Social domain, with Work &amp; Health add-ons being reduced as a package. There are concession tier prices for those on low incomes or referred through social prescribing. No one locked out. No one left behind.
                 The Market is open to all throughout the day to come hang out and spend time in.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-                <Link to="/register?type=online">
+              <div className="flex justify-center mt-6">
+                <Link to="/register">
                   <Button size="lg" className="font-bold text-base px-8 py-5">
-                    Join Online <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </Link>
-                <Link to="/register?type=local">
-                  <Button size="lg" variant="peach" className="font-bold text-base px-8 py-5">
-                    Join Locally <ArrowRight className="h-4 w-4" />
+                    Join <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
               </div>
+
               <Link to="/science" className="inline-flex items-center gap-1 text-sm text-foreground/70 hover:text-foreground mt-4 underline underline-offset-2">
                 Why we built it this way <ArrowRight className="h-3 w-3" />
               </Link>
