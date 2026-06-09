@@ -21,8 +21,8 @@ const registerSchema = z.object({
 });
 
 const Register = () => {
-  const [searchParams] = useSearchParams();
-  const membershipType = searchParams.get("type") === "local" ? "local" : "online";
+  useSearchParams();
+  const membershipType = "online" as const;
   const navigate = useNavigate();
   const { toast } = useToast();
 
