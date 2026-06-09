@@ -121,7 +121,7 @@ const ResetPassword = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full text-base py-5 bg-gradient-hero hover:opacity-90 font-bold"
+                  className="w-full text-base py-5 bg-[#25713a] text-white hover:bg-[#1e5a2e] font-bold"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Updating..." : "Update Password"}
