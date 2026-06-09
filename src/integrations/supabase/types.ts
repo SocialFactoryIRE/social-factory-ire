@@ -353,6 +353,39 @@ export type Database = {
         }
         Relationships: []
       }
+      neb_festival_answers: {
+        Row: {
+          answer: string
+          card_number: number
+          card_topic: string
+          created_at: string
+          email: string | null
+          id: string
+          name: string | null
+          question: string
+        }
+        Insert: {
+          answer: string
+          card_number: number
+          card_topic: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          question: string
+        }
+        Update: {
+          answer?: string
+          card_number?: number
+          card_topic?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          question?: string
+        }
+        Relationships: []
+      }
       newsletter_signups: {
         Row: {
           created_at: string

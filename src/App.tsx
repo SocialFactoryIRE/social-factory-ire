@@ -31,6 +31,7 @@ import ProposalDetail from "./pages/ProposalDetail";
 import Research from "./pages/Research";
 import Profile from "./pages/Profile";
 import SuggestedConnects from "./pages/SuggestedConnects";
+import NebFestival from "./pages/NebFestival";
 import NotFound from "./pages/NotFound";
 import Chatbot from "@/components/Chatbot";
 
@@ -105,6 +106,7 @@ const App = () => (
                 <Route path="/research" element={<Research />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/suggested-connects" element={<SuggestedConnects />} />
+                <Route path="/neb-festival-questions" element={<NebFestival />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </PageLayout>
