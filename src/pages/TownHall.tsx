@@ -171,7 +171,7 @@ const TownHallContent = ({ user }: { user: SupaUser }) => {
           </div>
 
           {/* 3 Section Cards */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <SectionCard icon={User} title="My Profile" onClick={() => navigate("/profile")} />
             <SectionCard icon={MapPin} title="Local Noticeboard" onClick={() => navigate("/local/noticeboard")} />
             <SectionCard icon={Megaphone} title="Global Noticeboard" onClick={() => navigate("/noticeboard")} />
