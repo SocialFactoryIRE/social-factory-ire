@@ -104,7 +104,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#eb4f07] hover:bg-[#d13d06] text-white border-transparent" asChild>
-                <Link to="/join">
+                <Link to="/register">
                   Join the Movement <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>

@@ -52,7 +52,7 @@ const Footer = () => {
             <h3 className="font-bold text-cream mb-4 text-base">Get Involved</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/join" className="text-sm text-cream/60 hover:text-green transition-colors">
+                <Link to="/register" className="text-sm text-cream/60 hover:text-green transition-colors">
                   Join Us
                 </Link>
               </li>
