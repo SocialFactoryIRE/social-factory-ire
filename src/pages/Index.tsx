@@ -113,21 +113,13 @@ const Index = () => {
               </Button>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4 animate-fade-in">
-              <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#25713a] hover:bg-[#1f5f30] text-white border-transparent" asChild>
-                <a
-                  href="https://www.gofundme.com/f/help-build-irelands-first-social-factory"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Support Us on GoFundMe <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
               <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#f1a600] hover:bg-[#d99a00] text-ink border-transparent" asChild>
                 <Link to="/neb-festival-questions">
                   NEB Festival Questions <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
+
           </div>
         </div>
 
