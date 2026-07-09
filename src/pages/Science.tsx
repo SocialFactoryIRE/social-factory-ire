@@ -172,7 +172,7 @@ const Science = () => {
                 Pathways to Wellbeing 2024–2030 identifies social prescribing, where GPs and community
                 health workers refer patients to non-clinical community activities, as a key intervention
                 for reducing pressure on mental health services. Social Factory is designed to be a
-                primary social prescribing destination in Limerick, with a dedicated concession
+                primary social prescribing destination, with a dedicated concession
                 membership tier for referred participants.
               </p>
             </div>
