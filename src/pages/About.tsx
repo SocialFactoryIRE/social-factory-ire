@@ -31,7 +31,7 @@ const About = () => {
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Social Factory was founded with one clear purpose: to tackle loneliness through design.
                 We're creating Europe's first integrated social hub where action sports, creative arts,
-                health, and entrepreneurship live side-by-side under one roof in Limerick.
+                health, and entrepreneurship live side-by-side under one roof.
               </p>
               <p className="text-lg text-foreground/90 leading-relaxed mb-6">
                 Guided by the principles of the New European Bauhaus and Ireland's own national mental health
@@ -94,7 +94,7 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-3 text-foreground">Sustainability</h3>
                 <p className="text-muted-foreground text-sm">
                   Building a circular economy model, supporting local production,
-                  and creating long-term social and environmental value for Limerick and beyond.
+                  and creating long-term social and environmental value for communities across Ireland and beyond.
                 </p>
               </div>
               <div className="p-6 bg-sky/20 rounded-2xl border-2 border-sky">
@@ -182,7 +182,7 @@ const About = () => {
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
-                  <p className="text-muted-foreground">30,000+ sq. ft. of shared space in Limerick where people of all ages can connect safely and meaningfully, every day of the week.</p>
+                  <p className="text-muted-foreground">30,000+ sq. ft. of shared space where people of all ages can connect safely and meaningfully, every day of the week.</p>
                 </div>
               </div>
 
@@ -248,7 +248,7 @@ const About = () => {
                 {
                   title: "Lack of inclusive spaces",
                   challenge: "Few affordable, safe places exist for people, especially adolescents, to socialise outside of food-and-drink settings.",
-                  response: "30,000+ sq. ft. of shared space in Limerick where people of all ages can connect safely and meaningfully, every day of the week."
+                  response: "30,000+ sq. ft. of shared space where people of all ages can connect safely and meaningfully, every day of the week."
                 },
                 {
                   title: "Youth at risk",

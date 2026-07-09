@@ -315,7 +315,6 @@ export const cityCoordinates: Record<string, [number, number]> = {
   // Ireland
   "Ireland|Dublin": [-6.2603, 53.3498],
   "Ireland|Cork": [-8.4863, 51.8969],
-  "Ireland|Limerick": [-8.6305, 52.6638],
   "Ireland|Galway": [-9.0568, 53.2707],
   "Ireland|Waterford": [-7.1101, 52.2593],
   "Ireland|Drogheda": [-6.3484, 53.7179],

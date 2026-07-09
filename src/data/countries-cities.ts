@@ -52,7 +52,7 @@ export const countriesAndCities: CountryData[] = [
   { country: "Indonesia", cities: ["Jakarta", "Surabaya", "Bandung", "Medan", "Semarang", "Makassar", "Yogyakarta", "Denpasar"] },
   { country: "Iran", cities: ["Tehran", "Mashhad", "Isfahan", "Karaj", "Shiraz", "Tabriz"] },
   { country: "Iraq", cities: ["Baghdad", "Basra", "Erbil", "Mosul", "Sulaymaniyah"] },
-  { country: "Ireland", cities: ["Dublin", "Cork", "Limerick", "Galway", "Waterford", "Drogheda", "Kilkenny", "Dundalk", "Sligo", "Athlone", "Ennis", "Tralee", "Wexford", "Letterkenny", "Carlow"] },
+  { country: "Ireland", cities: ["Dublin", "Cork", "Galway", "Waterford", "Drogheda", "Kilkenny", "Dundalk", "Sligo", "Athlone", "Ennis", "Tralee", "Wexford", "Letterkenny", "Carlow"] },
   { country: "Israel", cities: ["Jerusalem", "Tel Aviv", "Haifa", "Beer Sheva", "Netanya"] },
   { country: "Italy", cities: ["Rome", "Milan", "Naples", "Turin", "Palermo", "Genoa", "Bologna", "Florence", "Venice", "Catania"] },
   { country: "Jamaica", cities: ["Kingston", "Montego Bay", "Spanish Town"] },

@@ -17,7 +17,7 @@ import type { User } from "@supabase/supabase-js";
 
 const COUNTIES = [
   "Carlow","Cavan","Clare","Cork","Donegal","Dublin","Galway","Kerry",
-  "Kildare","Kilkenny","Laois","Leitrim","Limerick","Longford","Louth",
+  "Kildare","Kilkenny","Laois","Leitrim","Longford","Louth",
   "Mayo","Meath","Monaghan","Offaly","Roscommon","Sligo","Tipperary",
   "Waterford","Westmeath","Wexford","Wicklow",
 ];
