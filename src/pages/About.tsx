@@ -182,7 +182,7 @@ const About = () => {
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
-                  <p className="text-muted-foreground">30,000+ sq. ft. of shared space where people of all ages can connect safely and meaningfully, every day of the week.</p>
+                  <p className="text-muted-foreground">A shared space where people of all ages can connect safely and meaningfully, every day of the week.</p>
                 </div>
               </div>
 
@@ -248,7 +248,7 @@ const About = () => {
                 {
                   title: "Lack of inclusive spaces",
                   challenge: "Few affordable, safe places exist for people, especially adolescents, to socialise outside of food-and-drink settings.",
-                  response: "30,000+ sq. ft. of shared space where people of all ages can connect safely and meaningfully, every day of the week."
+                  response: "A shared space where people of all ages can connect safely and meaningfully, every day of the week."
                 },
                 {
                   title: "Youth at risk",
