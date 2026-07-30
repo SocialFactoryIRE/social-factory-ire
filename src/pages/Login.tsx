@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,9 @@ import { Mail, Lock } from "lucide-react";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const rawNext = searchParams.get("next") ?? "";
+  const nextPath = /^\/(?!\/)/.test(rawNext) ? rawNext : "";
   const { toast } = useToast();
   const [form, setForm] = useState({ email: "", password: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,6 +36,11 @@ const Login = () => {
         .select("onboarded")
         .eq("user_id", data.user.id)
         .single();
+
+      if (nextPath) {
+        window.location.href = nextPath;
+        return;
+      }
 
       if (profile?.onboarded) {
         navigate("/town-hall", { replace: true });
