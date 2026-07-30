@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://otquoxstcixxdfmpjkms.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "social-factory-ire",
+      "version": "0.1.0",
+      "title": "social-factory-ire"
+    },
+    "tools": [
+      {
+        "name": "get_my_profile",
+        "title": "Get my profile",
+        "description": "Return the signed-in member's Social Factory profile.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_noticeboard_posts",
+        "title": "List noticeboard posts",
+        "description": "List recent noticeboard posts visible to the signed-in member.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10,
+              "description": "How many posts to return."
+            },
+            "category": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Optional category filter."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_noticeboard_post",
+        "title": "Create noticeboard post",
+        "description": "Publish a new global noticeboard post as the signed-in member.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 150,
+              "description": "Post title."
+            },
+            "body": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 5000,
+              "description": "Post body text."
+            },
+            "category": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 50,
+              "description": "Optional category."
+            }
+          },
+          "required": [
+            "title",
+            "body"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_proposals",
+        "title": "List governance proposals",
+        "description": "List Social Factory democracy proposals visible to the signed-in member.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "draft",
+                "open",
+                "closed",
+                "passed",
+                "rejected"
+              ],
+              "description": "Optional status filter."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10,
+              "description": "How many proposals to return."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "vote_on_proposal",
+        "title": "Vote on a proposal",
+        "description": "Cast or update the signed-in member's vote on a governance proposal.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "proposal_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "The proposal's id."
+            },
+            "vote": {
+              "type": "string",
+              "enum": [
+                "yes",
+                "no",
+                "abstain"
+              ],
+              "description": "The vote to cast."
+            }
+          },
+          "required": [
+            "proposal_id",
+            "vote"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

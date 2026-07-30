@@ -33,6 +33,7 @@ import Profile from "./pages/Profile";
 import SuggestedConnects from "./pages/SuggestedConnects";
 import NebFestival from "./pages/NebFestival";
 import CheckEmail from "./pages/CheckEmail";
+import OAuthConsent from "./pages/OAuthConsent";
 import NotFound from "./pages/NotFound";
 import Chatbot from "@/components/Chatbot";
 
@@ -59,6 +60,7 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           {/* Admin routes - no navbar/footer/background */}
+          <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"
