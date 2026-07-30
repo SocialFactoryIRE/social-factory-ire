@@ -286,23 +286,23 @@ const Science = () => {
               <Users className="h-16 w-16 mb-6 text-foreground" />
               <h2 className="text-3xl font-bold mb-6 text-foreground">How We Measure Impact</h2>
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-background/30 rounded-2xl p-6">
+                <div className="bg-card p-6 rounded-2xl shadow-soft border-2 border-primary">
                   <h3 className="font-bold text-lg mb-2 text-foreground">Social Connection</h3>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-muted-foreground">
                     Validated scales tracking loneliness, belonging, and quality of peer relationships
                     across all participant age groups.
                   </p>
                 </div>
-                <div className="bg-background/30 rounded-2xl p-6">
+                <div className="bg-card p-6 rounded-2xl shadow-soft border-2 border-secondary">
                   <h3 className="font-bold text-lg mb-2 text-foreground">Wellbeing Outcomes</h3>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-muted-foreground">
                     WHO-5 Wellbeing Index, WEMWBS, and domain-specific measures across mental, physical,
                     and social health dimensions.
                   </p>
                 </div>
-                <div className="bg-background/30 rounded-2xl p-6">
+                <div className="bg-card p-6 rounded-2xl shadow-soft border-2 border-accent">
                   <h3 className="font-bold text-lg mb-2 text-foreground">Community Participation</h3>
-                  <p className="text-sm text-foreground/80">
+                  <p className="text-sm text-muted-foreground">
                     Engagement frequency, cross-domain activity, volunteer hours, and qualitative participant
                     voice data gathered through the Lundy framework.
                   </p>
