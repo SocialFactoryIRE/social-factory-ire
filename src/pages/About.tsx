@@ -182,7 +182,7 @@ const About = () => {
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Create inspiring, accessible hubs</h4>
-                  <p className="text-muted-foreground">30,000+ sq. ft. of shared space where people of all ages can connect safely and meaningfully, every day of the week.</p>
+                  <p className="text-muted-foreground">A shared space where people of all ages can connect safely and meaningfully, every day of the week.</p>
                 </div>
               </div>
 
