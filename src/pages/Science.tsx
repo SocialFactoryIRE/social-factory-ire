@@ -36,15 +36,15 @@ const Science = () => {
               <TrendingUp className="h-16 w-16 mx-auto mb-6 text-coral" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Ireland's Wellbeing Crisis</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Data from the <strong>Healthy Ireland Survey 2025</strong>, Ireland's national annual health and wellbeing study
+                Drawn from national Irish research — the EU Loneliness Survey (JRC), Healthy Ireland 2025, and the CSO Irish Health Survey 2025.
               </p>
               <a
 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2" href="https://www.gov.ie/en/healthy-ireland/publications/healthy-ireland-survey-2025/">
+                className="inline-flex items-center gap-1 text-sm text-primary hover:underline mt-2" href="https://joint-research-centre.ec.europa.eu/projects-and-activities/survey-methods-and-analysis-centre/loneliness/loneliness-prevalence-eu_en">
                 
-                Source: Healthy Ireland Survey 2025 <ExternalLink className="h-3 w-3" />
+                Sources: EU Loneliness Survey (JRC) 2022 · Healthy Ireland 2025 · CSO 2025 <ExternalLink className="h-3 w-3" />
               </a>
             </div>
 
@@ -53,10 +53,11 @@ const Science = () => {
                 <div className="flex items-start gap-4">
                   <div className="text-4xl font-extrabold text-ink shrink-0">1 in 5</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Adults Report Loneliness</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Feel Lonely Most or All of the Time</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      One in five adults in Ireland report feeling lonely often or always, a figure that rises sharply
-                      among young adults aged 18–24 and older adults living alone.
+                      One in five people in Ireland feel lonely most or all of the time — the highest rate in the EU,
+                      where the average is 13%. Loneliness rises further among young adults aged 18–24 and older adults
+                      living alone. (EU Loneliness Survey, JRC, 2022)
                     </p>
                   </div>
                 </div>
@@ -64,12 +65,13 @@ const Science = () => {
 
               <div className="bg-sky/10 p-8 rounded-2xl border-2 border-sky">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl font-extrabold text-ink shrink-0">53%</div>
+                  <div className="text-4xl font-extrabold text-ink shrink-0">41%</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Meet Physical Activity Guidelines</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Only 53% of adults meet recommended physical activity levels, leaving almost half the population
-                      at elevated risk of poor physical and mental health outcomes.
+                      Only 41% of adults meet the National Physical Activity Guidelines — down from 46% in 2019 —
+                      leaving most of the population at elevated risk of poor physical and mental health outcomes.
+                      (Healthy Ireland Survey 2025)
                     </p>
                   </div>
                 </div>
@@ -77,12 +79,12 @@ const Science = () => {
 
               <div className="bg-mint/10 p-8 rounded-2xl border-2 border-mint">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl font-extrabold text-ink shrink-0">40%</div>
+                  <div className="text-4xl font-extrabold text-ink shrink-0">1 in 10</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Experience Mental Health Difficulties</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Experienced Depression in the Past Year</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Approximately 40% of adults report experiencing mental health difficulties at some point in their
-                      lives, with community-based supports remaining unevenly distributed across regions.
+                      One in ten adults (10.4%) reported experiencing depression in the past 12 months, with
+                      community-based supports remaining unevenly distributed across regions. (CSO Irish Health Survey 2025)
                     </p>
                   </div>
                 </div>
@@ -94,8 +96,9 @@ const Science = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2 text-foreground">Highest Risk Age Group</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Young adults aged 18–24 report the lowest wellbeing scores of any demographic  
-                      challenging the assumption that loneliness is primarily an older person's problem.
+                      Young adults report the highest loneliness and lowest wellbeing of any age group, challenging the
+                      assumption that loneliness is primarily an older person's problem. (EU Loneliness Survey 2022;
+                      CSO Irish Health Survey 2025)
                     </p>
                   </div>
                 </div>
@@ -184,7 +187,7 @@ const Science = () => {
               <BookOpen className="h-16 w-16 mx-auto mb-6 text-accent" />
               <h2 className="text-4xl font-bold mb-4 text-foreground">Planet Youth, Proven at Scale</h2>
               <p className="text-lg text-muted-foreground">
-                Data from 5,079 young people aged 15–16 across Galway, Mayo & Roscommon
+                Regional data from Planet Youth West — over 6,500 young people across Galway, Mayo & Roscommon — alongside national HBSC Ireland findings
               </p>
               <a
                 href="https://west.planetyouth.ie"
@@ -213,12 +216,13 @@ const Science = () => {
 
               <div className="bg-mint/10 p-8 rounded-2xl border-2 border-mint">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-ink shrink-0">65%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">39%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">3+ Hours Daily on Social Media</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">4+ Hours Daily on Social Media</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Two thirds of young people spend three or more hours daily on social media, strongly
+                      Nearly four in ten young people spend four or more hours a day on social media, strongly
                       correlated with poorer sleep, lower wellbeing scores, and reduced face-to-face connection.
+                      (Planet Youth West 2024)
                     </p>
                   </div>
                 </div>
@@ -226,13 +230,12 @@ const Science = () => {
 
               <div className="bg-peach/10 p-8 rounded-2xl border-2 border-coral">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-ink shrink-0">30%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">36%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Below WHO Wellbeing Threshold</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Low Mood or At Risk of Depression</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Nearly one in three young people scored below the WHO-5 threshold for mental wellbeing.
-                      Similar numbers reported low self-esteem and resilience, conditions strongly linked to
-                      lack of belonging and structured peer participation.
+                      More than a third of children score for low mood or risk of depression on the WHO-5 Well-Being
+                      Index, rising among girls and older children. (HBSC Ireland 2022, national)
                     </p>
                   </div>
                 </div>
@@ -240,13 +243,12 @@ const Science = () => {
 
               <div className="bg-accent/10 p-8 rounded-2xl border-2 border-accent">
                 <div className="flex items-start gap-4">
-                  <div className="text-3xl font-bold text-ink shrink-0">25–30%</div>
+                  <div className="text-3xl font-bold text-ink shrink-0">20%</div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2 text-foreground">Depression, Anxiety & Stress</h3>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Feel Lonely Most or All of the Time</h3>
                     <p className="text-ink-soft max-w-[70ch]">
-                      Around one in four young people fall outside the normal range for depression, anxiety,
-                      and stress. The Planet Youth model responds to precisely these indicators through
-                      structured activity, peer connection, and adult mentorship.
+                      One in five children report feeling lonely most of the time or always — the same rate seen among
+                      Irish adults, underlining that disconnection spans every generation. (HBSC Ireland 2022)
                     </p>
                   </div>
                 </div>
