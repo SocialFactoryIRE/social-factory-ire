@@ -97,8 +97,8 @@ const Index = () => {
               Where people come together to move, make, create, and belong.
             </p>
             <p className="text-lg md:text-xl mb-10 text-ink-soft animate-fade-in max-w-[70ch] mx-auto font-light">
-              1 in 5 Irish adults report loneliness. Social Factory is the structural response: permanent,
-              preventative, community-owned.
+              1 in 5 people in Ireland feel lonely most or all of the time — the highest rate in the EU. Social Factory
+              is the structural response: permanent, preventative, community-owned.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Button size="lg" variant="default" className="text-lg px-8 py-6 bg-[#eb4f07] hover:bg-[#d13d06] text-white border-transparent" asChild>
@@ -160,7 +160,17 @@ const Index = () => {
                 >
                   1 in 5
                 </div>
-                <p className="text-sm text-cream/90 font-medium">Irish adults report loneliness</p>
+                <p className="text-sm text-cream/90 font-medium">feel lonely most or all of the time — highest in the EU</p>
+                <p className="text-xs text-cream/60 mt-1">EU Loneliness Survey (JRC), 2022</p>
+              </Link>
+              <Link to="/science" className="block text-center group">
+                <div
+                  className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
+                  style={{ fontFamily: "'Zodiak', serif" }}
+                >
+                  41%
+                </div>
+                <p className="text-sm text-cream/90 font-medium">of adults meet physical activity guidelines</p>
                 <p className="text-xs text-cream/60 mt-1">Healthy Ireland Survey 2025</p>
               </Link>
               <Link to="/science" className="block text-center group">
@@ -168,20 +178,10 @@ const Index = () => {
                   className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
                   style={{ fontFamily: "'Zodiak', serif" }}
                 >
-                  53%
+                  36%
                 </div>
-                <p className="text-sm text-cream/90 font-medium">Only 53% of adults meet activity guidelines</p>
-                <p className="text-xs text-cream/60 mt-1">Healthy Ireland Survey 2025</p>
-              </Link>
-              <Link to="/science" className="block text-center group">
-                <div
-                  className="text-6xl md:text-7xl font-bold text-cream mb-3 transition-opacity group-hover:opacity-80"
-                  style={{ fontFamily: "'Zodiak', serif" }}
-                >
-                  30%
-                </div>
-                <p className="text-sm text-cream/90 font-medium">of young people below WHO wellbeing threshold</p>
-                <p className="text-xs text-cream/60 mt-1">Planet Youth West Ireland 2024</p>
+                <p className="text-sm text-cream/90 font-medium">of children show low mood or risk of depression (WHO-5)</p>
+                <p className="text-xs text-cream/60 mt-1">HBSC Ireland 2022</p>
               </Link>
             </div>
 

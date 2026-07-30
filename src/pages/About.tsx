@@ -57,9 +57,9 @@ const About = () => {
                 <Heart className="h-12 w-12 mb-4 text-primary" />
                 <h3 className="text-2xl font-bold mb-3">Why It Matters</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  The <strong>Healthy Ireland Survey 2025</strong> shows 1 in 5 Irish adults experience
-                  loneliness, a figure that is highest among young adults aged 18–24 and older people
-                  living alone. Loneliness affects physical and mental health as significantly as smoking
+                  The <strong>EU Loneliness Survey</strong> found 1 in 5 people in Ireland feel lonely most or all of
+                  the time — the highest rate in the EU — and it runs highest among young adults aged 18–24 and older
+                  people living alone. Loneliness affects physical and mental health as significantly as smoking
                   15 cigarettes a day. These are not personal failings; they are structural problems
                   that demand structural solutions.
                 </p>
@@ -132,8 +132,8 @@ const About = () => {
               <div className="p-6 bg-card rounded-2xl shadow-soft">
                 <h3 className="text-xl font-bold mb-2 text-foreground">Evidence-Based Action</h3>
                 <p className="text-muted-foreground">
-                  We ground our work in research, including the Healthy Ireland Survey 2025, Pathways to
-                  Wellbeing 2024–2030, and the Planet Youth model. Our design choices are informed by data,
+                  We ground our work in research, including the EU Loneliness Survey, the Healthy Ireland Survey 2025,
+                  HBSC Ireland, Pathways to Wellbeing 2024–2030, and the Planet Youth model. Our design choices are informed by data,
                   not intuition alone.
                 </p>
               </div>
@@ -189,7 +189,7 @@ const About = () => {
               <div className="grid md:grid-cols-2">
                 <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Youth at risk</h4>
-                  <p className="text-muted-foreground">31% of 15–16 year olds were drunk in the last month. 30% score below WHO wellbeing thresholds. Mental health challenges are rising. <em>(Planet Youth West Ireland 2024)</em></p>
+                  <p className="text-muted-foreground">31% of 15–16 year olds were drunk in the last month (Planet Youth West 2024). 36% of children show low mood or are at risk of depression on the WHO-5 index (HBSC Ireland 2022). Mental health challenges are rising.</p>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Empower young people</h4>
@@ -200,7 +200,7 @@ const About = () => {
               <div className="grid md:grid-cols-2">
                 <div className="p-6 border-b-2 border-r-2 border-border bg-coral/10">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Declining face-to-face interaction</h4>
-                  <p className="text-muted-foreground">65% of young people spend 3+ hours daily on social media. In-person socialising is declining, fuelling the loneliness epidemic. <em>(Planet Youth 2024)</em></p>
+                  <p className="text-muted-foreground">39% of young people spend 4+ hours a day on social media (Planet Youth West 2024). In-person socialising is declining, fuelling the loneliness epidemic.</p>
                 </div>
                 <div className="p-6 border-b-2 border-border bg-mint/20">
                   <h4 className="text-lg font-bold mb-2 text-foreground">Foster everyday connection</h4>
@@ -252,12 +252,12 @@ const About = () => {
                 },
                 {
                   title: "Youth at risk",
-                  challenge: "31% of 15–16 year olds were drunk in the last month. 30% score below WHO wellbeing thresholds. (Planet Youth West Ireland 2024)",
+                  challenge: "31% of 15–16 year olds were drunk in the last month (Planet Youth West 2024). 36% of children show low mood or risk of depression on the WHO-5 index (HBSC Ireland 2022).",
                   response: "Through positive programmes, mentorship, and entrepreneurship opportunities rooted in the Planet Youth model."
                 },
                 {
                   title: "Declining face-to-face interaction",
-                  challenge: "65% of young people spend 3+ hours daily on social media. In-person socialising is declining, fuelling the loneliness epidemic.",
+                  challenge: "39% of young people spend 4+ hours a day on social media (Planet Youth West 2024). In-person socialising is declining, fuelling the loneliness epidemic.",
                   response: "Structured activities across four domains, supported by embedded mental health professionals."
                 },
                 {
