@@ -248,7 +248,7 @@ const About = () => {
                 {
                   title: "Lack of inclusive spaces",
                   challenge: "Few affordable, safe places exist for people, especially adolescents, to socialise outside of food-and-drink settings.",
-                  response: "30,000+ sq. ft. of shared space where people of all ages can connect safely and meaningfully, every day of the week."
+                  response: "A shared space where people of all ages can connect safely and meaningfully, every day of the week."
                 },
                 {
                   title: "Youth at risk",
