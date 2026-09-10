@@ -213,7 +213,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Location</h3>
                         <p className="text-muted-foreground">
-                          Ireland
+                          Limerick, Ireland
                         </p>
                       </div>
                     </div>

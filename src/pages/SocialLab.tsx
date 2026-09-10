@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
+import Seo from "@/components/Seo";
 import { FlaskConical, ArrowLeft } from "lucide-react";
 
 const SocialLabContent = () => {
@@ -9,6 +10,11 @@ const SocialLabContent = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Social Lab — Collaborative Community Projects | Social Factory"
+        description="A space for members to collaborate on local projects and experiments that build connection in Limerick."
+        path="/social-lab"
+      />
       <Navbar />
       <div className="pt-24 pb-20 relative overflow-hidden">
         <div className="geometric-shape shape-circle w-64 h-64 bg-sky/20 top-20 right-10 blur-3xl" />
