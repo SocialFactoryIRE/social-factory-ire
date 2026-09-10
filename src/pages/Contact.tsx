@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -94,6 +95,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo title="Contact Social Factory" description="Get in touch with the Social Factory team in Limerick about membership, partnerships, or visiting." path="/contact" />
       <Navbar />
       
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">

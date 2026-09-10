@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DomainCard from "@/components/DomainCard";
@@ -57,6 +58,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo title="Social Factory — A Community Hub for Connection" description="Social Factory is a community-owned hub tackling loneliness through action sports, creative arts, wellness and local enterprise." path="/" />
       <Navbar />
 
       {/* Hero Section */}
