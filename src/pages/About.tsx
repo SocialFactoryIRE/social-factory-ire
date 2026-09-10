@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const About = () => {
   return <div className="min-h-screen">
-      <Seo title="About Us — Social Factory" description="Our story, mission and model: a mission-locked social enterprise building a permanent, preventative community hub in Limerick." path="/about" />
+      <Seo title="About Us — Social Factory" description="Our story, mission and model: a mission-locked social enterprise building a permanent, preventative community hub in Ireland." path="/about" />
       <Navbar />
 
       <div className="pt-24 pb-20 grid-pattern">

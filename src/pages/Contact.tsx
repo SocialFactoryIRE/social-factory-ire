@@ -95,7 +95,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      <Seo title="Contact Social Factory" description="Get in touch with the Social Factory team in Limerick about membership, partnerships, or visiting." path="/contact" />
+      <Seo title="Contact Social Factory" description="Get in touch with the Social Factory team in Ireland about membership, partnerships, or visiting." path="/contact" />
       <Navbar />
       
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
@@ -213,7 +213,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-bold text-lg mb-1 text-foreground">Location</h3>
                         <p className="text-muted-foreground">
-                          Limerick, Ireland
+                          Ireland
                         </p>
                       </div>
                     </div>
