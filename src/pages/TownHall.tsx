@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
+import Seo from "@/components/Seo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
@@ -149,6 +150,11 @@ const TownHallContent = ({ user }: { user: SupaUser }) => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Town Hall — Member Dashboard | Social Factory"
+        description="Your Social Factory home: profile, noticeboards, democracy, research and the Social Lab, all in one place."
+        path="/town-hall"
+      />
       <Navbar />
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
         <div className="geometric-shape shape-circle w-64 h-64 bg-sky/20 top-20 right-10 blur-3xl" />
