@@ -150,7 +150,7 @@ const DemocracyContent = ({ user }: { user: User }) => {
     <div className="min-h-screen">
       <Seo
         title="Democracy — Member Proposals & Voting | Social Factory"
-        description="Propose ideas, co-design initiatives and vote on decisions that shape Social Factory's community in Limerick."
+        description="Propose ideas, co-design initiatives and vote on decisions that shape Social Factory's community in Ireland."
         path="/democracy"
       />
       <Navbar />

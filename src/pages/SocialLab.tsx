@@ -12,7 +12,7 @@ const SocialLabContent = () => {
     <div className="min-h-screen">
       <Seo
         title="Social Lab — Collaborative Community Projects | Social Factory"
-        description="A space for members to collaborate on local projects and experiments that build connection in Limerick."
+        description="A space for members to collaborate on local projects and experiments that build connection in Ireland."
         path="/social-lab"
       />
       <Navbar />
