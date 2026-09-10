@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
+import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -124,6 +125,11 @@ const NoticeboardContent = ({ user }: { user: User }) => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Global Noticeboard — Community Posts | Social Factory"
+        description="Share events, resources and opportunities with the wider Social Factory community on the global noticeboard."
+        path="/noticeboard"
+      />
       <Navbar />
       <div className="pt-24 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">

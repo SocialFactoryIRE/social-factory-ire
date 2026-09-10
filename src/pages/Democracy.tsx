@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthGuard from "@/components/AuthGuard";
+import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -147,6 +148,11 @@ const DemocracyContent = ({ user }: { user: User }) => {
 
   return (
     <div className="min-h-screen">
+      <Seo
+        title="Democracy — Member Proposals & Voting | Social Factory"
+        description="Propose ideas, co-design initiatives and vote on decisions that shape Social Factory's community in Limerick."
+        path="/democracy"
+      />
       <Navbar />
       <div className="pt-24 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl relative z-10">
