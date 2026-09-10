@@ -73,6 +73,9 @@ const Programming = () => {
             <span className="text-base font-semibold" style={{ color: "#007d61" }}>Four Interconnected Domains</span>
           </div>
 
+          <h1 className="text-4xl md:text-6xl mb-6 text-foreground">
+            Community Programming Domains
+          </h1>
           <p className="text-base md:text-lg text-ink-soft leading-relaxed max-w-[70ch] mx-auto font-light">
             Our programmes are designed around four interconnected domains, <br className="hidden md:block" />
             each a pillar of social connection and community growth.
