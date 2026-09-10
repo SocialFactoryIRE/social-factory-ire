@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Palette, Briefcase, Heart, ShoppingBag, Sparkles } from "lucide-react";
@@ -48,6 +49,7 @@ const Programming = () => {
   }];
 
   return <div className="min-h-screen">
+      <Seo title="Programmes — Social Factory" description="Explore our four domains: Social, Work, Health and Market. Weekly activities for every age, from action sports to markets." path="/programming" />
     <Navbar />
 
     <div className="pt-24 pb-20 relative overflow-hidden">
@@ -73,6 +75,9 @@ const Programming = () => {
             <span className="text-base font-semibold" style={{ color: "#007d61" }}>Four Interconnected Domains</span>
           </div>
 
+          <h1 className="text-4xl md:text-6xl mb-6 text-foreground">
+            Community Programming Domains
+          </h1>
           <p className="text-base md:text-lg text-ink-soft leading-relaxed max-w-[70ch] mx-auto font-light">
             Our programmes are designed around four interconnected domains, <br className="hidden md:block" />
             each a pillar of social connection and community growth.

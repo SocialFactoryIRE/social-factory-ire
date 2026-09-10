@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -89,6 +90,7 @@ const Join = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo title="Join Social Factory" description="Become a member of Social Factory and help build a community hub where people move, make, create and belong." path="/join" />
       <Navbar />
 
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">

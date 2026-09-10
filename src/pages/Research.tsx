@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -64,6 +65,7 @@ const ResearchContent = ({ user }: { user: User }) => {
 
   return (
     <div className="min-h-screen">
+      <Seo title="Research Participation — Social Factory" description="How we work with researchers and members to measure wellbeing, belonging and community impact." path="/research" />
       <Navbar />
       <div className="pt-24 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl relative z-10">

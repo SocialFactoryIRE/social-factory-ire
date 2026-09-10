@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -149,6 +150,7 @@ const NebFestival = () => {
 
   return (
     <div className="min-h-screen">
+      <Seo title="NEB Festival Conversation Cards — Social Factory" description="Flip through our New European Bauhaus Festival conversation cards and share your own answers." path="/neb-festival-questions" />
       <Navbar />
 
       <section className="pt-32 pb-12 bg-warm-white relative overflow-hidden">

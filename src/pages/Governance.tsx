@@ -1,8 +1,10 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Scale, Users, Heart, FileText } from "lucide-react";
 const Governance = () => {
   return <div className="min-h-screen">
+      <Seo title="Governance — Social Factory" description="How Social Factory is governed: a mission-locked social enterprise with member democracy and NEB Compass principles." path="/governance" />
       <Navbar />
       
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">

@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BookOpen, TrendingUp, Users, Award, ExternalLink } from "lucide-react";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 const Science = () => {
   return (
     <div className="min-h-screen">
+      <Seo title="Our Research — Social Factory" description="The evidence behind Social Factory: loneliness, physical activity and youth wellbeing data from national and EU research." path="/science" />
       <Navbar />
 
       <div className="pt-24 pb-20 grid-pattern relative overflow-hidden">
